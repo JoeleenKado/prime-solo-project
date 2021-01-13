@@ -24,7 +24,7 @@ import './App.css';
 
 //styling
 import SideMenu from '../SideMenu/SideMenu'
-import { makeStyles } from '@material-ui/core';
+import { CssBaseline, makeStyles } from '@material-ui/core';
 import NavBar from '../NavBar/NavBar';
 
 
@@ -105,6 +105,8 @@ const classes = useStyles();
     return (
 
       <>
+      {/* cssbaseline makes it so you dont have white space when you scroll to thre right */}
+      <CssBaseline/>  
       <NavBar/>
                 {/* <SideMenu/> */}
 <div className={classes.appMain}>here we go</div>

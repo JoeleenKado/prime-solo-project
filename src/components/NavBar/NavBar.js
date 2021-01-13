@@ -1,26 +1,32 @@
 import React from 'react';
-import {AppBar, Toolbar, Grid, Badge, IconButton} from '@material-ui/core'
+import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles} from '@material-ui/core'
 //styling
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 
+const useStyles = makeStyles({
+    root: {
+        backgroundColor: 'yellow'
+    }
+})
+
 export default function NavBar() {
+
+const classes = useStyles();
+
     return(
         
-       <AppBar position="static">   
+       <AppBar position="static" className={classes.root}>   
        <Toolbar>
            <Grid container>
            
-           {/* start grid item */}
-            <Grid item sm={6} style={{border:'1px solid #fff'}}>
-                {/*  input base is the search bar i think*/}               
+         <Grid item>
 <inputBase/>
-           </Grid>
-{/* end griditem */}
-        
+           </Grid>  
+        <Grid item sm></Grid>
         {/* start grid item */}
-            <Grid item sm={6} style={{border: '1px solid magenta'}}>
+            <Grid item>
        <IconButton>
            <Badge badgeContent={3} color="secondary">
                <NotificationsNoneIcon/>
