@@ -26,6 +26,8 @@ class RegisterForm extends Component {
     });
   };
 
+  
+
   render() {
     return (
       <form className="formPanel" onSubmit={this.registerUser}>
@@ -59,7 +61,10 @@ class RegisterForm extends Component {
             />
           </label>
         </div>
+        <button onClick={this.props.cancelRegistration}>CANCEL REGISTRATION</button>
+
         <div>
+
           <input className="btn" type="submit" name="submit" value="Register" />
         </div>
       </form>

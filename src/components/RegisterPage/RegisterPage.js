@@ -11,12 +11,20 @@ class RegisterPage extends Component {
     password: '',
   };
 
+
+  cancelRegistration = () => {
+    this.props.history.push('/login')
+}
+
+
+
   render() {
     return (
       <div>
-        <RegisterForm />
+        <RegisterForm cancelRegistration={this.cancelRegistration} />
 
         <center>
+
           <button
             type="button"
             className="btn btn_asLink"
