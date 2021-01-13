@@ -1,9 +1,10 @@
 import React from 'react';
-import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles} from '@material-ui/core'
+import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase} from '@material-ui/core'
 //styling
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles({
     root: {
@@ -21,10 +22,13 @@ const classes = useStyles();
        <Toolbar>
            <Grid container>
            
-         <Grid item sm={0}>
-<inputBase/>
+         <Grid item sm>
+<InputBase
+placeholder="Search"
+startAdornment={<SearchIcon/>}/>
            </Grid>  
-        <Grid item sm={0}></Grid>
+           {/* to get my nav button on far left use sm={0}on both my items */}
+        <Grid item sm></Grid>
         {/* start grid item */}
             <Grid item>
        <IconButton>
