@@ -81,7 +81,8 @@ import './App.css';
   useEffect(() => {
     document.title = hello
     console.log('UseEffect is working.');
-    
+         props.dispatch({ type: 'FETCH_USER' });
+
 
 },[])
 
