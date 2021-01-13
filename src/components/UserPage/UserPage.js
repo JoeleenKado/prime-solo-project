@@ -10,12 +10,35 @@ class UserPage extends Component {
   }
 
 
+  // const shelfData = useSelector((state) => state.shelf);
+
+
   render() {
+    // const art = useSelector((state) => state.store.art);
+    const art = this.props.store.art;
+
     return (
       <div>
         <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1>
         <p>Your ID is: {this.props.store.user.id}</p>
-   <h3>RS: {JSON.stringify(this.props.store.art)}</h3> 
+
+
+   <h3>Here is your art: {JSON.stringify(art)}</h3> 
+   <ul>
+   {art.map((artwork) => (
+          <li key={artwork.id} className={'shelf'}>
+            {/* <h2>User ID: {info.user_id}</h2> */}
+            {/* <p>Description: {info.description}</p> */}
+            {/* <img src={info.image_url} alt={info.description}></img> */}
+            {/* <button onClick={() => dispatch({type : "DELETE_ITEM", payload : info})}>DELETE</button>  */}
+            {/* left off here */}
+<h1>{artwork.title}</h1>
+          </li>
+        ))}
+        </ul>
+
+   
+
   <LogOutButton className="log-in" />
       </div>
     );
