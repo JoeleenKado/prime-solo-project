@@ -22,6 +22,10 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
 
+//styling
+import SideMenu from '../SideMenu/SideMenu'
+
+
 // function App(props) {
 //   //return is render
 
@@ -90,6 +94,10 @@ import './App.css';
 
 
     return (
+
+      <>
+                {/* <SideMenu/> */}
+
       <Router>
         <div>
           <Nav />
@@ -160,6 +168,7 @@ import './App.css';
           <Footer />
         </div>
       </Router>
+      </>
     );//END return
    //}
 // }
