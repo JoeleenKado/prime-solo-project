@@ -13,7 +13,7 @@ const Nav = (props) => {
 
   if (props.store.user.id != null) {
     loginLinkData.path = '/user';
-    loginLinkData.text = 'Home';
+    loginLinkData.text = 'Virtual Gallery (home)';
   }
 
   return (
@@ -32,7 +32,7 @@ const Nav = (props) => {
         {props.store.user.id && (
           <>
             <Link className="nav-link" to="/info">
-              Info Page
+              Art Drawer (info)
             </Link>
             <LogOutButton className="nav-link" />
           </>
