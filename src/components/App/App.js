@@ -24,6 +24,8 @@ import './App.css';
 
 //styling
 import SideMenu from '../SideMenu/SideMenu'
+import { makeStyles } from '@material-ui/core';
+import NavBar from '../NavBar/NavBar';
 
 
 // function App(props) {
@@ -75,8 +77,15 @@ import SideMenu from '../SideMenu/SideMenu'
 //   }
 
 //   render() {
-  function App(props) {
+const useStyles = makeStyles({
+  appMain: {
+    paddingLeft: '320px',
+    width: '100%'
+  }
+})
 
+  function App(props) {
+const classes = useStyles();
 
    let [hello, changeHello] = useState('world')
 
@@ -96,8 +105,9 @@ import SideMenu from '../SideMenu/SideMenu'
     return (
 
       <>
+      <NavBar/>
                 {/* <SideMenu/> */}
-
+<div className={classes.appMain}>here we go</div>
       <Router>
         <div>
           <Nav />
