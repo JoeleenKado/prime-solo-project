@@ -21,10 +21,10 @@ const classes = useStyles();
        <Toolbar>
            <Grid container>
            
-         <Grid item>
+         <Grid item sm={0}>
 <inputBase/>
            </Grid>  
-        <Grid item sm></Grid>
+        <Grid item sm={0}></Grid>
         {/* start grid item */}
             <Grid item>
        <IconButton>
