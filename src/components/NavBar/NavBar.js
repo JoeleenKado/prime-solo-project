@@ -7,6 +7,11 @@ import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import SearchIcon from '@material-ui/icons/Search';
 //import { CallMissedSharp } from '@material-ui/icons';
 
+
+
+
+// onClick={history.push("/about")} 
+
 const useStyles = makeStyles(theme=>({
     root: {
         backgroundColor: 'yellow'
@@ -30,7 +35,7 @@ const useStyles = makeStyles(theme=>({
     // }
 }))
 
-export default function NavBar() {
+export default function NavBar(props) {
 
 const classes = useStyles();
 
@@ -65,6 +70,11 @@ startAdornment={<SearchIcon fontSize="small"/>}
        <IconButton>
                <MeetingRoomIcon/>
        </IconButton>
+       {/* <IconButton className={classes.btnLabel}>
+           <Badge badgeContent={3} color="primary">
+               <NotificationsNoneIcon fontSize="small"/>
+           </Badge>
+           </IconButton> */}
 
         </Grid>
 {/* end grid item */}

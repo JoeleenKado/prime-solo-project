@@ -23,11 +23,11 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import './App.css';
 
 //styling
-import SideMenu from '../SideMenu/SideMenu'
+import SideMenu from '../SideMenu/SideMenu';
 import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core';
 import NavBar from '../NavBar/NavBar';
-
-
+import {orange, brown, pink, green}from '@material-ui/core/colors'
+//import turquoise from '@material-ui/core/colors/turquoise';
 // function App(props) {
 //   //return is render
 
@@ -78,17 +78,17 @@ import NavBar from '../NavBar/NavBar';
 
 //   render() {
 const theme = createMuiTheme({
-  pallet: {
+  palette: {
     primary: {
-    main: 'orange',
-    light: 'turquoise'
+    main: '#ffa500',
+    light: '#d26918'
     },
     secondary: {
-      main: 'white',
-      light: 'burgundy'
+      main: '#ffc0ce',
+      light: '#00ff00'
     },
     background: {
-      default: 'gold'
+      default: '#ffd700'
     }
   },
 })
