@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase} from '@material-ui/core'
+import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, } from '@material-ui/core'
 //styling
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
@@ -7,28 +7,28 @@ import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import SearchIcon from '@material-ui/icons/Search';
 //import { CallMissedSharp } from '@material-ui/icons';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme=>({
     root: {
         backgroundColor: 'yellow'
     },
     searchInput: {
         opacity: "0.6",
-        padding: '0px 8px',
+        padding: `0px ${theme.spacing(1)}px`,
         fontSize: '0.8rem',
         '&:hover':{
             backgroundColor: 'pink'
         },
         '& .MuiSvgIcon-root' :{
-            marginRight: '8px'
+            marginRight: theme.spacing(1)
         }
     },
-    btnRoot: {
-        backgroundColor: 'green'
-    },
-    btnLabel: {
-       backgroundColor: 'blue' 
-    }
-})
+    // btnRoot: {
+    //     backgroundColor: 'green'
+    // },
+    // btnLabel: {
+    //    backgroundColor: 'blue' 
+    // }
+}))
 
 export default function NavBar() {
 
@@ -53,16 +53,16 @@ startAdornment={<SearchIcon fontSize="small"/>}
         {/* start grid item */}
             <Grid item>
        <IconButton className={classes.btnLabel}>
-           <Badge badgeContent={3} color="secondary">
+           <Badge badgeContent={3} color="primary">
                <NotificationsNoneIcon fontSize="small"/>
            </Badge>
            </IconButton>
            <IconButton className={classes.btnLabel}>
-           <Badge badgeContent={4} color="secondary">
+           <Badge badgeContent={4} color="primary">
                <ChatBubbleOutlineIcon fontSize=""/>
            </Badge>
        </IconButton>
-       <IconButton classes={{root:classes.btnRoot,label:classes.btnLabel}}>
+       <IconButton>
                <MeetingRoomIcon/>
        </IconButton>
 

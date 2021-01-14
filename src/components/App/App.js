@@ -24,7 +24,7 @@ import './App.css';
 
 //styling
 import SideMenu from '../SideMenu/SideMenu'
-import { CssBaseline, makeStyles } from '@material-ui/core';
+import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core';
 import NavBar from '../NavBar/NavBar';
 
 
@@ -77,6 +77,24 @@ import NavBar from '../NavBar/NavBar';
 //   }
 
 //   render() {
+const theme = createMuiTheme({
+  pallet: {
+    primary: {
+    main: 'orange',
+    light: 'turquoise'
+    },
+    secondary: {
+      main: 'white',
+      light: 'burgundy'
+    },
+    background: {
+      default: 'gold'
+    }
+  },
+})
+
+
+
 const useStyles = makeStyles({
   appMain: {
     paddingLeft: '320px',
@@ -104,7 +122,7 @@ const classes = useStyles();
 
     return (
 
-      <>
+      <ThemeProvider theme={theme}>
       {/* cssbaseline makes it so you dont have white space when you scroll to thre right */}
       <CssBaseline/>  
       <NavBar/>
@@ -180,7 +198,7 @@ const classes = useStyles();
           <Footer />
         </div>
       </Router>
-      </>
+      </ThemeProvider>
     );//END return
    //}
 // }
