@@ -5,10 +5,19 @@ import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import SearchIcon from '@material-ui/icons/Search';
+//import { CallMissedSharp } from '@material-ui/icons';
 
 const useStyles = makeStyles({
     root: {
         backgroundColor: 'yellow'
+    },
+    searchInput: {
+        opacity: "0.6",
+        padding: '0px 8px',
+        fontSize: '0.8rem',
+        '&:hover':{
+            backgroundColor: 'pink'
+        }
     }
 })
 
@@ -20,12 +29,15 @@ const classes = useStyles();
         
        <AppBar position="static" className={classes.root}>   
        <Toolbar>
-           <Grid container>
+           <Grid container
+           alignItems="center">
            
          <Grid item sm>
 <InputBase
 placeholder="Search"
-startAdornment={<SearchIcon/>}/>
+className={classes.searchInput}
+startAdornment={<SearchIcon fontSize="small"/>}
+/>
            </Grid>  
            {/* to get my nav button on far left use sm={0}on both my items */}
         <Grid item sm></Grid>
@@ -33,12 +45,12 @@ startAdornment={<SearchIcon/>}/>
             <Grid item>
        <IconButton>
            <Badge badgeContent={3} color="secondary">
-               <NotificationsNoneIcon/>
+               <NotificationsNoneIcon fontSize="small"/>
            </Badge>
            </IconButton>
            <IconButton>
            <Badge badgeContent={4} color="secondary">
-               <ChatBubbleOutlineIcon/>
+               <ChatBubbleOutlineIcon fontSize=""/>
            </Badge>
        </IconButton>
        <IconButton>
