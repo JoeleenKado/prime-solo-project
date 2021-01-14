@@ -17,7 +17,16 @@ const useStyles = makeStyles({
         fontSize: '0.8rem',
         '&:hover':{
             backgroundColor: 'pink'
+        },
+        '& .MuiSvgIcon-root' :{
+            marginRight: '8px'
         }
+    },
+    btnRoot: {
+        backgroundColor: 'green'
+    },
+    btnLabel: {
+       backgroundColor: 'blue' 
     }
 })
 
@@ -43,17 +52,17 @@ startAdornment={<SearchIcon fontSize="small"/>}
         <Grid item sm></Grid>
         {/* start grid item */}
             <Grid item>
-       <IconButton>
+       <IconButton className={classes.btnLabel}>
            <Badge badgeContent={3} color="secondary">
                <NotificationsNoneIcon fontSize="small"/>
            </Badge>
            </IconButton>
-           <IconButton>
+           <IconButton className={classes.btnLabel}>
            <Badge badgeContent={4} color="secondary">
                <ChatBubbleOutlineIcon fontSize=""/>
            </Badge>
        </IconButton>
-       <IconButton>
+       <IconButton classes={{root:classes.btnRoot,label:classes.btnLabel}}>
                <MeetingRoomIcon/>
        </IconButton>
 
