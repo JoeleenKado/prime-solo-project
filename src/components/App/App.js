@@ -19,14 +19,15 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-
+import Art from '../../pages/ArtDrawer/Art'
 import './App.css';
 
 //styling
 import SideMenu from '../SideMenu/SideMenu';
 import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core';
 import NavBar from '../NavBar/NavBar';
-import {orange, brown, pink, green}from '@material-ui/core/colors'
+//import {orange, brown, pink, green}from '@material-ui/core/colors'
+
 //import turquoise from '@material-ui/core/colors/turquoise';
 // function App(props) {
 //   //return is render
@@ -91,13 +92,28 @@ const theme = createMuiTheme({
       default: '#ffd700'
     }
   },
+  shape: {
+    borderRadius: '40px'
+  },
+  overrides: {
+    MuiAppBar : {
+      root: {
+        transform: "translateZ(0)"
+      }
+    }
+  },
+  props: {
+    MuiIconButton: {
+      disableRipple: false
+    }
+  }
 })
 
 
 
 const useStyles = makeStyles({
   appMain: {
-    paddingLeft: '320px',
+    paddingLeft: '0px',
     width: '100%'
   }
 })
@@ -126,6 +142,10 @@ const classes = useStyles();
       {/* cssbaseline makes it so you dont have white space when you scroll to thre right */}
       <CssBaseline/>  
       <NavBar/>
+      <div className={classes.appMain}>
+      
+      <Art/>
+      </div>
                 {/* <SideMenu/> */}
 <div className={classes.appMain}>here we go</div>
       <Router>
