@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField} from '@material-ui/core'
+import { useDispatch } from 'react-redux';
+import mapStoreToProps from '../../redux/mapStoreToProps';
 
 const useStyles = makeStyles(theme =>({
     root: {
@@ -21,6 +23,8 @@ const initialFValues = {
 export default function ArtForm() {
     const [values, setValues] = useState(initialFValues);
     const classes = useStyles();
+    const dispatch = useDispatch();
+
 
     const handleInputChange= e=> {
         const {name, value} = e.target
@@ -30,10 +34,19 @@ export default function ArtForm() {
         })
     }
 
+    const addArt= ()=> {
+        console.log('adding art');
+        
+        }
+    
+
+
+
     return(
        <form  className={classes.root}>
+
            <Grid container>
-               
+
                <Grid item xs={2.0}>
                    <TextField
                    variant="outlined"
@@ -92,7 +105,8 @@ export default function ArtForm() {
                    />
                 </Grid>
 
-           
+                <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>
+
            
            </Grid>
        </form>
