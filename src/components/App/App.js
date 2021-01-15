@@ -132,7 +132,7 @@ const classes = useStyles();
       <PageHeader 
       title="Welcome, Artist"
       subTitle="This is your virtual gallery"
-      icon={<FavoriteBorderIcon/>}
+      icon={<FavoriteBorderIcon fontSize="large"/>}
       />
       
                 {/* <SideMenu/> */}
