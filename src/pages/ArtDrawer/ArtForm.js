@@ -1,6 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField} from '@material-ui/core'
 
+const useStyle = makeStyles(theme =>({
+    root: {
+        '& .MuiFormControl-root': {
+            width: '80%',
+            margin: theme.spacing(1)
+        }
+    }
+}))
 
 const initialFValues = {
     title: '',
@@ -12,10 +20,11 @@ const initialFValues = {
 
 export default function ArtForm() {
     const [values, setValues] = useState(initialFValues);
+    const classes = useStyle();
 
     return(
-       <form>
-           <Grid container>
+       <form container className={classes.root}>
+           <Grid>
                
                <Grid item xs={2.0}>
                    <TextField
