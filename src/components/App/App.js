@@ -19,7 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-
+import Art from '../../pages/ArtDrawer/Art'
 import './App.css';
 
 //styling
@@ -115,7 +115,7 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles({
   appMain: {
-    paddingLeft: '320px',
+    paddingLeft: '0px',
     width: '100%'
   }
 })
@@ -144,12 +144,14 @@ const classes = useStyles();
       {/* cssbaseline makes it so you dont have white space when you scroll to thre right */}
       <CssBaseline/>  
       <NavBar/>
+      <div className={classes.appMain}>
       <PageHeader 
       title="Welcome, Artist"
       subTitle="This is your virtual gallery"
       icon={<FavoriteBorderIcon fontSize="large"/>}
       />
-      
+      <Art/>
+      </div>
                 {/* <SideMenu/> */}
 <div className={classes.appMain}>here we go</div>
       <Router>
