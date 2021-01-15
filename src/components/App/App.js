@@ -26,7 +26,10 @@ import './App.css';
 import SideMenu from '../SideMenu/SideMenu';
 import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core';
 import NavBar from '../NavBar/NavBar';
-import {orange, brown, pink, green}from '@material-ui/core/colors'
+//import {orange, brown, pink, green}from '@material-ui/core/colors'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import PageHeader from '../PageHeader/PageHeader'
+
 //import turquoise from '@material-ui/core/colors/turquoise';
 // function App(props) {
 //   //return is render
@@ -126,6 +129,12 @@ const classes = useStyles();
       {/* cssbaseline makes it so you dont have white space when you scroll to thre right */}
       <CssBaseline/>  
       <NavBar/>
+      <PageHeader 
+      title="Welcome, Artist"
+      subTitle="This is your virtual gallery"
+      icon={<FavoriteBorderIcon/>}
+      />
+      
                 {/* <SideMenu/> */}
 <div className={classes.appMain}>here we go</div>
       <Router>
