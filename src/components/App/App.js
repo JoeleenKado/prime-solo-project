@@ -27,8 +27,6 @@ import SideMenu from '../SideMenu/SideMenu';
 import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core';
 import NavBar from '../NavBar/NavBar';
 //import {orange, brown, pink, green}from '@material-ui/core/colors'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import PageHeader from '../PageHeader/PageHeader'
 
 //import turquoise from '@material-ui/core/colors/turquoise';
 // function App(props) {
@@ -145,11 +143,7 @@ const classes = useStyles();
       <CssBaseline/>  
       <NavBar/>
       <div className={classes.appMain}>
-      <PageHeader 
-      title="Welcome, Artist"
-      subTitle="This is your virtual gallery"
-      icon={<FavoriteBorderIcon fontSize="large"/>}
-      />
+      
       <Art/>
       </div>
                 {/* <SideMenu/> */}
