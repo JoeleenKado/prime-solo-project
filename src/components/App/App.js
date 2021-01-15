@@ -94,6 +94,21 @@ const theme = createMuiTheme({
       default: '#ffd700'
     }
   },
+  shape: {
+    borderRadius: '40px'
+  },
+  overrides: {
+    MuiAppBar : {
+      root: {
+        transform: "translateZ(0)"
+      }
+    }
+  },
+  props: {
+    MuiIconButton: {
+      disableRipple: false
+    }
+  }
 })
 
 
