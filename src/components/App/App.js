@@ -146,7 +146,7 @@ const useStyles = makeStyles({
       <div>
 
       
-      {/* <Art/> */}
+      <Art/>
       </div>
                 {/* <SideMenu/> */}
 {/* <div className={classes.appMain}>here we go</div> */}
