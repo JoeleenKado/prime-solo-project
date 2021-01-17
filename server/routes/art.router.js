@@ -87,7 +87,7 @@ WHERE "id" = $6;`;
 
 router.delete('/:id',  (req, res) => {
   let id = req.params.id; // id of the thing to delete
-console.log('id to delete', id);
+console.log('Deleting artwith id:', id);
 res.send('ok');
 //  console.log('in delete');
 let queryText = `DELETE FROM "art" WHERE id=$1

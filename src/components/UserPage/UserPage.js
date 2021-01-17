@@ -96,7 +96,7 @@ handleInputChange = (event, inputProperty) => {
     //Clear message... should say Hello!
     //console.log(`Sending ${this.state.newArt} to DB.`);
 
-    //this.props.dispatch({ type: 'UPDATE_ART', payload: this.state.artToEdit })
+    this.props.dispatch({ type: 'DELETE_ART', payload: art.id })
 
     // this.setState({
     

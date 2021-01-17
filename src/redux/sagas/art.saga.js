@@ -10,6 +10,7 @@ function* artSaga() {
   yield takeLatest('FETCH_ART', fetchArtSaga);
   yield takeLatest('ADD_ART', addArtSaga);
   yield takeLatest('UPDATE_ART', updateArtSaga);
+  yield takeLatest('DELETE_ART', deleteArtSaga);
 
 
 }
@@ -63,5 +64,23 @@ function* updateArtSaga(action) {
     console.log('Art get request failed', error);
   }
 }
+
+function* deleteArtSaga(action) {
+  console.log('In deleteArtSaga...')
+  console.log('payload:', action.payload)
+  try {
+    const config = {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
+    };
+
+    const response = yield axios.delete(`api/art/${action.payload}`, config);
+
+    yield put({ type: 'FETCH_ART'});
+  } catch (error) {
+    console.log('Art get request failed', error);
+  }
+}
+
 
 export default artSaga;
