@@ -9,11 +9,13 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 function* artSaga() {
   yield takeLatest('FETCH_ART', fetchArtSaga);
   yield takeLatest('ADD_ART', addArtSaga);
+  yield takeLatest('UPDATE_ART', updateArtSaga);
+
 
 }
 
 function* fetchArtSaga() {
-  console.log('In fetchArtSaga')
+  console.log('In fetchArtSaga...')
   try {
     const config = {
       headers: { 'Content-Type': 'application/json' },
@@ -29,7 +31,7 @@ function* fetchArtSaga() {
 }
 
 function* addArtSaga(action) {
-  console.log('In addArtSaga')
+  console.log('In addArtSaga...')
   console.log('payload:', action.payload)
   try {
     const config = {
@@ -38,6 +40,23 @@ function* addArtSaga(action) {
     };
 
     const response = yield axios.post('api/art', action.payload, config);
+
+    yield put({ type: 'FETCH_ART'});
+  } catch (error) {
+    console.log('Art get request failed', error);
+  }
+}
+
+function* updateArtSaga(action) {
+  console.log('In updateArtSaga...')
+  console.log('payload:', action.payload)
+  try {
+    const config = {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
+    };
+
+    const response = yield axios.put('api/art', action.payload, config);
 
     yield put({ type: 'FETCH_ART'});
   } catch (error) {

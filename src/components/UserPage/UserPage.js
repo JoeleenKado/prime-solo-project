@@ -23,6 +23,7 @@ class UserPage extends Component {
 
   state = {
     artToEdit: {
+      id: '',
       user_id: '',
       title: '',
       medium: '',
@@ -33,18 +34,19 @@ class UserPage extends Component {
 }
 
 handleInputChange = (event, inputProperty) => {
-  console.log('Handling input-change. this.props.store.user.id:', this.props.store.user.id);
-  console.log('Setting state');
+  console.log('Handling input-change...');
+  console.log('Setting state...');
   
   //console.log('Handling input change. this.state.newArt.user_id', this.state.newArt.user_id);
               this.setState({
                 artToEdit : {
                   ...this.state.artToEdit,
                   [inputProperty]: event.target.value,
-                  user_id: this.props.store.user.id
+                  // id : this.props,
+                  //user_id : this.props.store.user.id
                 }
               }, function () {
-                  console.log('state has been set:', this.state);
+                  console.log('State has been set:', this.state);
               })
             }
   // const shelfData = useSelector((state) => state.shelf);
@@ -52,9 +54,11 @@ handleInputChange = (event, inputProperty) => {
   openEdit = (event, artwork) => {
     console.log(`In openEdit function...`);
     console.log('artwork:', artwork);
+    console.log('Setting state...')
     this.setState({
       artToEdit : {
         ...this.state.artToEdit,
+        id : artwork.id,
         user_id : this.props.store.user.id,
         title : artwork.title,
         medium : artwork.medium,
@@ -63,7 +67,7 @@ handleInputChange = (event, inputProperty) => {
         statement : artwork.statement
       }
     }, function () {
-        console.log('state has been set:', this.state);
+        console.log('State has been set:', this.state);
     })
   }
 

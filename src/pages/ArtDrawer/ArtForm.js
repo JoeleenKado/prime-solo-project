@@ -56,8 +56,8 @@ const styles = {
         }
 
         handleInputChange = (event, inputProperty) => {
-console.log('Handling input-change. this.props.store.user.id:', this.props.store.user.id);
-console.log('Setting state');
+console.log('Handling input-change...');
+console.log('Setting state...');
 
 //console.log('Handling input change. this.state.newArt.user_id', this.state.newArt.user_id);
             this.setState({
