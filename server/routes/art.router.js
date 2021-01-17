@@ -58,20 +58,22 @@ router.post('/', (req, res) => {
 
 module.exports = router;
 
-router.put('/:id',  (req, res) => {
+router.put('/',  (req, res) => {
   console.log('in PUT');
   
   let art = req.body; // Book with updated content
   
   let id = req.params.id; // id of the book to update
-console.log(artwork, id);
+console.log('Updating', art.title);
+console.log(art);
+
   //console.log(`Updating book ${id} with `, book);
 let queryText = `UPDATE "art"
 SET "title" = $1, "medium" = $2, "dimension" = $3, "url" = $4, "statement" = $5
 WHERE "id" = $6;`;
 
   // TODO - REPLACE BELOW WITH YOUR CODE
-  pool.query(queryText, [art.title, art.medium, art.dimension, art.url, art.statement, id]).then( (result) => {
+  pool.query(queryText, [art.title, art.medium, art.dimension, art.url, art.statement, art.id]).then( (result) => {
             // Delete sends back an OK status, 
             // client will then ask for all the data with a GET
             res.sendStatus(200);
