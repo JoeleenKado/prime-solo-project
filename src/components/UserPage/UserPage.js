@@ -9,12 +9,34 @@ class UserPage extends Component {
     this.props.dispatch({ type: 'FETCH_ART' });
   }
 
-
+  state = {
+    artToEdit: {
+      user_id: '',
+      title: '',
+      medium: '',
+      dimension: '',
+      url: '',
+      statement: ''
+    },
+}
   // const shelfData = useSelector((state) => state.shelf);
 
   openEdit = (event, artwork) => {
     console.log(`In openEdit function...`);
-    console.log('artwork:', artwork)
+    console.log('artwork:', artwork);
+    this.setState({
+      artToEdit : {
+        ...this.state.artToEdit,
+        user_id : this.props.store.user.id,
+        title : artwork.title,
+        medium : artwork.medium,
+        dimension : artwork.dimension,
+        url : artwork.url,
+        statemet : artwork.statement
+      }
+    }, function () {
+        console.log('state has been set:', this.state);
+    })
   }
 
   render() {
@@ -35,7 +57,7 @@ class UserPage extends Component {
    {art.map((artwork) => (
             // <li onClick={(event)=>this.monthAlert(event)}>{month.name}</li>
 
-          <li key={artwork.id} className={'shelf'} onClick={(event)=>this.openEdit(event, {artwork})}>
+          <li key={artwork.id} className={'shelf'} onClick={(event)=>this.openEdit(event, artwork)}>
             {/* <h2>User ID: {info.user_id}</h2> */}
             {/* <p>Description: {info.description}</p> */}
             {/* <img src={info.image_url} alt={info.description}></img> */}

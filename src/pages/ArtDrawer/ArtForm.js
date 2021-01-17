@@ -45,7 +45,7 @@ const styles = {
 
         state = {
             newArt: {
-              user_id: this.props.store.user.id,
+              user_id: '',
               title: '',
               medium: '',
               dimension: '',
