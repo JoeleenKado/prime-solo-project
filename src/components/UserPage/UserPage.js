@@ -12,10 +12,16 @@ class UserPage extends Component {
 
   // const shelfData = useSelector((state) => state.shelf);
 
+  openEdit = (event, artwork) => {
+    console.log(`In openEdit function...`);
+    console.log('artwork:', artwork)
+  }
 
   render() {
     // const art = useSelector((state) => state.store.art);
     const art = this.props.store.art;
+
+   
 
     return (
       <div>
@@ -27,7 +33,9 @@ class UserPage extends Component {
    <h3>Here is your art: {JSON.stringify(art)}</h3> 
    <ul>
    {art.map((artwork) => (
-          <li key={artwork.id} className={'shelf'}>
+            // <li onClick={(event)=>this.monthAlert(event)}>{month.name}</li>
+
+          <li key={artwork.id} className={'shelf'} onClick={(event)=>this.openEdit(event, {artwork})}>
             {/* <h2>User ID: {info.user_id}</h2> */}
             {/* <p>Description: {info.description}</p> */}
             {/* <img src={info.image_url} alt={info.description}></img> */}
