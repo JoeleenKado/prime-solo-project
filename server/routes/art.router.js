@@ -1,3 +1,9 @@
+//import mapStoreToProps from '../../redux/mapStoreToProps';
+
+
+
+
+
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
@@ -31,13 +37,15 @@ router.get('/', rejectUnauthenticated, (req, res) => {
  */
 router.post('/', (req, res) => {
   // POST route code here
-  let newArtwork = req.body;
-  console.log(`Adding artWork`, newArtwork);
+  let newArt = req.body;
+  console.log(`Adding art`, newArt);
+ // console.log('RS:', props.store)
+//console.log(this.state.user.id);
 
   let queryText = `INSERT INTO "art" ("user_id", "title", "medium", "dimension", "url", "statement")
   VALUES ($1, $2, $3, $4, $5, $6);
   `;
-  pool.query(queryText, [newArtwork.user_id, newArtwork.title, newArtwork.medium, newArtwork.dimension, newArtwork.url, newArtwork.statement])
+  pool.query(queryText, [newArt.user_id, newArt.title, newArt.medium, newArt.dimension, newArt.url, newArt.statement])
     .then(result => {
       res.sendStatus(201);
     })
@@ -95,3 +103,4 @@ RETURNING "title";`//what is the 1 here
       console.log(`Error with Delete request`, error);
       res.sendStatus(500);
     })});
+

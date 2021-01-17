@@ -72,12 +72,12 @@ import NavBar from '../NavBar/NavBar';
 // )
 // }
 
-// class App extends Component {
-//   componentDidMount() {
-//     this.props.dispatch({ type: 'FETCH_USER' });
-//   }
+class App extends Component {
+  componentDidMount() {
+    this.props.dispatch({ type: 'FETCH_USER' });
+  }
 
-//   render() {
+  render() {
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -118,20 +118,20 @@ const useStyles = makeStyles({
   }
 })
 
-  function App(props) {
-const classes = useStyles();
+//   function App(props) {
+// const classes = useStyles();
 
-   let [hello, changeHello] = useState('world')
-
-
-
-  useEffect(() => {
-    document.title = hello
-    console.log('UseEffect is working.');
-         props.dispatch({ type: 'FETCH_USER' });
+//    let [hello, changeHello] = useState('world')
 
 
-},[])
+
+//   useEffect(() => {
+//     document.title = hello
+//     console.log('UseEffect is working.');
+//          props.dispatch({ type: 'FETCH_USER' });
+
+
+// },[])
 
 // let hello = statething[0]
 
@@ -142,12 +142,16 @@ const classes = useStyles();
       {/* cssbaseline makes it so you dont have white space when you scroll to thre right */}
       <CssBaseline/>  
       <NavBar/>
-      <div className={classes.appMain}>
+      {/* <div className={classes.appMain}> */}
+      <div>
+
       
       <Art/>
       </div>
                 {/* <SideMenu/> */}
-<div className={classes.appMain}>here we go</div>
+{/* <div className={classes.appMain}>here we go</div> */}
+<div>here we go</div>
+
       <Router>
         <div>
           <Nav />
@@ -220,7 +224,7 @@ const classes = useStyles();
       </Router>
       </ThemeProvider>
     );//END return
-   //}
-// }
-          }
+   }
+}
+         // }
 export default connect()(App);
