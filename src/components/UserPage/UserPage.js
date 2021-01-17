@@ -51,20 +51,20 @@ handleInputChange = (event, inputProperty) => {
             }
   // const shelfData = useSelector((state) => state.shelf);
 
-  openEdit = (event, artwork) => {
+  openEdit = (event, art) => {
     console.log(`In openEdit function...`);
-    console.log('artwork:', artwork);
+    console.log('art:', art);
     console.log('Setting state...')
     this.setState({
       artToEdit : {
         ...this.state.artToEdit,
-        id : artwork.id,
+        id : art.id,
         user_id : this.props.store.user.id,
-        title : artwork.title,
-        medium : artwork.medium,
-        dimension : artwork.dimension,
-        url : artwork.url,
-        statement : artwork.statement
+        title : art.title,
+        medium : art.medium,
+        dimension : art.dimension,
+        url : art.url,
+        statement : art.statement
       }
     }, function () {
         console.log('State has been set:', this.state);
@@ -89,6 +89,29 @@ handleInputChange = (event, inputProperty) => {
     // )
   }
 
+  deleteArt = (event, art) => {
+    console.log(`Deleting ${art.title}...`);
+    console.log(art);
+    
+    //Clear message... should say Hello!
+    //console.log(`Sending ${this.state.newArt} to DB.`);
+
+    //this.props.dispatch({ type: 'UPDATE_ART', payload: this.state.artToEdit })
+
+    // this.setState({
+    
+    //    newArt: {title: '',
+    //     medium: '',
+    //     dimension: '',
+    //     url: '',
+    //     statement: ''}
+    // }
+    // )
+  }
+
+
+
+
   render() {
     // const art = useSelector((state) => state.store.art);
     const { classes } = this.props;
@@ -104,16 +127,20 @@ handleInputChange = (event, inputProperty) => {
 
    <h3>Here is your art: {JSON.stringify(art)}</h3> 
    <ul>
-   {art.map((artwork) => (
+   {art.map((art) => (
             // <li onClick={(event)=>this.monthAlert(event)}>{month.name}</li>
 
-          <li key={artwork.id} className={'shelf'} onClick={(event)=>this.openEdit(event, artwork)}>
+          <li key={art.id} className={'shelf'} >
             {/* <h2>User ID: {info.user_id}</h2> */}
             {/* <p>Description: {info.description}</p> */}
             {/* <img src={info.image_url} alt={info.description}></img> */}
             {/* <button onClick={() => dispatch({type : "DELETE_ITEM", payload : info})}>DELETE</button>  */}
             {/* left off here */}
-<h1>{artwork.title}</h1>
+<h1>{art.title}</h1>
+<button onClick={(event)=>this.openEdit(event, art)}>EDIT</button>
+
+<button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button>
+
           </li>
         ))}
         </ul>
