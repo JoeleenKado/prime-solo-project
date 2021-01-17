@@ -3,6 +3,18 @@ import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
+//styling
+import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, withStyles} from '@material-ui/core'
+
+
+
+const styles = {
+  inputs: {
+      width: '20%',
+
+  }
+}
+
 class UserPage extends Component {
   // this component doesn't do much to start, just renders some user info to the DOM
   componentDidMount() {
@@ -19,6 +31,22 @@ class UserPage extends Component {
       statement: ''
     },
 }
+
+handleInputChange = (event, inputProperty) => {
+  console.log('Handling input-change. this.props.store.user.id:', this.props.store.user.id);
+  console.log('Setting state');
+  
+  //console.log('Handling input change. this.state.newArt.user_id', this.state.newArt.user_id);
+              this.setState({
+                artToEdit : {
+                  ...this.state.artToEdit,
+                  [inputProperty]: event.target.value,
+                  user_id: this.props.store.user.id
+                }
+              }, function () {
+                  console.log('state has been set:', this.state);
+              })
+            }
   // const shelfData = useSelector((state) => state.shelf);
 
   openEdit = (event, artwork) => {
@@ -32,18 +60,36 @@ class UserPage extends Component {
         medium : artwork.medium,
         dimension : artwork.dimension,
         url : artwork.url,
-        statemet : artwork.statement
+        statement : artwork.statement
       }
     }, function () {
         console.log('state has been set:', this.state);
     })
   }
 
+  updateArt = () => {
+    console.log(`Saving edit(s) to Database...`);
+    //Clear message... should say Hello!
+    //console.log(`Sending ${this.state.newArt} to DB.`);
+
+    this.props.dispatch({ type: 'UPDATE_ART', payload: this.state.artToEdit })
+
+    // this.setState({
+    
+    //    newArt: {title: '',
+    //     medium: '',
+    //     dimension: '',
+    //     url: '',
+    //     statement: ''}
+    // }
+    // )
+  }
+
   render() {
     // const art = useSelector((state) => state.store.art);
+    const { classes } = this.props;
+    // console.log(this.props)
     const art = this.props.store.art;
-
-   
 
     return (
       <div>
@@ -67,7 +113,79 @@ class UserPage extends Component {
           </li>
         ))}
         </ul>
+        <Grid container>
+                               <Grid item xs={12.0}>
 
+               <Card>
+               <form>
+
+               {/* <Grid item xs={12.0}> */}
+                   <TextField
+                   variant="outlined"
+                   label="Title"
+                   name="title"
+                   className={classes.inputs}
+                   value={this.state.artToEdit.title}
+                    onChange ={ (event) => this.handleInputChange( event, 'title' ) } 
+                   />
+                {/* </Grid> */}
+
+                {/* <Grid item xs={12.0}> */}
+                   <TextField
+                   variant="outlined"
+                   label="Medium"
+                   name="medium"
+                   className={classes.inputs}
+
+                   value={this.state.artToEdit.medium}
+                onChange ={ (event) => this.handleInputChange( event, 'medium' ) } 
+
+                   />
+                {/* </Grid> */}
+
+                {/* <Grid item xs={12.0}> */}
+                   <TextField
+                   variant="outlined"
+                   label="Dimensions"
+                   name="dimension"
+                   className={classes.inputs}
+
+                   value={this.state.artToEdit.dimension}
+                onChange ={ (event) => this.handleInputChange( event, 'dimension' ) } 
+
+                   />
+
+                   <TextField
+                   variant="outlined"
+                   label="URL"
+                   name="url"
+                   className={classes.inputs}
+
+                   value={this.state.artToEdit.url}
+                onChange ={ (event) => this.handleInputChange( event, 'url' ) } 
+
+                   />
+                {/* </Grid> */}
+
+                {/* <Grid item xs={12.0}> */}
+                   <TextField
+                   variant="outlined"
+                   label="Statement"
+                   name="statement"
+                   className={classes.inputs}
+
+                   value={this.state.artToEdit.statement}
+                onChange ={ (event) => this.handleInputChange( event, 'statement' ) } 
+
+                   />
+
+                 {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
+               </form>
+               <button onClick={this.updateArt}>update!</button>
+               </Card>
+               </Grid>
+
+           </Grid>
    
 
   <LogOutButton className="log-in" />
@@ -77,4 +195,5 @@ class UserPage extends Component {
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStoreToProps)(UserPage);
+//export default connect(mapStoreToProps)(UserPage);
+export default connect(mapStoreToProps)(withStyles(styles)(UserPage));
