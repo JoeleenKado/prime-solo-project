@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 //styling
 import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, withStyles} from '@material-ui/core'
@@ -93,8 +94,21 @@ handleInputChange = (event, inputProperty) => {
     // )
   
   }
-
-  
+  deleteConfirmation = (event, art) => {
+  confirmAlert({
+    title: 'Please Confirm',
+    message: `Would you like to Delete ${art.title}?`,
+    buttons: [
+      {
+        label: 'Yes',
+        onClick: () => this.deleteArt(event, art)
+      },
+      {
+        label: 'No',
+        onClick: () => alert('Deletion Cancelled')
+      }
+    ]
+  })}
 
   deleteArt = (event, art) => {
     
@@ -151,7 +165,8 @@ handleInputChange = (event, inputProperty) => {
 <h1>{art.title}</h1>
 <button onClick={(event)=>this.openEdit(event, art)}>EDIT</button>
 
-<button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button>
+{/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
+<button onClick={(event)=>this.deleteConfirmation(event, art)}>delconf</button>
 
           </li>
         ))}
