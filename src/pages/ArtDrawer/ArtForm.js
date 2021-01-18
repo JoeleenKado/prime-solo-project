@@ -1,10 +1,9 @@
-import React, {useState, useEffect, Component} from 'react'
-import { useDispatch } from 'react-redux';
+import React, {Component} from 'react'
+//import { useDispatch } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
 //styling
 import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, withStyles} from '@material-ui/core'
-
 
 const useStyles = makeStyles(theme =>({
     root: {
@@ -15,15 +14,13 @@ const useStyles = makeStyles(theme =>({
     }
 }))
 
-const initialFValues = {
-    title: '',
-    medium: '',
-    dimension: '',
-    url: '',
-    statement: ''
-}
-
-
+// const initialFValues = {
+//     title: '',
+//     medium: '',
+//     dimension: '',
+//     url: '',
+//     statement: ''
+// }
 
 const styles = {
     inputs: {
@@ -40,9 +37,6 @@ const styles = {
         //     // }) 
         //     console.log('input change')
         // }
-
-        
-
 
         state = {
             newArt: {
@@ -72,12 +66,16 @@ console.log('Setting state...');
           }
 
           addArt = () => {
-            console.log(`Sending ${this.state.newArt.title} to Database...`);
+            if(this.state.newArt.title === '') {
+                alert('A title is required to save your work to Database.')
+            } else {
+            
+                console.log(`Sending ${this.state.newArt.title} to Database...`);
             //Clear message... should say Hello!
             //console.log(`Sending ${this.state.newArt} to DB.`);
 
-            this.props.dispatch({ type: 'ADD_ART', payload: this.state.newArt })
-
+                 this.props.dispatch({ type: 'ADD_ART', payload: this.state.newArt })
+            }
             // this.setState({
             
             //    newArt: {title: '',
@@ -90,7 +88,7 @@ console.log('Setting state...');
           }
 
 
-        render() {
+            render() {
 
     // const [values, setValues] = useState(initialFValues);
     // const classes = useStyles();

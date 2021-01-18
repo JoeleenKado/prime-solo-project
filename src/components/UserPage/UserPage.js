@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import { confirmAlert } from 'react-confirm-alert';
 
 //styling
 import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, withStyles} from '@material-ui/core'
@@ -72,12 +73,15 @@ handleInputChange = (event, inputProperty) => {
   }
 
   updateArt = () => {
-    console.log(`Saving edit(s) to Database...`);
+    if(this.state.artToEdit.title === '') {
+      alert('A title is required to save your work to Database.')
+    } else {
+        console.log(`Saving edit(s) to Database...`);
     //Clear message... should say Hello!
     //console.log(`Sending ${this.state.newArt} to DB.`);
 
-    this.props.dispatch({ type: 'UPDATE_ART', payload: this.state.artToEdit })
-
+        this.props.dispatch({ type: 'UPDATE_ART', payload: this.state.artToEdit })
+    }
     // this.setState({
     
     //    newArt: {title: '',
@@ -87,9 +91,15 @@ handleInputChange = (event, inputProperty) => {
     //     statement: ''}
     // }
     // )
+  
   }
 
+  
+
   deleteArt = (event, art) => {
+    
+    
+  
     console.log(`Deleting ${art.title}...`);
     console.log(art);
     
@@ -117,6 +127,8 @@ handleInputChange = (event, inputProperty) => {
     const { classes } = this.props;
     // console.log(this.props)
     const art = this.props.store.art;
+
+
 
     return (
       <div>
