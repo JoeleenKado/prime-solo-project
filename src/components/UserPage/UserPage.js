@@ -74,6 +74,11 @@ handleInputChange = (event, inputProperty) => {
   }
 
   updateConfirmation = (artToEdit) => {
+
+    if(this.state.artToEdit.title === '') {
+      alert('A title is required for your Artwork.')
+    } else {
+
     confirmAlert({
       title: 'Please Confirm',
       message: `Would you like to save edits made to ${artToEdit.title}?`,
@@ -87,7 +92,9 @@ handleInputChange = (event, inputProperty) => {
           onClick: () => alert('Edit Canceled')
         }
       ]
-    })}
+    })
+      }
+    }
   
   
   
@@ -95,15 +102,13 @@ handleInputChange = (event, inputProperty) => {
   
   
   updateArt = () => {
-    if(this.state.artToEdit.title === '') {
-      alert('A title is required to save your work to Database.')
-    } else {
+   
         console.log(`Saving edit(s) to Database...`);
     //Clear message... should say Hello!
     //console.log(`Sending ${this.state.newArt} to DB.`);
 
         this.props.dispatch({ type: 'UPDATE_ART', payload: this.state.artToEdit })
-    }
+    
     // this.setState({
     
     //    newArt: {title: '',

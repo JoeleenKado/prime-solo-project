@@ -67,7 +67,7 @@ console.log('Setting state...');
 
           addArt = () => {
             if(this.state.newArt.title === '') {
-                alert('A title is required to save your work to Database.')
+                alert('A title is required for your Artwork.')
             } else {
             
                 console.log(`Sending ${this.state.newArt.title} to Database...`);
