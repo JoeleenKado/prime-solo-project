@@ -1,8 +1,9 @@
 import React, {useState, useEffect, Component} from 'react'
-import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, withStyles} from '@material-ui/core'
 import { useDispatch } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
+//styling
+import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, withStyles} from '@material-ui/core'
 
 
 const useStyles = makeStyles(theme =>({
@@ -45,7 +46,7 @@ const styles = {
 
         state = {
             newArt: {
-              user_id: this.props.store.user.id,
+              user_id: '',
               title: '',
               medium: '',
               dimension: '',
@@ -55,8 +56,8 @@ const styles = {
         }
 
         handleInputChange = (event, inputProperty) => {
-console.log('Handling input-change. this.props.store.user.id:', this.props.store.user.id);
-console.log('Setting state');
+console.log('Handling input-change...');
+console.log('Setting state...');
 
 //console.log('Handling input change. this.state.newArt.user_id', this.state.newArt.user_id);
             this.setState({

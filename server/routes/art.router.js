@@ -37,15 +37,15 @@ router.get('/', rejectUnauthenticated, (req, res) => {
  */
 router.post('/', (req, res) => {
   // POST route code here
-  let newArt = req.body;
-  console.log(`Adding art`, newArt);
+  let art = req.body;
+  console.log(`Adding art`, art);
  // console.log('RS:', props.store)
 //console.log(this.state.user.id);
 
   let queryText = `INSERT INTO "art" ("user_id", "title", "medium", "dimension", "url", "statement")
   VALUES ($1, $2, $3, $4, $5, $6);
   `;
-  pool.query(queryText, [newArt.user_id, newArt.title, newArt.medium, newArt.dimension, newArt.url, newArt.statement])
+  pool.query(queryText, [art.user_id, art.title, art.medium, art.dimension, art.url, art.statement])
     .then(result => {
       res.sendStatus(201);
     })
@@ -58,20 +58,22 @@ router.post('/', (req, res) => {
 
 module.exports = router;
 
-router.put('/:id',  (req, res) => {
+router.put('/',  (req, res) => {
   console.log('in PUT');
   
-  let artwork = req.body; // Book with updated content
+  let art = req.body; // Book with updated content
   
   let id = req.params.id; // id of the book to update
-console.log(artwork, id);
+console.log('Updating', art.title);
+console.log(art);
+
   //console.log(`Updating book ${id} with `, book);
 let queryText = `UPDATE "art"
 SET "title" = $1, "medium" = $2, "dimension" = $3, "url" = $4, "statement" = $5
 WHERE "id" = $6;`;
 
   // TODO - REPLACE BELOW WITH YOUR CODE
-  pool.query(queryText, [artwork.title, artwork.medium, artwork.dimension, artwork.url, artwork.statement, id]).then( (result) => {
+  pool.query(queryText, [art.title, art.medium, art.dimension, art.url, art.statement, art.id]).then( (result) => {
             // Delete sends back an OK status, 
             // client will then ask for all the data with a GET
             res.sendStatus(200);
@@ -85,7 +87,7 @@ WHERE "id" = $6;`;
 
 router.delete('/:id',  (req, res) => {
   let id = req.params.id; // id of the thing to delete
-console.log('id to delete', id);
+console.log('Deleting artwith id:', id);
 res.send('ok');
 //  console.log('in delete');
 let queryText = `DELETE FROM "art" WHERE id=$1
