@@ -16,7 +16,7 @@ const styles = {
 
   }
 }
-
+// const artToEdit= this.state.art
 class UserPage extends Component {
   // this component doesn't do much to start, just renders some user info to the DOM
   componentDidMount() {
@@ -73,6 +73,27 @@ handleInputChange = (event, inputProperty) => {
     })
   }
 
+  updateConfirmation = (artToEdit) => {
+    confirmAlert({
+      title: 'Please Confirm',
+      message: `Would you like to save edits made to ${artToEdit.title}?`,
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.updateArt()
+        },
+        {
+          label: 'No',
+          onClick: () => alert('Edit Canceled')
+        }
+      ]
+    })}
+  
+  
+  
+  
+  
+  
   updateArt = () => {
     if(this.state.artToEdit.title === '') {
       alert('A title is required to save your work to Database.')
@@ -105,7 +126,7 @@ handleInputChange = (event, inputProperty) => {
       },
       {
         label: 'No',
-        onClick: () => alert('Deletion Cancelled')
+        onClick: () => alert('Deletion Canceled')
       }
     ]
   })}
@@ -239,7 +260,7 @@ handleInputChange = (event, inputProperty) => {
 
                  {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
                </form>
-               <button onClick={this.updateArt}>update!</button>
+               <button onClick={(event)=>this.updateConfirmation(this.state.artToEdit)}>update!</button>
                </Card>
                </Grid>
 
