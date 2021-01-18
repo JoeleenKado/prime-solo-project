@@ -26,6 +26,7 @@ import './App.css';
 import SideMenu from '../SideMenu/SideMenu';
 import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core';
 import NavBar from '../NavBar/NavBar';
+import ArtDrawer from '../ArtDrawer/ArtDrawer';
 //import {orange, brown, pink, green}from '@material-ui/core/colors'
 
 //import turquoise from '@material-ui/core/colors/turquoise';
@@ -183,6 +184,13 @@ const useStyles = makeStyles({
               exact
               path="/info"
               component={InfoPage}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/artdrawer"
+              component={ArtDrawer}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will

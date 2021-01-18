@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+//import { createStore, combineReducers, applyMiddleware } from 'redux';
 //import registerServiceWorker from './registerServiceWorker';
 
 
