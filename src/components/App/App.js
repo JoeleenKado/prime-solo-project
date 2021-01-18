@@ -20,6 +20,8 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Art from '../../pages/ArtDrawer/Art'
+import ArtForm from '../ArtDrawer/ArtForm'
+
 import './App.css';
 
 //styling
@@ -147,7 +149,7 @@ const useStyles = makeStyles({
       <div>
 
       
-      <Art/>
+      {/* <ArtForm/> */}
       </div>
                 {/* <SideMenu/> */}
 {/* <div className={classes.appMain}>here we go</div> */}
