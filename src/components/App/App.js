@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import {
   HashRouter as Router,
   Route,
@@ -141,7 +141,7 @@ const useStyles = makeStyles({
       <ThemeProvider theme={theme}>
       {/* cssbaseline makes it so you dont have white space when you scroll to thre right */}
       <CssBaseline/>  
-      <NavBar/>
+      {/* <NavBar/> */}
       {/* <div className={classes.appMain}> */}
       <div>
 

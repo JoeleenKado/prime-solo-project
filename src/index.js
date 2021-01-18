@@ -11,7 +11,7 @@ import rootSaga from './redux/sagas/_root.saga'; // imports ./redux/sagas/index.
 import App from './components/App/App';
 
 //styling
-import './index.css';
+//import './index.css';
 
 
 const sagaMiddleware = createSagaMiddleware();

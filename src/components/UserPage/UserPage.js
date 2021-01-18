@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 //styling
 import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, withStyles} from '@material-ui/core'
@@ -14,7 +16,7 @@ const styles = {
 
   }
 }
-
+// const artToEdit= this.state.art
 class UserPage extends Component {
   // this component doesn't do much to start, just renders some user info to the DOM
   componentDidMount() {
@@ -71,13 +73,37 @@ handleInputChange = (event, inputProperty) => {
     })
   }
 
+  updateConfirmation = (artToEdit) => {
+    confirmAlert({
+      title: 'Please Confirm',
+      message: `Would you like to save edits made to ${artToEdit.title}?`,
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.updateArt()
+        },
+        {
+          label: 'No',
+          onClick: () => alert('Edit Canceled')
+        }
+      ]
+    })}
+  
+  
+  
+  
+  
+  
   updateArt = () => {
-    console.log(`Saving edit(s) to Database...`);
+    if(this.state.artToEdit.title === '') {
+      alert('A title is required to save your work to Database.')
+    } else {
+        console.log(`Saving edit(s) to Database...`);
     //Clear message... should say Hello!
     //console.log(`Sending ${this.state.newArt} to DB.`);
 
-    this.props.dispatch({ type: 'UPDATE_ART', payload: this.state.artToEdit })
-
+        this.props.dispatch({ type: 'UPDATE_ART', payload: this.state.artToEdit })
+    }
     // this.setState({
     
     //    newArt: {title: '',
@@ -87,9 +113,28 @@ handleInputChange = (event, inputProperty) => {
     //     statement: ''}
     // }
     // )
+  
   }
+  deleteConfirmation = (event, art) => {
+  confirmAlert({
+    title: 'Please Confirm',
+    message: `Would you like to Delete ${art.title}?`,
+    buttons: [
+      {
+        label: 'Yes',
+        onClick: () => this.deleteArt(event, art)
+      },
+      {
+        label: 'No',
+        onClick: () => alert('Deletion Canceled')
+      }
+    ]
+  })}
 
   deleteArt = (event, art) => {
+    
+    
+  
     console.log(`Deleting ${art.title}...`);
     console.log(art);
     
@@ -118,6 +163,8 @@ handleInputChange = (event, inputProperty) => {
     // console.log(this.props)
     const art = this.props.store.art;
 
+
+
     return (
       <div>
         RS: {JSON.stringify(this.props.store)}
@@ -139,7 +186,8 @@ handleInputChange = (event, inputProperty) => {
 <h1>{art.title}</h1>
 <button onClick={(event)=>this.openEdit(event, art)}>EDIT</button>
 
-<button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button>
+{/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
+<button onClick={(event)=>this.deleteConfirmation(event, art)}>delconf</button>
 
           </li>
         ))}
@@ -212,7 +260,7 @@ handleInputChange = (event, inputProperty) => {
 
                  {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
                </form>
-               <button onClick={this.updateArt}>update!</button>
+               <button onClick={(event)=>this.updateConfirmation(this.state.artToEdit)}>update!</button>
                </Card>
                </Grid>
 
