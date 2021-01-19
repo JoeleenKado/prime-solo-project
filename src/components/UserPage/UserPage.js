@@ -6,7 +6,7 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 //styling
-import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, CardContent, withStyles} from '@material-ui/core'
+import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, CardContent, withStyles} from '@material-ui/core'
 
 
 
@@ -18,7 +18,9 @@ const styles = {
         paddingRight: '50px'
 
 
-  }
+  }, cardMedia : {
+    margin: 'auto'
+}
 }
 // const artToEdit= this.state.art
 class UserPage extends Component {
@@ -190,7 +192,8 @@ handleInputChange = (event, inputProperty) => {
             <Grid item xs={12} sm={4}
             key={art.id}>
 <Card>
-  <CardContent>
+<CardMedia className={classes.cardMedia} image={art.url} style={{width: '130px', height: '130px'}}/>
+  <CardContent >
           {/* <li key={art.id} className={'shelf'} > */}
             {/* <h2>User ID: {info.user_id}</h2> */}
             {/* <p>Description: {info.description}</p> */}
