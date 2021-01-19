@@ -20,9 +20,10 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('Is User logged in?', req.isAuthenticated());
   console.log('req.user:', req.user);
 
-  let queryText = `SELECT * FROM "art"`;
+  let queryText = `SELECT * FROM "art"
+                    WHERE "user_id" = $1;`;
   
-  pool.query(queryText).then((result) => {
+  pool.query(queryText, [req.user.id]).then((result) => {
       res.send(result.rows);
   }).catch((error) => {
       console.log(error);

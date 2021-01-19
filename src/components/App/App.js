@@ -20,12 +20,15 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Art from '../../pages/ArtDrawer/Art'
+import ArtForm from '../ArtDrawer/ArtForm'
+
 import './App.css';
 
 //styling
 import SideMenu from '../SideMenu/SideMenu';
 import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core';
 import NavBar from '../NavBar/NavBar';
+import ArtDrawer from '../ArtDrawer/ArtDrawer';
 //import {orange, brown, pink, green}from '@material-ui/core/colors'
 
 //import turquoise from '@material-ui/core/colors/turquoise';
@@ -146,7 +149,7 @@ const useStyles = makeStyles({
       <div>
 
       
-      <Art/>
+      {/* <ArtForm/> */}
       </div>
                 {/* <SideMenu/> */}
 {/* <div className={classes.appMain}>here we go</div> */}
@@ -183,6 +186,13 @@ const useStyles = makeStyles({
               exact
               path="/info"
               component={InfoPage}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/artdrawer"
+              component={ArtDrawer}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will

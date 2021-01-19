@@ -23,17 +23,17 @@ class UserPage extends Component {
     this.props.dispatch({ type: 'FETCH_ART' });
   }
 
-  state = {
-    artToEdit: {
-      id: '',
-      user_id: '',
-      title: '',
-      medium: '',
-      dimension: '',
-      url: '',
-      statement: ''
-    },
-}
+//   state = {
+//     artToEdit: {
+//       id: '',
+//       user_id: '',
+//       title: '',
+//       medium: '',
+//       dimension: '',
+//       url: '',
+//       statement: ''
+//     },
+// }
 
 handleInputChange = (event, inputProperty) => {
   console.log('Handling input-change...');
@@ -53,62 +53,101 @@ handleInputChange = (event, inputProperty) => {
             }
   // const shelfData = useSelector((state) => state.shelf);
 
-  openEdit = (event, art) => {
-    console.log(`In openEdit function...`);
-    console.log('art:', art);
-    console.log('Setting state...')
-    this.setState({
-      artToEdit : {
-        ...this.state.artToEdit,
-        id : art.id,
-        user_id : this.props.store.user.id,
-        title : art.title,
-        medium : art.medium,
-        dimension : art.dimension,
-        url : art.url,
-        statement : art.statement
-      }
-    }, function () {
-        console.log('State has been set:', this.state);
-    })
-  }
+  // openEdit = (event, art) => {
+  //   console.log(`In openEdit function...`);
+  //   console.log('art:', art);
+  //   console.log('Setting state...')
+  //   this.setState({
+  //     artToEdit : {
+  //       ...this.state.artToEdit,
+  //       id : art.id,
+  //       user_id : this.props.store.user.id,
+  //       title : art.title,
+  //       medium : art.medium,
+  //       dimension : art.dimension,
+  //       url : art.url,
+  //       statement : art.statement
+  //     }
+  //   }, function () {
+  //       console.log('State has been set:', this.state);
+  //   })
+  // }
 
-  updateConfirmation = (artToEdit) => {
+  // updateConfirmation = (artToEdit) => {
 
-    if(this.state.artToEdit.title === '') {
-      alert('A title is required for your Artwork.')
-    } else {
+  //   if(this.state.artToEdit.title === '') {
+  //     alert('A title is required for your Artwork.')
+  //   } else {
 
-    confirmAlert({
-      title: 'Please Confirm',
-      message: `Would you like to save edits made to ${artToEdit.title}?`,
-      buttons: [
-        {
-          label: 'Yes',
-          onClick: () => this.updateArt()
-        },
-        {
-          label: 'No',
-          onClick: () => alert('Edit Canceled')
-        }
-      ]
-    })
-      }
-    }
+  //   confirmAlert({
+  //     title: 'Please Confirm',
+  //     message: `Would you like to save edits made to ${artToEdit.title}?`,
+  //     buttons: [
+  //       {
+  //         label: 'Yes',
+  //         onClick: () => this.updateArt()
+  //       },
+  //       {
+  //         label: 'No',
+  //         onClick: () => alert('Edit Canceled')
+  //       }
+  //     ]
+  //   })
+  //     }
+  //   }
   
   
   
   
   
   
-  updateArt = () => {
+  // updateArt = () => {
    
-        console.log(`Saving edit(s) to Database...`);
+  //       console.log(`Saving edit(s) to Database...`);
+  //   //Clear message... should say Hello!
+  //   //console.log(`Sending ${this.state.newArt} to DB.`);
+
+  //       this.props.dispatch({ type: 'UPDATE_ART', payload: this.state.artToEdit })
+    
+  //   // this.setState({
+    
+  //   //    newArt: {title: '',
+  //   //     medium: '',
+  //   //     dimension: '',
+  //   //     url: '',
+  //   //     statement: ''}
+  //   // }
+  //   // )
+  
+  // }
+  // deleteConfirmation = (event, art) => {
+  // confirmAlert({
+  //   title: 'Please Confirm',
+  //   message: `Would you like to Delete ${art.title}?`,
+  //   buttons: [
+  //     {
+  //       label: 'Yes',
+  //       onClick: () => this.deleteArt(event, art)
+  //     },
+  //     {
+  //       label: 'No',
+  //       onClick: () => alert('Deletion Canceled')
+  //     }
+  //   ]
+  // })}
+
+  // deleteArt = (event, art) => {
+    
+    
+  
+  //   console.log(`Deleting ${art.title}...`);
+  //   console.log(art);
+    
     //Clear message... should say Hello!
     //console.log(`Sending ${this.state.newArt} to DB.`);
 
-        this.props.dispatch({ type: 'UPDATE_ART', payload: this.state.artToEdit })
-    
+    // this.props.dispatch({ type: 'DELETE_ART', payload: art.id })
+
     // this.setState({
     
     //    newArt: {title: '',
@@ -118,46 +157,7 @@ handleInputChange = (event, inputProperty) => {
     //     statement: ''}
     // }
     // )
-  
-  }
-  deleteConfirmation = (event, art) => {
-  confirmAlert({
-    title: 'Please Confirm',
-    message: `Would you like to Delete ${art.title}?`,
-    buttons: [
-      {
-        label: 'Yes',
-        onClick: () => this.deleteArt(event, art)
-      },
-      {
-        label: 'No',
-        onClick: () => alert('Deletion Canceled')
-      }
-    ]
-  })}
-
-  deleteArt = (event, art) => {
-    
-    
-  
-    console.log(`Deleting ${art.title}...`);
-    console.log(art);
-    
-    //Clear message... should say Hello!
-    //console.log(`Sending ${this.state.newArt} to DB.`);
-
-    this.props.dispatch({ type: 'DELETE_ART', payload: art.id })
-
-    // this.setState({
-    
-    //    newArt: {title: '',
-    //     medium: '',
-    //     dimension: '',
-    //     url: '',
-    //     statement: ''}
-    // }
-    // )
-  }
+ // }
 
 
 
@@ -197,81 +197,7 @@ handleInputChange = (event, inputProperty) => {
           </li>
         ))}
         </ul>
-        <Grid container>
-                               <Grid item xs={12.0}>
-
-               <Card>
-               <form>
-
-               {/* <Grid item xs={12.0}> */}
-                   <TextField
-                   variant="outlined"
-                   label="Title"
-                   name="title"
-                   className={classes.inputs}
-                   value={this.state.artToEdit.title}
-                    onChange ={ (event) => this.handleInputChange( event, 'title' ) } 
-                   />
-                {/* </Grid> */}
-
-                {/* <Grid item xs={12.0}> */}
-                   <TextField
-                   variant="outlined"
-                   label="Medium"
-                   name="medium"
-                   className={classes.inputs}
-
-                   value={this.state.artToEdit.medium}
-                onChange ={ (event) => this.handleInputChange( event, 'medium' ) } 
-
-                   />
-                {/* </Grid> */}
-
-                {/* <Grid item xs={12.0}> */}
-                   <TextField
-                   variant="outlined"
-                   label="Dimensions"
-                   name="dimension"
-                   className={classes.inputs}
-
-                   value={this.state.artToEdit.dimension}
-                onChange ={ (event) => this.handleInputChange( event, 'dimension' ) } 
-
-                   />
-
-                   <TextField
-                   variant="outlined"
-                   label="URL"
-                   name="url"
-                   className={classes.inputs}
-
-                   value={this.state.artToEdit.url}
-                onChange ={ (event) => this.handleInputChange( event, 'url' ) } 
-
-                   />
-                {/* </Grid> */}
-
-                {/* <Grid item xs={12.0}> */}
-                   <TextField
-                   variant="outlined"
-                   label="Statement"
-                   name="statement"
-                   className={classes.inputs}
-
-                   value={this.state.artToEdit.statement}
-                onChange ={ (event) => this.handleInputChange( event, 'statement' ) } 
-
-                   />
-
-                 {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
-               </form>
-               <button onClick={(event)=>this.updateConfirmation(this.state.artToEdit)}>update!</button>
-               </Card>
-               </Grid>
-
-           </Grid>
-   
-
+        
   <LogOutButton className="log-in" />
       </div>
     );
