@@ -6,13 +6,17 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 //styling
-import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, withStyles} from '@material-ui/core'
+import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, CardContent, withStyles} from '@material-ui/core'
 
 
 
 const styles = {
   inputs: {
-      width: '20%',
+      width: '50%',
+      paddingTop: '20px',
+        paddingLeft: '50px',
+        paddingRight: '50px'
+
 
   }
 }
@@ -178,11 +182,16 @@ handleInputChange = (event, inputProperty) => {
 
 
    <h3>Here is your art: {JSON.stringify(art)}</h3> 
-   <ul>
+   <Grid container
+            spacing={2}
+            className={classes.inputs}>
    {art.map((art) => (
             // <li onClick={(event)=>this.monthAlert(event)}>{month.name}</li>
-
-          <li key={art.id} className={'shelf'} >
+            <Grid item xs={12} sm={4}
+            key={art.id}>
+<Card>
+  <CardContent>
+          {/* <li key={art.id} className={'shelf'} > */}
             {/* <h2>User ID: {info.user_id}</h2> */}
             {/* <p>Description: {info.description}</p> */}
             {/* <img src={info.image_url} alt={info.description}></img> */}
@@ -193,10 +202,11 @@ handleInputChange = (event, inputProperty) => {
 
 {/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
 <button onClick={(event)=>this.deleteConfirmation(event, art)}>delconf</button>
-
-          </li>
+</CardContent>
+</Card>
+          </Grid>
         ))}
-        </ul>
+        </Grid>
         
   <LogOutButton className="log-in" />
       </div>

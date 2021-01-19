@@ -26,7 +26,7 @@ import './App.css';
 
 //styling
 import SideMenu from '../SideMenu/SideMenu';
-import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core';
+import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider, AppBar, Toolbar } from '@material-ui/core';
 import NavBar from '../NavBar/NavBar';
 import ArtDrawer from '../ArtDrawer/ArtDrawer';
 //import {orange, brown, pink, green}from '@material-ui/core/colors'
@@ -142,6 +142,11 @@ const useStyles = makeStyles({
     return (
 
       <ThemeProvider theme={theme}>
+        <AppBar position='static'>
+            <Toolbar>
+toolbar
+            </Toolbar>
+        </AppBar>
       {/* cssbaseline makes it so you dont have white space when you scroll to thre right */}
       <CssBaseline/>  
       {/* <NavBar/> */}
