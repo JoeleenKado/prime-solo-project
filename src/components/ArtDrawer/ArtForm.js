@@ -212,8 +212,8 @@ console.log('Setting state...');
                  </Grid>
                  <br/> 
 
-                {/* <Grid item xs={12.0}> */}
-                   {/* <TextField
+                 <Grid item xs={12.0}> 
+                   <TextField
                    variant="outlined"
                    label="Dimensions"
                    name="dimension"
@@ -224,12 +224,12 @@ console.log('Setting state...');
                 onChange ={ (event) => this.handleInputChange( event, 'dimension' ) } 
 
                    />
-                   <br/> */}
+                   <br/> 
 
-                {/* </Grid>  */}
+                 </Grid>  
 
-                {/* <Grid item xs={12.0}> */}
-                   {/* <TextField
+                 <Grid item xs={12.0}> 
+                    <TextField
                    variant="outlined"
                    label="URL"
                    name="url"
@@ -240,12 +240,12 @@ console.log('Setting state...');
                 onChange ={ (event) => this.handleInputChange( event, 'url' ) } 
 
                    />
-                   <br/> */}
+                   <br/> 
 
-                {/* </Grid> */}
+                 </Grid> 
 
-                {/* <Grid item xs={12.0}> */}
-                   {/* <TextField
+                 <Grid item xs={12.0}> 
+                    <TextField
                    variant="outlined"
                    label="Statement"
                    name="statement"
@@ -256,11 +256,11 @@ console.log('Setting state...');
                 onChange ={ (event) => this.handleInputChange( event, 'statement' ) } 
 
                    />
-                   <br/> */}
+                   <br/> 
 
-                {/* </Grid> */}
+                 </Grid> 
 
-               {/*  <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button> */}
+                 {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
               
 
                </form>

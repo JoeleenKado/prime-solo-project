@@ -19,7 +19,11 @@ const styles = {
 
 
   }, cardMedia : {
-    margin: 'auto'
+    margin: 'auto',
+    marginTop: '10px'
+},
+cardContent : {
+  textAlign : 'center'
 }
 }
 // const artToEdit= this.state.art
@@ -189,11 +193,12 @@ handleInputChange = (event, inputProperty) => {
             className={classes.inputs}>
    {art.map((art) => (
             // <li onClick={(event)=>this.monthAlert(event)}>{month.name}</li>
-            <Grid item xs={12} sm={4}
+            <Grid item xs={12} sm={12}
             key={art.id}>
-<Card>
+              
+<Card onClick={()=> this.props.history.push(`/${art.id}`)}>
 <CardMedia className={classes.cardMedia} image={art.url} style={{width: '130px', height: '130px'}}/>
-  <CardContent >
+  <CardContent className={classes.cardContent}>
           {/* <li key={art.id} className={'shelf'} > */}
             {/* <h2>User ID: {info.user_id}</h2> */}
             {/* <p>Description: {info.description}</p> */}
