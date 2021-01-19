@@ -44,6 +44,9 @@ const styles = {
 }
 
 const theme = createMuiTheme({
+    shape: {
+        borderRadius: '40px'
+      },
     palette: {
         primary: {
             // Purple and green play nicely together.
@@ -157,7 +160,7 @@ console.log('Setting state...');
                               
                               <Paper 
                               elevation={10}
-                              className={classes.paper}
+                              className={classes.paper} 
                               
                               
                             //   style={{  maxWidth: '100%', verticalAlign: 'middle'
@@ -258,14 +261,19 @@ console.log('Setting state...');
                 {/* </Grid> */}
 
                {/*  <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button> */}
-               <Button onClick={this.addArt}>Click Me!</Button>
+              
 
                </form>
                {/* </Card> */}
                {/* </Grid> */}
                </Paper>
-
+               
            </Grid>
+           <Button onClick={this.addArt}
+                 variant="raised"
+                //  color="purple"
+                 className={classes.paper}
+                 >Click Me!</Button>
            </ThemeProvider>
 
     )//END return
