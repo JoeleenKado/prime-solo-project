@@ -4,6 +4,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { HashRouter as Route, Link } from 'react-router-dom';
 
 //styling
 import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, CardContent, withStyles} from '@material-ui/core'
@@ -169,7 +170,12 @@ handleInputChange = (event, inputProperty) => {
     // )
  // }
 
-
+ getDetails = (event, { art }) => {
+  console.log('Gettin Details for :', art.title)
+  console.log(art.id)
+  this.props.dispatch({ type: 'FETCH_DETAILS', payload: art.id });
+  //this.props.history.push(`/${art.id}`)
+}
 
 
   render() {
@@ -195,8 +201,21 @@ handleInputChange = (event, inputProperty) => {
             // <li onClick={(event)=>this.monthAlert(event)}>{month.name}</li>
             <Grid item xs={12} sm={12}
             key={art.id}>
-              
-<Card onClick={()=> this.props.history.push(`/${art.id}`)}>
+
+<Link to="/Detail"> 
+                                {/* *-------------STEP 8--------------*
+                              click on a poster to run getDetails */}
+                                {/* <img onClick={(event) => this.getDetails(event, { movie })} src={movie.poster} alt="" /> */}
+{/* <Card onClick={()=> this.props.history.push({pathname: `/${art.id}`, state: art})}>  */}
+{/* props.history.push({ 
+ pathname: '/register',
+ state: data_you_need_to_pass
+}); */}
+<Card onClick={(event)=> this.getDetails(event, {art})}>
+
+{/* <Card> */}
+{/* <img onClick={(event) => this.getDetails(event, { movie })} src={movie.poster} alt="" /> */}
+
 <CardMedia className={classes.cardMedia} image={art.url} style={{width: '130px', height: '130px'}}/>
   <CardContent className={classes.cardContent}>
           {/* <li key={art.id} className={'shelf'} > */}
@@ -206,12 +225,14 @@ handleInputChange = (event, inputProperty) => {
             {/* <button onClick={() => dispatch({type : "DELETE_ITEM", payload : info})}>DELETE</button>  */}
             {/* left off here */}
 <h1>{art.title}</h1>
-<button onClick={(event)=>this.openEdit(event, art)}>EDIT</button>
 
 {/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
-<button onClick={(event)=>this.deleteConfirmation(event, art)}>delconf</button>
+{/* <button onClick={(event)=>this.deleteConfirmation(event, art)}>delconf</button> */}
 </CardContent>
 </Card>
+ </Link> 
+{/* <button onClick={(event)=>this.openEdit(event, art)}>EDIT</button> */}
+
           </Grid>
         ))}
         </Grid>

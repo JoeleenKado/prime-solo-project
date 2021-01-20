@@ -19,7 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import Art from '../ArtDrawer/Art'
+import Detail from '../Gallery/Detail'
 import ArtForm from '../ArtDrawer/ArtForm'
 
 import './App.css';
@@ -187,6 +187,8 @@ toolbar
             />
 
 {/* <ProtectedRoute exact path='/:artId' render={(props)=><Art{...props}/>}/> */}
+{/* <ProtectedRoute exact path='/:art' component={Art}/> */}
+<ProtectedRoute path="/detail" component={Detail} />
 
 
              <ProtectedRoute

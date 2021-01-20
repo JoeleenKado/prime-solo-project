@@ -9,7 +9,10 @@ const Art = props => {
     const {id} = params;
 
     return( 
-      <div>This is the art page for art number 2{id}</div>
+      <div>This is the art page for art number 2{id}
+              RS: {JSON.stringify(this.props.store)}
+
+      </div>
     
     )
 }
