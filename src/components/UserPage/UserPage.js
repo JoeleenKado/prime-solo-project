@@ -174,7 +174,12 @@ handleInputChange = (event, inputProperty) => {
   console.log('Gettin Details for :', art.title)
   console.log(art.id)
   this.props.dispatch({ type: 'FETCH_DETAILS', payload: art.id });
-  //this.props.history.push(`/${art.id}`)
+  this.props.history.push('/Detail')
+  this.props.history.push( {pathname: `/Detail`, state: art})
+  
+
+
+
 }
 
 
@@ -202,7 +207,7 @@ handleInputChange = (event, inputProperty) => {
             <Grid item xs={12} sm={12}
             key={art.id}>
 
-<Link to="/Detail"> 
+{/* <Link to="/Detail">  */}
                                 {/* *-------------STEP 8--------------*
                               click on a poster to run getDetails */}
                                 {/* <img onClick={(event) => this.getDetails(event, { movie })} src={movie.poster} alt="" /> */}
@@ -217,7 +222,7 @@ handleInputChange = (event, inputProperty) => {
 {/* <img onClick={(event) => this.getDetails(event, { movie })} src={movie.poster} alt="" /> */}
 
 <CardMedia className={classes.cardMedia} image={art.url} style={{width: '130px', height: '130px'}}/>
-  <CardContent className={classes.cardContent}>
+  <CardContent className={classes.cardContent} artProp={art}>
           {/* <li key={art.id} className={'shelf'} > */}
             {/* <h2>User ID: {info.user_id}</h2> */}
             {/* <p>Description: {info.description}</p> */}
@@ -230,7 +235,7 @@ handleInputChange = (event, inputProperty) => {
 {/* <button onClick={(event)=>this.deleteConfirmation(event, art)}>delconf</button> */}
 </CardContent>
 </Card>
- </Link> 
+ {/* </Link>  */}
 {/* <button onClick={(event)=>this.openEdit(event, art)}>EDIT</button> */}
 
           </Grid>
@@ -239,9 +244,9 @@ handleInputChange = (event, inputProperty) => {
         
   <LogOutButton className="log-in" />
       </div>
-    );
-  }
-}
+    );//END return
+  }//END render
+}//END UserPage
 
 // this allows us to use <App /> in index.js
 //export default connect(mapStoreToProps)(UserPage);

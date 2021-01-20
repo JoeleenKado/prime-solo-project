@@ -109,8 +109,8 @@ RETURNING "title";`//what is the 1 here
 
     router.get('/:id', rejectUnauthenticated, (req, res) => {
       // GET route code here
-      id = req.params;
-      
+      id = req.params.id;
+      console.log('req.params', req.params);
       console.log('in /api/art/:id GET route');
       console.log('Getting details for art with id:', id)
       console.log('Is User logged in?', req.isAuthenticated());
@@ -119,7 +119,7 @@ RETURNING "title";`//what is the 1 here
       let queryText = `SELECT * FROM "art"
                         WHERE "id" = $1;`;
       
-      pool.query(queryText, [req.user.id]).then((result) => {
+      pool.query(queryText, [id]).then((result) => {
           res.send(result.rows);
       }).catch((error) => {
           console.log(error);

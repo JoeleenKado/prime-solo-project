@@ -21,44 +21,88 @@ const useStyles = makeStyles ({
   }
 })
 
+const styles = {
+  inputs: {
+      width: '50%',
+      paddingTop: '20px',
+        paddingLeft: '50px',
+        paddingRight: '50px'
 
 
-const Detail = props => {
-  const classes = useStyles();
+  }, cardMedia : {
+    margin: 'auto',
+    marginTop: '10px'
+},
+cardContent : {
+  textAlign : 'center'
+}
+}
+
+class Detail extends React.Component {
+
+  render() {
+    const { classes } = this.props;
+    // console.log(this.props)
+    const art = this.props.store.art;
+    return (
+
+// const Detail = props => {
+  // const classes = useStyles();
 
   
-    const {match} = props;
-    const {params} = match;
-    const {id} = params;
-    const art = props.store.art
-    return( 
-      <div>This is the detail page for {props.store.art.title}
-                  RS: {JSON.stringify(props.store)}
-                  <Card >
+    // const {match} = props;
+    // const {params} = match;
+    // const {id} = params;
+    // const art = props.store.art
+    // return( 
+       <div>
+         {JSON.stringify(this.props.store)}
+         {/* This is the detail page for {this.props.store.art.title}
+                 RS: {JSON.stringify(this.props.store)}
+                   */}
+                  
 
 {/* <Card> */}
 {/* <img onClick={(event) => this.getDetails(event, { movie })} src={movie.poster} alt="" /> */}
 
+<Grid container
+            spacing={2}
+            className={classes.inputs}>
+
+{art.map((art) => (
+<Grid item xs={12} 
+sm={12}
+key={art.id}>
+                      
+                      
+                      <Card >
+
+                       
+
 <CardMedia className={classes.cardMedia} image={art.url} style={{width: '130px', height: '130px'}}/>
   <CardContent className={classes.cardContent}>
           {/* <li key={art.id} className={'shelf'} > */}
-            {/* <h2>User ID: {info.user_id}</h2> */}
+             <h2>{art.title} </h2> 
             {/* <p>Description: {info.description}</p> */}
             {/* <img src={info.image_url} alt={info.description}></img> */}
             {/* <button onClick={() => dispatch({type : "DELETE_ITEM", payload : info})}>DELETE</button>  */}
             {/* left off here */}
-<h1>{props.store.art.statement}</h1>
+{/* <h1>{this.props.store.art.statement}</h1> */}
 
 {/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
 {/* <button onClick={(event)=>this.deleteConfirmation(event, art)}>delconf</button> */}
 </CardContent>
 </Card>
   
+</Grid>
+
+    ))}
+</Grid>
 
       </div>
     
-    )
-}
-
+    )//END return
+}//END render
+}//END Detail
 // export default Art;
-export default connect(mapStoreToProps)(withStyles()(Detail));
+export default connect(mapStoreToProps)(withStyles(styles)(Detail));
