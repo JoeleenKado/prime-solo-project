@@ -107,3 +107,24 @@ RETURNING "title";`//what is the 1 here
       res.sendStatus(500);
     })});
 
+    router.get('/:id', rejectUnauthenticated, (req, res) => {
+      // GET route code here
+      id = req.params.id;
+      console.log('req.params', req.params);
+      console.log('in /api/art/:id GET route');
+      console.log('Getting details for art with id:', id)
+      console.log('Is User logged in?', req.isAuthenticated());
+      console.log('req.user:', req.user);
+    
+      let queryText = `SELECT * FROM "art"
+                        WHERE "id" = $1;`;
+      
+      pool.query(queryText, [id]).then((result) => {
+          res.send(result.rows);
+      }).catch((error) => {
+          console.log(error);
+          res.sendStatus(500);
+      });
+    
+    
+    });

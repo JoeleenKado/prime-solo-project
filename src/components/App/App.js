@@ -19,14 +19,14 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import Art from '../../pages/ArtDrawer/Art'
+import Detail from '../Gallery/Detail'
 import ArtForm from '../ArtDrawer/ArtForm'
 
 import './App.css';
 
 //styling
 import SideMenu from '../SideMenu/SideMenu';
-import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider } from '@material-ui/core';
+import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider, AppBar, Toolbar } from '@material-ui/core';
 import NavBar from '../NavBar/NavBar';
 import ArtDrawer from '../ArtDrawer/ArtDrawer';
 //import {orange, brown, pink, green}from '@material-ui/core/colors'
@@ -96,7 +96,7 @@ const theme = createMuiTheme({
     }
   },
   shape: {
-    borderRadius: '40px'
+    borderRadius: '20px'
   },
   overrides: {
     MuiAppBar : {
@@ -142,6 +142,11 @@ const useStyles = makeStyles({
     return (
 
       <ThemeProvider theme={theme}>
+        <AppBar position='static'>
+            <Toolbar>
+toolbar
+            </Toolbar>
+        </AppBar>
       {/* cssbaseline makes it so you dont have white space when you scroll to thre right */}
       <CssBaseline/>  
       {/* <NavBar/> */}
@@ -180,6 +185,11 @@ const useStyles = makeStyles({
               path="/user"
               component={UserPage}
             />
+
+{/* <ProtectedRoute exact path='/:artId' render={(props)=><Art{...props}/>}/> */}
+{/* <ProtectedRoute exact path='/:art' component={Art}/> */}
+<ProtectedRoute path="/detail" component={Detail} />
+
 
              <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
@@ -232,6 +242,8 @@ const useStyles = makeStyles({
           <Footer />
         </div>
       </Router>
+      {/* <CssBaseline/> */}
+
       </ThemeProvider>
     );//END return
    }

@@ -3,16 +3,23 @@ import React, {Component} from 'react'
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
 //styling
-import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, withStyles} from '@material-ui/core'
+import {AppBar, Button, Toolbar, Grid, Badge, IconButton, makeStyles, Paper, InputBase, TextField, Card, withStyles} from '@material-ui/core'
+import '../App/App.css';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+import green from '@material-ui/core/colors/green';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import purple from '@material-ui/core/colors/purple';
 
-const useStyles = makeStyles(theme =>({
-    root: {
-        '& .MuiFormControl-root': {
-            width: '80%',
-            margin: theme.spacing(1)
-        }
-    }
-}))
+
+// const useStyles = makeStyles(theme =>({
+//     root: {
+//         '& .MuiFormControl-root': {
+//             width: '80%',
+//             margin: theme.spacing(1)
+//         }
+//     }
+// }))
 
 // const initialFValues = {
 //     title: '',
@@ -24,10 +31,38 @@ const useStyles = makeStyles(theme =>({
 
 const styles = {
     inputs: {
-        width: '20%',
+        width: '',
+        paddingTop: '0px',
+        // marginTop: '20px',
+        verticalAlign: 'middle',
+        // height: '100%'
 
-    }
+    },
+    paper: {
+        backgroundColor: "purple"
+      },
+      centerText : {
+        textAlign : 'center'
+      }
 }
+
+const theme = createMuiTheme({
+    shape: {
+        borderRadius: '40px'
+      },
+    palette: {
+        primary: {
+            // Purple and green play nicely together.
+            main: purple[500],
+          },
+          background: {
+              default : '#42f59b'
+          }
+          ,
+      
+    },
+  });
+
 // export default function ArtForm() {
     class ArtForm extends Component {
 
@@ -115,25 +150,60 @@ console.log('Setting state...');
     const { classes } = this.props;
     return(
 
+        <ThemeProvider theme={theme}>
+<CssBaseline />
+           <Grid container
+           className={classes.centerText}
+           //alignItems="center"
+        spacing={2}
+        direction="column">
+        {/* // justify="center"
+//   style={{ minHeight: '100vh', maxWidth: '100%', verticalAlign: 'middle'
+// }}> */}
+                              
+                              
+                              <Paper 
+                              elevation={10}
+                              className={classes.paper} 
+                              
+                              
+                            //   style={{  maxWidth: '100%', verticalAlign: 'middle'
+                            // }}
+                            //   variant="outlined"
+                            //square
+                            > 
 
-           <Grid container>
-                               <Grid item xs={12.0}>
+                              <form
+                            //   style={{ verticalAlign: 'middle' }}
+                            >
 
-               <Card>
-               <form>
+                               {/* <Grid item 
+                                align="center"
+                            //    style={{  maxWidth: '100%', verticalAlign: 'middle', paddingTop: '10px'
+                            // }}
+                            //    className={classes.inputs}
 
-               {/* <Grid item xs={12.0}> */}
+                            //    justify="center"
+                               
+                               > */}
+
+               {/* <Card> */}
+
+               <Grid item xs={12.0} sm={12}>
+              {/* //  align="center"> */}
                    <TextField
                    variant="outlined"
                    label="Title"
                    name="title"
-                   className={classes.inputs}
+                  className={classes.inputs}
+                  
                    value={this.state.newArt.title}
                     onChange ={ (event) => this.handleInputChange( event, 'title' ) } 
                    />
-                {/* </Grid> */}
-
-                {/* <Grid item xs={12.0}> */}
+                 </Grid> 
+<br/>
+                <Grid item xs={12.0} sm={12}>
+                {/* // align="center">  */}
                    <TextField
                    variant="outlined"
                    label="Medium"
@@ -143,11 +213,11 @@ console.log('Setting state...');
 
                    value={this.state.newArt.medium}
                 onChange ={ (event) => this.handleInputChange( event, 'medium' ) } 
-
                    />
-                {/* </Grid> */}
+                 </Grid>
+                 <br/> 
 
-                {/* <Grid item xs={12.0}> */}
+                 <Grid item xs={12.0} sm={12}> 
                    <TextField
                    variant="outlined"
                    label="Dimensions"
@@ -159,10 +229,12 @@ console.log('Setting state...');
                 onChange ={ (event) => this.handleInputChange( event, 'dimension' ) } 
 
                    />
-                {/* </Grid>  */}
+                   <br/> 
 
-                {/* <Grid item xs={12.0}> */}
-                   <TextField
+                 </Grid>  
+
+                 <Grid item xs={12.0} sm={12}> 
+                    <TextField
                    variant="outlined"
                    label="URL"
                    name="url"
@@ -173,10 +245,12 @@ console.log('Setting state...');
                 onChange ={ (event) => this.handleInputChange( event, 'url' ) } 
 
                    />
-                {/* </Grid> */}
+                   <br/> 
 
-                {/* <Grid item xs={12.0}> */}
-                   <TextField
+                 </Grid> 
+
+                 <Grid item xs={12.0} sm={12}> 
+                    <TextField
                    variant="outlined"
                    label="Statement"
                    name="statement"
@@ -187,15 +261,27 @@ console.log('Setting state...');
                 onChange ={ (event) => this.handleInputChange( event, 'statement' ) } 
 
                    />
-                {/* </Grid> */}
+                   <br/> 
 
-               {/*  <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button> */}
+                 </Grid> 
+
+                 {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
+              
+
                </form>
-               <button onClick={this.addArt}>Click Me!</button>
-               </Card>
-               </Grid>
-
+               {/* </Card> */}
+               {/* </Grid> */}
+               </Paper>
+               
            </Grid>
-    )
-}}
+           <Button onClick={this.addArt}
+                 variant="raised"
+                //  color="purple"
+                 className={classes.paper}
+                 >Click Me!</Button>
+           </ThemeProvider>
+
+    )//END return
+}//END render
+}//END ArtForm
 export default connect(mapStoreToProps)(withStyles(styles)(ArtForm));

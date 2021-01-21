@@ -5,14 +5,14 @@ import { connect } from 'react-redux';
 //styling
 import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, withStyles} from '@material-ui/core'
 
-const useStyles = makeStyles(theme =>({
-    root: {
-        '& .MuiFormControl-root': {
-            width: '80%',
-            margin: theme.spacing(1)
-        }
-    }
-}))
+// const useStyles = makeStyles(theme =>({
+//     root: {
+//         '& .MuiFormControl-root': {
+//             width: '80%',
+//             margin: theme.spacing(1)
+//         }
+//     }
+// }))
 
 // const initialFValues = {
 //     title: '',
@@ -116,11 +116,15 @@ console.log('Setting state...');
     return(
 
 
-           <Grid container>
-                               <Grid item xs={12.0}>
+           <Grid container
+           >
+                               <Grid item xs={3.0}
+                               >
 
-               <Card>
-               <form>
+               {/* <Card> */}
+               <form
+               alignItems="center"
+               justify="center">
 
                {/* <Grid item xs={12.0}> */}
                    <TextField
@@ -134,7 +138,7 @@ console.log('Setting state...');
                 {/* </Grid> */}
 
                 {/* <Grid item xs={12.0}> */}
-                   <TextField
+                   {/* <TextField
                    variant="outlined"
                    label="Medium"
                    name="medium"
@@ -144,11 +148,11 @@ console.log('Setting state...');
                    value={this.state.newArt.medium}
                 onChange ={ (event) => this.handleInputChange( event, 'medium' ) } 
 
-                   />
+                   /> */}
                 {/* </Grid> */}
 
                 {/* <Grid item xs={12.0}> */}
-                   <TextField
+                   {/* <TextField
                    variant="outlined"
                    label="Dimensions"
                    name="dimension"
@@ -158,11 +162,11 @@ console.log('Setting state...');
                    value={this.state.newArt.dimension}
                 onChange ={ (event) => this.handleInputChange( event, 'dimension' ) } 
 
-                   />
+                   /> */}
                 {/* </Grid>  */}
 
                 {/* <Grid item xs={12.0}> */}
-                   <TextField
+                   {/* <TextField
                    variant="outlined"
                    label="URL"
                    name="url"
@@ -172,11 +176,11 @@ console.log('Setting state...');
                    value={this.state.newArt.url}
                 onChange ={ (event) => this.handleInputChange( event, 'url' ) } 
 
-                   />
+                   /> */}
                 {/* </Grid> */}
 
                 {/* <Grid item xs={12.0}> */}
-                   <TextField
+                   {/* <TextField
                    variant="outlined"
                    label="Statement"
                    name="statement"
@@ -184,15 +188,16 @@ console.log('Setting state...');
 
 
                    value={this.state.newArt.statement}
-                onChange ={ (event) => this.handleInputChange( event, 'statement' ) } 
+                onChange ={ (event) => this.handleInputChange( event, 'statement' ) }  */}
 
-                   />
+                   {/* /> */}
                 {/* </Grid> */}
 
                {/*  <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button> */}
-               </form>
                <button onClick={this.addArt}>Click Me!</button>
-               </Card>
+
+               </form>
+               {/* </Card> */}
                </Grid>
 
            </Grid>
