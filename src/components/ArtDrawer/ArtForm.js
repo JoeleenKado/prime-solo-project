@@ -3,15 +3,14 @@ import React, {Component} from 'react'
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
 //styling
-import {AppBar, Button, Toolbar, Grid, Badge, IconButton, makeStyles, Paper, InputBase, TextField, Card, withStyles} from '@material-ui/core'
+import {AppBar, Button, Toolbar, Grid, Badge, CardMedia, IconButton, makeStyles, Paper, InputBase, TextField, Card, withStyles} from '@material-ui/core'
 import '../App/App.css';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import green from '@material-ui/core/colors/green';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import purple from '@material-ui/core/colors/purple';
-
-
+import canvas from '../../canvas.jpg'
 // const useStyles = makeStyles(theme =>({
 //     root: {
 //         '& .MuiFormControl-root': {
@@ -38,8 +37,8 @@ const styles = {
         // height: '100%'
 
     },
-    paper: {
-        backgroundColor: "purple"
+    paper: {backgroundImage : ''
+        // backgroundColor: "purple"
       },
       centerText : {
         textAlign : 'center'
@@ -51,7 +50,8 @@ const styles = {
         justifyContent: 'center',
         backgroundColor: 'pink',
         margin: 'auto'
-      }
+      },
+      thumbnail: "require('../../src/canvas.jpg')"
 }
 
 const theme = createMuiTheme({
@@ -170,16 +170,20 @@ console.log('Setting state...');
 // }}> */}
                               
                               
-                              <Paper 
+                              <Card 
                               elevation={10}
                               className={classes.paper} 
-                              
+                              // backgroundImage={canvas}
                               
                             //   style={{  maxWidth: '100%', verticalAlign: 'middle'
                             // }}
                             //   variant="outlined"
                             //square
                             > 
+
+
+<CardMedia  className={classes.marginAuto} image={canvas} style={{width: '130px', height: '130px'}}/>
+
 
                               <form
                             //   style={{ verticalAlign: 'middle' }}
@@ -279,7 +283,7 @@ console.log('Setting state...');
                </form>
                {/* </Card> */}
                {/* </Grid> */}
-               </Paper>
+               </Card>
                
            </Grid>
            <br/>
