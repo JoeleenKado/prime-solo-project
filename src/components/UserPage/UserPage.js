@@ -8,11 +8,16 @@ import { HashRouter as Route, Link } from 'react-router-dom';
 
 //styling
 import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, centerText, withStyles} from '@material-ui/core'
-
+import { sizing } from '@material-ui/system';
 
 
 const styles = {
   inputs: {
+    pokedexContainer: {
+      paddingTop: '20px',
+      paddingLeft: '50px',
+      paddingRight: '50px'
+    },
       width: '50%',
       paddingTop: '20px',
         paddingLeft: '50px',
@@ -20,12 +25,15 @@ const styles = {
 
 
   }, cardMedia : {
-    margin: 'auto',
-    marginTop: '10px'
+    margin: '0px',
+    marginTop: '0px',
+   
+    
 },
 centerText : {
   textAlign : 'center'
 }
+
 }
 // const artToEdit= this.state.art
 class UserPage extends Component {
@@ -120,27 +128,28 @@ handleInputChange = (event, inputProperty) => {
         <p>Your ID is: {this.props.store.user.id}</p>
 
 
-   <h3>Here is your art: {JSON.stringify(art)}</h3> 
+   {/* <h3>Here is your art: {JSON.stringify(art)}</h3>  */}
    <Grid container
-            spacing={2}
-            className={classes.inputs}>
+            spacing={8}
+            className={classes.pokedexContainer}>
+            {/* // className={classes.inputs}> */}
+              
    {art.map((art) => (
             <Grid item xs={12} sm={4}
             key={art.id}>
 
 
-<Card onClick={(event)=> this.getDetails(event, {art})}>
+<Card  onClick={(event)=> this.getDetails(event, {art})}>
 {/*className={classes.centerText} */}
 {/* <Card> */}
 {/* <img onClick={(event) => this.getDetails(event, { movie })} src={movie.poster} alt="" /> */}
-<CardMedia image={art.url} style={{width: '130px', height: '130px'}}/>
+<CardMedia  image={art.url} style={{width: '130px', height: '130px'}}/>
   {/* <centerText className={classes.centerText} artProp={art}> */}
           {/* <li key={art.id} className={'shelf'} > */}
             {/* <h2>User ID: {info.user_id}</h2> */}
             {/* <p>Description: {info.description}</p> */}
             {/* <img src={info.image_url} alt={info.description}></img> */}
             {/* <button onClick={() => dispatch({type : "DELETE_ITEM", payload : info})}>DELETE</button>  */}
-<h1>{art.title}</h1>
 
 {/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
 {/* <button onClick={(event)=>this.deleteConfirmation(event, art)}>delconf</button> */}
@@ -149,6 +158,7 @@ handleInputChange = (event, inputProperty) => {
  {/* </Link>  */}
 {/* <button onClick={(event)=>this.openEdit(event, art)}>EDIT</button> */}
 {/* <h1>{art.title}</h1> */}
+<h1 className={classes.centerText}>{art.title}</h1>
 
           </Grid>
 
@@ -169,8 +179,8 @@ handleInputChange = (event, inputProperty) => {
 
 {/* <Card onClick={(event)=> this.getDetails(event, {art})}> */}
 {/* <CardMedia image={art.url} style={{width: '130px', height: '130px'}}/> */}
-  
-<h1 className={classes.centerText}>{art.title}</h1>
+
+{/* <h1 className={classes.centerText}>{art.title}</h1> */}
 
 
 {/* </Card> */}
