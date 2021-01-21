@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 //import './App.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
-import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, CardContent, withStyles} from '@material-ui/core'
+import {AppBar, Toolbar, Grid, Badge, Paper, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, CardContent, withStyles} from '@material-ui/core'
 
 
 const useStyles = makeStyles ({
@@ -82,7 +82,7 @@ key={art.id}>
 <CardMedia className={classes.cardMedia} image={art.url} style={{width: '130px', height: '130px'}}/>
   <CardContent className={classes.cardContent}>
           {/* <li key={art.id} className={'shelf'} > */}
-             <h2>{art.title} </h2> 
+             {/* <h2>{art.title} </h2>  */}
             {/* <p>Description: {info.description}</p> */}
             {/* <img src={info.image_url} alt={info.description}></img> */}
             {/* <button onClick={() => dispatch({type : "DELETE_ITEM", payload : info})}>DELETE</button>  */}
@@ -97,6 +97,45 @@ key={art.id}>
 </Grid>
 
     ))}
+
+
+
+{art.map((art) => (
+<Grid item xs={12} 
+sm={12}
+key={art.id}>
+                      
+                      
+                      <Paper>
+
+                       
+
+{/* <CardMedia className={classes.cardMedia} image={art.url} style={{width: '130px', height: '130px'}}/> */}
+  <CardContent className={classes.cardContent}>
+          {/* <li key={art.id} className={'shelf'} > */}
+             <h2>{art.title} </h2> 
+             <h2>{art.medium} </h2> 
+             <h2>{art.dimension} </h2> 
+             <h2>{art.statement} </h2> 
+
+
+
+</CardContent>
+</Paper>
+  
+</Grid>
+
+    ))}
+
+
+
+
+
+
+
+
+
+
 </Grid>
 
       </div>
