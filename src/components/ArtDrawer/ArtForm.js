@@ -43,6 +43,14 @@ const styles = {
       },
       centerText : {
         textAlign : 'center'
+      }, alignAndJustify: {
+        width: 500,
+        height: 70,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'pink',
+        margin: 'auto'
       }
 }
 
@@ -274,10 +282,17 @@ console.log('Setting state...');
                </Paper>
                
            </Grid>
-           <Button onClick={this.addArt}
-                 variant="raised"
+           <br/>
+           <Button elevation={10}
+          //  Box display="flex" flexDirection="column"
+          //  textAlign='center'
+          //  display='flex'
+          //  justifyContent='center'
+          //  justify="center"
+           onClick={this.addArt}
+                //  variant="raised"
                 //  color="purple"
-                 className={classes.paper}
+                 className={classes.alignAndJustify}
                  >Click Me!</Button>
            </ThemeProvider>
 

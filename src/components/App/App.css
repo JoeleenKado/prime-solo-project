@@ -3,3 +3,8 @@ Button {
 }
 
 /* Form {} */
+
+.image {
+    height: 200px;
+    width: 200px;
+  }

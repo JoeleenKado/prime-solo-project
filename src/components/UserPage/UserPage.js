@@ -5,28 +5,29 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { HashRouter as Route, Link } from 'react-router-dom';
+import '../App/App.css';
 
 //styling
 import {AppBar, CssBaseline, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, centerText, withStyles, ThemeProvider, createMuiTheme} from '@material-ui/core'
 import { sizing } from '@material-ui/system';
 
 
-const theme = createMuiTheme({
-  shape: {
-      borderRadius: '40px'
-    },
-  palette: {
-      primary: {
-          // Purple and green play nicely together.
-          main: '#6f458a',
-        },
-        background: {
-            default : '#42f59b'
-        }
-        ,
+// const theme = createMuiTheme({
+//   shape: {
+//       borderRadius: '40px'
+//     },
+//   palette: {
+//       primary: {
+//           // Purple and green play nicely together.
+//           main: '#6f458a',
+//         },
+//         background: {
+//             default : '#42f59b'
+//         }
+//         ,
     
-  },
-});
+//   },
+// });
 
 
 
@@ -169,7 +170,7 @@ handleInputChange = (event, inputProperty) => {
 {/*className={classes.centerText} */}
 {/* <Card> */}
 {/* <img onClick={(event) => this.getDetails(event, { movie })} src={movie.poster} alt="" /> */}
-<CardMedia  className={classes.marginAuto} image={art.url} style={{width: '130px', height: '130px'}}/>
+<CardMedia  className={classes.marginAuto}  image={art.url} style={{width: '130px', height: '130px'}}/>
   {/* <centerText className={classes.centerText} artProp={art}> */}
           {/* <li key={art.id} className={'shelf'} > */}
             {/* <h2>User ID: {info.user_id}</h2> */}
