@@ -7,8 +7,27 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { HashRouter as Route, Link } from 'react-router-dom';
 
 //styling
-import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, centerText, withStyles} from '@material-ui/core'
+import {AppBar, CssBaseline, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, centerText, withStyles, ThemeProvider, createMuiTheme} from '@material-ui/core'
 import { sizing } from '@material-ui/system';
+
+
+const theme = createMuiTheme({
+  shape: {
+      borderRadius: '40px'
+    },
+  palette: {
+      primary: {
+          // Purple and green play nicely together.
+          main: '#6f458a',
+        },
+        background: {
+            default : '#42f59b'
+        }
+        ,
+    
+  },
+});
+
 
 
 const styles = {
@@ -33,7 +52,10 @@ marginAuto :{ margin: 'auto'
 },
 centerText : {
   textAlign : 'center'
-}
+},
+cardBackground: {
+  backgroundColor: "orange"
+},
 
 }
 // const artToEdit= this.state.art
@@ -123,6 +145,9 @@ handleInputChange = (event, inputProperty) => {
 
 
     return (
+      // <ThemeProvider theme={theme}>
+      // <CssBaseline />
+      
       <div>
         RS: {JSON.stringify(this.props.store)}
         <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1>
@@ -140,7 +165,7 @@ handleInputChange = (event, inputProperty) => {
             key={art.id}>
 
 
-<Card  onClick={(event)=> this.getDetails(event, {art})}>
+<Card className={classes.cardBackground} onClick={(event)=> this.getDetails(event, {art})}>
 {/*className={classes.centerText} */}
 {/* <Card> */}
 {/* <img onClick={(event) => this.getDetails(event, { movie })} src={movie.poster} alt="" /> */}

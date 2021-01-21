@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 //import './App.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
-import {AppBar, Toolbar, Grid, Badge, Paper, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, CardContent, withStyles} from '@material-ui/core'
+import {AppBar, Toolbar, Grid, createMuiTheme, Badge, Paper, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, CardContent, withStyles} from '@material-ui/core'
 
 
 const useStyles = makeStyles ({
@@ -20,6 +20,23 @@ const useStyles = makeStyles ({
       textAlign : 'center'
   }
 })
+
+const theme = createMuiTheme({
+  shape: {
+      borderRadius: '40px'
+    },
+  palette: {
+      primary: {
+          // Purple and green play nicely together.
+          main: '#6f458a',
+        },
+        background: {
+            default : '#42f59b'
+        }
+        ,
+    
+  },
+});
 
 const styles = {
   inputs: {
