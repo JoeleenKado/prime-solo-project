@@ -51,7 +51,10 @@ const styles = {
         backgroundColor: 'pink',
         margin: 'auto'
       },
-      thumbnail: "require('../../src/canvas.jpg')"
+      thumbnail: "require('../../src/canvas.jpg')",
+      media : {
+        height: '0'
+      }
 }
 
 const theme = createMuiTheme({
@@ -182,7 +185,7 @@ console.log('Setting state...');
                             > 
 
 
-<CardMedia  className={classes.marginAuto} image={canvas} style={{width: '130px', height: '130px'}}/>
+<CardMedia  className={classes.marginAuto, classes.media} image={canvas} style={{width: '130px', height: '130px'}}/>
 
 
                               <form
