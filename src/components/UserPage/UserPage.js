@@ -21,8 +21,9 @@ const styles = {
       width: '50%',
       paddingTop: '20px',
         paddingLeft: '50px',
-        paddingRight: '50px'
-
+        paddingRight: '50px'},
+        
+marginAuto :{ margin: 'auto'
 
   }, cardMedia : {
     margin: '0px',
@@ -143,7 +144,7 @@ handleInputChange = (event, inputProperty) => {
 {/*className={classes.centerText} */}
 {/* <Card> */}
 {/* <img onClick={(event) => this.getDetails(event, { movie })} src={movie.poster} alt="" /> */}
-<CardMedia  image={art.url} style={{width: '130px', height: '130px'}}/>
+<CardMedia  className={classes.marginAuto} image={art.url} style={{width: '130px', height: '130px'}}/>
   {/* <centerText className={classes.centerText} artProp={art}> */}
           {/* <li key={art.id} className={'shelf'} > */}
             {/* <h2>User ID: {info.user_id}</h2> */}
