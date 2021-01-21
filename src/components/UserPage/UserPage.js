@@ -7,7 +7,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { HashRouter as Route, Link } from 'react-router-dom';
 
 //styling
-import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, CardContent, withStyles} from '@material-ui/core'
+import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, centerText, withStyles} from '@material-ui/core'
 
 
 
@@ -23,7 +23,7 @@ const styles = {
     margin: 'auto',
     marginTop: '10px'
 },
-cardContent : {
+centerText : {
   textAlign : 'center'
 }
 }
@@ -84,92 +84,14 @@ handleInputChange = (event, inputProperty) => {
   //   })
   // }
 
-  // updateConfirmation = (artToEdit) => {
+  
 
-  //   if(this.state.artToEdit.title === '') {
-  //     alert('A title is required for your Artwork.')
-  //   } else {
-
-  //   confirmAlert({
-  //     title: 'Please Confirm',
-  //     message: `Would you like to save edits made to ${artToEdit.title}?`,
-  //     buttons: [
-  //       {
-  //         label: 'Yes',
-  //         onClick: () => this.updateArt()
-  //       },
-  //       {
-  //         label: 'No',
-  //         onClick: () => alert('Edit Canceled')
-  //       }
-  //     ]
-  //   })
-  //     }
-  //   }
   
-  
-  
-  
-  
-  
-  // updateArt = () => {
-   
-  //       console.log(`Saving edit(s) to Database...`);
-  //   //Clear message... should say Hello!
-  //   //console.log(`Sending ${this.state.newArt} to DB.`);
-
-  //       this.props.dispatch({ type: 'UPDATE_ART', payload: this.state.artToEdit })
-    
-  //   // this.setState({
-    
-  //   //    newArt: {title: '',
-  //   //     medium: '',
-  //   //     dimension: '',
-  //   //     url: '',
-  //   //     statement: ''}
-  //   // }
-  //   // )
-  
-  // }
-  // deleteConfirmation = (event, art) => {
-  // confirmAlert({
-  //   title: 'Please Confirm',
-  //   message: `Would you like to Delete ${art.title}?`,
-  //   buttons: [
-  //     {
-  //       label: 'Yes',
-  //       onClick: () => this.deleteArt(event, art)
-  //     },
-  //     {
-  //       label: 'No',
-  //       onClick: () => alert('Deletion Canceled')
-  //     }
-  //   ]
-  // })}
-
-  // deleteArt = (event, art) => {
-    
-    
-  
-  //   console.log(`Deleting ${art.title}...`);
-  //   console.log(art);
     
     //Clear message... should say Hello!
     //console.log(`Sending ${this.state.newArt} to DB.`);
 
-    // this.props.dispatch({ type: 'DELETE_ART', payload: art.id })
-
-    // this.setState({
     
-    //    newArt: {title: '',
-    //     medium: '',
-    //     dimension: '',
-    //     url: '',
-    //     statement: ''}
-    // }
-    // )
- // }
-
  getDetails = (event, { art }) => {
   console.log('Gettin Details for :', art.title)
   console.log(art.id)
@@ -203,43 +125,71 @@ handleInputChange = (event, inputProperty) => {
             spacing={2}
             className={classes.inputs}>
    {art.map((art) => (
-            // <li onClick={(event)=>this.monthAlert(event)}>{month.name}</li>
-            <Grid item xs={12} sm={12}
+            <Grid item xs={12} sm={4}
             key={art.id}>
 
-{/* <Link to="/Detail">  */}
-                                {/* *-------------STEP 8--------------*
-                              click on a poster to run getDetails */}
-                                {/* <img onClick={(event) => this.getDetails(event, { movie })} src={movie.poster} alt="" /> */}
-{/* <Card onClick={()=> this.props.history.push({pathname: `/${art.id}`, state: art})}>  */}
-{/* props.history.push({ 
- pathname: '/register',
- state: data_you_need_to_pass
-}); */}
-<Card onClick={(event)=> this.getDetails(event, {art})}>
 
+<Card onClick={(event)=> this.getDetails(event, {art})}>
+{/*className={classes.centerText} */}
 {/* <Card> */}
 {/* <img onClick={(event) => this.getDetails(event, { movie })} src={movie.poster} alt="" /> */}
-
-<CardMedia className={classes.cardMedia} image={art.url} style={{width: '130px', height: '130px'}}/>
-  <CardContent className={classes.cardContent} artProp={art}>
+<CardMedia image={art.url} style={{width: '130px', height: '130px'}}/>
+  {/* <centerText className={classes.centerText} artProp={art}> */}
           {/* <li key={art.id} className={'shelf'} > */}
             {/* <h2>User ID: {info.user_id}</h2> */}
             {/* <p>Description: {info.description}</p> */}
             {/* <img src={info.image_url} alt={info.description}></img> */}
             {/* <button onClick={() => dispatch({type : "DELETE_ITEM", payload : info})}>DELETE</button>  */}
-            {/* left off here */}
 <h1>{art.title}</h1>
 
 {/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
 {/* <button onClick={(event)=>this.deleteConfirmation(event, art)}>delconf</button> */}
-</CardContent>
+{/* </centerText> */}
 </Card>
  {/* </Link>  */}
 {/* <button onClick={(event)=>this.openEdit(event, art)}>EDIT</button> */}
+{/* <h1>{art.title}</h1> */}
 
           </Grid>
+
+
+
         ))}
+
+{/*  */}
+
+
+
+
+
+{art.map((art) => (
+            <Grid item xs={12} sm={4}
+            key={art.id}>
+
+
+{/* <Card onClick={(event)=> this.getDetails(event, {art})}> */}
+{/* <CardMedia image={art.url} style={{width: '130px', height: '130px'}}/> */}
+  
+<h1 className={classes.centerText}>{art.title}</h1>
+
+
+{/* </Card> */}
+
+          </Grid>
+
+
+
+        ))}
+
+
+
+
+
+
+
+{/*  */}
+
+
         </Grid>
         
   <LogOutButton className="log-in" />

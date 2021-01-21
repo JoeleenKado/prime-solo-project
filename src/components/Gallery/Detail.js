@@ -70,7 +70,7 @@ class Detail extends React.Component {
             className={classes.inputs}>
 
 {art.map((art) => (
-<Grid item xs={12} 
+<Grid item xs={12} sm={4} 
 sm={12}
 key={art.id}>
                       
@@ -101,7 +101,7 @@ key={art.id}>
 
 
 {art.map((art) => (
-<Grid item xs={12} 
+<Grid item xs={12} sm={4}
 sm={12}
 key={art.id}>
                       
