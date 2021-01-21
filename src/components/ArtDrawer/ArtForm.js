@@ -31,7 +31,7 @@ import purple from '@material-ui/core/colors/purple';
 
 const styles = {
     inputs: {
-        width: '20%',
+        width: '',
         paddingTop: '0px',
         // marginTop: '20px',
         verticalAlign: 'middle',
@@ -40,6 +40,9 @@ const styles = {
     },
     paper: {
         backgroundColor: "purple"
+      },
+      centerText : {
+        textAlign : 'center'
       }
 }
 
@@ -150,12 +153,13 @@ console.log('Setting state...');
         <ThemeProvider theme={theme}>
 <CssBaseline />
            <Grid container
+           className={classes.centerText}
            //alignItems="center"
-        spacing={24}
-        direction="column"
-        // justify="center"
-  style={{ minHeight: '100vh', maxWidth: '100%', verticalAlign: 'middle'
-}}>
+        spacing={2}
+        direction="column">
+        {/* // justify="center"
+//   style={{ minHeight: '100vh', maxWidth: '100%', verticalAlign: 'middle'
+// }}> */}
                               
                               
                               <Paper 
@@ -173,19 +177,20 @@ console.log('Setting state...');
                             //   style={{ verticalAlign: 'middle' }}
                             >
 
-                               <Grid item 
-                               xs={12} align="center"
+                               {/* <Grid item 
+                                align="center"
                             //    style={{  maxWidth: '100%', verticalAlign: 'middle', paddingTop: '10px'
                             // }}
                             //    className={classes.inputs}
 
                             //    justify="center"
                                
-                               >
+                               > */}
 
                {/* <Card> */}
 
-               {/* <Grid item xs={12.0}> */}
+               <Grid item xs={12.0} sm={12}>
+              {/* //  align="center"> */}
                    <TextField
                    variant="outlined"
                    label="Title"
@@ -197,8 +202,8 @@ console.log('Setting state...');
                    />
                  </Grid> 
 <br/>
-                <Grid item xs={12.0}
-                align="center"> 
+                <Grid item xs={12.0} sm={12}>
+                {/* // align="center">  */}
                    <TextField
                    variant="outlined"
                    label="Medium"
@@ -212,7 +217,7 @@ console.log('Setting state...');
                  </Grid>
                  <br/> 
 
-                 <Grid item xs={12.0}> 
+                 <Grid item xs={12.0} sm={12}> 
                    <TextField
                    variant="outlined"
                    label="Dimensions"
@@ -228,7 +233,7 @@ console.log('Setting state...');
 
                  </Grid>  
 
-                 <Grid item xs={12.0}> 
+                 <Grid item xs={12.0} sm={12}> 
                     <TextField
                    variant="outlined"
                    label="URL"
@@ -244,7 +249,7 @@ console.log('Setting state...');
 
                  </Grid> 
 
-                 <Grid item xs={12.0}> 
+                 <Grid item xs={12.0} sm={12}> 
                     <TextField
                    variant="outlined"
                    label="Statement"
