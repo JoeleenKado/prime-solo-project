@@ -68,12 +68,50 @@ const styles = {
 }
 
 class EditForm extends React.Component {
+
+
+
+
+
+  
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_ART' });
   }
 
+  constructor() {
+    super();
+    this.state = {
+      show: false,
+      artToEdit: {
+        id: '',
+        user_id: '',
+        title: '',
+        medium: '',
+        dimension: '',
+        url: '',
+        statement: ''
+      },
+    };
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
+  }
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
+
+
+
+
+
+
+
   state = {
-    open: true,
+    // open: true,
     artToEdit: {
       id: '',
       user_id: '',
@@ -179,6 +217,9 @@ class EditForm extends React.Component {
 
     return (
       <div>
+         <button type="button" onClick={this.showModal}>
+          Open
+        </button>
         <Grid container spacing={8}>
           {art.map((art) => (
             // <li onClick={(event)=>this.monthAlert(event)}>{month.name}</li>
