@@ -3,15 +3,14 @@ import React, {Component} from 'react'
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
 //styling
-import {AppBar, Button, Toolbar, Grid, Badge, IconButton, makeStyles, Paper, InputBase, TextField, Card, withStyles} from '@material-ui/core'
+import {AppBar, Button, Toolbar, Grid, Badge, CardMedia, IconButton, makeStyles, Paper, InputBase, TextField, Card, withStyles} from '@material-ui/core'
 import '../App/App.css';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import green from '@material-ui/core/colors/green';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import purple from '@material-ui/core/colors/purple';
-
-
+import canvas from '../../canvas.jpg'
 // const useStyles = makeStyles(theme =>({
 //     root: {
 //         '& .MuiFormControl-root': {
@@ -38,11 +37,31 @@ const styles = {
         // height: '100%'
 
     },
-    paper: {
-        backgroundColor: "purple"
+    paper: 
+        { backgroundColor: "",
+        width: '35vw',
+        height: 'auto',
+        margin: 'auto',
+        textAlign: 'center',
+        marginTop: '0px',
+        paddingTop: '10px'
+        
+
       },
       centerText : {
         textAlign : 'center'
+      }, alignAndJustify: {
+        width: 500,
+        height: 70,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'orange',
+        margin: 'auto'
+      },
+      thumbnail: "require('../../src/canvas.jpg')",
+      media : {
+        height: '0'
       }
 }
 
@@ -110,6 +129,16 @@ console.log('Setting state...');
             //console.log(`Sending ${this.state.newArt} to DB.`);
 
                  this.props.dispatch({ type: 'ADD_ART', payload: this.state.newArt })
+                 this.setState({
+                  newArt: {
+                    user_id: '',
+                    title: '',
+                    medium: '',
+                    dimension: '',
+                    url: '',
+                    statement: ''
+                  },
+                 })
             }
             // this.setState({
             
@@ -153,7 +182,7 @@ console.log('Setting state...');
         <ThemeProvider theme={theme}>
 <CssBaseline />
            <Grid container
-           className={classes.centerText}
+           className={classes.paper}
            //alignItems="center"
         spacing={2}
         direction="column">
@@ -162,16 +191,20 @@ console.log('Setting state...');
 // }}> */}
                               
                               
-                              <Paper 
+                              <Card 
                               elevation={10}
                               className={classes.paper} 
-                              
+                              // backgroundImage={canvas}
                               
                             //   style={{  maxWidth: '100%', verticalAlign: 'middle'
                             // }}
                             //   variant="outlined"
                             //square
                             > 
+
+
+{/* <CardMedia  className={classes.marginAuto, classes.media} style={{width: '130px', height: '130px'}}/> */}
+
 
                               <form
                             //   style={{ verticalAlign: 'middle' }}
@@ -229,9 +262,9 @@ console.log('Setting state...');
                 onChange ={ (event) => this.handleInputChange( event, 'dimension' ) } 
 
                    />
-                   <br/> 
 
                  </Grid>  
+                 <br/> 
 
                  <Grid item xs={12.0} sm={12}> 
                     <TextField
@@ -239,15 +272,13 @@ console.log('Setting state...');
                    label="URL"
                    name="url"
                    className={classes.inputs}
-
-
                    value={this.state.newArt.url}
                 onChange ={ (event) => this.handleInputChange( event, 'url' ) } 
 
                    />
-                   <br/> 
 
                  </Grid> 
+                 <br/> 
 
                  <Grid item xs={12.0} sm={12}> 
                     <TextField
@@ -255,30 +286,60 @@ console.log('Setting state...');
                    label="Statement"
                    name="statement"
                    className={classes.inputs}
-
-
+                  //  style={{width: '130px', height: '130px', marginBottom: '50px'}}
                    value={this.state.newArt.statement}
                 onChange ={ (event) => this.handleInputChange( event, 'statement' ) } 
 
+                
+
                    />
-                   <br/> 
+
+
+
 
                  </Grid> 
 
+                 {/* <br/>  */}
+
+ {/*
+                 <Grid item xs={12.0} sm={12}> 
+
+
+                 <TextField
+          id="standard-multiline-flexible"
+          label="Multiline"
+          // multiline
+          multiLine={true}
+  rows={2}
+          rowsMax={4}
+          value={'statementtwo'}
+          onChange={this.handleInputChange}
+        /> */}
+                 
+
                  {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
-              
+                 {/* </Grid>  */}
+
+                 <br/> 
 
                </form>
                {/* </Card> */}
                {/* </Grid> */}
-               </Paper>
+               </Card>
                
            </Grid>
-           <Button onClick={this.addArt}
-                 variant="raised"
+           <br/>
+           <Button elevation={10}
+          //  Box display="flex" flexDirection="column"
+          //  textAlign='center'
+          //  display='flex'
+          //  justifyContent='center'
+          //  justify="center"
+           onClick={this.addArt}
+                //  variant="raised"
                 //  color="purple"
-                 className={classes.paper}
-                 >Click Me!</Button>
+                 className={classes.alignAndJustify}
+                 >SUBMIT TO GALLERY!</Button>
            </ThemeProvider>
 
     )//END return

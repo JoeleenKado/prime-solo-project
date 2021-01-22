@@ -3,3 +3,12 @@ Button {
 }
 
 /* Form {} */
+
+.image {
+    height: 200px;
+    width: 200px;
+  }
+
+.center {
+    text-align: center;
+}

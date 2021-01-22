@@ -19,7 +19,7 @@ const Nav = (props) => {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
+        {/* <h2 className="nav-title">Prime Solo Project</h2> */}
       </Link>
       <div className="nav-right">
         <Link className="nav-link" to={loginLinkData.path}>
@@ -34,16 +34,16 @@ const Nav = (props) => {
           <Link className="nav-link" to="/artdrawer">
               Art Drawer
             </Link>
-            <Link className="nav-link" to="/info">
+            {/* <Link className="nav-link" to="/info">
               info
-            </Link>
+            </Link> */}
             <LogOutButton className="nav-link" />
           </>
         )}
         {/* Always show this link since the about page is not protected */}
-        <Link className="nav-link" to="/about">
+        {/* <Link className="nav-link" to="/about">
           About
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
