@@ -41,7 +41,10 @@ const styles = {
         { backgroundColor: "purple",
         width: '35vw',
         height: '40vw',
-        margin: 'auto'
+        margin: 'auto',
+        textAlign: 'center',
+        
+
       },
       centerText : {
         textAlign : 'center'
@@ -167,7 +170,7 @@ console.log('Setting state...');
         <ThemeProvider theme={theme}>
 <CssBaseline />
            <Grid container
-           className={classes.centerText}
+           className={classes.paper}
            //alignItems="center"
         spacing={2}
         direction="column">
@@ -188,7 +191,7 @@ console.log('Setting state...');
                             > 
 
 
-<CardMedia  className={classes.marginAuto, classes.media} image={canvas} style={{width: '130px', height: '130px'}}/>
+{/* <CardMedia  className={classes.marginAuto, classes.media} style={{width: '130px', height: '130px'}}/> */}
 
 
                               <form
@@ -247,9 +250,9 @@ console.log('Setting state...');
                 onChange ={ (event) => this.handleInputChange( event, 'dimension' ) } 
 
                    />
-                   <br/> 
 
                  </Grid>  
+                 <br/> 
 
                  <Grid item xs={12.0} sm={12}> 
                     <TextField
@@ -257,15 +260,13 @@ console.log('Setting state...');
                    label="URL"
                    name="url"
                    className={classes.inputs}
-
-
                    value={this.state.newArt.url}
                 onChange ={ (event) => this.handleInputChange( event, 'url' ) } 
 
                    />
-                   <br/> 
 
                  </Grid> 
+                 <br/> 
 
                  <Grid item xs={12.0} sm={12}> 
                     <TextField
@@ -273,18 +274,41 @@ console.log('Setting state...');
                    label="Statement"
                    name="statement"
                    className={classes.inputs}
-
-
+                  //  style={{width: '130px', height: '130px', marginBottom: '50px'}}
                    value={this.state.newArt.statement}
                 onChange ={ (event) => this.handleInputChange( event, 'statement' ) } 
 
+                
+
                    />
-                   <br/> 
+
+
+
 
                  </Grid> 
 
+                 <br/> 
+
+
+                 <Grid item xs={12.0} sm={12}> 
+
+
+                 <TextField
+          id="standard-multiline-flexible"
+          label="Multiline"
+          // multiline
+          multiLine={true}
+  rows={2}
+          rowsMax={4}
+          value={'statementtwo'}
+          onChange={this.handleInputChange}
+        />
+                 
+
                  {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
-              
+                 </Grid> 
+
+                 <br/> 
 
                </form>
                {/* </Card> */}

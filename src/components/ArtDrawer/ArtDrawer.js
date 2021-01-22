@@ -177,7 +177,7 @@ class ArtDrawer extends Component {
         RS: {JSON.stringify(this.props.store)}
         <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1>
         <p>Your ID is: {this.props.store.user.id}</p>
-        <h3>Here is your art: {JSON.stringify(art)}</h3> 
+        {/* <h3>Here is your art: {JSON.stringify(art)}</h3>  */}
 
         <h3>SUBMIT ART TO GALLERY</h3>
         <ArtForm/>
