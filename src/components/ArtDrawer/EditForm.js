@@ -52,8 +52,15 @@ const styles = {
     root: {
       width: '100%',
     maxWidth: 360,
-    backgroundColor: theme.palette.background
+    backgroundColor: theme.palette.background,
+    margin: 'auto'
     },
+    centerText: {
+      textAlign: 'center'
+    },
+    marginAuto :
+    {margin: 'auto'},
+  
     nested: {
       paddingLeft: theme.spacing.unit * 4
     },
@@ -236,7 +243,7 @@ class EditForm extends React.Component {
 
 
 <Card className={classes.root} key={art.id}>
-<CardHeader
+<CardHeader className={classes.centerText}
        
         // action={
         //   <IconButton aria-label="settings">
@@ -304,7 +311,7 @@ class EditForm extends React.Component {
 <Button onClick={(event)=>this.openEdit(event, art)}>EDIT</Button>
 
 {/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
-<Button color='secondary' onClick={(event)=>this.deleteConfirmation(event, art)}>DELETE</Button>
+<Button onClick={(event)=>this.deleteConfirmation(event, art)}>DELETE</Button>
 </CardActions>
 <Collapse timeout="auto" unmountOnExit>
   

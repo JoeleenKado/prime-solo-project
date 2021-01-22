@@ -143,9 +143,9 @@ const useStyles = makeStyles({
 
       <ThemeProvider theme={theme}>
         <AppBar position='static'>
-            <Toolbar>
+            {/* <Toolbar>
 toolbar
-            </Toolbar>
+            </Toolbar> */}
         </AppBar>
       {/* cssbaseline makes it so you dont have white space when you scroll to thre right */}
       <CssBaseline/>  
@@ -158,7 +158,7 @@ toolbar
       </div>
                 {/* <SideMenu/> */}
 {/* <div className={classes.appMain}>here we go</div> */}
-<div>here we go</div>
+<h1 className="center">Virtual Gallery</h1>
 
       <Router>
         <div>
@@ -242,7 +242,7 @@ toolbar
           <Footer />
         </div>
       </Router>
-      {/* <CssBaseline/> */}
+      <CssBaseline/>
 
       </ThemeProvider>
     );//END return

@@ -150,7 +150,7 @@ handleInputChange = (event, inputProperty) => {
       // <CssBaseline />
       
       <div>
-        RS: {JSON.stringify(this.props.store)}
+        {/* RS: {JSON.stringify(this.props.store)} */}
         <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1>
         <p>Your ID is: {this.props.store.user.id}</p>
 
