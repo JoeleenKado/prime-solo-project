@@ -38,11 +38,13 @@ const styles = {
 
     },
     paper: 
-        { backgroundColor: "purple",
+        { backgroundColor: "",
         width: '35vw',
-        height: '40vw',
+        height: 'auto',
         margin: 'auto',
         textAlign: 'center',
+        marginTop: '0px',
+        paddingTop: '10px'
         
 
       },
@@ -54,7 +56,7 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'pink',
+        backgroundColor: 'orange',
         margin: 'auto'
       },
       thumbnail: "require('../../src/canvas.jpg')",
@@ -127,6 +129,16 @@ console.log('Setting state...');
             //console.log(`Sending ${this.state.newArt} to DB.`);
 
                  this.props.dispatch({ type: 'ADD_ART', payload: this.state.newArt })
+                 this.setState({
+                  newArt: {
+                    user_id: '',
+                    title: '',
+                    medium: '',
+                    dimension: '',
+                    url: '',
+                    statement: ''
+                  },
+                 })
             }
             // this.setState({
             
@@ -287,9 +299,9 @@ console.log('Setting state...');
 
                  </Grid> 
 
-                 <br/> 
+                 {/* <br/>  */}
 
-
+ {/*
                  <Grid item xs={12.0} sm={12}> 
 
 
@@ -302,11 +314,11 @@ console.log('Setting state...');
           rowsMax={4}
           value={'statementtwo'}
           onChange={this.handleInputChange}
-        />
+        /> */}
                  
 
                  {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
-                 </Grid> 
+                 {/* </Grid>  */}
 
                  <br/> 
 
@@ -327,7 +339,7 @@ console.log('Setting state...');
                 //  variant="raised"
                 //  color="purple"
                  className={classes.alignAndJustify}
-                 >Click Me!</Button>
+                 >SUBMIT TO GALLERY!</Button>
            </ThemeProvider>
 
     )//END return

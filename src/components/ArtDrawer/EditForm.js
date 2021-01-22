@@ -53,7 +53,8 @@ const styles = {
       width: '100%',
     maxWidth: 360,
     backgroundColor: theme.palette.background,
-    margin: 'auto'
+    margin: 'auto',
+    height: '100%'
     },
     centerText: {
       textAlign: 'center'
@@ -234,7 +235,6 @@ class EditForm extends React.Component {
 
     return (
       <div>
-        <p>Info Page</p>
         <Grid container spacing={8}>
    {art.map((art) => (
             // <li onClick={(event)=>this.monthAlert(event)}>{month.name}</li>
@@ -281,28 +281,8 @@ class EditForm extends React.Component {
 
           {/* <List component="nav" subheader={<ListSubheader component="div"></ListSubheader>} className={classes.root}>
         
-        <ListItem button onClick={this.handleClick}>
-        
-          <ListItemText inset primary="More" />
-          {this.state.open ? <ExpandLess /> : <ExpandMore />}
-        </ListItem>
-
-          <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItem button className={classes.nested}>
-             
-              Medium
-              <ListItemText inset primary={art.medium} />
-            </ListItem>
-            <ListItem button className={classes.nested}>
-              
-              Dimensions
-              <ListItemText inset primary={art.dimension} />
-            </ListItem>
-        
-          </List>
-          </Collapse>
-          </List>;
+       
+            
  */}
 
           
