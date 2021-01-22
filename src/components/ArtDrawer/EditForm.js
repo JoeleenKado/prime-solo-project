@@ -1,10 +1,15 @@
 import React from 'react';
  import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
-import {AppBar, Toolbar, Grid, Button, Badge, Collapse, CardHeader, CardActions, Typography, CardMedia, CardActionArea, CardContent, IconButton, makeStyles, InputBase, TextField, Card, withStyles} from '@material-ui/core'
+import {AppBar, Toolbar, Grid, Button, Badge, List, ExapandLess, ListSubheader, ListItem, ListItemText,ListItemIcon, createMuiTheme, Collapse, CardHeader, CardActions, Typography, CardMedia, CardActionArea, CardContent, IconButton, makeStyles, InputBase, TextField, Card, withStyles} from '@material-ui/core'
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'; // I
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { ExpandLess, ExpandMore } from '@material-ui/icons'
+// import ExpandMore from "@bit/mui-org.material-ui-icons.expand-more";
+// import InboxIcon from "@bit/mui-org.material-ui-icons.move-to-inbox";
+// import ExpandLess from "@bit/mui-org.material-ui-icons.expand-less";
+
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -22,6 +27,22 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 // If you needed to add local state or other things,
 // you can make it a class component like:
+const theme = createMuiTheme({
+  shape: {
+      borderRadius: '40px'
+    },
+  palette: {
+      primary: {
+          // Purple and green play nicely together.
+          main: '#365c58',
+        },
+        background: {
+            default : '#42f59b'
+        }
+        ,
+    
+  },
+});
 
 const styles = {
     inputs: {
@@ -29,26 +50,18 @@ const styles = {
   
     },
     root: {
-      maxWidth: 345,
+      width: '100%',
+    maxWidth: 360,
+    backgroundColor: theme.palette.background
+    },
+    nested: {
+      paddingLeft: theme.spacing.unit * 4
     },
     media: {
       height: 0,
       padding: '56.25%'
     },
-    // expand: {
-    //   transform: 'rotate(0deg)',
-    //   marginLeft: 'auto',
-    //   transition: theme.transitions.create('transform', {
-    //     duration: theme.transitions.duration.shortest,
-    //   }),
-    // },
-    // expandOpen: {
-    //   transform: 'rotate(180deg)',
-    // },
-    // avatar: {
-    //   backgroundColor: red[500],
-    // },
-  
+    
   }
 
 class EditForm extends React.Component {
@@ -60,6 +73,7 @@ class EditForm extends React.Component {
       }
     
       state = {
+        open: true,
         artToEdit: {
           id: '',
           user_id: '',
@@ -70,6 +84,10 @@ class EditForm extends React.Component {
           statement: ''
         },
     }
+
+    handleClick = () => {
+      this.setState(state => ({ open: !state.open }));
+    };
 
     handleInputChange = (event, inputProperty) => {
         console.log('Handling input-change...');
@@ -210,7 +228,7 @@ class EditForm extends React.Component {
     return (
       <div>
         <p>Info Page</p>
-        <Grid container>
+        <Grid container spacing={8}>
    {art.map((art) => (
             // <li onClick={(event)=>this.monthAlert(event)}>{month.name}</li>
 <Grid item xs={12} sm={4}
@@ -225,55 +243,72 @@ class EditForm extends React.Component {
         //     <MoreVertIcon />
         //   </IconButton>
         // }
-        title={art.title}
+        title={art.title} 
+        // subtitle={art.dimension}
+
         subheader={art.medium} 
+      
+            
       />
+
+<Typography variant="body2" color="textSecondary" component="p">
+            {art.dimension}
+            
+          </Typography>
 <CardActionArea>
 <CardMedia className={classes.marginAuto}  image={art.url} style={{width: '130px', height: '130px'}} title={art.title}/>
 {/* <CardMedia  className={classes.marginAuto}  image={art.url}/> */}
 <CardContent>
-{/* <Typography gutterBottom variant="h5" component="h2">
-            {art.title}
-          </Typography> */}
+ <Typography gutterBottom variant="body2" component="h2"> 
+            {art.statement}
+          </Typography> 
          
           </CardContent>
           </CardActionArea>
-          <Typography variant="body2" color="textSecondary" component="p">
+          {/* <Typography variant="body2" color="textSecondary" component="p">
             {art.statement}
-          </Typography>
+            
+          </Typography> */}
           <CardActions>
             
-          {/* <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton> */}
 
+          {/* <List component="nav" subheader={<ListSubheader component="div"></ListSubheader>} className={classes.root}>
+        
+        <ListItem button onClick={this.handleClick}>
+        
+          <ListItemText inset primary="More" />
+          {this.state.open ? <ExpandLess /> : <ExpandMore />}
+        </ListItem>
 
-          <Button size="small" color="primary">
-          Edit
-        </Button>
-        <Button size="small" color="primary">
-          Delete
-        </Button>
-            {/* <h2>User ID: {info.user_id}</h2> */}
-            {/* <p>Description: {info.description}</p> */}
-            {/* <img src={info.image_url} alt={info.description}></img> */}
-            {/* <button onClick={() => dispatch({type : "DELETE_ITEM", payload : info})}>DELETE</button>  */}
-            {/* left off here */}
-{/* <h1>{art.title}</h1> */}
-<button onClick={(event)=>this.openEdit(event, art)}>EDIT</button>
+          <Collapse in={this.state.open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItem button className={classes.nested}>
+             
+              Medium
+              <ListItemText inset primary={art.medium} />
+            </ListItem>
+            <ListItem button className={classes.nested}>
+              
+              Dimensions
+              <ListItemText inset primary={art.dimension} />
+            </ListItem>
+        
+          </List>
+          </Collapse>
+          </List>;
+ */}
+
+          
+
+         
+<Button onClick={(event)=>this.openEdit(event, art)}>EDIT</Button>
 
 {/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
-<button onClick={(event)=>this.deleteConfirmation(event, art)}>delconf</button>
+<Button color='secondary' onClick={(event)=>this.deleteConfirmation(event, art)}>DELETE</Button>
 </CardActions>
-{/* <Collapse in={expanded} timeout="auto" unmountOnExit> */}
-{/* </Collapse> */}
+<Collapse timeout="auto" unmountOnExit>
+  
+</Collapse>
           </Card>
           </Grid>
         ))}

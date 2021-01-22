@@ -37,8 +37,11 @@ const styles = {
         // height: '100%'
 
     },
-    paper: {backgroundImage : ''
-        // backgroundColor: "purple"
+    paper: 
+        { backgroundColor: "purple",
+        width: '35vw',
+        height: '40vw',
+        margin: 'auto'
       },
       centerText : {
         textAlign : 'center'
