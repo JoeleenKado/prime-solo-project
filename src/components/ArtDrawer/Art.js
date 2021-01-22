@@ -67,17 +67,7 @@ class EditForm extends React.Component {
                     })
                   }
         // const shelfData = useSelector((state) => state.shelf);
-      
-        
-      
-       
-        
-        
-        
-        
-        
-        
-       
+           
         deleteConfirmation = (event, art) => {
         confirmAlert({
           title: 'Please Confirm',
@@ -95,41 +85,20 @@ class EditForm extends React.Component {
         })}
       
         deleteArt = (event, art) => {
-          
-          
-        
           console.log(`Deleting ${art.title}...`);
           console.log(art);
-          
-          //Clear message... should say Hello!
+                   //Clear message... should say Hello!
           //console.log(`Sending ${this.state.newArt} to DB.`);
-      
-          this.props.dispatch({ type: 'DELETE_ART', payload: art.id })
-      
-          // this.setState({
-          
-          //    newArt: {title: '',
-          //     medium: '',
-          //     dimension: '',
-          //     url: '',
-          //     statement: ''}
-          // }
-          // )
+               this.props.dispatch({ type: 'DELETE_ART', payload: art.id })
         }
       
-      
-      
-      
-      
-
-  render() {
+      render() {
 
     const { classes } = this.props;
     // console.log(this.props)
     const art = this.props.store.art;
 
-
-    return (
+ return (
       <div>
         <p>Info Page</p>
         <Grid container>
@@ -176,11 +145,9 @@ class EditForm extends React.Component {
                    label="Medium"
                    name="medium"
                    className={classes.inputs}
-
-                   value={this.state.artToEdit.medium}
+                  value={this.state.artToEdit.medium}
                 onChange ={ (event) => this.handleInputChange( event, 'medium' ) } 
-
-                   />
+                  />
                 {/* </Grid> */}
 
                 {/* <Grid item xs={12.0}> */}
@@ -189,10 +156,8 @@ class EditForm extends React.Component {
                    label="Dimensions"
                    name="dimension"
                    className={classes.inputs}
-
                    value={this.state.artToEdit.dimension}
                 onChange ={ (event) => this.handleInputChange( event, 'dimension' ) } 
-
                    />
 
                    <TextField
@@ -200,10 +165,8 @@ class EditForm extends React.Component {
                    label="URL"
                    name="url"
                    className={classes.inputs}
-
                    value={this.state.artToEdit.url}
                 onChange ={ (event) => this.handleInputChange( event, 'url' ) } 
-
                    />
                 {/* </Grid> */}
 
@@ -213,10 +176,8 @@ class EditForm extends React.Component {
                    label="Statement"
                    name="statement"
                    className={classes.inputs}
-
                    value={this.state.artToEdit.statement}
                 onChange ={ (event) => this.handleInputChange( event, 'statement' ) } 
-
                    />
 
                  {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
@@ -224,7 +185,6 @@ class EditForm extends React.Component {
                <button onClick={(event)=>this.updateConfirmation(this.state.artToEdit)}>update!</button>
                </Card>
                </Grid>
-
            </Grid>
    
       </div>

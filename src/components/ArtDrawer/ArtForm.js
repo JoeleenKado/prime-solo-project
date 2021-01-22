@@ -35,7 +35,6 @@ const styles = {
         // marginTop: '20px',
         verticalAlign: 'middle',
         // height: '100%'
-
     },
     paper: 
         { backgroundColor: "",
@@ -45,8 +44,6 @@ const styles = {
         textAlign: 'center',
         marginTop: '0px',
         paddingTop: '10px'
-        
-
       },
       centerText : {
         textAlign : 'center'
@@ -77,8 +74,7 @@ const theme = createMuiTheme({
           background: {
               default : '#42f59b'
           }
-          ,
-      
+          ,   
     },
   });
 
@@ -107,7 +103,6 @@ const theme = createMuiTheme({
 console.log('Handling input-change...');
 console.log('Setting state...');
 
-//console.log('Handling input change. this.state.newArt.user_id', this.state.newArt.user_id);
             this.setState({
               newArt : {
                 ...this.state.newArt,
@@ -140,15 +135,7 @@ console.log('Setting state...');
                   },
                  })
             }
-            // this.setState({
             
-            //    newArt: {title: '',
-            //     medium: '',
-            //     dimension: '',
-            //     url: '',
-            //     statement: ''}
-            // }
-            // )
           }
 
 
@@ -186,20 +173,11 @@ console.log('Setting state...');
            //alignItems="center"
         spacing={2}
         direction="column">
-        {/* // justify="center"
-//   style={{ minHeight: '100vh', maxWidth: '100%', verticalAlign: 'middle'
-// }}> */}
-                              
-                              
+                                                           
                               <Card 
                               elevation={10}
                               className={classes.paper} 
-                              // backgroundImage={canvas}
-                              
-                            //   style={{  maxWidth: '100%', verticalAlign: 'middle'
-                            // }}
-                            //   variant="outlined"
-                            //square
+                              // backgroundImage={canvas}                                                      
                             > 
 
 
@@ -221,7 +199,6 @@ console.log('Setting state...');
                                > */}
 
                {/* <Card> */}
-
                <Grid item xs={12.0} sm={12}>
               {/* //  align="center"> */}
                    <TextField
@@ -229,8 +206,7 @@ console.log('Setting state...');
                    label="Title"
                    name="title"
                   className={classes.inputs}
-                  
-                   value={this.state.newArt.title}
+                                    value={this.state.newArt.title}
                     onChange ={ (event) => this.handleInputChange( event, 'title' ) } 
                    />
                  </Grid> 
@@ -242,8 +218,6 @@ console.log('Setting state...');
                    label="Medium"
                    name="medium"
                    className={classes.inputs}
-
-
                    value={this.state.newArt.medium}
                 onChange ={ (event) => this.handleInputChange( event, 'medium' ) } 
                    />
@@ -256,7 +230,6 @@ console.log('Setting state...');
                    label="Dimensions"
                    name="dimension"
                    className={classes.inputs}
-
 
                    value={this.state.newArt.dimension}
                 onChange ={ (event) => this.handleInputChange( event, 'dimension' ) } 
@@ -289,9 +262,6 @@ console.log('Setting state...');
                   //  style={{width: '130px', height: '130px', marginBottom: '50px'}}
                    value={this.state.newArt.statement}
                 onChange ={ (event) => this.handleInputChange( event, 'statement' ) } 
-
-                
-
                    />
 
 
@@ -317,9 +287,7 @@ console.log('Setting state...');
         /> */}
                  
 
-                 {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
-                 {/* </Grid>  */}
-
+                
                  <br/> 
 
                </form>
