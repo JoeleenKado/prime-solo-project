@@ -10,6 +10,39 @@ import '../App/App.css';
 import {AppBar, CssBaseline, CardContent, Typography, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, centerText, withStyles, ThemeProvider, createMuiTheme} from '@material-ui/core'
 import { sizing } from '@material-ui/system';
 
+
+const theme = createMuiTheme({
+  shape: {
+      borderRadius: '40px'
+    },
+  palette: {
+      primary: {
+          // Purple and green play nicely together.
+          main: '#c47821',
+        },
+        background: {
+            default : '#42f59b'
+        }
+        ,   
+  },
+  typography: {
+    fontFamily: [
+        'cursive',
+        'Chilanka',
+    ].join(','),
+}
+});
+
+
+
+
+
+
+
+
+
+
+
 const styles = {
   inputs: {
     pokedexContainer: {
@@ -74,8 +107,9 @@ handleInputChange = (event, inputProperty) => {
     const art = this.props.store.art;
 
 return (
-      // <ThemeProvider theme={theme}>
-      // <CssBaseline />      
+  
+       <ThemeProvider theme=''>
+       {/* <CssBaseline />       */}
       <div>
         {/* RS: {JSON.stringify(this.props.store)} */}
         <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1>
@@ -130,7 +164,8 @@ return (
         </Grid>
         
   <LogOutButton className="log-in" />
-      </div>
+  </div>
+      </ThemeProvider>
     );//END return
   }//END render
 }//END UserPage

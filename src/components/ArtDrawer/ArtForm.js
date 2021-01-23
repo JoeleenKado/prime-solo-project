@@ -11,22 +11,7 @@ import green from '@material-ui/core/colors/green';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import purple from '@material-ui/core/colors/purple';
 import canvas from '../../canvas.jpg'
-// const useStyles = makeStyles(theme =>({
-//     root: {
-//         '& .MuiFormControl-root': {
-//             width: '80%',
-//             margin: theme.spacing(1)
-//         }
-//     }
-// }))
-
-// const initialFValues = {
-//     title: '',
-//     medium: '',
-//     dimension: '',
-//     url: '',
-//     statement: ''
-// }
+import SubmitButton from '../SubmitButton/SubmitButton.js'
 
 const styles = {
     inputs: {
@@ -76,17 +61,16 @@ const theme = createMuiTheme({
           }
           ,   
     },
+    typography: {
+      fontFamily: [
+          'cursive',
+          'Chilanka',
+      ].join(','),
+  }
   });
 
 // export default function ArtForm() {
     class ArtForm extends Component {
-
-        // handleChange = (event) => {
-        //     // this.setState({
-        //     //     feeling: event.target.value
-        //     // }) 
-        //     console.log('input change')
-        // }
 
         state = {
             newArt: {
@@ -137,36 +121,12 @@ console.log('Setting state...');
             }
             
           }
-
-
             render() {
-
-    // const [values, setValues] = useState(initialFValues);
-    // const classes = useStyles();
-    // const dispatch = useDispatch();
-
-
-
-    // const handleInputChange= e=> {
-    //     const {name, value} = e.target
-    //     setValues({
-    //         ...values,
-    //         [name]: value
-    //     })
-    // }
-
-    // const addArt= ()=> {
-    //     console.log('adding art');
-        
-    //     }
-    
-    //   <form  className={classes.root}> 
-
 
     const { classes } = this.props;
     return(
 
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme=''>
 <CssBaseline />
            <Grid container
            className={classes.paper}
@@ -180,27 +140,11 @@ console.log('Setting state...');
                               // backgroundImage={canvas}                                                      
                             > 
 
-
-{/* <CardMedia  className={classes.marginAuto, classes.media} style={{width: '130px', height: '130px'}}/> */}
-
-
                               <form
                             //   style={{ verticalAlign: 'middle' }}
                             >
 
-                               {/* <Grid item 
-                                align="center"
-                            //    style={{  maxWidth: '100%', verticalAlign: 'middle', paddingTop: '10px'
-                            // }}
-                            //    className={classes.inputs}
-
-                            //    justify="center"
-                               
-                               > */}
-
-               {/* <Card> */}
                <Grid item xs={12.0} sm={12}>
-              {/* //  align="center"> */}
                    <TextField
                    variant="outlined"
                    label="Title"
@@ -269,25 +213,30 @@ console.log('Setting state...');
 
                  </Grid> 
 
-                 {/* <br/>  */}
-
- {/*
+                 <br/> 
                  <Grid item xs={12.0} sm={12}> 
 
-
-                 <TextField
-          id="standard-multiline-flexible"
-          label="Multiline"
-          // multiline
-          multiLine={true}
-  rows={2}
-          rowsMax={4}
-          value={'statementtwo'}
-          onChange={this.handleInputChange}
-        /> */}
-                 
-
-                
+                 <SubmitButton 
+          addArtProp={this.addArt}
+           elevation={20}  
+          //  className={classes.alignAndJustify}
+          //  textAlign='center'
+          //  justify='center'
+           style={{justifyContent: 'center'}}
+          //  <Button elevation={10}
+          //  Box display="flex" flexDirection="column"
+          //  textAlign='center'
+          //  display='flex'
+          //  justifyContent='center'
+          //  justify="center"
+          //  onClick={this.addArt}
+                //  variant="raised"
+                //  color="purple"
+                 className={classes.alignAndJustify}
+                 >SUBMIT TO GALLERY!</SubmitButton>
+ 
+ 
+ </Grid>
                  <br/> 
 
                </form>
@@ -296,18 +245,7 @@ console.log('Setting state...');
                </Card>
                
            </Grid>
-           <br/>
-           <Button elevation={10}
-          //  Box display="flex" flexDirection="column"
-          //  textAlign='center'
-          //  display='flex'
-          //  justifyContent='center'
-          //  justify="center"
-           onClick={this.addArt}
-                //  variant="raised"
-                //  color="purple"
-                 className={classes.alignAndJustify}
-                 >SUBMIT TO GALLERY!</Button>
+          
            </ThemeProvider>
 
     )//END return
