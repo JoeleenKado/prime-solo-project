@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { Component, createRef } from 'react';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
-import { AppBar, Toolbar, Grid, Button, Badge, List, ExapandLess, ListSubheader, ListItem, ListItemText, ListItemIcon, createMuiTheme, Collapse, CardHeader, CardActions, Typography, CardMedia, CardActionArea, CardContent, IconButton, makeStyles, InputBase, TextField, Card, withStyles } from '@material-ui/core'
+import { AppBar, Toolbar, Grid, Button, Badge, List, ExapandLess, 
+  ListSubheader, ListItem, ListItemText, ListItemIcon, createMuiTheme, 
+  Collapse, CardHeader, CardActions, Typography, CardMedia, CardActionArea, 
+  CardContent, IconButton, makeStyles, InputBase, TextField, Card, withStyles } 
+  from '@material-ui/core'
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'; // I
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { ExpandLess, ExpandMore } from '@material-ui/icons'
+import InputModal from './InputModal'
+// import { HashRouter as Route, Link } from 'react-router-dom';
+// import { hashHistory, withRouter } from 'react-router';
+// import { BrowserRouter as Router } from 'react-router-dom';
+import { withRouter, Switch, BrowserRouter, Route, Redirect, Link } from "react-router-dom";
+// import Dashboard from './Dashboard'
+//import Modal from './Modal.js';
+
 // import ExpandMore from "@bit/mui-org.material-ui-icons.expand-more";
 // import InboxIcon from "@bit/mui-org.material-ui-icons.move-to-inbox";
 // import ExpandLess from "@bit/mui-org.material-ui-icons.expand-less";
@@ -69,7 +81,10 @@ const styles = {
 
 class EditForm extends React.Component {
 
-
+  constructor() {
+    super()
+    this.buttonRef = createRef()
+  }
 
 
 
@@ -78,23 +93,23 @@ class EditForm extends React.Component {
     this.props.dispatch({ type: 'FETCH_ART' });
   }
 
-  constructor() {
-    super();
-    this.state = {
-      show: false,
-      artToEdit: {
-        id: '',
-        user_id: '',
-        title: '',
-        medium: '',
-        dimension: '',
-        url: '',
-        statement: ''
-      },
-    };
-    this.showModal = this.showModal.bind(this);
-    this.hideModal = this.hideModal.bind(this);
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     show: false,
+  //     artToEdit: {
+  //       id: '',
+  //       user_id: '',
+  //       title: '',
+  //       medium: '',
+  //       dimension: '',
+  //       url: '',
+  //       statement: ''
+  //     },
+  //   };
+  //   this.showModal = this.showModal.bind(this);
+  //   this.hideModal = this.hideModal.bind(this);
+  // }
 
   showModal = () => {
     this.setState({ show: true });
@@ -140,6 +155,15 @@ class EditForm extends React.Component {
       console.log('State has been set:', this.state);
     })
   }
+
+  getDetails = (event, {art}) => {
+    console.log('Gettin Details for :', art.title)
+    console.log(art.id)
+    this.props.dispatch({ type: 'FETCH_DETAILS', payload: art.id });
+    this.props.history.push('/Detail')
+    // this.props.history.push( {pathname: `/Detail`, state: art})
+    }
+
 
   openEdit = (event, art) => {
     console.log(`In openEdit function...`);
@@ -214,12 +238,18 @@ class EditForm extends React.Component {
     const { classes } = this.props;
     // console.log(this.props)
     const art = this.props.store.art;
+    const { label, action } = this.props
 
     return (
+
       <div>
+        <button onClick={action}>{label}</button>
+        {/* <Modal show={this.state.show} handleClose={this.hideModal}>
+          <p>Modal</p>
+        </Modal>
          <button type="button" onClick={this.showModal}>
           Open
-        </button>
+        </button> */}
         <Grid container spacing={8}>
           {art.map((art) => (
             // <li onClick={(event)=>this.monthAlert(event)}>{month.name}</li>
@@ -237,6 +267,7 @@ class EditForm extends React.Component {
 
                 </Typography>
                 <CardActionArea>
+                  
                   <CardMedia className={classes.marginAuto} image={art.url} style={{ width: '130px', height: '130px' }} title={art.title} />
                   {/* <CardMedia  className={classes.marginAuto}  image={art.url}/> */}
                   <CardContent>
@@ -252,6 +283,9 @@ class EditForm extends React.Component {
                   {/* <List component="nav" subheader={<ListSubheader component="div"></ListSubheader>} className={classes.root}>
         
        */}
+                         <Button onClick={(event) => this.getDetails(event, {art})}>VIEW</Button>
+                         {/* <Card className={classes.cardBackground} onClick={(event)=> this.getDetails(event, {art})}> */}
+
                   <Button onClick={(event) => this.openEdit(event, art)}>EDIT</Button>
 
                   {/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
@@ -329,6 +363,9 @@ class EditForm extends React.Component {
     )
   }
 }
-export default connect(mapStoreToProps)(withStyles(styles)(EditForm));
+export default connect(mapStoreToProps)(withStyles(styles)(withRouter(EditForm)));
+
+// export default connect(mapStoreToProps)(withStyles(styles)(UserPage));
+// export default withStyles(styles)(connect(mapStoreToProps(EditForm));
 //export default EditForm;
 //export default connect(mapStoreToProps)(InfoPage);

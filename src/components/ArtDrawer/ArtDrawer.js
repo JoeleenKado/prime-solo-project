@@ -52,8 +52,8 @@ class ArtDrawer extends Component {
    
   <LogOutButton className="log-in" />
       </div>
-    );
-  }
+    );//END return
+  };//END render
 }
 
 // this allows us to use <App /> in index.js

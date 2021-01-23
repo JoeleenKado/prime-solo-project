@@ -62,7 +62,7 @@ handleInputChange = (event, inputProperty) => {
   console.log(art.id)
   this.props.dispatch({ type: 'FETCH_DETAILS', payload: art.id });
   this.props.history.push('/Detail')
-  this.props.history.push( {pathname: `/Detail`, state: art})
+  // this.props.history.push( {pathname: `/Detail`, state: art})
   }
 
   render() {
