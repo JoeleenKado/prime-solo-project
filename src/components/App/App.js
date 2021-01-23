@@ -166,6 +166,7 @@ toolbar
               exact
               path="/user"
               component={UserPage}
+              
             />
 
 {/* <ProtectedRoute exact path='/:artId' render={(props)=><Art{...props}/>}/> */}

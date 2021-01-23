@@ -243,7 +243,7 @@ class EditForm extends React.Component {
     return (
 
       <div>
-        <button onClick={action}>{label}</button>
+        {/* <button onClick={action}>{label}</button> */}
         {/* <Modal show={this.state.show} handleClose={this.hideModal}>
           <p>Modal</p>
         </Modal>

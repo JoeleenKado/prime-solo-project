@@ -13,14 +13,14 @@ const Nav = (props) => {
 
   if (props.store.user.id != null) {
     loginLinkData.path = '/user';
-    loginLinkData.text = 'Virtual Gallery (home)';
+    loginLinkData.text = 'Program';
   }
 
   return (
     <div className="nav">
-      <Link to="/home">
+      {/* <Link to="/home"> */}
         {/* <h2 className="nav-title">Prime Solo Project</h2> */}
-      </Link>
+      {/* </Link> */}
       <div className="nav-right">
         <Link className="nav-link" to={loginLinkData.path}>
           {/* Show this link if they are logged in or not,
@@ -32,7 +32,7 @@ const Nav = (props) => {
         {props.store.user.id && (
           <>
           <Link className="nav-link" to="/artdrawer">
-              Art Drawer
+              Gallery
             </Link>
             {/* <Link className="nav-link" to="/info">
               info
