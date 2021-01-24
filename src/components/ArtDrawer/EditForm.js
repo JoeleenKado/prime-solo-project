@@ -96,9 +96,6 @@ class EditForm extends React.Component {
     this.buttonRef = createRef()
   }
 
-
-
-  
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_ART' });
   }
@@ -128,12 +125,6 @@ class EditForm extends React.Component {
   hideModal = () => {
     this.setState({ show: false });
   };
-
-
-
-
-
-
 
   state = {
     // open: true,
@@ -173,7 +164,6 @@ class EditForm extends React.Component {
     this.props.history.push('/Detail')
     // this.props.history.push( {pathname: `/Detail`, state: art})
     }
-
 
   openEdit = (event, art) => {
     console.log(`In openEdit function...`);
@@ -253,16 +243,9 @@ class EditForm extends React.Component {
     return (
 
       <div>
-        {/* <button onClick={action}>{label}</button> */}
-        {/* <Modal show={this.state.show} handleClose={this.hideModal}>
-          <p>Modal</p>
-        </Modal>
-         <button type="button" onClick={this.showModal}>
-          Open
-        </button> */}
+        
         <Grid container spacing={8}>
           {art.map((art) => (
-            // <li onClick={(event)=>this.monthAlert(event)}>{month.name}</li>
             <Grid item xs={12} sm={4}
               key={art.id}>
 
@@ -362,9 +345,7 @@ class EditForm extends React.Component {
                   value={this.state.artToEdit.title}
                   onChange={(event) => this.handleInputChange(event, 'title')}
                 />
-                {/* </Grid> */}
 
-                {/* <Grid item xs={12.0}> */}
                 <TextField
                   variant="outlined"
                   label="Medium"
@@ -373,9 +354,7 @@ class EditForm extends React.Component {
                   value={this.state.artToEdit.medium}
                   onChange={(event) => this.handleInputChange(event, 'medium')}
                 />
-                {/* </Grid> */}
 
-                {/* <Grid item xs={12.0}> */}
                 <TextField
                   variant="outlined"
                   label="Dimensions"
@@ -393,9 +372,7 @@ class EditForm extends React.Component {
                   value={this.state.artToEdit.url}
                   onChange={(event) => this.handleInputChange(event, 'url')}
                 />
-                {/* </Grid> */}
 
-                {/* <Grid item xs={12.0}> */}
                 <TextField
                   variant="outlined"
                   label="Statement"
@@ -416,9 +393,9 @@ class EditForm extends React.Component {
           </Grid>
         </Grid>
       </div>
-    )
-  }
-}
+    );//END return
+  };//END render
+};//END EditForm
 export default connect(mapStoreToProps)(withStyles(styles)(withRouter(EditForm)));
 
 // export default connect(mapStoreToProps)(withStyles(styles)(UserPage));

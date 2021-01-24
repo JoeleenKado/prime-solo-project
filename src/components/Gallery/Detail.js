@@ -65,7 +65,7 @@ class Detail extends React.Component {
 
 
       <div>
-        {JSON.stringify(this.props.store)}
+        {/* {JSON.stringify(this.props.store)} */}
         {/* This is the detail page for {this.props.store.art.title}
                  RS: {JSON.stringify(this.props.store)}
                    */}
