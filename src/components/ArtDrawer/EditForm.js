@@ -370,10 +370,10 @@ class EditForm extends React.Component {
                 {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
               </form>
               <br/>
-              <button
+              <div
                
               onClick={(event) => this.updateConfirmation(this.state.artToEdit)}><UpdateButton/>
-</button>
+</div>
             </Card>
           </Grid>
         </Grid>
