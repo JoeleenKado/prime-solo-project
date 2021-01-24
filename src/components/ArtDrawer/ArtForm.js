@@ -32,8 +32,11 @@ const styles = {
         height: 'auto',
         margin: 'auto',
         textAlign: 'center',
-        marginTop: '0px',
-        paddingTop: '10px'
+        marginTop: '10px',
+        paddingTop: '20px'
+      },
+      paddingTop: {
+        paddingTop: '20px'
       },
       centerText : {
         textAlign : 'center'
@@ -142,6 +145,7 @@ console.log('Setting state...');
         direction="column">
                                                            
                               <Paper
+                              className={classes.paddingTop}
                               style={styles.paperContainer}
                               elevation={10}
                               // className={classes.paper} 
