@@ -50,7 +50,7 @@ class ArtDrawer extends Component {
 
         </Grid>
    
-  <LogOutButton className="log-in" />
+  {/* <LogOutButton className="log-in" /> */}
       </div>
     );//END return
   };//END render

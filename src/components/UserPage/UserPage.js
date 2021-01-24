@@ -163,7 +163,7 @@ return (
 {/*  */}
         </Grid>
         
-  <LogOutButton className="log-in" />
+  {/* <LogOutButton className="log-in" /> */}
   </div>
       </ThemeProvider>
     );//END return

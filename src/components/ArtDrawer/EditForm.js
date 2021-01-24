@@ -63,11 +63,20 @@ const styles = {
     maxWidth: 360,
     backgroundColor: theme.palette.background,
     margin: 'auto',
-    height: '100%'
+    height: '100%',
   },
   centerText: {
     textAlign: 'center'
   },
+  alignAndJustify: {
+    width: 1200,
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    margin: 'auto',
+  padding: '10px'},
   marginAuto:
     { margin: 'auto' },
   nested: {
@@ -297,10 +306,14 @@ class EditForm extends React.Component {
             </Grid>
           ))}
         </Grid>
+        <br/>
         <Grid container>
-          <Grid item xs={12.0}>
-            <Card>
-              <form>
+          <Grid item 
+          xs={12.0} sm={12}>
+            <Card className={classes.alignAndJustify}
+            // style={{ width: '200px', height: '200px' }}
+            >
+              <form className={classes.alignAndJustify}>
                 {/* <Grid item xs={12.0}> */}
                 <TextField
                   variant="outlined"
@@ -352,10 +365,12 @@ class EditForm extends React.Component {
                   value={this.state.artToEdit.statement}
                   onChange={(event) => this.handleInputChange(event, 'statement')}
                 />
-
+               
                 {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
               </form>
+              <br/>
               <button onClick={(event) => this.updateConfirmation(this.state.artToEdit)}>update!</button>
+
             </Card>
           </Grid>
         </Grid>
