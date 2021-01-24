@@ -294,7 +294,8 @@ class EditForm extends React.Component {
         
        */}
                          <Button 
-                          color='primary'
+                          color=''
+                          variant='outlined'
                           style={{
                            display: "flex",
                            flexDirection: "row",
@@ -308,12 +309,13 @@ class EditForm extends React.Component {
                          {/* <Card className={classes.cardBackground} onClick={(event)=> this.getDetails(event, {art})}> */}
 
                   <Button 
-                   color='primary'
+                   color=''
+                   variant="outlined"
                    style={{
                     display: "flex",
                     flexDirection: "row",
                     justifyContent:"center",
-                    backgroundColor: '#ffc0ce',
+                    backgroundColor: '#ffdd00',
                     '&:hover': {
                         backgroundColor: 'pink',
                      },
@@ -322,11 +324,14 @@ class EditForm extends React.Component {
 
                   {/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
                   <Button 
-                   color='primary'
+                   color=''
+                   variant='outlined'
+                   boxShadow={5}
                    style={{
                     display: "flex",
                     flexDirection: "row",
                     justifyContent:"center",
+                    boxShadow: '5',
                     backgroundColor: '#c95b4b',
                     '&:hover': {
                         backgroundColor: 'red',
