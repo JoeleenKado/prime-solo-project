@@ -11,6 +11,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // I
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { ExpandLess, ExpandMore } from '@material-ui/icons'
 import InputModal from './InputModal'
+import UpdateButton from '../UpdateButton/UpdateButton'
 // import { HashRouter as Route, Link } from 'react-router-dom';
 // import { hashHistory, withRouter } from 'react-router';
 // import { BrowserRouter as Router } from 'react-router-dom';
@@ -369,8 +370,10 @@ class EditForm extends React.Component {
                 {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
               </form>
               <br/>
-              <button onClick={(event) => this.updateConfirmation(this.state.artToEdit)}>update!</button>
-
+              <button
+               
+              onClick={(event) => this.updateConfirmation(this.state.artToEdit)}><UpdateButton/>
+</button>
             </Card>
           </Grid>
         </Grid>

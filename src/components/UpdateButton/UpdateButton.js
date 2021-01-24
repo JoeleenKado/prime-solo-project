@@ -11,11 +11,11 @@ const styles = theme => ({
     }
 });
 
-class EditButton extends Component {
+class UpdateButton extends Component {
     render() {
-        return (<Button id="editButton" onClick={this.props.updateConfirmationProp} variant="contained" color="primary">
-            ADD TO COLLECTION
+        return (<Button id="editButton" variant="contained" color="secondary">
+            UPDATE
         </Button>)
     }
 };//END SubmitButton
-export default withStyles(styles)();
+export default withStyles(styles)(UpdateButton);
