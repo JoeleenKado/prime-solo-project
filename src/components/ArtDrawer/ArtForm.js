@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
 //styling
-import {AppBar, Button, Toolbar, Grid, Badge, CardMedia, IconButton, makeStyles, Paper, InputBase, TextField, Card, withStyles} from '@material-ui/core'
+import {AppBar, Button, Toolbar, Grid, Badge, CardMedia, IconButton, makeStyles, Paper, InputBase, TextField, Card, withStyles, CardActionArea} from '@material-ui/core'
 import '../App/App.css';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
@@ -21,6 +21,11 @@ const styles = {
         verticalAlign: 'middle',
         // height: '100%'
     },
+    paperContainer: {
+      backgroundImage: `url(${canvas})`
+  },
+
+
     paper: 
         { backgroundColor: "",
         width: '35vw',
@@ -42,10 +47,12 @@ const styles = {
         margin: 'auto'
       },
       thumbnail: "require('../../src/canvas.jpg')",
-      media : {
-        height: '0'
-      }
-}
+      // media : {
+      //   height: '0'
+      // },
+      media: {
+objectFit: 'cover'        // paddingTop: '56.25%', // 16:9
+}}
 
 const theme = createMuiTheme({
     shape: {
@@ -134,12 +141,20 @@ console.log('Setting state...');
         spacing={2}
         direction="column">
                                                            
-                              <Card 
+                              <Paper
+                              style={styles.paperContainer}
                               elevation={10}
-                              className={classes.paper} 
-                              // backgroundImage={canvas}                                                      
+                              // className={classes.paper} 
+                                backgroundImage={canvas}                                                      
                             > 
-
+                            <CardActionArea>
+                  <CardMedia 
+                  // height="140"
+                  // component="img"
+                  style={{width: '130px', height: '130px'}}
+                  alt="Blank Canvas"
+                  className={classes.media} image={canvas} title='Blank Canvas'/>
+</CardActionArea>
                               <form
                             //   style={{ verticalAlign: 'middle' }}
                             >
@@ -242,7 +257,7 @@ console.log('Setting state...');
                </form>
                {/* </Card> */}
                {/* </Grid> */}
-               </Card>
+               </Paper>
                
            </Grid>
           

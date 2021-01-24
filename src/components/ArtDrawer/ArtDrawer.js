@@ -31,7 +31,7 @@ class ArtDrawer extends Component {
     return (
       <div>
         {/* RS: {JSON.stringify(this.props.store)} */}
-        <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1>
+        {/* <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1> */}
         {/* <p>Your ID is: {this.props.store.user.id}</p> */}
         {/* <h3>Here is your art: {JSON.stringify(art)}</h3>  */}
 
