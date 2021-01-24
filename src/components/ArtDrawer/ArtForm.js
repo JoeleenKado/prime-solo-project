@@ -148,12 +148,12 @@ console.log('Setting state...');
                                 backgroundImage={canvas}                                                      
                             > 
                             <CardActionArea>
-                  <CardMedia 
+                  {/* <CardMedia 
                   // height="140"
                   // component="img"
                   style={{width: '130px', height: '130px'}}
                   alt="Blank Canvas"
-                  className={classes.media} image={canvas} title='Blank Canvas'/>
+                  className={classes.media} image={canvas} title='Blank Canvas'/> */}
 </CardActionArea>
                               <form
                             //   style={{ verticalAlign: 'middle' }}
