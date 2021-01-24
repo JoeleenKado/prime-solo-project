@@ -288,7 +288,7 @@ class EditForm extends React.Component {
                 </CardActionArea>
                 {/* <Typography variant="body2" color="textSecondary" component="p">            
           </Typography> */}
-                <CardActions>
+                <CardActions style={{justifyContent: 'center'}}>
 
                   {/* <List component="nav" subheader={<ListSubheader component="div"></ListSubheader>} className={classes.root}>
         
