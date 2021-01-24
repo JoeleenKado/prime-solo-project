@@ -62,7 +62,7 @@ const styles = {
   root: {
     width: '100%',
     maxWidth: 360,
-    backgroundColor: theme.palette.background,
+    backgroundColor: '#f5dd73',
     margin: 'auto',
     height: '100%',
   },
