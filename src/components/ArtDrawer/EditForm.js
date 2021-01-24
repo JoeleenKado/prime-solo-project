@@ -264,7 +264,7 @@ class EditForm extends React.Component {
                   <CardMedia className={classes.marginAuto} image={art.url} style={{ width: '130px', height: '130px' }} title={art.title} />
                   {/* <CardMedia  className={classes.marginAuto}  image={art.url}/> */}
                   <CardContent>
-                    <Typography gutterBottom variant="body2" component="h2">
+                    <Typography variant="body1" component="h2">
                       {art.statement}
                     </Typography>
                   </CardContent>

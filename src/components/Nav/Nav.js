@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import {AppBar, CssBaseline, CardContent, 
+  Typography, Toolbar, Grid, Badge, IconButton, makeStyles, 
+  InputBase, TextField, Card, CardMedia, centerText, withStyles, 
+  ThemeProvider, createMuiTheme} from '@material-ui/core'
 
 const Nav = (props) => {
   let loginLinkData = {
@@ -22,6 +26,8 @@ const Nav = (props) => {
         {/* <h2 className="nav-title">Prime Solo Project</h2> */}
       {/* </Link> */}
       <div className="nav-right">
+                    <Typography variant='h5'>
+
         <Link className="nav-link" to={loginLinkData.path}>
           {/* Show this link if they are logged in or not,
           but call this link 'Home' if they are logged in,
@@ -44,9 +50,11 @@ const Nav = (props) => {
         {/* <Link className="nav-link" to="/about">
           About
         </Link> */}
+                      </Typography>
+
       </div>
     </div>
-  );
+  );//END return
 };
 
 export default connect(mapStoreToProps)(Nav);

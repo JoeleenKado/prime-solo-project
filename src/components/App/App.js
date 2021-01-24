@@ -12,6 +12,7 @@ import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import mapStoreToProps from '../../redux/mapStoreToProps';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
@@ -21,12 +22,19 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Detail from '../Gallery/Detail'
 import ArtForm from '../ArtDrawer/ArtForm'
+// import createPalette from 'material-ui/styles/palette';
+//import Typography from 'material-ui/styles/typography';
 
 import './App.css';
-
+// import {Typography} from '@material-ui/core/Typography'
 //styling
 import SideMenu from '../SideMenu/SideMenu';
-import { createMuiTheme, CssBaseline, makeStyles, ThemeProvider, AppBar, Toolbar } from '@material-ui/core';
+// import { createMuiTheme, CssBaseline, withStyles, makeStyles, ThemeProvider, AppBar, Toolbar } from '@material-ui/core';
+// import makeStyles from '@material-ui/core/styles'
+import {AppBar, CssBaseline, CardContent, 
+  Typography, Toolbar, Grid, Badge, IconButton, makeStyles, 
+  InputBase, TextField, Card, CardMedia, centerText, withStyles, 
+  ThemeProvider, createMuiTheme} from '@material-ui/core'
 import NavBar from '../NavBar/NavBar';
 import ArtDrawer from '../ArtDrawer/ArtDrawer';
 //import {orange, brown, pink, green}from '@material-ui/core/colors'
@@ -73,20 +81,28 @@ import ArtDrawer from '../ArtDrawer/ArtDrawer';
 
 // </>
 // )
+
+const styles = {
+  appMain: {
+    paddingLeft: '0px',
+    width: '100%'
+  },
+  body : {
+    margin: 'auto',
+    fontFamily: 'Montserrat'
+  }
+}
 // }
 
-class App extends Component {
-  componentDidMount() {
-    this.props.dispatch({ type: 'FETCH_USER' });
-  }
-
-  render() {
 const theme = createMuiTheme({
   palette: {
     primary: {
     main: '#ffa500',
     light: '#d26918'
     },
+    // text:{
+    // primary: '#7ec700'
+    // },
     secondary: {
       main: '#ffc0ce',
       light: '#00ff00'
@@ -103,24 +119,59 @@ const theme = createMuiTheme({
       root: {
         transform: "translateZ(0)"
       }
-    }
+    },
+    
+
+      button: {
+        fontFamily: "Comic Sans MS"
+      }
+    
   },
   props: {
     MuiIconButton: {
       disableRipple: false
     }
+  },
+  typographyStyle: {
+    color: '#7700c7'
+  },
+
+  typography: {
+    h1: {
+      fontFamily: "Helvetica Neue",
+      color: '#560678'
+    },
+    h2: {
+      
+      color: '#white'
+    },
+    h3: {
+      fontFamily: "Times New Roman"
+    },
+    h4: {
+      fontFamily: "verdana"
+    },
+    button: {
+      fontFamily: "Comic Sans MS"
+    }
   }
+
 })
 
 
-
-const useStyles = makeStyles({
-  appMain: {
-    paddingLeft: '0px',
-    width: '100%'
+class App extends Component {
+  componentDidMount() {
+    this.props.dispatch({ type: 'FETCH_USER' });
   }
-})
 
+  render() {
+
+
+
+
+
+
+const { classes } = this.props;
 
     return (
 
@@ -140,7 +191,11 @@ toolbar
       {/* <ArtForm/> */}
       </div>
                 {/* <SideMenu/> */}
-<h1 className="center">Virtual Gallery</h1>
+
+                <Typography align='center' variant='h1' >
+
+Virtual Gallery
+</Typography>
 
       <Router>
         <div>
@@ -234,4 +289,5 @@ toolbar
    }
 }
          // }
-export default connect()(App);
+// export default connect()(App);
+export default connect(mapStoreToProps)(withStyles(styles)(App));
