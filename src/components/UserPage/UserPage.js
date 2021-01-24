@@ -7,8 +7,41 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { HashRouter as Route, Link } from 'react-router-dom';
 import '../App/App.css';
 //styling
-import {AppBar, CssBaseline, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, centerText, withStyles, ThemeProvider, createMuiTheme} from '@material-ui/core'
+import {AppBar, CssBaseline, CardContent, Typography, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, centerText, withStyles, ThemeProvider, createMuiTheme} from '@material-ui/core'
 import { sizing } from '@material-ui/system';
+
+
+const theme = createMuiTheme({
+  shape: {
+      borderRadius: '40px'
+    },
+  palette: {
+      primary: {
+          // Purple and green play nicely together.
+          main: '#c47821',
+        },
+        background: {
+            default : '#42f59b'
+        }
+        ,   
+  },
+  typography: {
+    fontFamily: [
+        'cursive',
+        'Chilanka',
+    ].join(','),
+}
+});
+
+
+
+
+
+
+
+
+
+
 
 const styles = {
   inputs: {
@@ -28,10 +61,12 @@ marginAuto :{ margin: 'auto'
     marginTop: '0px',    
 },
 centerText : {
-  textAlign : 'center'
+  textAlign : 'center',
+  backgroundColor: 'white'
 },
 cardBackground: {
-  backgroundColor: "orange"
+  backgroundColor: "orange",
+  margin: 'auto'
 },
 }
 // const artToEdit= this.state.art
@@ -62,7 +97,7 @@ handleInputChange = (event, inputProperty) => {
   console.log(art.id)
   this.props.dispatch({ type: 'FETCH_DETAILS', payload: art.id });
   this.props.history.push('/Detail')
-  this.props.history.push( {pathname: `/Detail`, state: art})
+  // this.props.history.push( {pathname: `/Detail`, state: art})
   }
 
   render() {
@@ -72,12 +107,13 @@ handleInputChange = (event, inputProperty) => {
     const art = this.props.store.art;
 
 return (
-      // <ThemeProvider theme={theme}>
-      // <CssBaseline />      
+  
+       <ThemeProvider theme=''>
+       {/* <CssBaseline />       */}
       <div>
         {/* RS: {JSON.stringify(this.props.store)} */}
         <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1>
-        <p>Your ID is: {this.props.store.user.id}</p>
+        {/* <p>Your ID is: {this.props.store.user.id}</p> */}
 
    {/* <h3>Here is your art: {JSON.stringify(art)}</h3>  */}
    <Grid container
@@ -85,26 +121,34 @@ return (
             className={classes.pokedexContainer}>
             {/* // className={classes.inputs}> */}
               
-   {art.map((art) => (
-            <Grid item xs={12} sm={4}
+   {/* {art.map((art) => ( */}
+            <Grid item xs={12} sm={12}
             key={art.id}>
 
 <Card className={classes.cardBackground} onClick={(event)=> this.getDetails(event, {art})}>
 {/*className={classes.centerText} */}
 {/* <Card> */}
 {/* <img onClick={(event) => this.getDetails(event, { movie })} src={movie.poster} alt="" /> */}
-<CardMedia  className={classes.marginAuto}  image={art.url} style={{width: '130px', height: '130px'}}/>
-
+<CardContent>
+<Typography variant="h5" component="h2" className={classes.centerText}>
+          Welcome to Virtual Gallery
+        </Typography>
+        <Typography variant="body2" component="p" className={classes.centerText}>
+          To get started. Head over to the Gallery where you can upload art.
+          <br />
+          {'"a benevolent smile"'}
+        </Typography>
+      </CardContent>
 </Card>
 {/* <button onClick={(event)=>this.openEdit(event, art)}>EDIT</button> */}
 {/* <h1>{art.title}</h1> */}
 <h1 className={classes.centerText}>{art.title}</h1>
 
           </Grid>
-        ))}
+         {/* ))}  */}
 
 {/*  */}
-{art.map((art) => (
+{/* {art.map((art) => ( */}
             <Grid item xs={12} sm={4}
             key={art.id}>
 
@@ -115,12 +159,13 @@ return (
 {/* </Card> */}
 
           </Grid>
-        ))}
+        {/* ))} */}
 {/*  */}
         </Grid>
         
-  <LogOutButton className="log-in" />
-      </div>
+  {/* <LogOutButton className="log-in" /> */}
+  </div>
+      </ThemeProvider>
     );//END return
   }//END render
 }//END UserPage

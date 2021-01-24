@@ -28,16 +28,14 @@ class ArtDrawer extends Component {
     // console.log(this.props)
     const art = this.props.store.art;
 
-
-
     return (
       <div>
         {/* RS: {JSON.stringify(this.props.store)} */}
-        <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1>
-        <p>Your ID is: {this.props.store.user.id}</p>
+        {/* <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1> */}
+        {/* <p>Your ID is: {this.props.store.user.id}</p> */}
         {/* <h3>Here is your art: {JSON.stringify(art)}</h3>  */}
 
-        <h3>SUBMIT ART TO GALLERY</h3>
+        {/* <h3>SUBMIT ART TO GALLERY</h3> */}
         <Grid container spacing={8}>
           <Grid item xs={12}>
         <ArtForm/>
@@ -50,10 +48,10 @@ class ArtDrawer extends Component {
 
         </Grid>
    
-  <LogOutButton className="log-in" />
+  {/* <LogOutButton className="log-in" /> */}
       </div>
-    );
-  }
+    );//END return
+  };//END render
 }
 
 // this allows us to use <App /> in index.js

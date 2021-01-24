@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
 //styling
-import {AppBar, Button, Toolbar, Grid, Badge, CardMedia, IconButton, makeStyles, Paper, InputBase, TextField, Card, withStyles} from '@material-ui/core'
+import {AppBar, Button, Toolbar, Grid, Badge, CardMedia, IconButton, makeStyles, Paper, InputBase, TextField, Card, withStyles, CardActionArea} from '@material-ui/core'
 import '../App/App.css';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
@@ -11,22 +11,7 @@ import green from '@material-ui/core/colors/green';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import purple from '@material-ui/core/colors/purple';
 import canvas from '../../canvas.jpg'
-// const useStyles = makeStyles(theme =>({
-//     root: {
-//         '& .MuiFormControl-root': {
-//             width: '80%',
-//             margin: theme.spacing(1)
-//         }
-//     }
-// }))
-
-// const initialFValues = {
-//     title: '',
-//     medium: '',
-//     dimension: '',
-//     url: '',
-//     statement: ''
-// }
+import SubmitButton from '../SubmitButton/SubmitButton.js'
 
 const styles = {
     inputs: {
@@ -36,14 +21,22 @@ const styles = {
         verticalAlign: 'middle',
         // height: '100%'
     },
+    paperContainer: {
+      backgroundImage: `url(${canvas})`
+  },
+
+
     paper: 
         { backgroundColor: "",
         width: '35vw',
         height: 'auto',
         margin: 'auto',
         textAlign: 'center',
-        marginTop: '0px',
-        paddingTop: '10px'
+        marginTop: '10px',
+        paddingTop: '20px'
+      },
+      paddingTop: {
+        paddingTop: '20px'
       },
       centerText : {
         textAlign : 'center'
@@ -57,10 +50,12 @@ const styles = {
         margin: 'auto'
       },
       thumbnail: "require('../../src/canvas.jpg')",
-      media : {
-        height: '0'
-      }
-}
+      // media : {
+      //   height: '0'
+      // },
+      media: {
+objectFit: 'cover'        // paddingTop: '56.25%', // 16:9
+}}
 
 const theme = createMuiTheme({
     shape: {
@@ -76,17 +71,16 @@ const theme = createMuiTheme({
           }
           ,   
     },
+    typography: {
+      fontFamily: [
+          'cursive',
+          'Chilanka',
+      ].join(','),
+  }
   });
 
 // export default function ArtForm() {
     class ArtForm extends Component {
-
-        // handleChange = (event) => {
-        //     // this.setState({
-        //     //     feeling: event.target.value
-        //     // }) 
-        //     console.log('input change')
-        // }
 
         state = {
             newArt: {
@@ -137,36 +131,12 @@ console.log('Setting state...');
             }
             
           }
-
-
             render() {
-
-    // const [values, setValues] = useState(initialFValues);
-    // const classes = useStyles();
-    // const dispatch = useDispatch();
-
-
-
-    // const handleInputChange= e=> {
-    //     const {name, value} = e.target
-    //     setValues({
-    //         ...values,
-    //         [name]: value
-    //     })
-    // }
-
-    // const addArt= ()=> {
-    //     console.log('adding art');
-        
-    //     }
-    
-    //   <form  className={classes.root}> 
-
 
     const { classes } = this.props;
     return(
 
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme=''>
 <CssBaseline />
            <Grid container
            className={classes.paper}
@@ -174,33 +144,26 @@ console.log('Setting state...');
         spacing={2}
         direction="column">
                                                            
-                              <Card 
+                              <Paper
+                              className={classes.paddingTop}
+                              style={styles.paperContainer}
                               elevation={10}
-                              className={classes.paper} 
-                              // backgroundImage={canvas}                                                      
+                              // className={classes.paper} 
+                                backgroundImage={canvas}                                                      
                             > 
-
-
-{/* <CardMedia  className={classes.marginAuto, classes.media} style={{width: '130px', height: '130px'}}/> */}
-
-
+                            <CardActionArea>
+                  {/* <CardMedia 
+                  // height="140"
+                  // component="img"
+                  style={{width: '130px', height: '130px'}}
+                  alt="Blank Canvas"
+                  className={classes.media} image={canvas} title='Blank Canvas'/> */}
+</CardActionArea>
                               <form
                             //   style={{ verticalAlign: 'middle' }}
                             >
 
-                               {/* <Grid item 
-                                align="center"
-                            //    style={{  maxWidth: '100%', verticalAlign: 'middle', paddingTop: '10px'
-                            // }}
-                            //    className={classes.inputs}
-
-                            //    justify="center"
-                               
-                               > */}
-
-               {/* <Card> */}
                <Grid item xs={12.0} sm={12}>
-              {/* //  align="center"> */}
                    <TextField
                    variant="outlined"
                    label="Title"
@@ -269,45 +232,39 @@ console.log('Setting state...');
 
                  </Grid> 
 
-                 {/* <br/>  */}
-
- {/*
+                 <br/> 
                  <Grid item xs={12.0} sm={12}> 
 
-
-                 <TextField
-          id="standard-multiline-flexible"
-          label="Multiline"
-          // multiline
-          multiLine={true}
-  rows={2}
-          rowsMax={4}
-          value={'statementtwo'}
-          onChange={this.handleInputChange}
-        /> */}
-                 
-
-                
-                 <br/> 
-
-               </form>
-               {/* </Card> */}
-               {/* </Grid> */}
-               </Card>
-               
-           </Grid>
-           <br/>
-           <Button elevation={10}
+                 <SubmitButton 
+          addArtProp={this.addArt}
+           elevation={20}  
+          //  className={classes.alignAndJustify}
+          //  textAlign='center'
+          //  justify='center'
+           style={{justifyContent: 'center'}}
+          //  <Button elevation={10}
           //  Box display="flex" flexDirection="column"
           //  textAlign='center'
           //  display='flex'
           //  justifyContent='center'
           //  justify="center"
-           onClick={this.addArt}
+          //  onClick={this.addArt}
                 //  variant="raised"
                 //  color="purple"
                  className={classes.alignAndJustify}
-                 >SUBMIT TO GALLERY!</Button>
+                 >SUBMIT TO GALLERY!</SubmitButton>
+ 
+ 
+ </Grid>
+                 <br/> 
+
+               </form>
+               {/* </Card> */}
+               {/* </Grid> */}
+               </Paper>
+               
+           </Grid>
+          
            </ThemeProvider>
 
     )//END return

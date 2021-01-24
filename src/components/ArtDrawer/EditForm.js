@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { Component, createRef } from 'react';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
-import { AppBar, Toolbar, Grid, Button, Badge, List, ExapandLess, ListSubheader, ListItem, ListItemText, ListItemIcon, createMuiTheme, Collapse, CardHeader, CardActions, Typography, CardMedia, CardActionArea, CardContent, IconButton, makeStyles, InputBase, TextField, Card, withStyles } from '@material-ui/core'
+import { AppBar, Toolbar, Grid, Button, Badge, List, ExapandLess, 
+  ListSubheader, ListItem, ListItemText, ListItemIcon, createMuiTheme, 
+  Collapse, CardHeader, CardActions, Typography, CardMedia, CardActionArea, 
+  CardContent, IconButton, makeStyles, InputBase, TextField, Card, withStyles } 
+  from '@material-ui/core'
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'; // I
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { ExpandLess, ExpandMore } from '@material-ui/icons'
+import InputModal from './InputModal'
+import UpdateButton from '../UpdateButton/UpdateButton'
+// import { HashRouter as Route, Link } from 'react-router-dom';
+// import { hashHistory, withRouter } from 'react-router';
+// import { BrowserRouter as Router } from 'react-router-dom';
+import { withRouter, Switch, BrowserRouter, Route, Redirect, Link } from "react-router-dom";
+// import Dashboard from './Dashboard'
+//import Modal from './Modal.js';
+
 // import ExpandMore from "@bit/mui-org.material-ui-icons.expand-more";
 // import InboxIcon from "@bit/mui-org.material-ui-icons.move-to-inbox";
 // import ExpandLess from "@bit/mui-org.material-ui-icons.expand-less";
@@ -49,13 +62,22 @@ const styles = {
   root: {
     width: '100%',
     maxWidth: 360,
-    backgroundColor: theme.palette.background,
+    backgroundColor: '#f5dd73',
     margin: 'auto',
-    height: '100%'
+    height: '100%',
   },
   centerText: {
     textAlign: 'center'
   },
+  alignAndJustify: {
+    width: 1200,
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    margin: 'auto',
+  padding: '10px'},
   marginAuto:
     { margin: 'auto' },
   nested: {
@@ -68,12 +90,44 @@ const styles = {
 }
 
 class EditForm extends React.Component {
+
+  constructor() {
+    super()
+    this.buttonRef = createRef()
+  }
+
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_ART' });
   }
 
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     show: false,
+  //     artToEdit: {
+  //       id: '',
+  //       user_id: '',
+  //       title: '',
+  //       medium: '',
+  //       dimension: '',
+  //       url: '',
+  //       statement: ''
+  //     },
+  //   };
+  //   this.showModal = this.showModal.bind(this);
+  //   this.hideModal = this.hideModal.bind(this);
+  // }
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
+
   state = {
-    open: true,
+    // open: true,
     artToEdit: {
       id: '',
       user_id: '',
@@ -102,6 +156,14 @@ class EditForm extends React.Component {
       console.log('State has been set:', this.state);
     })
   }
+
+  getDetails = (event, {art}) => {
+    console.log('Gettin Details for :', art.title)
+    console.log(art.id)
+    this.props.dispatch({ type: 'FETCH_DETAILS', payload: art.id });
+    this.props.history.push('/Detail')
+    // this.props.history.push( {pathname: `/Detail`, state: art})
+    }
 
   openEdit = (event, art) => {
     console.log(`In openEdit function...`);
@@ -176,12 +238,14 @@ class EditForm extends React.Component {
     const { classes } = this.props;
     // console.log(this.props)
     const art = this.props.store.art;
+    const { label, action } = this.props
 
     return (
+
       <div>
+        
         <Grid container spacing={8}>
           {art.map((art) => (
-            // <li onClick={(event)=>this.monthAlert(event)}>{month.name}</li>
             <Grid item xs={12} sm={4}
               key={art.id}>
 
@@ -196,6 +260,7 @@ class EditForm extends React.Component {
 
                 </Typography>
                 <CardActionArea>
+                  
                   <CardMedia className={classes.marginAuto} image={art.url} style={{ width: '130px', height: '130px' }} title={art.title} />
                   {/* <CardMedia  className={classes.marginAuto}  image={art.url}/> */}
                   <CardContent>
@@ -206,15 +271,56 @@ class EditForm extends React.Component {
                 </CardActionArea>
                 {/* <Typography variant="body2" color="textSecondary" component="p">            
           </Typography> */}
-                <CardActions>
+                <CardActions style={{justifyContent: 'center'}}>
 
                   {/* <List component="nav" subheader={<ListSubheader component="div"></ListSubheader>} className={classes.root}>
         
        */}
-                  <Button onClick={(event) => this.openEdit(event, art)}>EDIT</Button>
+                         <Button 
+                          color=''
+                          variant='outlined'
+                          style={{
+                           display: "flex",
+                           flexDirection: "row",
+                           justifyContent:"center",
+                           backgroundColor: '#4ca874',
+                           '&:hover': {
+                               backgroundColor: 'red',
+                            },
+                       }}
+                         onClick={(event) => this.getDetails(event, {art})}>VIEW</Button>
+                         {/* <Card className={classes.cardBackground} onClick={(event)=> this.getDetails(event, {art})}> */}
+
+                  <Button 
+                   color=''
+                   variant="outlined"
+                   style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent:"center",
+                    backgroundColor: '#ffdd00',
+                    '&:hover': {
+                        backgroundColor: 'pink',
+                     },
+                }}
+                  onClick={(event) => this.openEdit(event, art)}>EDIT</Button>
 
                   {/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
-                  <Button onClick={(event) => this.deleteConfirmation(event, art)}>DELETE</Button>
+                  <Button 
+                   color=''
+                   variant='outlined'
+                   boxShadow={5}
+                   style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent:"center",
+                    boxShadow: '5',
+                    backgroundColor: '#c95b4b',
+                    '&:hover': {
+                        backgroundColor: 'red',
+                     },
+                }}
+                  onClick={(event) => this.deleteConfirmation(event, art)}>DELETE</Button>
                 </CardActions>
                 {/* <Collapse timeout="auto" unmountOnExit>  
 </Collapse> */}
@@ -222,10 +328,14 @@ class EditForm extends React.Component {
             </Grid>
           ))}
         </Grid>
+        <br/>
         <Grid container>
-          <Grid item xs={12.0}>
-            <Card>
-              <form>
+          <Grid item 
+          xs={12.0} sm={12}>
+            <Card className={classes.alignAndJustify}
+            // style={{ width: '200px', height: '200px' }}
+            >
+              <form className={classes.alignAndJustify}>
                 {/* <Grid item xs={12.0}> */}
                 <TextField
                   variant="outlined"
@@ -235,9 +345,7 @@ class EditForm extends React.Component {
                   value={this.state.artToEdit.title}
                   onChange={(event) => this.handleInputChange(event, 'title')}
                 />
-                {/* </Grid> */}
 
-                {/* <Grid item xs={12.0}> */}
                 <TextField
                   variant="outlined"
                   label="Medium"
@@ -246,9 +354,7 @@ class EditForm extends React.Component {
                   value={this.state.artToEdit.medium}
                   onChange={(event) => this.handleInputChange(event, 'medium')}
                 />
-                {/* </Grid> */}
 
-                {/* <Grid item xs={12.0}> */}
                 <TextField
                   variant="outlined"
                   label="Dimensions"
@@ -266,9 +372,7 @@ class EditForm extends React.Component {
                   value={this.state.artToEdit.url}
                   onChange={(event) => this.handleInputChange(event, 'url')}
                 />
-                {/* </Grid> */}
 
-                {/* <Grid item xs={12.0}> */}
                 <TextField
                   variant="outlined"
                   label="Statement"
@@ -277,17 +381,24 @@ class EditForm extends React.Component {
                   value={this.state.artToEdit.statement}
                   onChange={(event) => this.handleInputChange(event, 'statement')}
                 />
-
+               
                 {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
               </form>
-              <button onClick={(event) => this.updateConfirmation(this.state.artToEdit)}>update!</button>
+              <br/>
+              <div
+               
+              onClick={(event) => this.updateConfirmation(this.state.artToEdit)}><UpdateButton/>
+</div>
             </Card>
           </Grid>
         </Grid>
       </div>
-    )
-  }
-}
-export default connect(mapStoreToProps)(withStyles(styles)(EditForm));
+    );//END return
+  };//END render
+};//END EditForm
+export default connect(mapStoreToProps)(withStyles(styles)(withRouter(EditForm)));
+
+// export default connect(mapStoreToProps)(withStyles(styles)(UserPage));
+// export default withStyles(styles)(connect(mapStoreToProps(EditForm));
 //export default EditForm;
 //export default connect(mapStoreToProps)(InfoPage);

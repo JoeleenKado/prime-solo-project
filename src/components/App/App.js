@@ -121,23 +121,6 @@ const useStyles = makeStyles({
   }
 })
 
-//   function App(props) {
-// const classes = useStyles();
-
-//    let [hello, changeHello] = useState('world')
-
-
-
-//   useEffect(() => {
-//     document.title = hello
-//     console.log('UseEffect is working.');
-//          props.dispatch({ type: 'FETCH_USER' });
-
-
-// },[])
-
-// let hello = statething[0]
-
 
     return (
 
@@ -157,7 +140,6 @@ toolbar
       {/* <ArtForm/> */}
       </div>
                 {/* <SideMenu/> */}
-{/* <div className={classes.appMain}>here we go</div> */}
 <h1 className="center">Virtual Gallery</h1>
 
       <Router>
@@ -184,6 +166,7 @@ toolbar
               exact
               path="/user"
               component={UserPage}
+              
             />
 
 {/* <ProtectedRoute exact path='/:artId' render={(props)=><Art{...props}/>}/> */}
@@ -233,7 +216,9 @@ toolbar
               exact
               path="/home"
               component={LandingPage}
+              //  authRedirect="/user"
                authRedirect="/user"
+
             />
 
             {/* If none of the other routes matched, we will show a 404. */}
