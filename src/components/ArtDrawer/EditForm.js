@@ -293,13 +293,46 @@ class EditForm extends React.Component {
                   {/* <List component="nav" subheader={<ListSubheader component="div"></ListSubheader>} className={classes.root}>
         
        */}
-                         <Button onClick={(event) => this.getDetails(event, {art})}>VIEW</Button>
+                         <Button 
+                          color='primary'
+                          style={{
+                           display: "flex",
+                           flexDirection: "row",
+                           justifyContent:"center",
+                           backgroundColor: '#4ca874',
+                           '&:hover': {
+                               backgroundColor: 'red',
+                            },
+                       }}
+                         onClick={(event) => this.getDetails(event, {art})}>VIEW</Button>
                          {/* <Card className={classes.cardBackground} onClick={(event)=> this.getDetails(event, {art})}> */}
 
-                  <Button onClick={(event) => this.openEdit(event, art)}>EDIT</Button>
+                  <Button 
+                   color='primary'
+                   style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent:"center",
+                    backgroundColor: '#ffc0ce',
+                    '&:hover': {
+                        backgroundColor: 'pink',
+                     },
+                }}
+                  onClick={(event) => this.openEdit(event, art)}>EDIT</Button>
 
                   {/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
-                  <Button onClick={(event) => this.deleteConfirmation(event, art)}>DELETE</Button>
+                  <Button 
+                   color='primary'
+                   style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent:"center",
+                    backgroundColor: '#c95b4b',
+                    '&:hover': {
+                        backgroundColor: 'red',
+                     },
+                }}
+                  onClick={(event) => this.deleteConfirmation(event, art)}>DELETE</Button>
                 </CardActions>
                 {/* <Collapse timeout="auto" unmountOnExit>  
 </Collapse> */}
