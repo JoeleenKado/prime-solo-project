@@ -26,23 +26,30 @@ const Nav = (props) => {
         {/* <h2 className="nav-title">Prime Solo Project</h2> */}
       {/* </Link> */}
       <div className="nav-right">
-                    <Typography variant='h5'>
 
         <Link className="nav-link" to={loginLinkData.path}>
           {/* Show this link if they are logged in or not,
           but call this link 'Home' if they are logged in,
           and call this link 'Login / Register' if they are not */}
+                              <Typography variant='h5'>
+
           {loginLinkData.text}
+          </Typography>
         </Link>
         {/* Show the link to the info page and the logout button if the user is logged in */}
         {props.store.user.id && (
           <>
           <Link className="nav-link" to="/artdrawer">
+          <Typography variant='h5'>
+
               Gallery
+              </Typography>
+
             </Link>
             {/* <Link className="nav-link" to="/info">
               info
             </Link> */}
+            
             <LogOutButton className="nav-link" />
           </>
         )}
@@ -50,7 +57,6 @@ const Nav = (props) => {
         {/* <Link className="nav-link" to="/about">
           About
         </Link> */}
-                      </Typography>
 
       </div>
     </div>
