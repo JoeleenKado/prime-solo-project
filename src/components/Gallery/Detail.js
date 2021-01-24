@@ -81,14 +81,14 @@ class Detail extends React.Component {
         {/* <Card> */}
         {/* <img onClick={(event) => this.getDetails(event, { movie })} src={movie.poster} alt="" /> */}
 
-        <Grid container
+        {/* <Grid container
           spacing={2}
-          className={classes.inputs}>
+          className={classes.inputs}> */}
 
           {art.map((art) => (
-            <Grid item xs={12} sm={4}
-              sm={12}
-              key={art.id}>
+            // <Grid item xs={12} sm={4}
+              // sm={12}
+             <div key={art.id}>
               {/* <Card >
 
                 <CardMedia className={classes.cardMedia} image={art.url} style={{ width: '2000px', height: '200px' }} />
@@ -97,7 +97,7 @@ class Detail extends React.Component {
                 </CardContent>
               </Card> */}
 <img src={art.url} className={classes.alignAndJustify}></img>
-            </Grid>
+            </div>
 
           ))}
           {/* {art.map((art) => (
@@ -119,7 +119,7 @@ class Detail extends React.Component {
             </Grid>
 
           ))} */}
-        </Grid>
+        {/* </Grid> */}
 
       </div>
 
