@@ -222,7 +222,7 @@ console.log('Setting state...');
                     id="standard-textarea"
                    variant="outlined"
                    label="Statement"
-                   rows={5}
+                   rows={4}
                     rowsMax={20}
                    name="statement"
                    multiline
