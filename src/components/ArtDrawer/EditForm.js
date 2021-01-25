@@ -210,7 +210,20 @@ class EditForm extends React.Component {
     console.log(`Saving edit(s) to Database...`);
 
     this.props.dispatch({ type: 'UPDATE_ART', payload: this.state.artToEdit })
-  }
+    this.setState({
+      artToEdit: {
+        ...this.state.artToEdit,
+        id: '',
+        user_id: '',
+        title: '',
+        medium: '',
+        dimension: '',
+        url: '',
+        statement: ''
+      }
+    }
+    )
+}
   deleteConfirmation = (event, art) => {
     confirmAlert({
       title: 'Please Confirm',
