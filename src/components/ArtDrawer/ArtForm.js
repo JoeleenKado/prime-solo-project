@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
 //styling
-import {AppBar, Button, Toolbar, Grid, Badge, CardMedia, IconButton, makeStyles, Paper, InputBase, TextField, Card, withStyles, CardActionArea} from '@material-ui/core'
+import {AppBar, Button, Toolbar, Grid, Badge, CardMedia, IconButton, makeStyles, Paper, InputBase, Card, withStyles, CardActionArea} from '@material-ui/core'
 import '../App/App.css';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
@@ -12,6 +12,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import purple from '@material-ui/core/colors/purple';
 import canvas from '../../canvas.jpg'
 import SubmitButton from '../SubmitButton/SubmitButton.js'
+import TextField from '@material-ui/core/TextField';
 
 const styles = {
     inputs: {
@@ -218,9 +219,13 @@ console.log('Setting state...');
 
                  <Grid item xs={12.0} sm={12}> 
                     <TextField
+                    id="standard-textarea"
                    variant="outlined"
                    label="Statement"
+                   rows={4}
+                    rowsMax={20}
                    name="statement"
+                   multiline
                    className={classes.inputs}
                   //  style={{width: '130px', height: '130px', marginBottom: '50px'}}
                    value={this.state.newArt.statement}

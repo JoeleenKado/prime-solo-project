@@ -7,7 +7,10 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { HashRouter as Route, Link } from 'react-router-dom';
 import '../App/App.css';
 //styling
-import {AppBar, CssBaseline, CardContent, Typography, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, CardMedia, centerText, withStyles, ThemeProvider, createMuiTheme} from '@material-ui/core'
+import {AppBar, CssBaseline, CardContent, 
+  Typography, Toolbar, Grid, Badge, IconButton, makeStyles, 
+  InputBase, TextField, Card, CardMedia, centerText, withStyles, 
+  ThemeProvider, createMuiTheme} from '@material-ui/core'
 import { sizing } from '@material-ui/system';
 
 
