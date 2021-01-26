@@ -327,18 +327,18 @@ class EditForm extends React.Component {
                  
                  
                   <IconButton 
-                   color=''
-                   variant='outlined'
-                   boxShadow={5}
+                //    color=''
+                //    variant='outlined'
+                //    boxShadow={5}
                    style={{
                     display: "flex",
                     flexDirection: "row",
                     justifyContent:"center",
-                    boxShadow: '5',
+                //     boxShadow: '5',
                     backgroundColor: '#c95b4b',
-                    '&:hover': {
-                        backgroundColor: 'red',
-                     },
+                //     '&:hover': {
+                //         backgroundColor: 'red',
+                //      },
                 }}
                   onClick={(event) => this.deleteConfirmation(event, art)}><DeleteIcon fontSize='small'/>
                   </IconButton>
