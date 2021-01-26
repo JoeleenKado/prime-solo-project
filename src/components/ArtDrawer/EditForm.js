@@ -16,6 +16,7 @@ import UpdateButton from '../UpdateButton/UpdateButton'
 // import { hashHistory, withRouter } from 'react-router';
 // import { BrowserRouter as Router } from 'react-router-dom';
 import { withRouter, Switch, BrowserRouter, Route, Redirect, Link } from "react-router-dom";
+import DeleteIcon from '@material-ui/icons/Delete';
 // import Dashboard from './Dashboard'
 //import Modal from './Modal.js';
 
@@ -319,7 +320,13 @@ class EditForm extends React.Component {
                   onClick={(event) => this.openEdit(event, art)}>EDIT</Button>
 
                   {/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
-                  <Button 
+                  {/* <IconButton> */}
+                            {/* <Badge badgeContent={4} color='secondary'>
+                            </Badge> */}
+                        {/* </IconButton> */}
+                 
+                 
+                  <IconButton 
                    color=''
                    variant='outlined'
                    boxShadow={5}
@@ -333,7 +340,8 @@ class EditForm extends React.Component {
                         backgroundColor: 'red',
                      },
                 }}
-                  onClick={(event) => this.deleteConfirmation(event, art)}>DELETE</Button>
+                  onClick={(event) => this.deleteConfirmation(event, art)}><DeleteIcon fontSize='small'/>
+                  </IconButton>
                 </CardActions>
                 {/* <Collapse timeout="auto" unmountOnExit>  
 </Collapse> */}
