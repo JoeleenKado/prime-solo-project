@@ -20,6 +20,7 @@ const styles = {
         paddingTop: '0px',
         // marginTop: '20px',
         verticalAlign: 'middle',
+        fontFamily: 'Arial'
         // height: '100%'
     },
     paperContainer: {
@@ -63,7 +64,7 @@ objectFit: 'cover'        // paddingTop: '56.25%', // 16:9
 
 const theme = createMuiTheme({
     shape: {
-        borderRadius: '40px'
+        borderRadius: '0px'
       },
     palette: {
         primary: {
@@ -174,7 +175,7 @@ console.log('Setting state...');
                    variant="outlined"
                    label="Title"
                    name="title"
-                  className={classes.inputs}
+                  // className={classes.inputs}
                                     value={this.state.newArt.title}
                     onChange ={ (event) => this.handleInputChange( event, 'title' ) } 
                    />
@@ -231,7 +232,7 @@ console.log('Setting state...');
                     rowsMax={20}
                    name="statement"
                    multiline
-                   className={classes.inputs}
+                  //  className={classes.inputs}
                   //  style={{width: '130px', height: '130px', marginBottom: '50px'}}
                    value={this.state.newArt.statement}
                 onChange ={ (event) => this.handleInputChange( event, 'statement' ) } 

@@ -5,11 +5,11 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 //import PropTypes from 'prop-types';
 
-const styles = theme => ({
-    button: {
-        margin: theme.spacing(1),
-    }
-});
+// const styles = theme => ({
+//     button: {
+//         margin: theme.spacing(1),
+//     }
+// });
 
 class SubmitButton extends Component {
     render() {
@@ -18,4 +18,5 @@ class SubmitButton extends Component {
         </Button>)
     }
 };//END SubmitButton
-export default withStyles(styles)(SubmitButton);
+// export default withStyles(styles)(SubmitButton);
+export default SubmitButton;

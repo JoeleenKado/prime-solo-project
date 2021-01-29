@@ -52,8 +52,10 @@ const theme = createMuiTheme({
     },
     background: {
       default: '#42f59b'
-    }
-    ,
+    },
+    typography : {
+      fontFamily : 'Arial'
+    }  
   },
 });
 
