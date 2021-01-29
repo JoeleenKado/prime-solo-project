@@ -25,6 +25,9 @@ const styles = {
     paperContainer: {
       backgroundImage: `url(${canvas})`
   },
+  typography : {
+    fontFamily : 'Arial'
+  },
 
 
     paper: 
@@ -65,19 +68,21 @@ const theme = createMuiTheme({
     palette: {
         primary: {
             // Purple and green play nicely together.
-            main: purple[500],
+            main: '#FFA500',
           },
-          background: {
-              default : '#42f59b'
-          }
-          ,   
+          // background: {
+          //     default : '#42f59b'
+          // },
+          typography : {
+            fontFamily : 'Arial'
+          }   
     },
-    typography: {
-      fontFamily: [
-          'cursive',
-          'Chilanka',
-      ].join(','),
-  }
+  //   typography: {
+  //     fontFamily: [
+  //         'cursive',
+  //         'Chilanka',
+  //     ].join(','),
+  // }
   });
 
 // export default function ArtForm() {
@@ -137,7 +142,7 @@ console.log('Setting state...');
     const { classes } = this.props;
     return(
 
-        <ThemeProvider theme=''>
+        <ThemeProvider theme={theme}>
 <CssBaseline />
            <Grid container
            className={classes.paper}
@@ -243,7 +248,7 @@ console.log('Setting state...');
                  <SubmitButton 
           addArtProp={this.addArt}
            elevation={20}  
-          //  className={classes.alignAndJustify}
+          //  className={classes.typography}
           //  textAlign='center'
           //  justify='center'
            style={{justifyContent: 'center'}}
@@ -256,7 +261,7 @@ console.log('Setting state...');
           //  onClick={this.addArt}
                 //  variant="raised"
                 //  color="purple"
-                 className={classes.alignAndJustify}
+                //  className={classes.alignAndJustify}
                  >SUBMIT TO GALLERY!</SubmitButton>
  
  
