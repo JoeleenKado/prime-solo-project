@@ -16,9 +16,11 @@ import UpdateButton from '../UpdateButton/UpdateButton'
 // import { hashHistory, withRouter } from 'react-router';
 // import { BrowserRouter as Router } from 'react-router-dom';
 import { withRouter, Switch, BrowserRouter, Route, Redirect, Link } from "react-router-dom";
+import DeleteIcon from '@material-ui/icons/Delete';
 // import Dashboard from './Dashboard'
 //import Modal from './Modal.js';
-
+import EditIcon from '@material-ui/icons/Edit';
+import ZoomInIcon from '@material-ui/icons/ZoomIn';
 // import ExpandMore from "@bit/mui-org.material-ui-icons.expand-more";
 // import InboxIcon from "@bit/mui-org.material-ui-icons.move-to-inbox";
 // import ExpandLess from "@bit/mui-org.material-ui-icons.expand-less";
@@ -50,8 +52,10 @@ const theme = createMuiTheme({
     },
     background: {
       default: '#42f59b'
-    }
-    ,
+    },
+    typography : {
+      fontFamily : 'Arial'
+    }  
   },
 });
 
@@ -289,7 +293,7 @@ class EditForm extends React.Component {
                   {/* <List component="nav" subheader={<ListSubheader component="div"></ListSubheader>} className={classes.root}>
         
        */}
-                         <Button 
+                         <IconButton 
                           color=''
                           variant='outlined'
                           style={{
@@ -301,10 +305,11 @@ class EditForm extends React.Component {
                                backgroundColor: 'red',
                             },
                        }}
-                         onClick={(event) => this.getDetails(event, {art})}>VIEW</Button>
+                         onClick={(event) => this.getDetails(event, {art})}><ZoomInIcon fontSize='large'/></IconButton>
                          {/* <Card className={classes.cardBackground} onClick={(event)=> this.getDetails(event, {art})}> */}
 
-                  <Button 
+                  <IconButton 
+                   name='Edit'
                    color=''
                    variant="outlined"
                    style={{
@@ -312,28 +317,35 @@ class EditForm extends React.Component {
                     flexDirection: "row",
                     justifyContent:"center",
                     backgroundColor: '#ffdd00',
-                    '&:hover': {
-                        backgroundColor: 'pink',
-                     },
+                    // '&:hover': {
+                    //     backgroundColor: 'pink',
+                    //  },
                 }}
-                  onClick={(event) => this.openEdit(event, art)}>EDIT</Button>
+                  onClick={(event) => this.openEdit(event, art)}><EditIcon fontSize='large'/></IconButton>
 
                   {/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
-                  <Button 
-                   color=''
-                   variant='outlined'
-                   boxShadow={5}
+                  {/* <IconButton> */}
+                            {/* <Badge badgeContent={4} color='secondary'>
+                            </Badge> */}
+                        {/* </IconButton> */}
+                 
+                 
+                  <IconButton 
+                //    color=''
+                //    variant='outlined'
+                //    boxShadow={5}
                    style={{
                     display: "flex",
                     flexDirection: "row",
                     justifyContent:"center",
-                    boxShadow: '5',
+                //     boxShadow: '5',
                     backgroundColor: '#c95b4b',
-                    '&:hover': {
-                        backgroundColor: 'red',
-                     },
+                //     '&:hover': {
+                //         backgroundColor: 'red',
+                //      },
                 }}
-                  onClick={(event) => this.deleteConfirmation(event, art)}>DELETE</Button>
+                  onClick={(event) => this.deleteConfirmation(event, art)}><DeleteIcon fontSize='large'/>
+                  </IconButton>
                 </CardActions>
                 {/* <Collapse timeout="auto" unmountOnExit>  
 </Collapse> */}

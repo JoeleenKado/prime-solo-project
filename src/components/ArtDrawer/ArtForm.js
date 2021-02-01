@@ -20,10 +20,14 @@ const styles = {
         paddingTop: '0px',
         // marginTop: '20px',
         verticalAlign: 'middle',
+        fontFamily: 'Arial'
         // height: '100%'
     },
     paperContainer: {
       backgroundImage: `url(${canvas})`
+  },
+  typography : {
+    fontFamily : 'Arial'
   },
 
 
@@ -60,24 +64,26 @@ objectFit: 'cover'        // paddingTop: '56.25%', // 16:9
 
 const theme = createMuiTheme({
     shape: {
-        borderRadius: '40px'
+        borderRadius: '0px'
       },
     palette: {
         primary: {
             // Purple and green play nicely together.
-            main: purple[500],
+            main: '#FFA500',
           },
-          background: {
-              default : '#42f59b'
-          }
-          ,   
+          // background: {
+          //     default : '#42f59b'
+          // },
+          typography : {
+            fontFamily : 'Arial'
+          }   
     },
-    typography: {
-      fontFamily: [
-          'cursive',
-          'Chilanka',
-      ].join(','),
-  }
+  //   typography: {
+  //     fontFamily: [
+  //         'cursive',
+  //         'Chilanka',
+  //     ].join(','),
+  // }
   });
 
 // export default function ArtForm() {
@@ -137,7 +143,7 @@ console.log('Setting state...');
     const { classes } = this.props;
     return(
 
-        <ThemeProvider theme=''>
+        <ThemeProvider theme={theme}>
 <CssBaseline />
            <Grid container
            className={classes.paper}
@@ -169,7 +175,7 @@ console.log('Setting state...');
                    variant="outlined"
                    label="Title"
                    name="title"
-                  className={classes.inputs}
+                  // className={classes.inputs}
                                     value={this.state.newArt.title}
                     onChange ={ (event) => this.handleInputChange( event, 'title' ) } 
                    />
@@ -226,7 +232,7 @@ console.log('Setting state...');
                     rowsMax={20}
                    name="statement"
                    multiline
-                   className={classes.inputs}
+                  //  className={classes.inputs}
                   //  style={{width: '130px', height: '130px', marginBottom: '50px'}}
                    value={this.state.newArt.statement}
                 onChange ={ (event) => this.handleInputChange( event, 'statement' ) } 
@@ -243,7 +249,7 @@ console.log('Setting state...');
                  <SubmitButton 
           addArtProp={this.addArt}
            elevation={20}  
-          //  className={classes.alignAndJustify}
+          //  className={classes.typography}
           //  textAlign='center'
           //  justify='center'
            style={{justifyContent: 'center'}}
@@ -256,7 +262,7 @@ console.log('Setting state...');
           //  onClick={this.addArt}
                 //  variant="raised"
                 //  color="purple"
-                 className={classes.alignAndJustify}
+                //  className={classes.alignAndJustify}
                  >SUBMIT TO GALLERY!</SubmitButton>
  
  
