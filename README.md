@@ -21,12 +21,12 @@ At your volition, attach pertinent information to an artwork, which can be updat
 
 ### Prerequisites
 
-- [Material-UI] ()
+- [Material-UI](https://material-ui.com/)
 - [Node.js](https://nodejs.org/en/)
 - [React.js](https://reactjs.org/)
-- [React-Redux] (https://react-redux.js.org/)
-- [Redux-Saga] (https://redux-saga.js.org/)
-- [PostgreSQL] (https://www.postgresql.org/)
+- [React-Redux](https://react-redux.js.org/)
+- [Redux-Saga](https://redux-saga.js.org/)
+- [PostgreSQL](https://www.postgresql.org/)
 
 ### SETUP
 
