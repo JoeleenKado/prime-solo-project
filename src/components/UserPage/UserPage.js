@@ -139,7 +139,6 @@ return (
         <Typography variant="body2" component="p" className={classes.centerText}>
           To get started. Head over to the Gallery where you can upload art.
           <br />
-          {'"a benevolent smile"'}
         </Typography>
       </CardContent>
 </Card>

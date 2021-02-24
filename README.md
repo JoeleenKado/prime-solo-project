@@ -15,7 +15,7 @@ Save any, and all of your artwork to virtual gallery. As the name implies. Each 
 At your volition, attach pertinent information to an artwork, which can be updated at any time. Or an artwork can be removed from the gallery, and deleted from the database altogether.
 
 
-![intro](public/images/screenShots/landingPage.png)
+![intro](public/images/screenShots/welcome.png)
 ![intro](public/images/screenShots/gallery.png)
 
 
