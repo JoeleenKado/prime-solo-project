@@ -45,7 +45,7 @@ npm run client
 
 ## Curate Your Gallery
 
-1. After reading your greeting on the 'Program' page, click 'Gallery' on the navbar to enter the Gallery. You will be countenanced an Add-Art Form which you will use to upload an image of your Art and attach pertinent information. Click 'SUBMIT' to save your artwork to the Gallery. 
+1. After reading your greeting on the 'Program' page, click 'Gallery' on the navbar to enter the Gallery. You will be countenanced an Add-Art Form which you will use to upload an image of your Art and attach pertinent information. (Add your artwork to the public/images folder in the code repository) Click 'SUBMIT' to save your artwork to the Gallery. 
 2. Your created artwork is represented by an art card which displays a miniturized image of your art. Click the green button on the card to view your artwork. Click 'Gallery' on the navbar to return to the Gallery
 3. Click the edit button on the art card to open edit mode. Make updates to your selected artwork using the edit form at the bottom of the page.
 4. To delete an artwork, Click the delete button on the art code in question.
