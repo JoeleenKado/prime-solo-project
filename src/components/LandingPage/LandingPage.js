@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import mapStoreToProps from "../../redux/mapStoreToProps";
 
-import './LandingPage.css';
+import "./LandingPage.css";
 
 // CUSTOM COMPONENTS
-import RegisterForm from '../RegisterForm/RegisterForm';
+import RegisterForm from "../RegisterForm/RegisterForm";
 
 class LandingPage extends Component {
   state = {
-    heading: 'Virtual Gallery',
+    heading: "Virtual Gallery",
   };
 
   onLogin = (event) => {
-    this.props.history.push('/login');
+    this.props.history.push("/login");
   };
 
   render() {
@@ -22,8 +22,7 @@ class LandingPage extends Component {
         {/* <h2>{this.state.heading}</h2> */}
 
         <div className="grid">
-          <div className="grid-col grid-col_8">
-                      </div>
+          <div className="grid-col grid-col_8"></div>
           <div className="grid-col grid-col_4">
             <RegisterForm />
 

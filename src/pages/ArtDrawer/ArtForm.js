@@ -1,9 +1,20 @@
-import React, {Component} from 'react'
+import React, { Component } from "react";
 //import { useDispatch } from 'react-redux';
-import mapStoreToProps from '../../redux/mapStoreToProps';
-import { connect } from 'react-redux';
+import mapStoreToProps from "../../redux/mapStoreToProps";
+import { connect } from "react-redux";
 //styling
-import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextField, Card, withStyles} from '@material-ui/core'
+import {
+  AppBar,
+  Toolbar,
+  Grid,
+  Badge,
+  IconButton,
+  makeStyles,
+  InputBase,
+  TextField,
+  Card,
+  withStyles,
+} from "@material-ui/core";
 
 // const useStyles = makeStyles(theme =>({
 //     root: {
@@ -23,78 +34,74 @@ import {AppBar, Toolbar, Grid, Badge, IconButton, makeStyles, InputBase, TextFie
 // }
 
 const styles = {
-    inputs: {
-        width: '20%',
-
-    }
-}
+  inputs: {
+    width: "20%",
+  },
+};
 // export default function ArtForm() {
-    class ArtForm extends Component {
+class ArtForm extends Component {
+  // handleChange = (event) => {
+  //     // this.setState({
+  //     //     feeling: event.target.value
+  //     // })
+  //     console.log('input change')
+  // }
 
-        // handleChange = (event) => {
-        //     // this.setState({
-        //     //     feeling: event.target.value
-        //     // }) 
-        //     console.log('input change')
-        // }
+  state = {
+    newArt: {
+      user_id: "",
+      title: "",
+      medium: "",
+      dimension: "",
+      url: "",
+      statement: "",
+    },
+  };
 
-        state = {
-            newArt: {
-              user_id: '',
-              title: '',
-              medium: '',
-              dimension: '',
-              url: '',
-              statement: ''
-            },
-        }
+  handleInputChange = (event, inputProperty) => {
+    console.log("Handling input-change...");
+    console.log("Setting state...");
 
-        handleInputChange = (event, inputProperty) => {
-console.log('Handling input-change...');
-console.log('Setting state...');
+    //console.log('Handling input change. this.state.newArt.user_id', this.state.newArt.user_id);
+    this.setState(
+      {
+        newArt: {
+          ...this.state.newArt,
+          [inputProperty]: event.target.value,
+          user_id: this.props.store.user.id,
+        },
+      },
+      function () {
+        console.log("state has been set:", this.state);
+      }
+    );
+  };
 
-//console.log('Handling input change. this.state.newArt.user_id', this.state.newArt.user_id);
-            this.setState({
-              newArt : {
-                ...this.state.newArt,
-                [inputProperty]: event.target.value,
-                user_id: this.props.store.user.id
-              }
-            }, function () {
-                console.log('state has been set:', this.state);
-            })
-          }
+  addArt = () => {
+    if (this.state.newArt.title === "") {
+      alert("A title is required for your Artwork.");
+    } else {
+      console.log(`Sending ${this.state.newArt.title} to Database...`);
+      //Clear message... should say Hello!
+      //console.log(`Sending ${this.state.newArt} to DB.`);
 
-          addArt = () => {
-            if(this.state.newArt.title === '') {
-                alert('A title is required for your Artwork.')
-            } else {
-            
-                console.log(`Sending ${this.state.newArt.title} to Database...`);
-            //Clear message... should say Hello!
-            //console.log(`Sending ${this.state.newArt} to DB.`);
+      this.props.dispatch({ type: "ADD_ART", payload: this.state.newArt });
+    }
+    // this.setState({
 
-                 this.props.dispatch({ type: 'ADD_ART', payload: this.state.newArt })
-            }
-            // this.setState({
-            
-            //    newArt: {title: '',
-            //     medium: '',
-            //     dimension: '',
-            //     url: '',
-            //     statement: ''}
-            // }
-            // )
-          }
+    //    newArt: {title: '',
+    //     medium: '',
+    //     dimension: '',
+    //     url: '',
+    //     statement: ''}
+    // }
+    // )
+  };
 
-
-            render() {
-
+  render() {
     // const [values, setValues] = useState(initialFValues);
     // const classes = useStyles();
     // const dispatch = useDispatch();
-
-
 
     // const handleInputChange= e=> {
     //     const {name, value} = e.target
@@ -106,39 +113,30 @@ console.log('Setting state...');
 
     // const addArt= ()=> {
     //     console.log('adding art');
-        
-    //     }
-    
-    //   <form  className={classes.root}> 
 
+    //     }
+
+    //   <form  className={classes.root}>
 
     const { classes } = this.props;
-    return(
+    return (
+      <Grid container>
+        <Grid item xs={3.0}>
+          {/* <Card> */}
+          <form alignItems="center" justify="center">
+            {/* <Grid item xs={12.0}> */}
+            <TextField
+              variant="outlined"
+              label="Title"
+              name="title"
+              className={classes.inputs}
+              value={this.state.newArt.title}
+              onChange={(event) => this.handleInputChange(event, "title")}
+            />
+            {/* </Grid> */}
 
-
-           <Grid container
-           >
-                               <Grid item xs={3.0}
-                               >
-
-               {/* <Card> */}
-               <form
-               alignItems="center"
-               justify="center">
-
-               {/* <Grid item xs={12.0}> */}
-                   <TextField
-                   variant="outlined"
-                   label="Title"
-                   name="title"
-                   className={classes.inputs}
-                   value={this.state.newArt.title}
-                    onChange ={ (event) => this.handleInputChange( event, 'title' ) } 
-                   />
-                {/* </Grid> */}
-
-                {/* <Grid item xs={12.0}> */}
-                   {/* <TextField
+            {/* <Grid item xs={12.0}> */}
+            {/* <TextField
                    variant="outlined"
                    label="Medium"
                    name="medium"
@@ -149,10 +147,10 @@ console.log('Setting state...');
                 onChange ={ (event) => this.handleInputChange( event, 'medium' ) } 
 
                    /> */}
-                {/* </Grid> */}
+            {/* </Grid> */}
 
-                {/* <Grid item xs={12.0}> */}
-                   {/* <TextField
+            {/* <Grid item xs={12.0}> */}
+            {/* <TextField
                    variant="outlined"
                    label="Dimensions"
                    name="dimension"
@@ -163,10 +161,10 @@ console.log('Setting state...');
                 onChange ={ (event) => this.handleInputChange( event, 'dimension' ) } 
 
                    /> */}
-                {/* </Grid>  */}
+            {/* </Grid>  */}
 
-                {/* <Grid item xs={12.0}> */}
-                   {/* <TextField
+            {/* <Grid item xs={12.0}> */}
+            {/* <TextField
                    variant="outlined"
                    label="URL"
                    name="url"
@@ -177,10 +175,10 @@ console.log('Setting state...');
                 onChange ={ (event) => this.handleInputChange( event, 'url' ) } 
 
                    /> */}
-                {/* </Grid> */}
+            {/* </Grid> */}
 
-                {/* <Grid item xs={12.0}> */}
-                   {/* <TextField
+            {/* <Grid item xs={12.0}> */}
+            {/* <TextField
                    variant="outlined"
                    label="Statement"
                    name="statement"
@@ -190,17 +188,16 @@ console.log('Setting state...');
                    value={this.state.newArt.statement}
                 onChange ={ (event) => this.handleInputChange( event, 'statement' ) }  */}
 
-                   {/* /> */}
-                {/* </Grid> */}
+            {/* /> */}
+            {/* </Grid> */}
 
-               {/*  <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button> */}
-               <button onClick={this.addArt}>Click Me!</button>
-
-               </form>
-               {/* </Card> */}
-               </Grid>
-
-           </Grid>
-    )
-}}
+            {/*  <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button> */}
+            <button onClick={this.addArt}>Click Me!</button>
+          </form>
+          {/* </Card> */}
+        </Grid>
+      </Grid>
+    );
+  }
+}
 export default connect(mapStoreToProps)(withStyles(styles)(ArtForm));

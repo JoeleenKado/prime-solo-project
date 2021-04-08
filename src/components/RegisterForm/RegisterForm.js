@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import mapStoreToProps from "../../redux/mapStoreToProps";
 
 class RegisterForm extends Component {
   state = {
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   };
 
   registerUser = (event) => {
     event.preventDefault();
 
     this.props.dispatch({
-      type: 'REGISTER',
+      type: "REGISTER",
       payload: {
         username: this.state.username,
         password: this.state.password,
@@ -25,8 +25,6 @@ class RegisterForm extends Component {
       [propertyName]: event.target.value,
     });
   };
-
-  
 
   render() {
     return (
@@ -45,7 +43,7 @@ class RegisterForm extends Component {
               name="username"
               value={this.state.username}
               required
-              onChange={this.handleInputChangeFor('username')}
+              onChange={this.handleInputChangeFor("username")}
             />
           </label>
         </div>
@@ -57,14 +55,15 @@ class RegisterForm extends Component {
               name="password"
               value={this.state.password}
               required
-              onChange={this.handleInputChangeFor('password')}
+              onChange={this.handleInputChangeFor("password")}
             />
           </label>
         </div>
-        <button onClick={this.props.cancelRegistration}>CANCEL REGISTRATION</button>
+        <button onClick={this.props.cancelRegistration}>
+          CANCEL REGISTRATION
+        </button>
 
         <div>
-
           <input className="btn" type="submit" name="submit" value="Register" />
         </div>
       </form>

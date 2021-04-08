@@ -1,7 +1,6 @@
-import React from 'react';
+import React from "react";
 // import mapStoreToProps from '../../redux/mapStoreToProps';
 //import { connect } from 'react-redux';
-
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -12,9 +11,7 @@ const InfoPage = () => (
   <div>
     <p>Info Page</p>
 
-
-  {/* <h3>RS: {JSON.stringify(props.store.art)}</h3> */}
-
+    {/* <h3>RS: {JSON.stringify(props.store.art)}</h3> */}
   </div>
 );
 

@@ -1,15 +1,30 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import mapStoreToProps from '../../redux/mapStoreToProps';
-import {AppBar, CssBaseline, CardContent, 
-  Typography, Toolbar, Grid, Badge, IconButton, makeStyles, 
-  InputBase, TextField, Card, CardMedia, centerText, withStyles, 
-  ThemeProvider, createMuiTheme} from '@material-ui/core'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import mapStoreToProps from "../../redux/mapStoreToProps";
+import {
+  AppBar,
+  CssBaseline,
+  CardContent,
+  Typography,
+  Toolbar,
+  Grid,
+  Badge,
+  IconButton,
+  makeStyles,
+  InputBase,
+  TextField,
+  Card,
+  CardMedia,
+  centerText,
+  withStyles,
+  ThemeProvider,
+  createMuiTheme,
+} from "@material-ui/core";
 
 class LoginForm extends Component {
   state = {
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   };
 
   login = (event) => {
@@ -17,14 +32,14 @@ class LoginForm extends Component {
 
     if (this.state.username && this.state.password) {
       this.props.dispatch({
-        type: 'LOGIN',
+        type: "LOGIN",
         payload: {
           username: this.state.username,
           password: this.state.password,
         },
       });
     } else {
-      this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
+      this.props.dispatch({ type: "LOGIN_INPUT_ERROR" });
     }
   }; // end login
 
@@ -37,41 +52,40 @@ class LoginForm extends Component {
   render() {
     return (
       <form className="formPanel" onSubmit={this.login}>
-        <Typography variant='h4'>
-        <h2>Login</h2>
-        {this.props.store.errors.loginMessage && (
-          <h3 className="alert" role="alert">
-            {this.props.store.errors.loginMessage}
-          </h3>
-        )}
-        <div>
-          <label htmlFor="username">
-            Username:
-            <input
-              type="text"
-              name="username"
-              required
-              value={this.state.username}
-              onChange={this.handleInputChangeFor('username')}
-            />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="password">
-            Password:
-            <input
-              type="password"
-              name="password"
-              required
-              value={this.state.password}
-              onChange={this.handleInputChangeFor('password')}
-            />
-          </label>
-        </div>
-        <div>
-          <input className="btn" type="submit" name="submit" value="Log In" />
-          
-        </div>
+        <Typography variant="h4">
+          <h2>Login</h2>
+          {this.props.store.errors.loginMessage && (
+            <h3 className="alert" role="alert">
+              {this.props.store.errors.loginMessage}
+            </h3>
+          )}
+          <div>
+            <label htmlFor="username">
+              Username:
+              <input
+                type="text"
+                name="username"
+                required
+                value={this.state.username}
+                onChange={this.handleInputChangeFor("username")}
+              />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="password">
+              Password:
+              <input
+                type="password"
+                name="password"
+                required
+                value={this.state.password}
+                onChange={this.handleInputChangeFor("password")}
+              />
+            </label>
+          </div>
+          <div>
+            <input className="btn" type="submit" name="submit" value="Log In" />
+          </div>
         </Typography>
       </form>
     );
