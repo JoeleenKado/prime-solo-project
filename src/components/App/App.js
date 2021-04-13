@@ -50,7 +50,7 @@ import {
   ThemeProvider,
   createMuiTheme,
 } from "@material-ui/core";
-import NavBar from "../NavBar/NavBar";
+// import NavBar from "../NavBar/NavBar";
 import ArtDrawer from "../ArtDrawer/ArtDrawer";
 //import {orange, brown, pink, green}from '@material-ui/core/colors'
 
@@ -161,7 +161,7 @@ const theme = createMuiTheme({
       fontFamily: "verdana",
     },
     button: {
-      fontFamily: "Comic Sans MS",
+      fontFamily: "Arial",
     },
   },
 });
