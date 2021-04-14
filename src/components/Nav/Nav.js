@@ -34,32 +34,32 @@ const Nav = (props) => {
   };
   // numbers.forEach(myFunction);
 
-  useEffect(() => {
-    let numberArray = [1, 45, 3, 97, 5, 565, 7]
-    numberArray.forEach((number) => (
+//   useEffect(() => {
+//     let numberArray = [1, 45, 3, 97, 5, 565, 7]
+//     numberArray.forEach((number) => (
 
-      axios
-      .get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${number}`)
-      .then(function(res) {//
-          const {title, artistDisplayBio, primaryImageSmall} = res.data;
-          console.log(title);
-          // console.log(artistDisplayBio);
+//       axios
+//       .get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${number}`)
+//       .then(function(res) {//
+//           const {title, artistDisplayBio, primaryImageSmall} = res.data;
+//           console.log(title);
+//           // console.log(artistDisplayBio);
   
-          // const newPokemonData = {};
-          // results.forEach((pokemon, index) => {///
-          //     newPokemonData[index + 1] = {
-          //         id: index + 1,
-          //         name: pokemon.name,
-          //         sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`,
-          //     }
+//           // const newPokemonData = {};
+//           // results.forEach((pokemon, index) => {///
+//           //     newPokemonData[index + 1] = {
+//           //         id: index + 1,
+//           //         name: pokemon.name,
+//           //         sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`,
+//           //     }
            
-          //     })///
-          //     setPokemonData(newPokemonData);
-          })//
+//           //     })///
+//           //     setPokemonData(newPokemonData);
+//           })//
       
-  ))
+//   ))
    
-},[])
+// },[])
 
 
   if (props.store.user.id != null) {
@@ -102,9 +102,9 @@ const Nav = (props) => {
           </>
         )}
         {/* Always show this link since the about page is not protected */}
-        {/* <Link className="nav-link" to="/about">
+         <Link className="nav-link" to="/about">
           About
-        </Link> */}
+        </Link> 
       </div>
     </div>
   ); //END return

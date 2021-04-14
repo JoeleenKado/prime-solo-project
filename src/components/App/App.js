@@ -21,31 +21,30 @@ import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import Detail from "../Gallery/Detail";
-import ArtForm from "../ArtDrawer/ArtForm";
 // import createPalette from 'material-ui/styles/palette';
 //import Typography from 'material-ui/styles/typography';
 
 import "./App.css";
 // import {Typography} from '@material-ui/core/Typography'
 //styling
-import SideMenu from "../SideMenu/SideMenu";
+// import SideMenu from "../SideMenu/SideMenu";
 // import { createMuiTheme, CssBaseline, withStyles, makeStyles, ThemeProvider, AppBar, Toolbar } from '@material-ui/core';
 // import makeStyles from '@material-ui/core/styles'
 import {
-  AppBar,
+  // AppBar,
   CssBaseline,
-  CardContent,
+  // CardContent,
   Typography,
-  Toolbar,
-  Grid,
-  Badge,
-  IconButton,
-  makeStyles,
-  InputBase,
-  TextField,
-  Card,
-  CardMedia,
-  centerText,
+  // Toolbar,
+  // Grid,
+  // Badge,
+  // IconButton,
+  // makeStyles,
+  // InputBase,
+  // TextField,
+  // Card,
+  // CardMedia,
+  // centerText,
   withStyles,
   ThemeProvider,
   createMuiTheme,
@@ -53,46 +52,6 @@ import {
 // import NavBar from "../NavBar/NavBar";
 import ArtDrawer from "../ArtDrawer/ArtDrawer";
 //import {orange, brown, pink, green}from '@material-ui/core/colors'
-
-//import turquoise from '@material-ui/core/colors/turquoise';
-// function App(props) {
-//   //return is render
-
-//   //we get two things. one being a variable, and the other being a function to change said variable
-//   let [hello, changeHello] = useState('world')
-//   let [counter, changeCounter] = useState(0);
-//   let [user, changeUser] = useState({name: 'joel', age: 30});
-//   let [name, changeName] = useState('');
-
-// useEffect(() => {
-//   console.log('useEffect called');
-//   document.title = hello
-//   //dependancies
-//   //only do effect if hello changes
-//   //empty array makes it so it only runs on mount
-// },[])
-//let stateThing = useState('world')
-// let hello = statething[0]
-//let change hello = stateThing[1]
-
-// useEffect(() => {
-//        document.title = hello
-
-// },[])
-
-// return(
-// <>
-// <h1>function component</h1>
-// <p>Hello {hello}</p>
-// <p>counter {counter}</p>
-
-// <input onChange={(event)=> changeName(event.target.value)} placeholder="name"/>
-// <button onClick={()=>changeHello(name)}>Change Greeting!</button>
-
-// <button onClick={()=>changeCounter(counter + 1)}>Plus 1!</button>
-
-// </>
-// )
 
 const styles = {
   appMain: {
@@ -137,11 +96,11 @@ const theme = createMuiTheme({
       fontFamily: "Roboto",
     },
   },
-  props: {
-    MuiIconButton: {
-      disableRipple: false,
-    },
-  },
+  // props: {
+  //   MuiIconButton: {
+  //     disableRipple: false,
+  //   },
+  // },
   typographyStyle: {
     color: "#7700c7",
   },
@@ -169,23 +128,23 @@ const theme = createMuiTheme({
 class App extends Component {
   componentDidMount() {
     this.props.dispatch({ type: "FETCH_USER" });
+    const { classes } = this.props;
+
   }
 
   render() {
-    const { classes } = this.props;
 
     return (
       <ThemeProvider theme={theme}>
-        <AppBar position="static">
+        {/* <AppBar position="static"> */}
           {/* <Toolbar>
 toolbar
             </Toolbar> */}
-        </AppBar>
+        {/* </AppBar> */}
         {/* cssbaseline makes it so you dont have white space when you scroll to thre right */}
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         {/* <NavBar/> */}
         {/* <div className={classes.appMain}> */}
-        <div>{/* <ArtForm/> */}</div>
         {/* <SideMenu/> */}
 
         <Typography align="center" variant="h1">
@@ -193,8 +152,9 @@ toolbar
         </Typography>
 
         <Router>
-          <div>
-            <Nav />
+        <Nav />
+
+          {/* <div> */}
             <Switch>
               {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
               <Redirect exact from="/" to="/home" />
@@ -272,9 +232,9 @@ toolbar
               <Route render={() => <h1>404</h1>} />
             </Switch>
             <Footer />
-          </div>
+          {/* </div> */}
         </Router>
-        <CssBaseline />
+        {/* <CssBaseline /> */}
       </ThemeProvider>
     ); //END return
   }

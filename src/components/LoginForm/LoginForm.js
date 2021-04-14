@@ -21,11 +21,38 @@ import {
   createMuiTheme,
 } from "@material-ui/core";
 
+
+const styles = {
+  formContainer : {
+    paddingTop: '20px',
+    paddingLeft: '50px',
+    paddingRight: '50px'
+},
+marginAuto : {
+    margin: 'auto',
+
+},
+avatar: {
+    backgroundColor: '#fcf403',
+    color: '#ad0940'
+},
+card: {
+boxShadow: 'rgba(255, 0, 0, 0.117647) 0px 1px 6px, rgba(255, 0, 0, 0.117647) 0px 1px 4px'
+}
+
+
+}
+
+
 class LoginForm extends Component {
   state = {
     username: "",
     password: "",
   };
+
+
+
+
 
   login = (event) => {
     event.preventDefault();
@@ -50,7 +77,18 @@ class LoginForm extends Component {
   };
 
   render() {
+    const { classes } = this.props;
+
     return (
+      <Grid container 
+      spacing={2} 
+      style={styles.formContainer}
+      direction="column"
+      alignItems="center"
+      justify="center">
+
+      {/* <Grid item xs={4} key={pokemonId} spacing={1}> */}
+
       <form className="formPanel" onSubmit={this.login}>
                   <h1>Login</h1>
 
@@ -89,6 +127,7 @@ class LoginForm extends Component {
           </div>
         </Typography>
       </form>
+      </Grid>
     );
   }
 }

@@ -39,6 +39,7 @@ const styles = {
   },
   paperContainer: {
     backgroundImage: `url(${canvas})`,
+    paddingTop: "20px",
   },
   typography: {
     fontFamily: "Arial",
@@ -77,29 +78,29 @@ const styles = {
   },
 };
 
-const theme = createMuiTheme({
-  shape: {
-    borderRadius: "0px",
-  },
-  palette: {
-    primary: {
-      // Purple and green play nicely together.
-      main: "#FFA500",
-    },
-    // background: {
-    //     default : '#42f59b'
-    // },
-    typography: {
-      fontFamily: "Arial",
-    },
-  },
-  //   typography: {
-  //     fontFamily: [
-  //         'cursive',
-  //         'Chilanka',
-  //     ].join(','),
-  // }
-});
+// const theme = createMuiTheme({
+//   shape: {
+//     borderRadius: "0px",
+//   },
+//   palette: {
+//     primary: {
+//       // Purple and green play nicely together.
+//       main: "#FFA500",
+//     },
+//     // background: {
+//     //     default : '#42f59b'
+//     // },
+//     typography: {
+//       fontFamily: "Arial",
+//     },
+//   },
+//   //   typography: {
+//   //     fontFamily: [
+//   //         'cursive',
+//   //         'Chilanka',
+//   //     ].join(','),
+//   // }
+// });
 
 // export default function ArtForm() {
 class ArtForm extends Component {
@@ -156,8 +157,8 @@ class ArtForm extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
+      // <ThemeProvider theme={theme}>
+        // <CssBaseline />
         <Grid
           container
           className={classes.paper}
@@ -166,8 +167,9 @@ class ArtForm extends Component {
           direction="column"
         >
           <Paper
-            className={classes.paddingTop}
-            style={styles.paperContainer}
+          
+            // className={classes.paddingTop}
+             style={styles.paperContainer}
             elevation={10}
             // className={classes.paper}
             backgroundImage={canvas}
@@ -200,7 +202,7 @@ class ArtForm extends Component {
                   variant="outlined"
                   label="Medium"
                   name="medium"
-                  className={classes.inputs}
+                  style={styles.inputs}
                   value={this.state.newArt.medium}
                   onChange={(event) => this.handleInputChange(event, "medium")}
                 />
@@ -280,7 +282,7 @@ class ArtForm extends Component {
             {/* </Grid> */}
           </Paper>
         </Grid>
-      </ThemeProvider>
+      // </ThemeProvider>
     ); //END return
   } //END render
 } //END ArtForm

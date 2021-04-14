@@ -46,15 +46,15 @@ class ArtDrawer extends Component {
         {/* <h3>Here is your art: {JSON.stringify(art)}</h3>  */}
 
         {/* <h3>SUBMIT ART TO GALLERY</h3> */}
-        <Grid container spacing={8}>
-          <Grid item xs={12}>
+        {/* <Grid container spacing={8}> */}
+          {/* <Grid item xs={12}> */}
             <ArtForm />
-          </Grid>
+          {/* </Grid> */}
           <br />
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}> */}
             <EditForm />
-          </Grid>
-        </Grid>
+          {/* </Grid> */}
+        {/* </Grid> */}
 
         {/* <LogOutButton className="log-in" /> */}
       </div>
