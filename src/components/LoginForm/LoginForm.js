@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
+// import  '/LoginForm.css'
 import {
   AppBar,
   CssBaseline,
@@ -27,6 +28,10 @@ const styles = {
     paddingTop: '20px',
     paddingLeft: '50px',
     paddingRight: '50px'
+},
+marginBottom : {
+marginBottom: '100px',
+
 },
 marginAuto : {
     margin: 'auto',
@@ -107,6 +112,7 @@ class LoginForm extends Component {
                 required
                 value={this.state.username}
                 onChange={this.handleInputChangeFor("username")}
+                className="input"
               />
             </label>
           </div>
