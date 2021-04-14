@@ -1,26 +1,55 @@
-import React, { Component, createRef } from 'react';
-import mapStoreToProps from '../../redux/mapStoreToProps';
-import { connect } from 'react-redux';
-import { AppBar, Toolbar, Grid, Button, Badge, List, ExapandLess, 
-  ListSubheader, ListItem, ListItemText, ListItemIcon, createMuiTheme, 
-  Collapse, CardHeader, CardActions, Typography, CardMedia, CardActionArea, 
-  CardContent, IconButton, makeStyles, InputBase, TextField, Card, withStyles } 
-  from '@material-ui/core'
-import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css'; // I
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { ExpandLess, ExpandMore } from '@material-ui/icons'
-import InputModal from './InputModal'
-import UpdateButton from '../UpdateButton/UpdateButton'
+import React, { Component, createRef } from "react";
+import mapStoreToProps from "../../redux/mapStoreToProps";
+import { connect } from "react-redux";
+import {
+  AppBar,
+  Toolbar,
+  Grid,
+  Button,
+  Badge,
+  List,
+  ExapandLess,
+  ListSubheader,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  createMuiTheme,
+  Collapse,
+  CardHeader,
+  CardActions,
+  Typography,
+  CardMedia,
+  CardActionArea,
+  CardContent,
+  IconButton,
+  makeStyles,
+  InputBase,
+  TextField,
+  Card,
+  withStyles,
+} from "@material-ui/core";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css"; // I
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { ExpandLess, ExpandMore } from "@material-ui/icons";
+import InputModal from "./InputModal";
+import UpdateButton from "../UpdateButton/UpdateButton";
 // import { HashRouter as Route, Link } from 'react-router-dom';
 // import { hashHistory, withRouter } from 'react-router';
 // import { BrowserRouter as Router } from 'react-router-dom';
-import { withRouter, Switch, BrowserRouter, Route, Redirect, Link } from "react-router-dom";
-import DeleteIcon from '@material-ui/icons/Delete';
+import {
+  withRouter,
+  Switch,
+  BrowserRouter,
+  Route,
+  Redirect,
+  Link,
+} from "react-router-dom";
+import DeleteIcon from "@material-ui/icons/Delete";
 // import Dashboard from './Dashboard'
 //import Modal from './Modal.js';
-import EditIcon from '@material-ui/icons/Edit';
-import ZoomInIcon from '@material-ui/icons/ZoomIn';
+import EditIcon from "@material-ui/icons/Edit";
+import ZoomInIcon from "@material-ui/icons/ZoomIn";
 // import ExpandMore from "@bit/mui-org.material-ui-icons.expand-more";
 // import InboxIcon from "@bit/mui-org.material-ui-icons.move-to-inbox";
 // import ExpandLess from "@bit/mui-org.material-ui-icons.expand-less";
@@ -34,8 +63,6 @@ import ZoomInIcon from '@material-ui/icons/ZoomIn';
 //   <div>
 //     <p>Info Page</p>
 
-
-
 //   </div>
 // );
 
@@ -43,65 +70,64 @@ import ZoomInIcon from '@material-ui/icons/ZoomIn';
 // you can make it a class component like:
 const theme = createMuiTheme({
   shape: {
-    borderRadius: '40px'
+    borderRadius: "40px",
   },
   palette: {
     primary: {
       // Purple and green play nicely together.
-      main: '#365c58',
+      main: "#365c58",
     },
     background: {
-      default: '#42f59b'
+      default: "#42f59b",
     },
-    typography : {
-      fontFamily : 'Arial'
-    }  
+    typography: {
+      fontFamily: "Arial",
+    },
   },
 });
 
 const styles = {
   inputs: {
-    width: '20%',
+    width: "20%",
   },
   root: {
-    width: '100%',
+    width: "100%",
     maxWidth: 360,
-    backgroundColor: '#f5dd73',
-    margin: 'auto',
-    height: '100%',
+    backgroundColor: "#f5dd73",
+    margin: "auto",
+    height: "100%",
   },
   centerText: {
-    textAlign: 'center'
+    textAlign: "center",
   },
   alignAndJustify: {
     width: 1200,
-    height: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white',
-    margin: 'auto',
-  padding: '10px'},
-  marginAuto:
-    { margin: 'auto' },
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
+    margin: "auto",
+    padding: "10px",
+  },
+  marginAuto: { margin: "auto" },
   nested: {
-    paddingLeft: theme.spacing.unit * 4
+    paddingLeft: theme.spacing.unit * 4,
   },
   media: {
     height: 0,
-    padding: '56.25%'
+    padding: "56.25%",
   },
-}
+};
 
 class EditForm extends React.Component {
-
   constructor() {
-    super()
-    this.buttonRef = createRef()
+    super();
+    this.buttonRef = createRef();
   }
 
   componentDidMount() {
-    this.props.dispatch({ type: 'FETCH_ART' });
+    this.props.dispatch({ type: "FETCH_ART" });
   }
 
   // constructor() {
@@ -133,152 +159,157 @@ class EditForm extends React.Component {
   state = {
     // open: true,
     artToEdit: {
-      id: '',
-      user_id: '',
-      title: '',
-      medium: '',
-      dimension: '',
-      url: '',
-      statement: ''
+      id: "",
+      user_id: "",
+      title: "",
+      medium: "",
+      dimension: "",
+      url: "",
+      statement: "",
     },
-  }
+  };
 
   handleClick = () => {
-    this.setState(state => ({ open: !state.open }));
+    this.setState((state) => ({ open: !state.open }));
   };
 
   handleInputChange = (event, inputProperty) => {
-    console.log('Handling input-change...');
-    console.log('Setting state...');
+    console.log("Handling input-change...");
+    console.log("Setting state...");
 
-    this.setState({
-      artToEdit: {
-        ...this.state.artToEdit,
-        [inputProperty]: event.target.value,
+    this.setState(
+      {
+        artToEdit: {
+          ...this.state.artToEdit,
+          [inputProperty]: event.target.value,
+        },
+      },
+      function () {
+        console.log("State has been set:", this.state);
       }
-    }, function () {
-      console.log('State has been set:', this.state);
-    })
-  }
+    );
+  };
 
-  getDetails = (event, {art}) => {
-    console.log('Gettin Details for :', art.title)
-    console.log(art.id)
-    this.props.dispatch({ type: 'FETCH_DETAILS', payload: art.id });
-    this.props.history.push('/Detail')
+  getDetails = (event, { art }) => {
+    console.log("Gettin Details for :", art.title);
+    console.log(art.id);
+    this.props.dispatch({ type: "FETCH_DETAILS", payload: art.id });
+    this.props.history.push("/Detail");
     // this.props.history.push( {pathname: `/Detail`, state: art})
-    }
+  };
 
   openEdit = (event, art) => {
     console.log(`In openEdit function...`);
-    console.log('art:', art);
-    console.log('Setting state...')
-    this.setState({
-      artToEdit: {
-        ...this.state.artToEdit,
-        id: art.id,
-        user_id: this.props.store.user.id,
-        title: art.title,
-        medium: art.medium,
-        dimension: art.dimension,
-        url: art.url,
-        statement: art.statement
+    console.log("art:", art);
+    console.log("Setting state...");
+    this.setState(
+      {
+        artToEdit: {
+          ...this.state.artToEdit,
+          id: art.id,
+          user_id: this.props.store.user.id,
+          title: art.title,
+          medium: art.medium,
+          dimension: art.dimension,
+          url: art.url,
+          statement: art.statement,
+        },
+      },
+      function () {
+        console.log("State has been set:", this.state);
       }
-    }, function () {
-      console.log('State has been set:', this.state);
-    })
-  }
+    );
+  };
 
   updateConfirmation = (artToEdit) => {
-    if (this.state.artToEdit.title === '') {
-      alert('A title is required for your Artwork.')
+    if (this.state.artToEdit.title === "") {
+      alert("A title is required for your Artwork.");
     } else {
       confirmAlert({
-        title: 'Please Confirm',
+        title: "Please Confirm",
         message: `Would you like to save edits made to ${artToEdit.title}?`,
         buttons: [
           {
-            label: 'Yes',
-            onClick: () => this.updateArt()
+            label: "Yes",
+            onClick: () => this.updateArt(),
           },
           {
-            label: 'No',
-            onClick: () => alert('Edit Canceled')
-          }
-        ]
-      })
+            label: "No",
+            onClick: () => alert("Edit Canceled"),
+          },
+        ],
+      });
     }
-  }
+  };
 
   updateArt = () => {
     console.log(`Saving edit(s) to Database...`);
 
-    this.props.dispatch({ type: 'UPDATE_ART', payload: this.state.artToEdit })
+    this.props.dispatch({ type: "UPDATE_ART", payload: this.state.artToEdit });
     this.setState({
       artToEdit: {
         ...this.state.artToEdit,
-        id: '',
-        user_id: '',
-        title: '',
-        medium: '',
-        dimension: '',
-        url: '',
-        statement: ''
-      }
-    }
-    )
-}
+        id: "",
+        user_id: "",
+        title: "",
+        medium: "",
+        dimension: "",
+        url: "",
+        statement: "",
+      },
+    });
+  };
   deleteConfirmation = (event, art) => {
     confirmAlert({
-      title: 'Please Confirm',
+      title: "Please Confirm",
       message: `Would you like to Delete ${art.title}?`,
       buttons: [
         {
-          label: 'Yes',
-          onClick: () => this.deleteArt(event, art)
+          label: "Yes",
+          onClick: () => this.deleteArt(event, art),
         },
         {
-          label: 'No',
-          onClick: () => alert('Deletion Canceled')
-        }
-      ]
-    })
-  }
+          label: "No",
+          onClick: () => alert("Deletion Canceled"),
+        },
+      ],
+    });
+  };
 
   deleteArt = (event, art) => {
     console.log(`Deleting ${art.title}...`);
     console.log(art);
-    this.props.dispatch({ type: 'DELETE_ART', payload: art.id })
-  }
+    this.props.dispatch({ type: "DELETE_ART", payload: art.id });
+  };
 
   render() {
     const { classes } = this.props;
     // console.log(this.props)
     const art = this.props.store.art;
-    const { label, action } = this.props
+    const { label, action } = this.props;
 
     return (
-
       <div>
-        
         <Grid container spacing={8}>
           {art.map((art) => (
-            <Grid item xs={12} sm={4}
-              key={art.id}>
-
+            <Grid item xs={12} sm={4} key={art.id}>
               <Card className={classes.root} key={art.id}>
-                <CardHeader className={classes.centerText}
+                <CardHeader
+                  className={classes.centerText}
                   title={art.title}
                   subheader={art.medium}
                 />
 
                 <Typography variant="body2" color="textSecondary" component="p">
                   {art.dimension}
-
                 </Typography>
                 <CardActionArea>
-                  
-                  <CardMedia className={classes.marginAuto} image={art.url} style={{ width: '130px', height: '130px' }} title={art.title} />
+                  <CardMedia
+                    className={classes.marginAuto}
+                    image={art.url}
+                    style={{ width: "130px", height: "130px" }}
+                    title={art.title}
+                  />
                   {/* <CardMedia  className={classes.marginAuto}  image={art.url}/> */}
                   <CardContent>
                     <Typography variant="body1" component="h2">
@@ -288,63 +319,69 @@ class EditForm extends React.Component {
                 </CardActionArea>
                 {/* <Typography variant="body2" color="textSecondary" component="p">            
           </Typography> */}
-                <CardActions style={{justifyContent: 'center'}}>
-
+                <CardActions style={{ justifyContent: "center" }}>
                   {/* <List component="nav" subheader={<ListSubheader component="div"></ListSubheader>} className={classes.root}>
         
        */}
-                         <IconButton 
-                          color=''
-                          variant='outlined'
-                          style={{
-                           display: "flex",
-                           flexDirection: "row",
-                           justifyContent:"center",
-                           backgroundColor: '#4ca874',
-                           '&:hover': {
-                               backgroundColor: 'red',
-                            },
-                       }}
-                         onClick={(event) => this.getDetails(event, {art})}><ZoomInIcon fontSize='large'/></IconButton>
-                         {/* <Card className={classes.cardBackground} onClick={(event)=> this.getDetails(event, {art})}> */}
+                  <IconButton
+                    color=""
+                    variant="outlined"
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      backgroundColor: "#4ca874",
+                      "&:hover": {
+                        backgroundColor: "red",
+                      },
+                    }}
+                    onClick={(event) => this.getDetails(event, { art })}
+                  >
+                    <ZoomInIcon fontSize="large" />
+                  </IconButton>
+                  {/* <Card className={classes.cardBackground} onClick={(event)=> this.getDetails(event, {art})}> */}
 
-                  <IconButton 
-                   name='Edit'
-                   color=''
-                   variant="outlined"
-                   style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent:"center",
-                    backgroundColor: '#ffdd00',
-                    // '&:hover': {
-                    //     backgroundColor: 'pink',
-                    //  },
-                }}
-                  onClick={(event) => this.openEdit(event, art)}><EditIcon fontSize='large'/></IconButton>
+                  <IconButton
+                    name="Edit"
+                    color=""
+                    variant="outlined"
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      backgroundColor: "#ffdd00",
+                      // '&:hover': {
+                      //     backgroundColor: 'pink',
+                      //  },
+                    }}
+                    onClick={(event) => this.openEdit(event, art)}
+                  >
+                    <EditIcon fontSize="large" />
+                  </IconButton>
 
                   {/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
                   {/* <IconButton> */}
-                            {/* <Badge badgeContent={4} color='secondary'>
+                  {/* <Badge badgeContent={4} color='secondary'>
                             </Badge> */}
-                        {/* </IconButton> */}
-                 
-                 
-                  <IconButton 
-                //    color=''
-                //    variant='outlined'
-                //    boxShadow={5}
-                   style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent:"center",
-                //     boxShadow: '5',
-                    backgroundColor: '#c95b4b',
-                //     '&:hover': {
-                //         backgroundColor: 'red',
-                //      },
-                }}
-                  onClick={(event) => this.deleteConfirmation(event, art)}><DeleteIcon fontSize='large'/>
+                  {/* </IconButton> */}
+
+                  <IconButton
+                    //    color=''
+                    //    variant='outlined'
+                    //    boxShadow={5}
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      //     boxShadow: '5',
+                      backgroundColor: "#c95b4b",
+                      //     '&:hover': {
+                      //         backgroundColor: 'red',
+                      //      },
+                    }}
+                    onClick={(event) => this.deleteConfirmation(event, art)}
+                  >
+                    <DeleteIcon fontSize="large" />
                   </IconButton>
                 </CardActions>
                 {/* <Collapse timeout="auto" unmountOnExit>  
@@ -353,12 +390,12 @@ class EditForm extends React.Component {
             </Grid>
           ))}
         </Grid>
-        <br/>
+        <br />
         <Grid container>
-          <Grid item 
-          xs={12.0} sm={12}>
-            <Card className={classes.alignAndJustify}
-            // style={{ width: '200px', height: '200px' }}
+          <Grid item xs={12.0} sm={12}>
+            <Card
+              className={classes.alignAndJustify}
+              // style={{ width: '200px', height: '200px' }}
             >
               <form className={classes.alignAndJustify}>
                 {/* <Grid item xs={12.0}> */}
@@ -368,7 +405,7 @@ class EditForm extends React.Component {
                   name="title"
                   className={classes.inputs}
                   value={this.state.artToEdit.title}
-                  onChange={(event) => this.handleInputChange(event, 'title')}
+                  onChange={(event) => this.handleInputChange(event, "title")}
                 />
 
                 <TextField
@@ -377,7 +414,7 @@ class EditForm extends React.Component {
                   name="medium"
                   className={classes.inputs}
                   value={this.state.artToEdit.medium}
-                  onChange={(event) => this.handleInputChange(event, 'medium')}
+                  onChange={(event) => this.handleInputChange(event, "medium")}
                 />
 
                 <TextField
@@ -386,7 +423,9 @@ class EditForm extends React.Component {
                   name="dimension"
                   className={classes.inputs}
                   value={this.state.artToEdit.dimension}
-                  onChange={(event) => this.handleInputChange(event, 'dimension')}
+                  onChange={(event) =>
+                    this.handleInputChange(event, "dimension")
+                  }
                 />
 
                 <TextField
@@ -395,7 +434,7 @@ class EditForm extends React.Component {
                   name="url"
                   className={classes.inputs}
                   value={this.state.artToEdit.url}
-                  onChange={(event) => this.handleInputChange(event, 'url')}
+                  onChange={(event) => this.handleInputChange(event, "url")}
                 />
 
                 <TextField
@@ -404,24 +443,31 @@ class EditForm extends React.Component {
                   name="statement"
                   className={classes.inputs}
                   value={this.state.artToEdit.statement}
-                  onChange={(event) => this.handleInputChange(event, 'statement')}
+                  onChange={(event) =>
+                    this.handleInputChange(event, "statement")
+                  }
                 />
-               
+
                 {/* <button onClick={() => dispatch({type: 'ADD_ART'})}>ADD ART</button>  */}
               </form>
-              <br/>
+              <br />
               <div
-               
-              onClick={(event) => this.updateConfirmation(this.state.artToEdit)}><UpdateButton/>
-</div>
+                onClick={(event) =>
+                  this.updateConfirmation(this.state.artToEdit)
+                }
+              >
+                <UpdateButton />
+              </div>
             </Card>
           </Grid>
         </Grid>
       </div>
-    );//END return
-  };//END render
-};//END EditForm
-export default connect(mapStoreToProps)(withStyles(styles)(withRouter(EditForm)));
+    ); //END return
+  } //END render
+} //END EditForm
+export default connect(mapStoreToProps)(
+  withStyles(styles)(withRouter(EditForm))
+);
 
 // export default connect(mapStoreToProps)(withStyles(styles)(UserPage));
 // export default withStyles(styles)(connect(mapStoreToProps(EditForm));

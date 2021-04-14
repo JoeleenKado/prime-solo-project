@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react';
+import React, { Component, createRef } from "react";
 
 class InputModal extends React.Component {
   constructor(props) {
@@ -13,12 +13,11 @@ class InputModal extends React.Component {
     this.inputRef.current.focus();
   }
 
-
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ value: e.target.value });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
     const { value } = this.state;
     const { onSubmit, onClose } = this.props;
@@ -34,7 +33,7 @@ class InputModal extends React.Component {
           <h1>Insert a new value</h1>
           <form action="?" onSubmit={this.onSubmit}>
             <input
-            ref={this.inputRef}
+              ref={this.inputRef}
               type="text"
               onChange={this.onChange}
               value={value}

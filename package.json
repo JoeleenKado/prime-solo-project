@@ -32,10 +32,12 @@
     "server": "nodemon --watch server server/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "prettier": "^2.2.1"
   },
   "browserslist": [
     ">0.2%",
