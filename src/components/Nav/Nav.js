@@ -85,7 +85,8 @@ const Nav = (props) => {
         {props.store.user.id && (
           <>
             <Link className="nav-link" to="/artdrawer">
-              <Typography variant="h5">Gallery</Typography>
+              <h1>Gallery</h1>
+              {/* <Typography variant="h5">Gallery</Typography> */}
             </Link>
             {/* <Link className="nav-link" to="/info">
               info
