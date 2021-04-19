@@ -133,6 +133,10 @@ class ArtForm extends Component {
     );
   };
 
+// openAPI = () => {
+//   client.picker().open();
+// }
+
   addArt = () => {
     if (this.state.newArt.title === "") {
       alert("A title is required for your Artwork.");
@@ -156,6 +160,8 @@ class ArtForm extends Component {
   };
   render() {
     const { classes } = this.props;
+    
+
     return (
       // <ThemeProvider theme={theme}>
         // <CssBaseline />
@@ -255,6 +261,9 @@ class ArtForm extends Component {
 
               <br />
               <Grid item xs={12.0} sm={12}>
+              <button value="Pick Watermark" id="pickWatermark" onclick="pickMark()">here</button>
+
+                {/* <button onClick={(event) => client.picker().open()}>click</button> */}
                 <SubmitButton
                   addArtProp={this.addArt}
                   elevation={20}

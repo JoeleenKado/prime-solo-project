@@ -1,6 +1,15 @@
 body {
     height: 100%;
+    margin: 0;
     background-image: url('https://injart.org/wp-content/uploads/2017/02/Minneapolis-Institute-Of-Arts-27463.jpg');
+  
+    /* Full height */
+    background-attachment: fixed; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
