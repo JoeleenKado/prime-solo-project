@@ -261,7 +261,7 @@ class ArtForm extends Component {
 
               <br />
               <Grid item xs={12.0} sm={12}>
-              <button value="Pick Watermark" id="pickWatermark" onclick="pickMark()">here</button>
+              {/* <button value="Pick Watermark" id="pickWatermark" onclick="pickMark()">here</button> */}
 
                 {/* <button onClick={(event) => client.picker().open()}>click</button> */}
                 <SubmitButton

@@ -137,7 +137,7 @@ class LoginForm extends Component {
           </div>
         </Typography>
       </form>
-      <StyledButton onClick={(event) => this.handleNewClick(event)}/>
+      {/* <StyledButton onClick={(event) => this.handleNewClick(event)}/> */}
       </Grid>
     );
   }
