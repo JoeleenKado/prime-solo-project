@@ -85,6 +85,7 @@ const Nav = (props) => {
         {props.store.user.id && (
           <>
             <Link className="nav-link" to="/artdrawer">
+              {/* <h1>Gallery</h1> */}
               <Typography variant="h5">Gallery</Typography>
             </Link>
             {/* <Link className="nav-link" to="/info">
@@ -92,7 +93,7 @@ const Nav = (props) => {
             </Link> */}
 <Link className="nav-link">
 <Typography onClick={() => props.dispatch({ type: "LOGOUT" })}
- variant="h5">Logout</Typography>            </Link>
+ variant="h5">Logout</Typography></Link>
 
               {/* <Typography onClick={() => props.dispatch({ type: "LOGOUT" })}
  variant="h5">Logout</Typography>

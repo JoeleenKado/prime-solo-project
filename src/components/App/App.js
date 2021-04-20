@@ -125,6 +125,8 @@ const theme = createMuiTheme({
   },
 });
 
+
+
 class App extends Component {
   componentDidMount() {
     this.props.dispatch({ type: "FETCH_USER" });
@@ -134,8 +136,15 @@ class App extends Component {
 
   render() {
 
+    
+
     return (
+      
       <ThemeProvider theme={theme}>
+        
+        <div class="bg"></div>
+        
+
         {/* <AppBar position="static"> */}
           {/* <Toolbar>
 toolbar

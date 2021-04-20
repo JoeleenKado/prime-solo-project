@@ -11,6 +11,8 @@ import App from "./components/App/App";
 //styling
 //import './index.css';
 
+
+
 const sagaMiddleware = createSagaMiddleware();
 
 // this line creates an array of all of redux middleware you want to use

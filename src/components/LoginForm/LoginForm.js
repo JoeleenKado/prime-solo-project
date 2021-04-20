@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 // import  '/LoginForm.css'
+import StyledButton from '../StyledButton/StyledButton'
 import {
   AppBar,
   CssBaseline,
@@ -80,6 +81,9 @@ class LoginForm extends Component {
       [propertyName]: event.target.value,
     });
   };
+  handleNewClick = (event) => {
+  console.log('hello')
+  }
 
   render() {
     const { classes } = this.props;
@@ -133,6 +137,7 @@ class LoginForm extends Component {
           </div>
         </Typography>
       </form>
+      {/* <StyledButton onClick={(event) => this.handleNewClick(event)}/> */}
       </Grid>
     );
   }
