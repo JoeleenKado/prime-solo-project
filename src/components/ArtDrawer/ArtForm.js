@@ -149,9 +149,7 @@ openAPI = () => {
   //  <ImageAPI/>;
   console.log('Appending Div')
   render( 
-    React.createElement(
-      "h1", {}, "Adopt Me!"),
-    document.getElementById('imageAPI'))
+    React.createElement(ImageAPI),document.getElementById('imageAPI'))
 
   
   
