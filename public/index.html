@@ -17,15 +17,58 @@
   style="margin: 0; height: 100%; background-color: #4b42f5; 
   ">
 <input type="BUTTON" value="Pick Watermark" id="pickWatermark" onclick="pickMark()">
+<input type="BUTTON" value="Pick Image" id="pickImage" onclick="pickImage()">
+
 <script>
+  const transformURL = "https://cdn.filestack.com/watermark=file:";
+
   //Instantiating dialog with Filestack
-  const client = filestack.init("");
+  const client = filestack.init("A2ocoVhiLQseuc8qsSbygz");
   //Filestack API method 'pick()' that opens the file picker
   function pickMark() {
     console.log("Picking Watermark");
-    //Opening the file picker here
-    client.pick({});
+      client.pick({
+         accept:'image/*',
+         maxFiles: 1,
+      }).then(function(result) {//Taking the results object in as 'result'
+         //Putting the result in a string, and printing it to the console
+         console.log(JSON.stringify(result));
+         //Sets the watermark handle to the handle of the first file in the result
+         watermarkHandle = result.filesUploaded[0].handle;
+         //Logs the new watermark handle in the console
+         console.log(watermarkHandle);
+         buildURL();
+      });
   }
+
+  function pickImage() {
+    console.log("Picking Image");
+      client.pick({
+         accept:'image/*',
+         maxFiles: 1,
+      }).then(function(result) {//Taking the results object in as 'result'
+         //Putting the result in a string, and printing it to the console
+         console.log(JSON.stringify(result));
+         //Sets the watermark handle to the handle of the first file in the result
+         imageHandle = result.filesUploaded[0].handle;
+         //Logs the new watermark handle in the console
+         console.log(imageHandle);
+      });
+  }
+
+  function buildURL() {
+ //Adding the watermark handle to the transformation URL 
+ transformURL += watermarkHandle;
+ //Placing watermark in center of image with size 200
+ transformURL += ',position:[middle,center],size:200/'
+ //Adding the image handle to the transformation URL
+ trasnformURL += imageHandle;
+ //Logging the file transformation URL
+ console.log(transformURL);
+}
+
+
+
 </script>
 
 <!-- <script>

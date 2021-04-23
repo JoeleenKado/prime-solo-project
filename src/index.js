@@ -7,10 +7,22 @@ import logger from "redux-logger";
 import rootReducer from "./redux/reducers/_root.reducer"; // imports ./redux/reducers/index.js
 import rootSaga from "./redux/sagas/_root.saga"; // imports ./redux/sagas/index.js
 import App from "./components/App/App";
+import Filestack from 'react-filestack'
+
+
+import { render } from 'react-dom'; 
+//  import filestack from 'filestack-js'; 
+// import Container from 'components/Container'; 
+// import '../dist/css/style.css'; 
 
 //styling
 //import './index.css';
 
+// import filestack from 'filestack-js';
+
+// const client = Filestack.init("A2ocoVhiLQseuc8qsSbygz");
+
+// console.log(`You discovered the Filestack client version! ${Filestack.version}`); 
 
 
 const sagaMiddleware = createSagaMiddleware();

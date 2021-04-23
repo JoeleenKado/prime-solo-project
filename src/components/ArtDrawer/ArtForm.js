@@ -2,6 +2,11 @@ import React, { Component } from "react";
 //import { useDispatch } from 'react-redux';
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import { connect } from "react-redux";
+import { PickerOverlay, PickerInline, client } from 'filestack-react';
+import ReactFilestack from 'react-filestack'
+import ImageAPI from './ImageAPI'
+import { render } from 'react-dom'; 
+
 //styling
 import {
   AppBar,
@@ -105,6 +110,7 @@ const styles = {
 
 // export default function ArtForm() {
 class ArtForm extends Component {
+  
   state = {
     newArt: {
       user_id: "",
@@ -134,10 +140,27 @@ class ArtForm extends Component {
     );
   };
 
-// openAPI = () => {
-//   client.picker().open();
+// appendDiv = () => {
+//   <div id='imageAPI'></div>
+
 // }
 
+openAPI = () => {
+  //  <ImageAPI/>;
+  console.log('Appending Div')
+  render( 
+    React.createElement(
+      "h1", {}, "Adopt Me!"),
+    document.getElementById('imageAPI'))
+
+  
+  
+
+
+ }
+// showUploader = () => {
+ 
+// }
   addArt = () => {
     if (this.state.newArt.title === "") {
       alert("A title is required for your Artwork.");
@@ -159,9 +182,14 @@ class ArtForm extends Component {
       });
     }
   };
+
+
+
+  
   render() {
     const { classes } = this.props;
-    
+    //  const client = filestack.init("A2ocoVhiLQseuc8qsSbygz");
+
 
     return (
       // <ThemeProvider theme={theme}>
@@ -173,6 +201,11 @@ class ArtForm extends Component {
           spacing={2}
           direction="column"
         >
+
+<client
+   apikey="A2ocoVhiLQseuc8qsSbygz"
+   onSuccess={(res) => console.log(res)} /> 
+<PickerInline apikey="A2ocoVhiLQseuc8qsSbygz"><div className="your-container"></div></PickerInline>
           <Paper
           
             // className={classes.paddingTop}
@@ -239,6 +272,19 @@ class ArtForm extends Component {
                   value={this.state.newArt.url}
                   onChange={(event) => this.handleInputChange(event, "url")}
                 />
+                {/* <button onClick={this.appendDiv()}>Image API</button> */}
+                 <div id='imageAPI'>Not Rendered</div> 
+                {/* <ReactFilestack 
+  apiKey={'A2ocoVhiLQseuc8qsSbygz'}
+  mode={'pick'}
+  onSuccess={(response) => console.log(response)}
+  onError={(e) => console.log(e)}
+  buttonText={'Pick File'}
+/> */}
+                {/* <PickerInline apikey="A2ocoVhiLQseuc8qsSbygz"><button className="your-container">IMAGE</button></PickerInline> */}
+ {/* <ImageAPI/> */}
+                <button onClick={this.openAPI}>Open API</button>
+
               </Grid>
               <br />
 
