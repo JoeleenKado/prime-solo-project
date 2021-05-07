@@ -120,7 +120,7 @@ const styles = {
   },
 };
 
-class EditForm extends React.Component {
+class ArtCard extends React.Component {
   constructor() {
     super();
     this.buttonRef = createRef();
@@ -157,7 +157,7 @@ class EditForm extends React.Component {
   };
 
   state = {
-    // open: true,
+     open: false,
     artToEdit: {
       id: "",
       user_id: "",
@@ -168,6 +168,20 @@ class EditForm extends React.Component {
       statement: "",
     },
   };
+
+  openModal = () => {
+   
+    this.setState({
+        open: true,
+    }); // end setState
+  } //END openModal
+
+  // handles the pop-up modal
+  // hideModal = () => {
+  //   this.setState({ 
+  //     open: false 
+  //   }); // end setState
+  // }//END hideModal
 
   handleClick = () => {
     this.setState((state) => ({ open: !state.open }));
@@ -213,7 +227,7 @@ class EditForm extends React.Component {
           dimension: art.dimension,
           url: art.url,
           statement: art.statement,
-        },
+        },/////////
       },
       function () {
         console.log("State has been set:", this.state);
@@ -355,6 +369,8 @@ class EditForm extends React.Component {
                       //  },
                     }}
                     onClick={(event) => this.openEdit(event, art)}
+                    // onClick={(event) => this.openModal(event, art)}
+
                   >
                     <EditIcon fontSize="large" />
                   </IconButton>
@@ -466,7 +482,7 @@ class EditForm extends React.Component {
   } //END render
 } //END EditForm
 export default connect(mapStoreToProps)(
-  withStyles(styles)(withRouter(EditForm))
+  withStyles(styles)(withRouter(ArtCard))
 );
 
 // export default connect(mapStoreToProps)(withStyles(styles)(UserPage));

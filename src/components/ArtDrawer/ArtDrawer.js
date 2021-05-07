@@ -5,7 +5,7 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import ArtForm from "./ArtForm";
-import EditForm from "./EditForm";
+import EditForm from "./ArtCard";
 //styling
 import {
   AppBar,

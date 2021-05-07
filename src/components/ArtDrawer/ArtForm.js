@@ -20,7 +20,6 @@ import {
   Paper,
   InputBase,
   Card,
-  //comment
   withStyles,
   CardActionArea,
 } from "@material-ui/core";
@@ -200,10 +199,6 @@ openAPI = () => {
           direction="column"
         >
 
-<client
-   apikey="A2ocoVhiLQseuc8qsSbygz"
-   onSuccess={(res) => console.log(res)} /> 
-<PickerInline apikey="A2ocoVhiLQseuc8qsSbygz"><div className="your-container"></div></PickerInline>
           <Paper
           
             // className={classes.paddingTop}
@@ -212,14 +207,14 @@ openAPI = () => {
             // className={classes.paper}
             backgroundImage={canvas}
           >
-            <CardActionArea>
+            {/* <CardActionArea> */}
               {/* <CardMedia 
                   // height="140"
                   // component="img"
                   style={{width: '130px', height: '130px'}}
                   alt="Blank Canvas"
                   className={classes.media} image={canvas} title='Blank Canvas'/> */}
-            </CardActionArea>
+            {/* </CardActionArea> */}
             <form
             //   style={{ verticalAlign: 'middle' }}
             >
@@ -270,17 +265,12 @@ openAPI = () => {
                   value={this.state.newArt.url}
                   onChange={(event) => this.handleInputChange(event, "url")}
                 />
+                <script>
+    
+    </script>
                 {/* <button onClick={this.appendDiv()}>Image API</button> */}
                  <div id='imageAPI'>Not Rendered</div> 
-                {/* <ReactFilestack 
-  apiKey={'A2ocoVhiLQseuc8qsSbygz'}
-  mode={'pick'}
-  onSuccess={(response) => console.log(response)}
-  onError={(e) => console.log(e)}
-  buttonText={'Pick File'}
-/> */}
-                {/* <PickerInline apikey="A2ocoVhiLQseuc8qsSbygz"><button className="your-container">IMAGE</button></PickerInline> */}
- {/* <ImageAPI/> */}
+             
                 <button onClick={this.openAPI}>Open API</button>
 
               </Grid>
