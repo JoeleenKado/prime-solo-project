@@ -6,7 +6,7 @@ import { PickerOverlay, PickerInline, client } from 'filestack-react';
 import ReactFilestack from 'react-filestack'
 import ImageAPI from './ImageAPI'
 import { render } from 'react-dom'; 
-
+import Modal from '../../components/Modal/Modal'
 //styling
 import {
   AppBar,
@@ -118,6 +118,7 @@ class ArtForm extends Component {
       dimension: "",
       url: "",
       statement: "",
+      showModal: false
     },
   };
 
@@ -147,6 +148,10 @@ class ArtForm extends Component {
 openAPI = () => {
   //  <ImageAPI/>;
   console.log('Appending Div')
+
+  
+
+
   render( 
     React.createElement(ImageAPI),document.getElementById('imageAPI'))
 
@@ -181,12 +186,16 @@ openAPI = () => {
   };
 
 
+  toggleModal = () => {
+    this.setState({showModal: !this.state.showModal})
 
+  }
   
   render() {
     const { classes } = this.props;
+    
     //  const client = filestack.init("A2ocoVhiLQseuc8qsSbygz");
-
+const {showModal} = this.state
 
     return (
       // <ThemeProvider theme={theme}>
@@ -269,10 +278,19 @@ openAPI = () => {
     
     </script>
                 {/* <button onClick={this.appendDiv()}>Image API</button> */}
-                 <div id='imageAPI'>Not Rendered</div> 
+                 {/* <div id='imageAPI'>Not Rendered</div>  */}
              
-                <button onClick={this.openAPI}>Open API</button>
-
+                <button onClick={this.toggleModal}>Open API</button>
+                {
+                showModal ? (
+                 <Modal>
+                   {/* //<div>
+                //   <h1>Uploading artwork feature coming soon</h1>
+                //   <div className="buttons"><button onClick={this.toggleModal}>Close API Window</button></div>
+                //   </div> */}
+                </Modal>
+) : null
+}
               </Grid>
               <br />
 
