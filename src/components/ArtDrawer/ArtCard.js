@@ -1,6 +1,9 @@
 import React, { Component, createRef } from "react";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import { connect } from "react-redux";
+import Modal from '../Modal/Modal'
+import ReactDOM, { render } from 'react-dom'; 
+
 import {
   AppBar,
   Toolbar,
@@ -212,13 +215,15 @@ class ArtCard extends React.Component {
     // this.props.history.push( {pathname: `/Detail`, state: art})
   };
 
-  openEdit = (event, art) => {
+  // openEdit = (event, art) => {
+    toggleModal = (event, art) => {
     console.log(`In openEdit function...`);
     console.log("art:", art);
     console.log("Setting state...");
     this.setState(
       {
         artToEdit: {
+          
           ...this.state.artToEdit,
           id: art.id,
           user_id: this.props.store.user.id,
@@ -295,12 +300,16 @@ class ArtCard extends React.Component {
     console.log(art);
     this.props.dispatch({ type: "DELETE_ART", payload: art.id });
   };
+   toggleModal = () => {
+    this.setState({showModal: !this.state.showModal})
+   }
 
   render() {
     const { classes } = this.props;
     // console.log(this.props)
     const art = this.props.store.art;
     const { label, action } = this.props;
+    const rootElement = document.getElementById("react-root");
 
     return (
       <div>
@@ -368,13 +377,24 @@ class ArtCard extends React.Component {
                       //     backgroundColor: 'pink',
                       //  },
                     }}
-                    onClick={(event) => this.openEdit(event, art)}
+                    onClick={(event) => this.toggleModal(event, art)}
                     // onClick={(event) => this.openModal(event, art)}
 
                   >
                     <EditIcon fontSize="large" />
                   </IconButton>
+                  {this.state.showModal ? (
 
+// ReactDOM.render(<Modal><div>hi</div></Modal>, rootElement)
+<Modal></Modal>
+
+
+
+
+
+
+) : null
+}
                   {/* <button onClick={(event)=>this.deleteArt(event, art)}>DELETE</button> */}
                   {/* <IconButton> */}
                   {/* <Badge badgeContent={4} color='secondary'>

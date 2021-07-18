@@ -1,12 +1,15 @@
-import React, { Component } from "react";
+
+import React, { Component, StrictMode } from "react";
 //import { useDispatch } from 'react-redux';
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import { connect } from "react-redux";
 import { PickerOverlay, PickerInline, client } from 'filestack-react';
 import ReactFilestack from 'react-filestack'
 import ImageAPI from './ImageAPI'
-import { render } from 'react-dom'; 
+import ReactDOM, { render } from 'react-dom'; 
 import Modal from '../../components/Modal/Modal'
+import App from '../App/App'
+import ModalHook from './ModalHook'
 //styling
 import {
   AppBar,
@@ -188,7 +191,6 @@ openAPI = () => {
 
   toggleModal = () => {
     this.setState({showModal: !this.state.showModal})
-
   }
   
   render() {
@@ -199,7 +201,7 @@ const {showModal} = this.state
 
     return (
       // <ThemeProvider theme={theme}>
-        // <CssBaseline />
+        // <CssBaseline/>
         <Grid
           container
           className={classes.paper}
@@ -279,16 +281,16 @@ const {showModal} = this.state
     </script>
                 {/* <button onClick={this.appendDiv()}>Image API</button> */}
                  {/* <div id='imageAPI'>Not Rendered</div>  */}
-             
+             <div id="modalDiv">
                 <button onClick={this.toggleModal}>Open API</button>
+                </div>
                 {
                 showModal ? (
-                 <Modal>
-                   {/* //<div>
-                //   <h1>Uploading artwork feature coming soon</h1>
-                //   <div className="buttons"><button onClick={this.toggleModal}>Close API Window</button></div>
-                //   </div> */}
-                </Modal>
+                  <Modal/>
+// ReactDOM.render(
+// <Modal toggleModalProp={this.toggleModal} modalStateProp={this.state.showModal}/>, document.getElementById("modalDiv")
+// )
+
 ) : null
 }
               </Grid>

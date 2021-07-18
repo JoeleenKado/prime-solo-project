@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 import { connect } from "react-redux";
-
+import Modal from '../Modal/Modal'
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
 
@@ -142,6 +142,7 @@ class App extends Component {
       
       <ThemeProvider theme={theme}>
         
+        <Modal/>
         <div class="bg"></div>
         
 
@@ -157,7 +158,7 @@ toolbar
         {/* <SideMenu/> */}
 
         <Typography align="center" variant="h1">
-          Virtual Gallery
+          Virtual Gallery(app.js)
         </Typography>
 
         <Router>

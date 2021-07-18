@@ -1,3 +1,5 @@
+//here i am inserting app into the artdrawer. because this is the page where the modal should pop up
+
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import LogOutButton from "../LogOutButton/LogOutButton";
@@ -6,6 +8,9 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import ArtForm from "./ArtForm";
 import EditForm from "./ArtCard";
+import App from '../App/App'
+import ReactDOM, { render } from 'react-dom'; 
+
 //styling
 import {
   AppBar,
@@ -37,7 +42,8 @@ class ArtDrawer extends Component {
     // const { classes } = this.props;
     // console.log(this.props)
     const art = this.props.store.art;
-
+    // const rootElement = document.getElementById("react-root");
+    // ReactDOM.render(<App />, rootElement);
     return (
       <div>
         {/* RS: {JSON.stringify(this.props.store)} */}
