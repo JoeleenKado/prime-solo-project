@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
+import { useDispatch} from 'react-redux'
 import {
   HashRouter as Router,
   Route,
   Redirect,
   Switch,
 } from "react-router-dom";
-
+import action from "../../redux/services/action.service";
 import { connect } from "react-redux";
 import Modal from '../Modal/Modal'
 import Nav from "../Nav/Nav";
@@ -14,7 +15,7 @@ import Footer from "../Footer/Footer";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 
-import AboutPage from "../AboutPage/AboutPage";
+import Program from "../Program/Program";
 import UserPage from "../UserPage/UserPage";
 import InfoPage from "../InfoPage/InfoPage";
 import LandingPage from "../LandingPage/LandingPage";
@@ -23,7 +24,8 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import Detail from "../Gallery/Detail";
 // import createPalette from 'material-ui/styles/palette';
 //import Typography from 'material-ui/styles/typography';
-
+import Gallery from "../../pages/Gallery/Gallery";
+import Studio from "../../pages/Studio/Studio"
 import "./App.css";
 // import {Typography} from '@material-ui/core/Typography'
 //styling
@@ -50,116 +52,27 @@ import {
   createMuiTheme,
 } from "@material-ui/core";
 // import NavBar from "../NavBar/NavBar";
-import ArtDrawer from "../ArtDrawer/ArtDrawer";
+import ArtDrawer from "../../pages/Studio/Studio";
 //import {orange, brown, pink, green}from '@material-ui/core/colors'
 
-const styles = {
-  appMain: {
-    paddingLeft: "0px",
-    width: "100%",
-  },
-  body: {
-    margin: "auto",
-    fontFamily: "Montserrat",
-  },
-};
-// }
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#ffa500",
-      light: "#d26918",
-    },
-    // text:{
-    // primary: '#7ec700'
-    // },
-    secondary: {
-      main: "#ffc0ce",
-      light: "#00ff00",
-    },
-    background: {
-      default: "#ffd700",
-    },
-  },
-  shape: {
-    borderRadius: "20px",
-  },
-  overrides: {
-    MuiAppBar: {
-      root: {
-        transform: "translateZ(0)",
-      },
-    },
+function App(props) {
 
-    button: {
-      fontFamily: "Roboto",
-    },
-  },
-  // props: {
-  //   MuiIconButton: {
-  //     disableRipple: false,
-  //   },
-  // },
-  typographyStyle: {
-    color: "#7700c7",
-  },
+const dispatch = useDispatch()
+useEffect(() => {
+dispatch(action.fetchUser())
+}, {})
 
-  typography: {
-    h1: {
-      fontFamily: "Helvetica Neue",
-      color: "#560678",
-    },
-    h2: {
-      color: "#white",
-    },
-    h3: {
-      fontFamily: "Times New Roman",
-    },
-    h4: {
-      fontFamily: "verdana",
-    },
-    button: {
-      fontFamily: "Arial",
-    },
-  },
-});
-
-
-
-class App extends Component {
-  componentDidMount() {
-    this.props.dispatch({ type: "FETCH_USER" });
-    const { classes } = this.props;
-
-  }
-
-  render() {
-
-    
 
     return (
       
-      <ThemeProvider theme={theme}>
         
-        <Modal/>
-        <div class="bg"></div>
+        // <Modal/>
+        // <div class="bg"></div>
         
 
-        {/* <AppBar position="static"> */}
-          {/* <Toolbar>
-toolbar
-            </Toolbar> */}
-        {/* </AppBar> */}
-        {/* cssbaseline makes it so you dont have white space when you scroll to thre right */}
-        {/* <CssBaseline /> */}
-        {/* <NavBar/> */}
-        {/* <div className={classes.appMain}> */}
-        {/* <SideMenu/> */}
-
-        <Typography align="center" variant="h1">
-          Virtual Gallery(app.js)
-        </Typography>
+      
+         // Virtual Gallery(app.js)
 
         <Router>
         <Nav />
@@ -173,8 +86,8 @@ toolbar
               <Route
                 // shows AboutPage at all times (logged in or not)
                 exact
-                path="/about"
-                component={AboutPage}
+                path="/program"
+                component={Program}
               />
 
               {/* For protected routes, the view could show one of several things on the same route.
@@ -186,6 +99,13 @@ toolbar
                 exact
                 path="/user"
                 component={UserPage}
+              />
+
+<ProtectedRoute props={props}
+                // logged in shows UserPage else shows LoginPage
+                exact
+                path="/gallery"
+                component={Gallery}
               />
 
               {/* <ProtectedRoute exact path='/:artId' render={(props)=><Art{...props}/>}/> */}
@@ -202,8 +122,8 @@ toolbar
               <ProtectedRoute
                 // logged in shows InfoPage else shows LoginPage
                 exact
-                path="/artdrawer"
-                component={ArtDrawer}
+                path="/studio"
+                component={Studio}
               />
 
               {/* When a value is supplied for the authRedirect prop the user will
@@ -216,7 +136,7 @@ toolbar
                 exact
                 path="/login"
                 component={LoginPage}
-                authRedirect="/user"
+                authRedirect="/gallery"
               />
               <ProtectedRoute
                 // with authRedirect:
@@ -225,7 +145,7 @@ toolbar
                 exact
                 path="/registration"
                 component={RegisterPage}
-                authRedirect="/user"
+                authRedirect="/gallery"
               />
               <ProtectedRoute
                 // with authRedirect:
@@ -235,7 +155,7 @@ toolbar
                 path="/home"
                 component={LandingPage}
                 //  authRedirect="/user"
-                authRedirect="/user"
+                authRedirect="/gallery"
               />
 
               {/* If none of the other routes matched, we will show a 404. */}
@@ -244,11 +164,12 @@ toolbar
             <Footer />
           {/* </div> */}
         </Router>
-        {/* <CssBaseline /> */}
-      </ThemeProvider>
+        // {/* <CssBaseline /> */}
+     
+      //
     ); //END return
-  }
+  
 }
 // }
 // export default connect()(App);
-export default connect(mapStoreToProps)(withStyles(styles)(App));
+ export default connect(mapStoreToProps)(App);

@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from "react";
 import { PickerOverlay } from 'filestack-react';
-import ModalHook from '../ArtDrawer/ModalHook'
+// import ModalHook from '../ArtDrawer/ModalHook'
 import createPortal from 'react-dom'
 const filestackApiKey = process.env.REACT_APP_FILESTACK_API_KEY
 
