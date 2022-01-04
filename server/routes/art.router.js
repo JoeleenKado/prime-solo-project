@@ -1,5 +1,5 @@
 //import mapStoreToProps from '../../redux/mapStoreToProps';
-
+const axios = require('axios')
 
 
 
@@ -33,6 +33,25 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 });
 
+router.get('/aic', (req, res) => {
+  // GET route code here
+  console.log('in /api/art/aic GET route');
+  // console.log('Is User logged in?', req.isAuthenticated());
+  // console.log('req.user:', req.us
+  axios.get(`https://api.artic.edu/api/v1/artworks?fields=artist_display,image_id,title`)
+        .then( response => {
+            console.log('here is our response', response.data);
+            
+            //console.log('response:', response);
+            // Response.data is the info or data part of the axios response.
+            // Giphy also sends stuff in data, so 2 data's gets to the array of images
+            res.send( response.data );
+        })
+        .catch( error => {
+            console.log('Error doing GET from aic', error );
+            res.sendStatus( 500 );
+        })
+})
 /**
  * POST route template
  */

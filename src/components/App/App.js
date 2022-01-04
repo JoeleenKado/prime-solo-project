@@ -26,6 +26,7 @@ import Detail from "../Gallery/Detail";
 //import Typography from 'material-ui/styles/typography';
 import Gallery from "../../pages/Gallery/Gallery";
 import Studio from "../../pages/Studio/Studio"
+import Forum from "../../pages/Forum/Forum";
 import "./App.css";
 // import {Typography} from '@material-ui/core/Typography'
 //styling
@@ -73,7 +74,8 @@ dispatch(action.fetchUser())
 
       
          // Virtual Gallery(app.js)
-
+         <>
+<h1>Virtual Gallery</h1>
         <Router>
         <Nav />
 
@@ -117,6 +119,13 @@ dispatch(action.fetchUser())
                 exact
                 path="/info"
                 component={InfoPage}
+              />
+
+<ProtectedRoute
+                // logged in shows InfoPage else shows LoginPage
+                exact
+                path="/forum"
+                component={Forum}
               />
 
               <ProtectedRoute
@@ -164,6 +173,7 @@ dispatch(action.fetchUser())
             <Footer />
           {/* </div> */}
         </Router>
+        </>
         // {/* <CssBaseline /> */}
      
       //

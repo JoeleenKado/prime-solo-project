@@ -39,6 +39,9 @@ const Nav = (props) => {
           and call this link 'Login / Register' if they are not */}
           {loginLinkData.text}
         </Link>
+        <Link className="nav-link" to="/program">
+          Program
+        </Link>
         {/* Show the link to the info page and the logout button if the user is logged in */}
         {props.store.user.id && (
           <>
@@ -50,6 +53,11 @@ const Nav = (props) => {
             <Link className="nav-link" to="/gallery">
               {/* <h1>Gallery</h1> */}
               Gallery
+            </Link>
+
+            <Link className="nav-link" to="/forum">
+              {/* <h1>Gallery</h1> */}
+              Forum
             </Link>
             {/* <Link className="nav-link" to="/info">
               info
@@ -67,9 +75,7 @@ const Nav = (props) => {
         )}
         {/* Always show this link since the about page is not protected */}
         {/* {props.store.user.id != null ? (null) : ( */}
-          <Link className="nav-link" to="/program">
-          Program
-        </Link>
+          
         {/* )} */}
       </div>
     </div>

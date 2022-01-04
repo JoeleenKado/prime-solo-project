@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const artRouter = require('./routes/art.router');
+const articRouter = require('./routes/artic.router');
 
 
 // Body parser middleware
@@ -27,6 +28,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/art', artRouter); //this route will be used when we Get art
+app.use('/api/artic', articRouter); //this route will be used when we Get art
 
 
 // Serve static files
