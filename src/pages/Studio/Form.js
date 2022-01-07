@@ -17,7 +17,7 @@ import canvas from "../../canvas.jpg";
 import SubmitButton from "../../components/SubmitButton/SubmitButton.js";
 
 // export default function ArtForm() {
-function Form() {
+function Form(props) {
   //
   const [title, setTitle] = useState('')
   const [statement, setStatement] = useState('')
@@ -28,7 +28,7 @@ const [medium, setMedium] = useState('')
   const dispatch = useDispatch()
 
   const art = {
-      user_id: "",
+      user_id: props.store.user.id,
       title: title,
       statement: statement,
       medium: medium,
@@ -38,9 +38,9 @@ const [medium, setMedium] = useState('')
 
   
   function addArt() {
-    if (art.title === "") {
-      alert("A title is required for your Artwork.");
-    } else {
+    // if (art.title === "") {
+    //   alert("A title is required for your Artwork.");
+    // } else {
       console.log(`Sending ${art.title} to Database...`);
       //Clear message... should say Hello!
       //console.log(`Sending ${this.state.newArt} to DB.`);
@@ -53,7 +53,7 @@ dispatch({type: "ADD_ART", payload: art})
         
         
     
-    }
+    // }
   };
 
 
@@ -67,20 +67,26 @@ dispatch({type: "ADD_ART", payload: art})
 // const {showModal} = this.state
 
     return (
-            <form name='art'
+            <form name='art' 
+             onSubmit={ (e) => {
+               e.preventDefault()
+               addArt()
+            }}
             //   style={{ verticalAlign: 'middle' }}
             >
                 
                   <label htmlFor="title">
+                    Title
                     <input
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  onBlue={(e) => setTitle(e.target.value)}
+                  onBlur={(e) => setTitle(e.target.value)}
 />
                 </label>
               <br />
                 {/* // align="center">  */}
                 <label htmlFor="statement">
+                  Statement
                     <input
                   value={statement}
                   onChange={(e) => setStatement(e.target.value)}
@@ -90,29 +96,33 @@ dispatch({type: "ADD_ART", payload: art})
               <br />
 
               <label htmlFor="medium">
+                Medium
                     <input
                   value={medium}
                   onChange={(e) => setMedium(e.target.value)}
-                  onBlue={(e) => setMedium(e.target.value)}
+                  onBlur={(e) => setMedium(e.target.value)}
 />
                 </label>
               <br />
 
               <label htmlFor="dimensions">
+                Dimensions
                     <input
                   value={dimensions}
                   onChange={(e) => setDimensions(e.target.value)}
-                  onBlue={(e) => setDimensions(e.target.value)}
+                  onBlur={(e) => setDimensions(e.target.value)}
 />
                 </label>
-                <label htmlFor="url">
+                <br/>
+                {/* <label htmlFor="url">
                     <input
                   value={url}
                   onChange={(e) => setStatement(url)}
-                  onBlue={(e) => setStatement(url)}
+                  onBlur={(e) => setStatement(url)}
 />
-                </label>
-                {/* <button onClick={this.appendDiv()}>Image API</button> */}
+                </label> */}
+
+                <button>SUBMIT</button> 
                  {/* <div id='imageAPI'>Not Rendered</div>  */}
              {/* <div id="modalDiv"> */}
                 {/* <button onClick={this.toggleModal}>Open API</button> */}

@@ -76,6 +76,7 @@ dispatch(action.fetchUser())
          // Virtual Gallery(app.js)
          <>
 <h1>Virtual Gallery</h1>
+{JSON.stringify(props.store)}
         <Router>
         <Nav />
 

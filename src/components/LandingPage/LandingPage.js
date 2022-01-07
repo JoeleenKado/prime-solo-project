@@ -7,20 +7,19 @@ import "./LandingPage.css";
 // CUSTOM COMPONENTS
 import RegisterForm from "../RegisterForm/RegisterForm";
 
-class LandingPage extends Component {
-  state = {
-    heading: "Virtual Gallery",
-  };
+function LandingPage(props) {
+  // state = {
+  //   heading: "Virtual Gallery",
+  // };
 
-  onLogin = (event) => {
-    this.props.history.push("/login");
-  };
+  //  onLogin = (event) => {
+  //    this.props.history.push("/login");
+  //  };
 
-  render() {
     return (
       <div className="container">
-        {/* <h2>{this.state.heading}</h2> */}
-
+        <h2>{this.state.heading}</h2>
+{/* {JSON.stringify(props.store)} */}
         <div className="grid">
           <div className="grid-col grid-col_8"></div>
           <div className="grid-col grid-col_4">
@@ -36,7 +35,6 @@ class LandingPage extends Component {
         </div>
       </div>
     );
-  }
 }
 
 export default connect(mapStoreToProps)(LandingPage);

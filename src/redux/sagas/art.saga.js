@@ -7,7 +7,7 @@ import { put, takeLatest } from "redux-saga/effects";
 
 function* artSaga() {
   yield takeLatest("FETCH_ART", fetchArtSaga);
-  // yield takeLatest("ADD_ART", addArtSaga);
+  yield takeLatest("ADD_ART", addArtSaga);
   // yield takeLatest("UPDATE_ART", updateArtSaga);
   // yield takeLatest("DELETE_ART", deleteArtSaga);
   // yield takeLatest("FETCH_DETAILS", fetchDetailsSaga);

@@ -50,7 +50,7 @@ function Studio(props) {
         {/* <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1> */}
         {/* <p>Your ID is: {this.props.store.user.id}</p> */}
         {/* <h3>Here is your art: {JSON.stringify(art)}</h3>  */}
-ART DRAWER
+Studio
         {/* <h3>SUBMIT ART TO GALLERY</h3> */}
         {/* <Grid container spacing={8}> */}
           {/* <Grid item xs={12}> */}
