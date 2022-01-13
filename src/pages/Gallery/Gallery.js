@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import './Gallery.css'
 import History from './History'
+import Edit from './Edit';
 function Gallery(props) { 
 ////usedispatch()
 // const dispatch = useDispatch()
@@ -29,8 +30,12 @@ return (
     {/* { !props.store ? (JSON.stringify('Loading Art')) : */}
     {/* (JSON.stringify(props.store))}  */}
     <h1>Gallery</h1>
-{art.map((art) =>{
-    const {title, statement, dimensions, medium} = art
+{!props.store.art.length ? 
+(<h1>You have not yet created art. head over to the Studio to get started</h1>) :
+(
+
+art.map((art) =>{
+    const {title, statement, dimensions, medium, image} = art
 
     function toggleAccordion(e) {
         const content = e.target.nextElementSibling;
@@ -51,11 +56,11 @@ return (
         <div className="accordion-content">
           <br />
            <History
-            title={title}
-            dimensions={dimensions}
-            medium={medium}
-            statement={statement}
-
+            // title={title}
+            // dimensions={dimensions}
+            // medium={medium}
+            // statement={statement}
+art={art}
           /> 
 </div>
 <button className="accordion" onClick={(e) => toggleAccordion(e)}>
@@ -63,11 +68,9 @@ return (
               </button>
               <div className="accordion-content">
                 <br />
-                {/* <Edit
-                  licenseObject={licenseObject}
-                  refresh={refresh}
-                  setRefresh={setRefresh}
-                /> */}
+                 <Edit
+                  art={art}
+                /> 
                 <br />
               </div>
 
@@ -76,8 +79,10 @@ return (
          
           </div>
 
+
+
     )
-})}
+}))}
     </>
 )
 

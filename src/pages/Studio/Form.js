@@ -10,20 +10,39 @@ import ReactDOM, { render } from 'react-dom';
 // import App from '../../components/App/App'
 // import ModalHook from './ArtDrawer/ModalHook'
 //styling
-
+import * as filestack from 'filestack-js';
 // import "../App/App.css";
-
+import dotenv from 'dotenv'
 import canvas from "../../canvas.jpg";
 import SubmitButton from "../../components/SubmitButton/SubmitButton.js";
 
 // export default function ArtForm() {
 function Form(props) {
+const image = props.store.art
+  const key = process.env.REACT_APP_FILESTACK_API_KEY
+  const client = filestack.init(key);
+  const options = {
+    onFileUploadFinished(file) {
+      return new Promise((resolve, reject) => {
+        // Do something async
+        resolve(
+          console.log('resolved', file), 
+        props.dispatch({type: 'SET_ART', payload: file.url})
+        );
+        
+        reject((reason) => console.log('Rejected:', reason))
+        // Or reject the selection with reject()
+      });
+    }
+
+    }
+  // client.picker().open();
   //
   const [title, setTitle] = useState('')
   const [statement, setStatement] = useState('')
 const [medium, setMedium] = useState('')
   const [dimensions, setDimensions] = useState('')
-  const [url, setUrl] = useState('')
+  // const [url, setUrl] = useState('')
 
   const dispatch = useDispatch()
 
@@ -33,11 +52,11 @@ const [medium, setMedium] = useState('')
       statement: statement,
       medium: medium,
       dimensions: dimensions,
-      url: url
+      image: image
     }
 
   
-  function addArt() {
+  async function addArt() {
     // if (art.title === "") {
     //   alert("A title is required for your Artwork.");
     // } else {
@@ -48,8 +67,11 @@ dispatch({type: "ADD_ART", payload: art})
       setTitle('')
       setMedium('')
       setDimensions('')
-      setUrl('')
+      // setUrl('')
       setStatement('')
+    // } catch(err){console.error(err)}
+      
+      dispatch({type: "RESET_ART"})
         
         
     
@@ -114,6 +136,22 @@ dispatch({type: "ADD_ART", payload: art})
 />
                 </label>
                 <br/>
+
+                <label htmlFor="image" onClick={(e) => {
+                  e.preventDefault()
+                  client.picker(options).open()}}>
+                Image
+                {!props.store.art.length ? (null) :
+                (
+<img src={image} alt='artwork'/>
+//                     {/* <input
+//                   value={dimensions}
+//                   onChange={(e) => setDimensions(e.target.value)}
+//                   onBlur={(e) => setDimensions(e.target.value)}
+// /> */}
+) 
+              }
+                </label>
                 {/* <label htmlFor="url">
                     <input
                   value={url}

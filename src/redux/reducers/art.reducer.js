@@ -2,13 +2,13 @@ const artReducer = (state = [], action) => {
   switch (action.type) {
     case "SET_ART":
       return action.payload;
-    //   case 'UNSET_SECRETS':
-    //     return [];
+       case 'RESET_ART':
+         return [];
     default:
       return state;
   }
 };
 
 // user will be on the redux state at:
-// state.user
+// store.user
 export default artReducer;

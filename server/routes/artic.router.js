@@ -62,7 +62,7 @@ router.get('/', async (req, res) => {
         // .then( response => {
           // console.log('here is our response:', response)
           const art = response.data.data
-            console.log(`(3) here is the artwork yielded by 'https://www.artic.edu/open-access/public-api': ${art}`);
+            // console.log(`(3) here is the artwork yielded by 'https://www.artic.edu/open-access/public-api': ${art}`);
 //filter the data so that we have only artworks done by our artists
 // Object.filter = (data, predicate) =>
 //       Object.keys(data)

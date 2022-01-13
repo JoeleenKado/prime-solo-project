@@ -7,9 +7,7 @@ const axios = require('axios')
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-const {
-  rejectUnauthenticated,
-} = require('../modules/authentication-middleware');
+const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 /**
  * GET route template
@@ -33,25 +31,25 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 });
 
-router.get('/aic', (req, res) => {
-  // GET route code here
-  console.log('in /api/art/aic GET route');
-  // console.log('Is User logged in?', req.isAuthenticated());
-  // console.log('req.user:', req.us
-  axios.get(`https://api.artic.edu/api/v1/artworks?fields=artist_display,image_id,title`)
-        .then( response => {
-            console.log('here is our response', response.data);
+// router.get('/aic', (req, res) => {
+//   // GET route code here
+//   console.log('in /api/art/aic GET route');
+//   // console.log('Is User logged in?', req.isAuthenticated());
+//   // console.log('req.user:', req.us
+//   axios.get(`https://api.artic.edu/api/v1/artworks?fields=artist_display,image_id,title`)
+//         .then( response => {
+//             console.log('here is our response', response.data);
             
-            //console.log('response:', response);
-            // Response.data is the info or data part of the axios response.
-            // Giphy also sends stuff in data, so 2 data's gets to the array of images
-            res.send( response.data );
-        })
-        .catch( error => {
-            console.log('Error doing GET from aic', error );
-            res.sendStatus( 500 );
-        })
-})
+//             //console.log('response:', response);
+//             // Response.data is the info or data part of the axios response.
+//             // Giphy also sends stuff in data, so 2 data's gets to the array of images
+//             res.send( response.data );
+//         })
+//         .catch( error => {
+//             console.log('Error doing GET from aic', error );
+//             res.sendStatus( 500 );
+//         })
+// })
 /**
  * POST route template
  */
@@ -62,10 +60,10 @@ router.post('/', (req, res) => {
  // console.log('RS:', props.store)
 //console.log(this.state.user.id);
 
-  let queryText = `INSERT INTO "art" ("user_id", "title", "medium", "dimension", "url", "statement")
+  let queryText = `INSERT INTO "art" ("user_id", "title", "medium", "dimensions", "image", "statement")
   VALUES ($1, $2, $3, $4, $5, $6);
   `;
-  pool.query(queryText, [art.user_id, art.title, art.medium, art.dimension, art.url, art.statement])
+  pool.query(queryText, [art.user_id, art.title, art.medium, art.dimension, art.image, art.statement])
     .then(result => {
       res.sendStatus(201);
     })
@@ -78,23 +76,25 @@ router.post('/', (req, res) => {
 
 module.exports = router;
 
-router.put('/',  (req, res) => {
+router.put('/', rejectUnauthenticated, (req, res) => {
   console.log('in PUT');
   
   let art = req.body; // Book with updated content
   
-  let id = req.params.id; // id of the book to update
+  // let id = req.params.id; // id of the book to update
 console.log('Updating', art.title);
 console.log(art);
 
   //console.log(`Updating book ${id} with `, book);
 let queryText = `UPDATE "art"
-SET "title" = $1, "medium" = $2, "dimension" = $3, "url" = $4, "statement" = $5
-WHERE "id" = $6;`;
+SET "title" = $1, "medium" = $2, "dimensions" = $3, "statement" = $4
+WHERE "id" = $5;`;
 
   // TODO - REPLACE BELOW WITH YOUR CODE
-  pool.query(queryText, [art.title, art.medium, art.dimension, art.url, art.statement, art.id]).then( (result) => {
-            // Delete sends back an OK status, 
+  pool.query(queryText, [art.title, art.medium, art.dimensions, art.statement, art.id]).then( (result) => {
+    console.log('in pool.query');
+     
+    // Delete sends back an OK status, 
             // client will then ask for all the data with a GET
             res.sendStatus(200);
         })
