@@ -6,17 +6,17 @@ import {useDispatch, useSelector} from 'react-redux'
 import ActionService from "../../redux/services/action.service";
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
-import './Gallery.css'
-import History from './History'
-import Edit from './Edit';
-function Gallery(props) { 
+import './FriendGallery.css'
+import Art from './Art'
+// import Edit from '../Gallery/Edit';
+function FriendGallery(props) { 
 ////usedispatch()
 // const dispatch = useDispatch()
-const {art} = props.store
-
+const {friendArt} = props.store
+const {username, id } = props.match.params
 useEffect(() => {
-    props.dispatch({type: 'FETCH_ART'})
-}, [])
+    props.dispatch({type: 'FETCH_FRIEND_ART', payload: id})
+ }, [])
 
 
 // const fetchArt = () => {
@@ -26,15 +26,16 @@ useEffect(() => {
 
 return (
     <>
-     {JSON.stringify(props)}kkk
+    {JSON.stringify(props)}
+    {/* {JSON.stringify(props)} */}
     {/* { !props.store ? (JSON.stringify('Loading Art')) : */}
     {/* (JSON.stringify(props.store))}  */}
-    <h1>Gallery</h1>
-{!art.length ? 
-(<h1>You have not yet created art. head over to the Studio to get started</h1>) :
+    <h1>{username}'s Gallery</h1>
+{!friendArt.length ? 
+(<h1>{username} has not yet created art.</h1>) :
 (
 
-art.map((art) =>{
+friendArt.map((art) =>{
     const {title, statement, dimensions, medium, image} = art
 
     function toggleAccordion(e) {
@@ -55,25 +56,25 @@ art.map((art) =>{
         </button>
         <div className="accordion-content">
           <br />
-           <History
+{/* {!friendArt.length ? (loading)} */}
+           <Art
             // title={title}
             // dimensions={dimensions}
             // medium={medium}
             // statement={statement}
-art={art}
+friendArt={art}
           /> 
 </div>
-<button className="accordion" onClick={(e) => toggleAccordion(e)}>
+{/* <button className="accordion" onClick={(e) => toggleAccordion(e)}>
                 Edit
               </button>
               <div className="accordion-content">
                 <br />
-                 <Edit
+                 {/* <Edit
                   art={art}
-                /> 
-                <br />
-              </div>
-
+                />  */}
+                {/* <br />
+              {/* </div> */}
 
        
          
@@ -89,4 +90,4 @@ art={art}
 
 }
 
-export default connect(mapStoreToProps)(Gallery);
+export default connect(mapStoreToProps)(FriendGallery);

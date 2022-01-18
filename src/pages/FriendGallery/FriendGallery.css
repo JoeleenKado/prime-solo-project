@@ -1,0 +1,40 @@
+button.accordion {
+  width: 100%;
+  border-radius: 0%;
+}
+
+/* h2.licenses {
+  text-align: center;
+} */
+
+button.licenses {
+  margin: auto;
+  display: block;
+}
+
+.delete-button {
+  margin-top: .5em;
+ }
+
+.delete-button:hover {
+  background-color: red;
+}
+
+.add-form {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 10px 10px grey;
+}
+
+.accordion-content {
+  border-left: 1px solid #006da5;
+  border-right: 1px solid #006da5;
+  border-bottom: 1px solid #006da5;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-in-out;
+  display: grid;
+  justify-content: center;
+  text-align: center;
+};

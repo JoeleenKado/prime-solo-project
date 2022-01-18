@@ -1,6 +1,6 @@
 //here i am inserting app into the artdrawer. because this is the page where the modal should pop up
 
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { connect } from "react-redux";
 import LogOutButton from "../../components/LogOutButton/LogOutButton";
 import mapStoreToProps from "../../redux/mapStoreToProps";
@@ -44,6 +44,7 @@ function Studio(props) {
     const {art} = props.store;
     // const rootElement = document.getElementById("react-root");
     // ReactDOM.render(<App />, rootElement);
+    useEffect(() => {props.dispatch({type: "RESET_ART"})}, [])
     return (
       <div>
         {/* RS: {JSON.stringify(this.props.store)} */}

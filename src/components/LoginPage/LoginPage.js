@@ -23,7 +23,7 @@ const imageId = props.store.artic.image_id
             type="button"
             className="btn btn_asLink btn"
             onClick={() => {
-              this.props.history.push("/registration");
+              props.history.push("/registration");
             }}
           >
             Register

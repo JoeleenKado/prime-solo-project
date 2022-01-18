@@ -31,6 +31,28 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 });
 
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+  // GET route code here
+  const {id} = req.params
+
+  console.log(`in /api/art/${id} GET route`);
+  console.log('Is User logged in?', req.isAuthenticated());
+  console.log('req.user:', req.user);
+// const id = req.params.id
+  let queryText = `SELECT * FROM "art"
+                    WHERE "user_id" = $1;`;
+  
+  pool.query(queryText, [id]).then((result) => {
+      res.send(result.rows);
+  }).catch((error) => {
+      console.log(error);
+      res.sendStatus(500);
+  });
+
+
+});
+
+
 // router.get('/aic', (req, res) => {
 //   // GET route code here
 //   console.log('in /api/art/aic GET route');
@@ -63,7 +85,7 @@ router.post('/', (req, res) => {
   let queryText = `INSERT INTO "art" ("user_id", "title", "medium", "dimensions", "image", "statement")
   VALUES ($1, $2, $3, $4, $5, $6);
   `;
-  pool.query(queryText, [art.user_id, art.title, art.medium, art.dimension, art.image, art.statement])
+  pool.query(queryText, [art.user_id, art.title, art.medium, art.dimensions, art.image, art.statement])
     .then(result => {
       res.sendStatus(201);
     })
