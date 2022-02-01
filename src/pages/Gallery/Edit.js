@@ -151,7 +151,7 @@ Dimensions        <input
           // onChange={(e) => setUrlEdit(e.target.value)}
           // onBlur={(e) => setUrlEdit(e.target.value)}
 value={urlEdit}
-          placeholder={url}
+          // placeholder={url}
         />
       </label>
 

@@ -27,7 +27,8 @@ function Form(props) {
         // Do something async
         resolve(
           console.log('resolved', file), 
-        props.dispatch({type: 'SET_ART', payload: file.url})
+          setUrl(file.url)
+        // props.dispatch({type: 'SET_ART', payload: file.url})
         );
         
         reject((reason) => console.log('Rejected:', reason))
@@ -42,6 +43,7 @@ function Form(props) {
   const [statement, setStatement] = useState('')
 const [medium, setMedium] = useState('')
   const [dimensions, setDimensions] = useState('')
+  const [url, setUrl] = useState('')
   //  const [url, setUrl] = useState('')
 
   const dispatch = useDispatch()
@@ -52,7 +54,7 @@ const [medium, setMedium] = useState('')
       statement: statement,
       medium: medium,
       dimensions: dimensions,
-      url: props.store.art
+      url: url
     }
 
   
@@ -141,16 +143,12 @@ dispatch({type: "ADD_ART", payload: art})
                   e.preventDefault()
                   client.picker(options).open()}}>
                 Image
-                {!props.store.art.length ? (null) :
-                (
-<img src={props.store.art} alt='artwork'/>
-//                     {/* <input
+                 {!url.length ? null : <img src={url} alt='artwork'/>}
+                     {/* <input
 //                   value={dimensions}
 //                   onChange={(e) => setDimensions(e.target.value)}
 //                   onBlur={(e) => setDimensions(e.target.value)}
 // /> */}
-) 
-              }
                 </label>
                 {/* <label htmlFor="url">
                     <input
