@@ -1,7 +1,7 @@
 import React from 'react'
 
-function History(props) {
-    const {title, statement, dimensions, medium, image} = props.art
+function Art(props) {
+    const {title, statement, dimensions, medium, url} = props.art
    return (
    <table>
     <tbody>
@@ -9,7 +9,7 @@ function History(props) {
         <td>Title: {title}</td>
       </tr>
       <tr>
-        <td><img src={image} alt='arwork'/></td>
+        <td><img src={url} alt='arwork'/></td>
       </tr>
       <tr>
         <td>Statement: {statement}</td>
@@ -24,4 +24,4 @@ function History(props) {
       </table>
    )
 }
-export default History
+export default Art

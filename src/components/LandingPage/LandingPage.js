@@ -12,13 +12,13 @@ function LandingPage(props) {
   //   heading: "Virtual Gallery",
   // };
 
-  //  onLogin = (event) => {
-  //    this.props.history.push("/login");
-  //  };
+   function onLogin (event) {
+     this.props.history.push("/login");
+   };
 
     return (
       <div className="container">
-        <h2>{this.state.heading}</h2>
+        {/* <h2>{this.state.heading}</h2> */}
 {/* {JSON.stringify(props.store)} */}
         <div className="grid">
           <div className="grid-col grid-col_8"></div>
@@ -27,7 +27,7 @@ function LandingPage(props) {
 
             <center>
               <h4>Already a Member?</h4>
-              <button onClick={this.onLogin}>
+              <button onClick={onLogin}>
                 Login
               </button>
             </center>

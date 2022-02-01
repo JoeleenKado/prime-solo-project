@@ -82,10 +82,10 @@ router.post('/', (req, res) => {
  // console.log('RS:', props.store)
 //console.log(this.state.user.id);
 
-  let queryText = `INSERT INTO "art" ("user_id", "title", "medium", "dimensions", "image", "statement")
+  let queryText = `INSERT INTO "art" ("user_id", "title", "medium", "dimensions", "url", "statement")
   VALUES ($1, $2, $3, $4, $5, $6);
   `;
-  pool.query(queryText, [art.user_id, art.title, art.medium, art.dimensions, art.image, art.statement])
+  pool.query(queryText, [art.user_id, art.title, art.medium, art.dimensions, art.url, art.statement])
     .then(result => {
       res.sendStatus(201);
     })
@@ -102,18 +102,22 @@ router.put('/', rejectUnauthenticated, (req, res) => {
   console.log('in PUT');
   
   let art = req.body; // Book with updated content
-  
+  const property = Object.keys(art)[0]
+  const value = Object.values(art)[0]
   // let id = req.params.id; // id of the book to update
-console.log('Updating', art.title);
+console.log('Updating', art);
 console.log(art);
+console.log('property:', property)
 
   //console.log(`Updating book ${id} with `, book);
 let queryText = `UPDATE "art"
-SET "title" = $1, "medium" = $2, "dimensions" = $3, "statement" = $4
-WHERE "id" = $5;`;
+SET "${property}" = $1
+WHERE "id" = $2;`;
+// "medium" = $2, "dimensions" = $3, "statement" = $4
 
+console.log('art.property:', art.property)
   // TODO - REPLACE BELOW WITH YOUR CODE
-  pool.query(queryText, [art.title, art.medium, art.dimensions, art.statement, art.id]).then( (result) => {
+  pool.query(queryText, [value, art.id]).then( (result) => {
     console.log('in pool.query');
      
     // Delete sends back an OK status, 

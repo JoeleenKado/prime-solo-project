@@ -7,7 +7,7 @@ import ActionService from "../../redux/services/action.service";
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import './Gallery.css'
-import History from './History'
+import Art from './Art'
 import Edit from './Edit';
 function Gallery(props) { 
 ////usedispatch()
@@ -35,7 +35,7 @@ return (
 (
 
 art.map((art) =>{
-    const {title, statement, dimensions, medium, image} = art
+    const {title, statement, dimensions, medium, url} = art
 
     function toggleAccordion(e) {
         const content = e.target.nextElementSibling;
@@ -55,7 +55,7 @@ art.map((art) =>{
         </button>
         <div className="accordion-content">
           <br />
-           <History
+           <Art
             // title={title}
             // dimensions={dimensions}
             // medium={medium}

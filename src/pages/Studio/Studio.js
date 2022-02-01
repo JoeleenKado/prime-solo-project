@@ -7,7 +7,7 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import Form from "./Form";
-import EditForm from "../../components/ArtDrawer/ArtCard";
+// import EditForm from "../../components/ArtDrawer/ArtCard";
 // import App from '../../components/App/App'
 import ReactDOM, { render } from 'react-dom'; 
 

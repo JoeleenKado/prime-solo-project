@@ -18,7 +18,7 @@ import SubmitButton from "../../components/SubmitButton/SubmitButton.js";
 
 // export default function ArtForm() {
 function Form(props) {
-const image = props.store.art
+// const [url] = props.store.art
   const key = process.env.REACT_APP_FILESTACK_API_KEY
   const client = filestack.init(key);
   const options = {
@@ -42,7 +42,7 @@ const image = props.store.art
   const [statement, setStatement] = useState('')
 const [medium, setMedium] = useState('')
   const [dimensions, setDimensions] = useState('')
-  // const [url, setUrl] = useState('')
+  //  const [url, setUrl] = useState('')
 
   const dispatch = useDispatch()
 
@@ -52,7 +52,7 @@ const [medium, setMedium] = useState('')
       statement: statement,
       medium: medium,
       dimensions: dimensions,
-      image: image
+      url: props.store.art
     }
 
   
@@ -143,7 +143,7 @@ dispatch({type: "ADD_ART", payload: art})
                 Image
                 {!props.store.art.length ? (null) :
                 (
-<img src={image} alt='artwork'/>
+<img src={props.store.art} alt='artwork'/>
 //                     {/* <input
 //                   value={dimensions}
 //                   onChange={(e) => setDimensions(e.target.value)}
