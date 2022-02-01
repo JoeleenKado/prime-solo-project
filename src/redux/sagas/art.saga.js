@@ -14,7 +14,7 @@ function* artSaga() {
   yield takeLatest("UPDATE_ART", updateArtSaga);
   // yield takeLatest("FETCH_ARTISTS", fetchArtistsSaga);
 
-  // yield takeLatest("DELETE_ART", deleteArtSaga);
+  yield takeLatest("DELETE_ART", deleteArtSaga);
   // yield takeLatest("FETCH_DETAILS", fetchDetailsSaga);
 }
 

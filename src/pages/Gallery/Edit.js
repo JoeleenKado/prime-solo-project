@@ -171,7 +171,7 @@ onClick={(e) => {
       
       
       
-      <button>UPDATE</button>
+      <button onClick={(e) => props.dispatch({type: 'DELETE_ART', payload: id})}>DELETE</button>
       <br />
     </form>
   ); //END return ()
