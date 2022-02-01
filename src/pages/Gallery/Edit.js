@@ -3,10 +3,26 @@ import { useState, FunctionComponent } from "react";
 import React from 'react'
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import { connect } from "react-redux";
+import * as filestack from 'filestack-js';
 
 function Edit(props) {
-    
+  const key = process.env.REACT_APP_FILESTACK_API_KEY
+  const client = filestack.init(key);
+  const options = {
 
+  onFileUploadFinished(file) {
+    return new Promise((resolve, reject) => {
+      // Do something async
+      resolve(
+        console.log('resolved', file), 
+      // props.dispatch({type: 'SET_ART', payload: file.url})
+      setUrlEdit(file.url)
+      );
+      
+      reject((reason) => console.log('Rejected:', reason))
+      // Or reject the selection with reject()
+    });
+  }}
 
   const { title, statement, dimensions, medium, url, id } = props.art;
 
@@ -96,6 +112,8 @@ function Edit(props) {
         onChange={(e) => setStatementEdit(e.target.value)}
         onBlur={(e) => setStatementEdit(e.target.value)}
       ></input>
+      <button onClick={(e) => update('statement', statementEdit)}>update</button>
+
       </label>
       <br />
       <br />
@@ -109,28 +127,50 @@ function Edit(props) {
 
           value={mediumEdit}
         />
+        <button onClick={(e) => update('medium', mediumEdit)}>update</button>
+
       </label>
       <label htmlFor="dimensions">
 Dimensions        <input
         //   placeholder={email}
           onChange={(e) => setDimensionsEdit(e.target.value)}
           onBlur={(e) => setDimensionsEdit(e.target.value)}
+          value={dimensionsEdit}
 
           placeholder={dimensions}
         />
+        <button onClick={(e) => update('dimensions', dimensionsEdit)}>update</button>
+
       </label>
       <br />
 
       <label htmlFor="image">
-        image
+        url
        <input
-        //   placeholder={email}
-          onChange={(e) => setDimensionsEdit(e.target.value)}
-          onBlur={(e) => setDimensionsEdit(e.target.value)}
-
-          placeholder={dimensions}
+        placeholder={url}
+          // onChange={(e) => setUrlEdit(e.target.value)}
+          // onBlur={(e) => setUrlEdit(e.target.value)}
+value={urlEdit}
+          placeholder={url}
         />
       </label>
+
+      <button 
+onClick={(e) => {
+                  e.preventDefault()
+                  client.picker(options).open()}}>
+                    UPLOAD IMAGE
+                  </button>
+{/* {!urlEdit.length ? null : ( */}
+<img src={urlEdit} alt='artwork'/>
+      <button onClick={(e) => {
+        update('url', urlEdit)
+    }}
+    >update</button>
+
+      
+      
+      
       <button>UPDATE</button>
       <br />
     </form>

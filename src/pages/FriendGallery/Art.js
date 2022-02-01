@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 
 function Art(props) {
-    const {title, statement, dimensions, medium, image} = props.friendArt
+    const {title, statement, dimensions, medium, url} = props.friendArt
    return (
    <table>
     <tbody>
@@ -11,7 +11,7 @@ function Art(props) {
         <td>Title: {title}</td>
       </tr>
       <tr>
-        <td><img src={image} alt='artwork'/></td>
+        <td><img src={url} alt='artwork'/></td>
       </tr>
       <tr>
         <td>Statement: {statement}</td>
