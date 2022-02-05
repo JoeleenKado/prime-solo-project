@@ -5,6 +5,7 @@ import users from './users.reducer'
 import art from "./art.reducer";
 import friendArt from './friendArt.reducer'
 import artic from './artic.reducer'
+import frame from './frame.reducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   users,
   art,
   friendArt,
-  artic
+  artic,
+  frame
 });
 
 export default rootReducer;

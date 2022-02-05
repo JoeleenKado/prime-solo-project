@@ -13,7 +13,7 @@ const userRouter = require('./routes/user.router');
 const usersRouter = require('./routes/users.router')
 const artRouter = require('./routes/art.router');
 const articRouter = require('./routes/artic.router');
-
+const workshopRouter = require('./routes/workshop.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -32,6 +32,7 @@ app.use('/api/users', usersRouter);
 
 app.use('/api/art', artRouter); //this route will be used when we Get art
 app.use('/api/artic', articRouter); //this route will be used when we Get art
+app.use('/api/workshop', workshopRouter); //this route will be used when we Get art
 
 
 // Serve static files

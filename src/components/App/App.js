@@ -8,25 +8,25 @@ import {
 } from "react-router-dom";
 import action from "../../redux/services/action.service";
 import { connect } from "react-redux";
-import Modal from '../Modal/Modal'
+// import Modal from '../Modal/Modal'
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
 
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import mapStoreToProps from "../../redux/mapStoreToProps";
-
+import Workshop from '../../pages/Workshop/Workshop'
 import Program from "../Program/Program";
 import UserPage from "../UserPage/UserPage";
 import InfoPage from "../InfoPage/InfoPage";
 import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
-import Detail from "../Gallery/Detail";
+// import Detail from "../Gallery/Detail";
 // import createPalette from 'material-ui/styles/palette';
 //import Typography from 'material-ui/styles/typography';
 import Gallery from "../../pages/Gallery/Gallery";
 import FriendGallery from "../../pages/FriendGallery/FriendGallery";
-
+import Admin from '../../pages/Admin/Admin'
 import Studio from "../../pages/Studio/Studio"
 import Forum from "../../pages/Forum/Forum";
 import "./App.css";
@@ -118,9 +118,23 @@ dispatch(action.fetchUser())
                 component={Gallery}
               />
 
+<ProtectedRoute props={props}
+                // logged in shows UserPage else shows LoginPage
+                exact
+                path="/admin"
+                component={Admin}
+              />
+
+<ProtectedRoute props={props}
+                // logged in shows UserPage else shows LoginPage
+                exact
+                path="/workshop"
+                component={Workshop}
+              />
+
               {/* <ProtectedRoute exact path='/:artId' render={(props)=><Art{...props}/>}/> */}
               {/* <ProtectedRoute exact path='/:art' component={Art}/> */}
-              <ProtectedRoute path="/detail" component={Detail} />
+              {/* <ProtectedRoute path="/detail" component={Detail} /> */}
 
               <ProtectedRoute
                 // logged in shows InfoPage else shows LoginPage
