@@ -1,18 +1,21 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
-import LoginForm from "../LoginForm/LoginForm";
+import LoginForm from "../../components/LoginForm/LoginForm";
 import './LoginPage.css'
 function LoginPage(props) {
 useEffect(() => {
-props.dispatch({type: 'FETCH_DATA'})
+props.dispatch({type: 'FETCH_RANDOM'})
 }, [])
 const {image_id} = props.store.artic
 // console.log('1111', props.store.artic.randomArt.image_id)
 // console.log('222', props.store.artic.imageId)
     return (
       <div>
-        {JSON.stringify(props.store)}
+                {JSON.stringify(props.store)}
+
+                <center>
+
         {!image_id ? (<h2>Loading Artwork...</h2>) : 
         (<img 
          className={'frame', 'border-one'} 
@@ -21,7 +24,6 @@ const {image_id} = props.store.artic
 )}
         <LoginForm />
 
-        <center>
           <button
             type="button"
             className="btn btn_asLink btn"

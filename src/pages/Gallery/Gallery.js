@@ -47,22 +47,35 @@ art.map((art) =>{
       }
 
     return (
-        <div 
-        // key={} 
-        className="accordian-container">
-        <button className="accordion" onClick={(e) => toggleAccordion(e)}>
-          {title}
-        </button>
-        <div className="accordion-content">
-          <br />
-           <Art
+        
+      <>  
+        
+        <Art
             // title={title}
             // dimensions={dimensions}
             // medium={medium}
             // statement={statement}
 art={art}
           /> 
-</div>
+       
+      
+      <div 
+        //  key={} 
+       
+       
+        className="accordian-container"
+        >
+
+
+         {/* <button 
+         className="accordion" onClick={(e) => toggleAccordion(e)}
+        >
+          {title}
+        </button>  */}
+          <div className="accordion-content"> 
+          {/* <br /> */}
+           
+{/* </div> */} 
 <button className="accordion" onClick={(e) => toggleAccordion(e)}>
                 Edit
               </button>
@@ -80,7 +93,8 @@ art={art}
           </div>
 
 
-
+</div>
+</>
     )
 }))}
     </>

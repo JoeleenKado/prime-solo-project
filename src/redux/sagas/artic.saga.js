@@ -6,15 +6,15 @@ import { put, takeLatest } from "redux-saga/effects";
 // worker Saga: will be fired on "FETCH_SECRETS" actions
 
 function* articSaga() {
-  yield takeLatest("FETCH_DATA", fetchDataSaga);
+  yield takeLatest('FETCH_RANDOM', fetchRandomSaga);
   // yield takeLatest("ADD_ART", addArtSaga);
   // yield takeLatest("UPDATE_ART", updateArtSaga);
   // yield takeLatest("DELETE_ART", deleteArtSaga);
   // yield takeLatest("FETCH_DETAILS", fetchDetailsSaga);
 }
 
-function* fetchDataSaga() {
-  console.log("In fetchDataSaga...");
+function* fetchRandomSaga() {
+  console.log("In fetchRandomSaga...");
   try {
     const config = {
       headers: { "Content-Type": "application/json" },

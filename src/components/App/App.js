@@ -19,7 +19,7 @@ import Program from "../Program/Program";
 import UserPage from "../UserPage/UserPage";
 import InfoPage from "../InfoPage/InfoPage";
 import LandingPage from "../LandingPage/LandingPage";
-import LoginPage from "../LoginPage/LoginPage";
+import LoginPage from "../../pages/LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 // import Detail from "../Gallery/Detail";
 // import createPalette from 'material-ui/styles/palette';
