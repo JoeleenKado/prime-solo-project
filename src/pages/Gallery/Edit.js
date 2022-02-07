@@ -9,7 +9,7 @@ function Edit(props) {
   const {art} = props.store
    const { title, statement, size, medium, url, id } = props.match.params;
 //i have an image variable that needs to be updated
-const decodedUrl = decodeURIComponent(props.match.params.url)
+const decodedUrl = decodeURIComponent(url)
 
 //if we have .lengthn then we display that with a ternary
   const key = process.env.REACT_APP_FILESTACK_API_KEY
@@ -19,7 +19,8 @@ const decodedUrl = decodeURIComponent(props.match.params.url)
 
 
 
-   
+   let resize
+   let url300
 
   const options = {
   onFileUploadFinished(file) {
@@ -27,8 +28,10 @@ const decodedUrl = decodeURIComponent(props.match.params.url)
       // Do something async
       resolve(
         console.log('resolved', file), 
+        //  resize = '/resize=width:300,height:200',
+        //  url300 = file.url.slice(0, 32) + resize + file.url.slice(32),
 
-       props.dispatch({type: 'SET_ART', payload: file.url}),
+      //  props.dispatch({type: 'SET_ART', payload: url300}),
       setUrlEdit(file.url)
       );
 
@@ -39,7 +42,6 @@ const decodedUrl = decodeURIComponent(props.match.params.url)
     });
   }}
 
-  const resize = '/resize=width:300,height:200'
 
 
   const [urlEdit, setUrlEdit] = useState(decodedUrl)
@@ -49,8 +51,10 @@ const decodedUrl = decodeURIComponent(props.match.params.url)
     const [statementEdit, setStatementEdit] = useState(statement);
   
     // if (urlEdit !== decodedUrl)
-    const url300 = art.slice(0, 32) + resize + art.slice(32)
+    // art.includes('https') ?
     // }
+// : 
+// url300 = ''
 
   
   
@@ -69,9 +73,12 @@ const decodedUrl = decodeURIComponent(props.match.params.url)
     // switch (property) {
     // case 'title':
     //  console.log('property:', property)
-     return props.dispatch({type: "UPDATE_ART", payload: {[property]: edit,
-    id: id}})
-
+    // set
+    //when i update i need to set whatever recieves art to something else
+     props.dispatch({type: "UPDATE_ART", payload: {[property]: edit,
+    id: id}
+  })
+// return 
       // case 'statement':
       // return props.dispatch({type: "UPDATE_ART", payload: {statement: statementEdit}})
       // case 'medium':
@@ -172,14 +179,15 @@ const decodedUrl = decodeURIComponent(props.match.params.url)
        <label htmlFor="image">
         url
 
-        <img src={urlEdit === decodedUrl ?
+        {/* <img src={urlEdit === decodedUrl ?
           (
             decodedUrl
             // decodeURIComponent(props.match.params.url)
             )
         
           :   (url300)
-        }/>  
+        }/>   */}
+        <img src={urlEdit}/>
 
 
       
