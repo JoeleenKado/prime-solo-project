@@ -108,14 +108,14 @@ router.put('/', rejectUnauthenticated, (req, res) => {
 console.log('Updating', art);
 console.log(art);
 console.log('property:', property)
-
+console.log('value:', value)
   //console.log(`Updating book ${id} with `, book);
 let queryText = `UPDATE "art"
 SET "${property}" = $1
 WHERE "id" = $2;`;
 // "medium" = $2, "dimensions" = $3, "statement" = $4
 
-console.log('art.property:', art.property)
+// console.log('art.property:', art.property)
   // TODO - REPLACE BELOW WITH YOUR CODE
   pool.query(queryText, [value, art.id]).then( (result) => {
     console.log('in pool.query');

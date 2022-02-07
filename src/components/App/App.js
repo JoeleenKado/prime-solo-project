@@ -29,6 +29,7 @@ import FriendGallery from "../../pages/FriendGallery/FriendGallery";
 import Admin from '../../pages/Admin/Admin'
 import Studio from "../../pages/Studio/Studio"
 import Forum from "../../pages/Forum/Forum";
+import Edit from '../../pages/Gallery/Edit'
 import "./App.css";
 // import {Typography} from '@material-ui/core/Typography'
 //styling
@@ -98,6 +99,11 @@ dispatch(action.fetchUser())
       
       path="/gallery/:username/:id"
       render={(props) => <FriendGallery {...props} />}
+    />
+    <ProtectedRoute
+      
+      path="/edit/:title/:medium/:dimensions/:statement/:url/:id"
+      render={(props) => <Edit {...props} />}
     />
 
               {/* For protected routes, the view could show one of several things on the same route.

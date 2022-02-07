@@ -25,46 +25,47 @@ useEffect(() => {
 // }
 
 return (
-    <>
-     {JSON.stringify(props)}kkk
+  <>
+       {JSON.stringify(props)} 
+
+  <h1>Gallery</h1>
+
+    <div className='container'>
     {/* { !props.store ? (JSON.stringify('Loading Art')) : */}
     {/* (JSON.stringify(props.store))}  */}
-    <h1>Gallery</h1>
 {!art.length ? 
 (<h1>You have not yet created art. head over to the Studio to get started</h1>) :
 (
 
-art.map((art) =>{
-    const {title, statement, dimensions, medium, url} = art
+art.map((artwork) =>{
+    const {title, statement, dimensions, medium, url} = artwork
 
-    function toggleAccordion(e) {
-        const content = e.target.nextElementSibling;
-        if (content.style.maxHeight) {
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
-      }
+    
 
     return (
         
-      <>  
+      <div style={{
+        // justifyContent: 'center', 
+      margin: 'auto'}}
+      //  className='container'
+       >  
         
         <Art
             // title={title}
             // dimensions={dimensions}
             // medium={medium}
             // statement={statement}
-art={art}
+            history={props.history}
+artwork={artwork}
           /> 
        
-      
-      <div 
+      <br/>
+      {/* <div 
         //  key={} 
        
        
         className="accordian-container"
-        >
+        > */}
 
 
          {/* <button 
@@ -72,32 +73,32 @@ art={art}
         >
           {title}
         </button>  */}
-          <div className="accordion-content"> 
+          {/* <div className="accordion-content">  */}
           {/* <br /> */}
            
 {/* </div> */} 
-<button className="accordion" onClick={(e) => toggleAccordion(e)}>
+{/* <button className="accordion" onClick={(e) => toggleAccordion(e)}>
                 Edit
-              </button>
-              <div className="accordion-content">
+              </button> */}
+              {/* <div className="accordion-content">
                 <br />
                  <Edit
                   art={art}
                 /> 
                 <br />
-              </div>
+              </div> */}
 
 
        
          
           </div>
-
-
-</div>
-</>
+    
     )
-}))}
-    </>
+  }))}
+</div>
+
+</>
+
 )
 
 
