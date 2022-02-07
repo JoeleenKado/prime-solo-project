@@ -6,7 +6,7 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 
 function Art(props) {
     const {artwork, history} = props
-    const {title, statement, dimensions, medium, url, id} = artwork
+    const {artist, title, statement, size, medium, url, id} = artwork
   const [loaded, setLoaded] = useState(false)
     let flipCardInner
     // let otherFlip
@@ -52,9 +52,9 @@ function Art(props) {
 console.log('1st half of url:', url.slice(0, 32));
 
 console.log('2nd half of url:', url.slice(32));
-const size = '/resize=width:300,height:200'
+const resize = '/resize=width:300,height:200'
 // expected output: "the lazy dog."
-const url300 = url.slice(0, 32) + size + url.slice(32)
+const url300 = url.slice(0, 32) + resize + url.slice(32)
 console.log('url300:', url300)
 // https://cdn.filestackcontent.com/2yclMtrSuiWobS11HHtw/resize=300)   
    
@@ -91,7 +91,7 @@ return (
         <td>Medium: {medium}</td>
       </tr>
       <tr>
-        <td>Dimensions: {dimensions}</td>
+        <td>Size: {size}</td>
       </tr>
       <tr>
         <td>Statement: {statement}</td>
@@ -99,7 +99,7 @@ return (
       {/* <tr><td><Edit/></td> */}
       {/* </tr> */}
       <tr><td><button 
-       onClick={() => history.push(`edit/${title}/${medium}/${dimensions}/${statement}/${encodeURIComponent(url300)}/${id}`)}
+       onClick={() => history.push(`edit/${title}/${medium}/${size}/${statement}/${encodeURIComponent(url300)}/${id}`)}
       >EDIT</button></td></tr>
       </tbody>
       </table>

@@ -6,13 +6,15 @@ import { connect } from "react-redux";
 import * as filestack from 'filestack-js';
 
 function Edit(props) {
-   const { title, statement, dimensions, medium, url, id } = props.match.params;
+  const {art} = props.store
+   const { title, statement, size, medium, url, id } = props.match.params;
+//i have an image variable that needs to be updated
+const decodedUrl = decodeURIComponent(props.match.params.url)
 
-
-
+//if we have .lengthn then we display that with a ternary
   const key = process.env.REACT_APP_FILESTACK_API_KEY
   const client = filestack.init(key);
-   console.log('props.art:', props.history.params)
+  //  console.log('props.art:', props.history.params)
 
 
 
@@ -37,17 +39,18 @@ function Edit(props) {
     });
   }}
 
-  const size = '/resize=width:300,height:200'
-  const url300 = url.slice(0, 32) + size + url.slice(32)
+  const resize = '/resize=width:300,height:200'
 
 
-  const [urlEdit, setUrlEdit] = useState(url300)
+  const [urlEdit, setUrlEdit] = useState(decodedUrl)
   const [titleEdit, setTitleEdit] = useState(title);
-    const [dimensionsEdit, setDimensionsEdit] = useState(dimensions);
+    const [sizeEdit, setDimensionsEdit] = useState(size);
     const [mediumEdit, setMediumEdit] = useState(medium);
     const [statementEdit, setStatementEdit] = useState(statement);
   
-
+    // if (urlEdit !== decodedUrl)
+    const url300 = art.slice(0, 32) + resize + art.slice(32)
+    // }
 
   
   
@@ -57,7 +60,7 @@ function Edit(props) {
   //   title: titleEdit,
   //   statement: statementEdit,
   //   medium: mediumEdit,
-  //   dimensions: dimensionsEdit,
+  //   size: sizeEdit,
   //   url: urlEdit,
   //   id: id
   // };
@@ -73,8 +76,8 @@ function Edit(props) {
       // return props.dispatch({type: "UPDATE_ART", payload: {statement: statementEdit}})
       // case 'medium':
       // return props.dispatch({type: "UPDATE_ART", payload: {medium: mediumEdit}})
-      // case 'dimensions':
-      // return props.dispatch({type: "UPDATE_ART", payload: {dimensions: dimensionsEdit}})
+      // case 'size':
+      // return props.dispatch({type: "UPDATE_ART", payload: {size: sizeEdit}})
 
       // case property === 'medium'
       // return props.dispatch({type: "UPDATE_ART", payload: {medium: mediumEdit}})
@@ -102,22 +105,12 @@ function Edit(props) {
     {JSON.stringify(props)}
     <form
       className="form"
-      // onSubmit={(e) => {
-      //   e.preventDefault();
-      //   submit();
-      // }}
+      
     >
-      {/* <input
-        type="radio"
-        name="type"
-        value="District"
-        onChange={(e) => setTypeEdit(e.target.value)}
-        onBlur={(e) => setTypeEdit(e.target.value)}
-      ></input> */}
+      
       <label htmlFor="title">Title
       <input
-        // type="radio"
-        // name="type"
+       
        placeholder={title}
          value={titleEdit}
 
@@ -132,8 +125,8 @@ function Edit(props) {
       <label htmlFor="statement">Statement
       
        <input
-        // type="radio"
-        // name="type"
+        
+        placeholder={statement}
         value={statementEdit}
         onChange={(e) => setStatementEdit(e.target.value)}
         onBlur={(e) => setStatementEdit(e.target.value)}
@@ -146,40 +139,50 @@ function Edit(props) {
       <label htmlFor="medium">
         Medium
         {/* {typeEdit === "" ? type : typeEdit} Name */}
-        {/* <input
-        //   placeholder={medium}
+         <input
+          placeholder={medium}
+          value={mediumEdit}
           onChange={(e) => setMediumEdit(e.target.value)}
           onBlur={(e) => setMediumEdit(e.target.value)}
 
           value={mediumEdit}
-        /> */}
-        {/* <button onClick={(e) => update('medium', mediumEdit)}>update</button> */}
+        /> 
+        <button onClick={(e) => {
+          e.preventDefault()
+          update('medium', mediumEdit)
+          }}>
+            update
+            </button>
 
       </label>
-      <label htmlFor="dimensions">
-{/* Dimensions        <input
+      <label htmlFor="size">
+ Dimensions        <input
         //   placeholder={email}
           onChange={(e) => setDimensionsEdit(e.target.value)}
           onBlur={(e) => setDimensionsEdit(e.target.value)}
-          value={dimensionsEdit}
-
-          // placeholder={dimensions}
-        /> */}
-        {/* <button onClick={(e) => update('dimensions', dimensionsEdit)}>update</button> */}
+          value={sizeEdit}
+          placeholder={size}
+          // placeholder={size}
+        /> 
+         <button onClick={(e) => update('size', sizeEdit)}>UPDATE DIMENSIONS</button> */}
 
       </label>
       <br />
 
-      {/* <label htmlFor="image">
+       <label htmlFor="image">
         url
-       {/* <input
-        placeholder={url300}
-          // onChange={(e) => setUrlEdit(e.target.value)}
-          // onBlur={(e) => setUrlEdit(e.target.value)}
-value={urlEdit}
-          // placeholder={url}
-        /> */}
-      {/* </label> */} 
+
+        <img src={urlEdit === decodedUrl ?
+          (
+            decodedUrl
+            // decodeURIComponent(props.match.params.url)
+            )
+        
+          :   (url300)
+        }/>  
+
+
+      
 
       <button 
 onClick={(e) => {
@@ -187,19 +190,17 @@ onClick={(e) => {
                   client.picker(options).open()}}>
                     UPLOAD IMAGE
                   </button>
-{/* {!urlEdit.length ? null : ( */}
-{/* <img src={urlEdit} alt='artwork'/> */}
-      {/* <button onClick={(e) => { */}
-        {/* // update('url', urlEdit) */}
-    {/* // }} */}
-    {/* // >update</button> */}
-    
-      <img src={decodeURIComponent(props.match.params.url)}/>  
 
+       <button onClick={(e) => {
+         e.preventDefault()
+        update('url', urlEdit)} }
+     >update IMAGE</button> 
+    
+</label>
       {console.log('dfd', decodeURI(props.match.params.url))}
       
       
-      {/* <button onClick={(e) => props.dispatch({type: 'DELETE_ART', payload: id})}>DELETE</button> */}
+       {/* <button onClick={(e) => props.dispatch({type: 'DELETE_ART', payload: id})}>DELETE</button> */} */}
       <br />
     </form>
     </>

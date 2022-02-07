@@ -21,12 +21,21 @@ function Form(props) {
 // const [url] = props.store.art
   const key = process.env.REACT_APP_FILESTACK_API_KEY
   const client = filestack.init(key);
+  // let url
+  const [title, setTitle] = useState('')
+    const [statement, setStatement] = useState('')
+  const [medium, setMedium] = useState('')
+    const [size, setSize] = useState('')
+    const [url, setUrl] = useState('')
+
   const options = {
     onFileUploadFinished(file) {
       return new Promise((resolve, reject) => {
         // Do something async
         resolve(
           console.log('resolved', file), 
+          
+          
           setUrl(file.url)
         // props.dispatch({type: 'SET_ART', payload: file.url})
         );
@@ -37,13 +46,14 @@ function Form(props) {
     }
 
     }
+
+    
+    const resize = '/resize=width:300,height:200'
+// expected output: "the lazy dog."
+const url300 = url.slice(0, 32) + resize + url.slice(32)
   // client.picker().open();
   //
-  const [title, setTitle] = useState('')
-  const [statement, setStatement] = useState('')
-const [medium, setMedium] = useState('')
-  const [dimensions, setDimensions] = useState('')
-  const [url, setUrl] = useState('')
+  
   //  const [url, setUrl] = useState('')
 
   const dispatch = useDispatch()
@@ -53,7 +63,7 @@ const [medium, setMedium] = useState('')
       title: title,
       statement: statement,
       medium: medium,
-      dimensions: dimensions,
+      size: size,
       url: url
     }
 
@@ -68,7 +78,7 @@ const [medium, setMedium] = useState('')
 dispatch({type: "ADD_ART", payload: art})
       setTitle('')
       setMedium('')
-      setDimensions('')
+      setSize('')
       // setUrl('')
       setStatement('')
     // } catch(err){console.error(err)}
@@ -129,12 +139,12 @@ dispatch({type: "ADD_ART", payload: art})
                 </label>
               <br />
 
-              <label htmlFor="dimensions">
+              <label htmlFor="size">
                 Dimensions
                     <input
-                  value={dimensions}
-                  onChange={(e) => setDimensions(e.target.value)}
-                  onBlur={(e) => setDimensions(e.target.value)}
+                  value={size}
+                  onChange={(e) => setSize(e.target.value)}
+                  onBlur={(e) => setSize(e.target.value)}
 />
                 </label>
                 <br/>
@@ -143,9 +153,9 @@ dispatch({type: "ADD_ART", payload: art})
                   e.preventDefault()
                   client.picker(options).open()}}>
                 Image
-                 {!url.length ? null : <img src={url} alt='artwork'/>}
+                 {!url.length ? null : <img src={url300} alt='artwork'/>}
                      {/* <input
-//                   value={dimensions}
+//                   value={size}
 //                   onChange={(e) => setDimensions(e.target.value)}
 //                   onBlur={(e) => setDimensions(e.target.value)}
 // /> */}

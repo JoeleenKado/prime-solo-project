@@ -20,7 +20,7 @@ import UserPage from "../UserPage/UserPage";
 import InfoPage from "../InfoPage/InfoPage";
 import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../../pages/LoginPage/LoginPage";
-import RegisterPage from "../RegisterPage/RegisterPage";
+import RegisterPage from "../../pages/RegisterPage/RegisterPage";
 // import Detail from "../Gallery/Detail";
 // import createPalette from 'material-ui/styles/palette';
 //import Typography from 'material-ui/styles/typography';
@@ -102,7 +102,7 @@ dispatch(action.fetchUser())
     />
     <ProtectedRoute
       
-      path="/edit/:title/:medium/:dimensions/:statement/:url/:id"
+      path="/edit/:title/:medium/:size/:statement/:url/:id"
       render={(props) => <Edit {...props} />}
     />
 

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
-import LoginForm from "../../components/LoginForm/LoginForm";
-import './LoginPage.css'
+import LoginForm from "./LoginForm";
+import './Login.css'
 function LoginPage(props) {
 useEffect(() => {
 props.dispatch({type: 'FETCH_RANDOM'})

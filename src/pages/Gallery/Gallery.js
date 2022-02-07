@@ -38,7 +38,7 @@ return (
 (
 
 art.map((artwork) =>{
-    const {title, statement, dimensions, medium, url} = artwork
+    const {artist, title, statement, dimensions, medium, url} = artwork
 
     
 

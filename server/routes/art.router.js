@@ -82,10 +82,10 @@ router.post('/', (req, res) => {
  // console.log('RS:', props.store)
 //console.log(this.state.user.id);
 
-  let queryText = `INSERT INTO "art" ("user_id", "title", "medium", "dimensions", "url", "statement")
+  let queryText = `INSERT INTO "art" ("user_id", "title", "medium", "size", "url", "statement")
   VALUES ($1, $2, $3, $4, $5, $6);
   `;
-  pool.query(queryText, [art.user_id, art.title, art.medium, art.dimensions, art.url, art.statement])
+  pool.query(queryText, [art.user_id, art.title, art.medium, art.size, art.url, art.statement])
     .then(result => {
       res.sendStatus(201);
     })
@@ -113,7 +113,7 @@ console.log('value:', value)
 let queryText = `UPDATE "art"
 SET "${property}" = $1
 WHERE "id" = $2;`;
-// "medium" = $2, "dimensions" = $3, "statement" = $4
+// "medium" = $2, "sizes" = $3, "statement" = $4
 
 // console.log('art.property:', art.property)
   // TODO - REPLACE BELOW WITH YOUR CODE
