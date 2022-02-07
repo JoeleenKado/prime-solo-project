@@ -27,16 +27,18 @@ function Form(props) {
   const [medium, setMedium] = useState('')
     const [size, setSize] = useState('')
     const [url, setUrl] = useState('')
-
+    const resize = '/resize=width:300,height:200'
+let url300
   const options = {
     onFileUploadFinished(file) {
       return new Promise((resolve, reject) => {
         // Do something async
         resolve(
           console.log('resolved', file), 
+          url300 = file.url.slice(0, 32) + resize + file.url.slice(32),
+console.log('url300:', url300),
           
-          
-          setUrl(file.url)
+          setUrl(url300)
         // props.dispatch({type: 'SET_ART', payload: file.url})
         );
         
@@ -48,9 +50,7 @@ function Form(props) {
     }
 
     
-    const resize = '/resize=width:300,height:200'
 // expected output: "the lazy dog."
-const url300 = url.slice(0, 32) + resize + url.slice(32)
   // client.picker().open();
   //
   
@@ -153,7 +153,9 @@ dispatch({type: "ADD_ART", payload: art})
                   e.preventDefault()
                   client.picker(options).open()}}>
                 Image
-                 {!url.length ? null : <img src={url300} alt='artwork'/>}
+                 {!url.length ? null : 
+                 <img src={url} alt='artwork'/>
+                  } 
                      {/* <input
 //                   value={size}
 //                   onChange={(e) => setDimensions(e.target.value)}

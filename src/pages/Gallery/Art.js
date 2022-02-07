@@ -7,7 +7,58 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 function Art(props) {
     const {artwork, history} = props
     const {artist, title, statement, size, medium, url, id} = artwork
-  const [loaded, setLoaded] = useState(false)
+    const encodedUrl = encodeURIComponent(url)
+ console.log('artwork', artwork)
+//     console.log('Object.values(artwork)', Object.values(artwork))
+//  const values = Object.values(artwork)
+//  values.forEach(value => {
+//    if (value === '') {value = "N/A"}
+Object.filter = (obj, predicate) => 
+    Object.keys(obj)
+          .filter( key => predicate(obj[key]) )
+          .reduce( (res, key) => Object.assign(res, { [key]: obj[key] }), {} );
+
+// Example use:
+// var scores = {
+//     John: 2, Sarah: 3, Janet: 1
+// };
+var filtered = Object.filter(artwork, item => item === ''); 
+// console.log('filtered:', filtered);  
+
+// console.log('fffffdccc', Object.keys(filtered))
+
+
+
+// var superSecret = function(spy){
+  Object.keys(filtered).forEach(function(key){ filtered[key] = "NA" });
+
+
+// Object.keys(filtered).forEach(key => {
+//   filtered[key] = 99;
+// });
+console.log('newvalues:', Object.values(filtered))
+console.log('key', Object.keys(filtered))
+// const target = artwork
+// const source = 
+const filteredArtwork = Object.assign(artwork, filtered)
+console.log('filteredArtwork:', filteredArtwork)
+// Object.values(filtered).forEach()
+//   })
+// let blankValues = []
+//  console.log('kkkkk', Object.values(artwork).forEach(value => {if (value === ''){
+//    console.log('hooray')
+//    blankValues.push(value)
+//   }}))
+//   console.log('blankValues', blankValues)
+// // Example use:
+// var scores = {
+//   John: 2, Sarah: 3, Janet: 1
+// };
+// var filtered = Object.filter(scores, score => score > 1); 
+// console.log(filtered);
+
+
+    const [loaded, setLoaded] = useState(false)
     let flipCardInner
     // let otherFlip
       //  const url = `${props.art.url}/resize=300`
@@ -52,12 +103,15 @@ function Art(props) {
 console.log('1st half of url:', url.slice(0, 32));
 
 console.log('2nd half of url:', url.slice(32));
-const resize = '/resize=width:300,height:200'
+// const resize = '/resize=width:300,height:200'
 // expected output: "the lazy dog."
-const url300 = url.slice(0, 32) + resize + url.slice(32)
-console.log('url300:', url300)
+// const url300 = url.slice(0, 32) + resize + url.slice(32)
+// console.log('url300:', url300)
 // https://cdn.filestackcontent.com/2yclMtrSuiWobS11HHtw/resize=300)   
-   
+const encodedURL = encodeURIComponent(url)   
+
+console.log('encodedURL:', encodedUrl)
+console.log('filteredArtwork.size:', filteredArtwork.size)
 
 return (
      <>
@@ -71,7 +125,7 @@ return (
     <tbody>
       {/* front */}
     <tr>
-        <td><img src={url300} alt='artwork'/></td>
+        <td><img src={url} alt='artwork'/></td>
       </tr>
       {/* <tr>
         <td>{title}</td>
@@ -99,7 +153,7 @@ return (
       {/* <tr><td><Edit/></td> */}
       {/* </tr> */}
       <tr><td><button 
-       onClick={() => history.push(`edit/${title}/${medium}/${size}/${statement}/${encodeURIComponent(url300)}/${id}`)}
+        onClick={() => history.push(`edit/${filteredArtwork.title}/${filteredArtwork.medium}/${filteredArtwork.size}/${filteredArtwork.statement}/${encodedUrl}/${id}`)}
       >EDIT</button></td></tr>
       </tbody>
       </table>

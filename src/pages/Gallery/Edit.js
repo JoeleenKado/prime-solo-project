@@ -9,8 +9,9 @@ function Edit(props) {
   const {art} = props.store
    const { title, statement, size, medium, url, id } = props.match.params;
 //i have an image variable that needs to be updated
-const decodedUrl = decodeURIComponent(url)
-
+ const decodedUrl = decodeURIComponent(url)
+console.log('Our url has been decoded:', decodedUrl)
+console.log('size:', size)
 //if we have .lengthn then we display that with a ternary
   const key = process.env.REACT_APP_FILESTACK_API_KEY
   const client = filestack.init(key);
@@ -19,7 +20,7 @@ const decodedUrl = decodeURIComponent(url)
 
 
 
-   let resize
+   const resize = '/resize=width:300,height:200'
    let url300
 
   const options = {
@@ -29,10 +30,10 @@ const decodedUrl = decodeURIComponent(url)
       resolve(
         console.log('resolved', file), 
         //  resize = '/resize=width:300,height:200',
-        //  url300 = file.url.slice(0, 32) + resize + file.url.slice(32),
+          url300 = file.url.slice(0, 32) + resize + file.url.slice(32),
 
       //  props.dispatch({type: 'SET_ART', payload: url300}),
-      setUrlEdit(file.url)
+      setUrlEdit(url300)
       );
 
      
@@ -46,7 +47,7 @@ const decodedUrl = decodeURIComponent(url)
 
   const [urlEdit, setUrlEdit] = useState(decodedUrl)
   const [titleEdit, setTitleEdit] = useState(title);
-    const [sizeEdit, setDimensionsEdit] = useState(size);
+    const [sizeEdit, setSizeEdit] = useState(size);
     const [mediumEdit, setMediumEdit] = useState(medium);
     const [statementEdit, setStatementEdit] = useState(statement);
   
@@ -158,20 +159,20 @@ const decodedUrl = decodeURIComponent(url)
           e.preventDefault()
           update('medium', mediumEdit)
           }}>
-            update
+            UPDATE MEDIUM
             </button>
 
       </label>
       <label htmlFor="size">
- Dimensions        <input
+ Size        <input
         //   placeholder={email}
-          onChange={(e) => setDimensionsEdit(e.target.value)}
-          onBlur={(e) => setDimensionsEdit(e.target.value)}
+          onChange={(e) => setSizeEdit(e.target.value)}
+          onBlur={(e) => setSizeEdit(e.target.value)}
           value={sizeEdit}
           placeholder={size}
           // placeholder={size}
         /> 
-         <button onClick={(e) => update('size', sizeEdit)}>UPDATE DIMENSIONS</button> */}
+         <button onClick={(e) => update('size', sizeEdit)}>UPDATE SIZE</button> 
 
       </label>
       <br />
@@ -205,10 +206,10 @@ onClick={(e) => {
      >update IMAGE</button> 
     
 </label>
-      {console.log('dfd', decodeURI(props.match.params.url))}
+      {/* {console.log('dfd', decodeURI(props.match.params.url))} */}
       
       
-       {/* <button onClick={(e) => props.dispatch({type: 'DELETE_ART', payload: id})}>DELETE</button> */} */}
+       {/* <button onClick={(e) => props.dispatch({type: 'DELETE_ART', payload: id})}>DELETE</button> */} 
       <br />
     </form>
     </>
