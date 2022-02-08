@@ -102,7 +102,7 @@ function* deleteArtSaga(action) {
 
     const response = yield axios.delete(`api/art/${action.payload}`, config);
 
-    yield put({ type: "FETCH_ART" });
+    // yield put({ type: "FETCH_ART" });
   } catch (error) {
     console.log("Art get request failed", error);
   }

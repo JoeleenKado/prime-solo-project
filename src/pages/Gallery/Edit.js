@@ -12,13 +12,8 @@ function Edit(props) {
  const decodedUrl = decodeURIComponent(url)
 console.log('Our url has been decoded:', decodedUrl)
 console.log('size:', size)
-//if we have .lengthn then we display that with a ternary
   const key = process.env.REACT_APP_FILESTACK_API_KEY
   const client = filestack.init(key);
-  //  console.log('props.art:', props.history.params)
-
-
-
 
    const resize = '/resize=width:300,height:200'
    let url300
@@ -32,12 +27,9 @@ console.log('size:', size)
         //  resize = '/resize=width:300,height:200',
           url300 = file.url.slice(0, 32) + resize + file.url.slice(32),
 
-      //  props.dispatch({type: 'SET_ART', payload: url300}),
       setUrlEdit(url300)
       );
 
-     
-      
       reject((reason) => console.log('Rejected:', reason))
       // Or reject the selection with reject()
     });
@@ -51,69 +43,19 @@ console.log('size:', size)
     const [mediumEdit, setMediumEdit] = useState(medium);
     const [statementEdit, setStatementEdit] = useState(statement);
   
-    // if (urlEdit !== decodedUrl)
-    // art.includes('https') ?
-    // }
-// : 
-// url300 = ''
-
   
-  
-  
-
-  // const art = {
-  //   title: titleEdit,
-  //   statement: statementEdit,
-  //   medium: mediumEdit,
-  //   size: sizeEdit,
-  //   url: urlEdit,
-  //   id: id
-  // };
-
   function update (property, edit) {
-    // switch (property) {
-    // case 'title':
-    //  console.log('property:', property)
-    // set
-    //when i update i need to set whatever recieves art to something else
+    
      props.dispatch({type: "UPDATE_ART", payload: {[property]: edit,
     id: id}
   })
-// return 
-      // case 'statement':
-      // return props.dispatch({type: "UPDATE_ART", payload: {statement: statementEdit}})
-      // case 'medium':
-      // return props.dispatch({type: "UPDATE_ART", payload: {medium: mediumEdit}})
-      // case 'size':
-      // return props.dispatch({type: "UPDATE_ART", payload: {size: sizeEdit}})
-
-      // case property === 'medium'
-      // return props.dispatch({type: "UPDATE_ART", payload: {medium: mediumEdit}})
-
-// default: return null
-//      }
     }
-
-  //   [property]
-  //   LicenseDataService.edit(art)
-  //   .then(() => {
-  //     console.log("in submit().then()");
-  //     setTypeEdit("");
-  //     setNameEdit("");
-  //     setEmailEdit("");
-  //     return setRefresh(!refresh);
-  //   });
-  // }
-
-
-
 
   return (
     <>
     {JSON.stringify(props)}
     <form
-      className="form"
-      
+      className="form"    
     >
       
       <label htmlFor="title">Title
@@ -122,7 +64,6 @@ console.log('size:', size)
        placeholder={title}
          value={titleEdit}
 
-        // value={titleEdit}
          onChange={(e) => setTitleEdit(e.target.value)}
          onBlur={(e) => setTitleEdit(e.target.value)}
       ></input>
@@ -136,7 +77,10 @@ console.log('size:', size)
         
         placeholder={statement}
         value={statementEdit}
-        onChange={(e) => setStatementEdit(e.target.value)}
+        onChange={(e) => {
+          setStatementEdit(e.target.value)
+          console.log('statement has changed:', statementEdit)
+        }}
         onBlur={(e) => setStatementEdit(e.target.value)}
       ></input> 
       <button onClick={(e) => update('statement', statementEdit)}>update</button> 
@@ -146,7 +90,6 @@ console.log('size:', size)
       <br />
       <label htmlFor="medium">
         Medium
-        {/* {typeEdit === "" ? type : typeEdit} Name */}
          <input
           placeholder={medium}
           value={mediumEdit}
@@ -165,12 +108,10 @@ console.log('size:', size)
       </label>
       <label htmlFor="size">
  Size        <input
-        //   placeholder={email}
           onChange={(e) => setSizeEdit(e.target.value)}
           onBlur={(e) => setSizeEdit(e.target.value)}
           value={sizeEdit}
           placeholder={size}
-          // placeholder={size}
         /> 
          <button onClick={(e) => update('size', sizeEdit)}>UPDATE SIZE</button> 
 
@@ -180,19 +121,7 @@ console.log('size:', size)
        <label htmlFor="image">
         url
 
-        {/* <img src={urlEdit === decodedUrl ?
-          (
-            decodedUrl
-            // decodeURIComponent(props.match.params.url)
-            )
-        
-          :   (url300)
-        }/>   */}
         <img src={urlEdit}/>
-
-
-      
-
       <button 
 onClick={(e) => {
                   e.preventDefault()
@@ -206,14 +135,17 @@ onClick={(e) => {
      >update IMAGE</button> 
     
 </label>
-      {/* {console.log('dfd', decodeURI(props.match.params.url))} */}
       
-      
-       {/* <button onClick={(e) => props.dispatch({type: 'DELETE_ART', payload: id})}>DELETE</button> */} 
       <br />
+      <button onClick={(e) =>{
+        e.preventDefault()
+        props.dispatch({type: 'DELETE_ART', payload: id})
+      props.history.push('/gallery')
+      }}>
+          DELETE ARTWORK
+          </button>
     </form>
     </>
   ); //END return ()
 }; //END Edit
 export default connect(mapStoreToProps)(Edit);
-

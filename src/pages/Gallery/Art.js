@@ -22,7 +22,7 @@ Object.filter = (obj, predicate) =>
 // var scores = {
 //     John: 2, Sarah: 3, Janet: 1
 // };
-var filtered = Object.filter(artwork, item => item === ''); 
+const filtered = Object.filter(artwork, item => item === ''); 
 // console.log('filtered:', filtered);  
 
 // console.log('fffffdccc', Object.keys(filtered))
@@ -30,19 +30,27 @@ var filtered = Object.filter(artwork, item => item === '');
 
 
 // var superSecret = function(spy){
-  Object.keys(filtered).forEach(function(key){ filtered[key] = "NA" });
+  function filter(obj) {
+    Object.keys(obj).forEach(function(key){ obj[key] = "NA" });
+return Object.assign(artwork, filtered)
+  }
 
+  // Object.keys(filtered).forEach(function(key){ filtered[key] = "NA" });
 
 // Object.keys(filtered).forEach(key => {
 //   filtered[key] = 99;
 // });
-console.log('newvalues:', Object.values(filtered))
-console.log('key', Object.keys(filtered))
+// console.log('newvalues:', Object.values(filtered))
+// console.log('key', Object.keys(filtered))
 // const target = artwork
 // const source = 
-const filteredArtwork = Object.assign(artwork, filtered)
-console.log('filteredArtwork:', filteredArtwork)
+// const filteredArtwork = Object.assign(artwork, filtered)
+
+
+// console.log('filteredArtwork:', filteredArtwork)
 // Object.values(filtered).forEach()
+
+const filteredArtwork = filter(filtered)
 //   })
 // let blankValues = []
 //  console.log('kkkkk', Object.values(artwork).forEach(value => {if (value === ''){
@@ -76,29 +84,29 @@ console.log('filteredArtwork:', filteredArtwork)
 // setLoaded(true)
 // },[])
 
-// function toggleAccordion(e) {
-//   const content = e.target.nextElementSibling;
-//   if (content.style.maxHeight) {
-//     content.style.maxHeight = null;
-//   } else {
-//     content.style.maxHeight = content.scrollHeight + "px";
-//   }
-//   // if (content.style.tranform) {
+function toggleAccordion(e) {
+  const content = e.target.nextElementSibling;
+  if (content.style.maxHeight) {
+    content.style.maxHeight = null;
+  } else {
+    content.style.maxHeight = content.scrollHeight + "px";
+  }
+  // if (content.style.tranform) {
     
-// console.log('target:', e.target)
-// // console.log('parentELement:', e.target.parentElement.nextElementSibling )
+console.log('target:', e.target)
+// console.log('parentELement:', e.target.parentElement.nextElementSibling )
  
-// // console.log('flipCardInner:', flipCardInner)
+// console.log('flipCardInner:', flipCardInner)
 
 // let nextSibling = flipCardInner.nextElementSibling;
 // console.log('nextElementSibling:', nextSibling);
 
 
-// console.log('content:', content)
-// let element = document.getElementsByClassName('flip-card-inner')
-//   // }
-//   console.log('element:', element)
-// }
+console.log('content:', content)
+let element = document.getElementsByClassName('flip-card-inner')
+  // }
+  console.log('element:', element)
+}
 
 console.log('1st half of url:', url.slice(0, 32));
 
@@ -108,8 +116,7 @@ console.log('2nd half of url:', url.slice(32));
 // const url300 = url.slice(0, 32) + resize + url.slice(32)
 // console.log('url300:', url300)
 // https://cdn.filestackcontent.com/2yclMtrSuiWobS11HHtw/resize=300)   
-const encodedURL = encodeURIComponent(url)   
-
+// f
 console.log('encodedURL:', encodedUrl)
 console.log('filteredArtwork.size:', filteredArtwork.size)
 
@@ -117,8 +124,10 @@ return (
      <>
      <div className='container'>
 <div class="flip-card">
-  <div className="flip-card-inner">
-    <div class="flip-card-front">
+  <div 
+  // className="flip-card-inner"
+  >
+    {/* <div class="flip-card-front"> */}
       {/* <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;"> */}
     
       <table>
@@ -136,34 +145,20 @@ return (
     
     
     
-    </div>
+    {/* </div> */}
    
    
-   <div className="flip-card-back">
-          <table><tbody>
-          <tr>
-        <td>Medium: {medium}</td>
-      </tr>
-      <tr>
-        <td>Size: {size}</td>
-      </tr>
-      <tr>
-        <td>Statement: {statement}</td>
-      </tr>
-      {/* <tr><td><Edit/></td> */}
-      {/* </tr> */}
-      <tr><td><button 
-        onClick={() => history.push(`edit/${filteredArtwork.title}/${filteredArtwork.medium}/${filteredArtwork.size}/${filteredArtwork.statement}/${encodedUrl}/${id}`)}
-      >EDIT</button></td></tr>
-      </tbody>
-      </table>
+   {/* <div className="flip-card-back"> */}
+          
     
  
  
- </div>
+ {/* </div> */}
  <br/>
 </div>
-{title}
+
+{/* {title} */}
+
 
 
 
@@ -183,22 +178,44 @@ return (
       return title
   } else { */}
 {/* return(  */}
-  {/* <div className="accordian-container"> */}
+   <div className="accordian-container"> 
+     <button className="accordion" onClick={(e) => toggleAccordion(e)}> 
+
+{title}
+               </button> 
+             <div className="accordion-content">
+              
+             <table><tbody>
+          <tr>
+        <td>Medium: {medium}</td>
+      </tr>
+      <tr>
+        <td>Size: {size}</td>
+      </tr>
+      <tr>
+        <td>Statement: {statement}</td>
+      </tr>
+      {/* <tr><td><Edit/></td> */}
+      {/* </tr> */}
+      <tr><td><button 
+        onClick={() => history.push(`edit/${filteredArtwork.title}/${filteredArtwork.medium}/${filteredArtwork.size}/${filteredArtwork.statement}/${encodedUrl}/${id}`)}
+      >EDIT</button></td></tr>
+      </tbody>
+      </table>
+              
+               </div>
 
 
 
-    {/* <button className="accordion" onClick={(e) => toggleAccordion(e)}> */}
+</div>
+
                
                
-                 {/* Edit */}
-               {/* </button>  */}
-             {/* <div className="accordion-content"> */}
                  {/* <br /> */}
                   {/* <Edit */}
                   {/* //  art={art} */}
                  {/* />  */}
                  {/* <br /> */}
-               {/* </div> */}
                {/* </div> */}
    
 
