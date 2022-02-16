@@ -10,9 +10,16 @@ props.dispatch({type: 'FETCH_RANDOM'})
 const {image_id} = props.store.artic
 // console.log('1111', props.store.artic.randomArt.image_id)
 // console.log('222', props.store.artic.imageId)
-    return (
+   
+// function toggleDoor() {
+//   element.classList.toggle("doorOpen");
+// }
+
+
+
+return (
       <div>
-                {JSON.stringify(props.store)}
+                {/* {JSON.stringify(props.store)} */}
 
                 <center>
 
@@ -22,9 +29,10 @@ const {image_id} = props.store.artic
         src={`https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`} 
         alt="random artwork"/>
 )}
-        <LoginForm />
-
-          <button
+<div class="door-container">
+  <div id="rose-door">  
+  <LoginForm />
+  <button
             type="button"
             className="btn btn_asLink btn"
             onClick={() => {
@@ -33,6 +41,11 @@ const {image_id} = props.store.artic
           >
             Register
           </button>
+  </div>
+</div>
+{/* <div> */}
+         
+          {/* </div> */}
         </center>
       </div>
     );

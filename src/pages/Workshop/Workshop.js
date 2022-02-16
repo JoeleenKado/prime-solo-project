@@ -53,7 +53,8 @@ function Workshop(props) {
 
 
     useEffect(() => {
-props.dispatch({type: "FETCH_FRAMES"})
+
+//  props.dispatch({type: "FETCH_ART"})
     },[])
 
     return (
@@ -62,13 +63,14 @@ props.dispatch({type: "FETCH_FRAMES"})
 
 
       <div>
-
+hi
 <ul>
-          {art.map((piece) => 
+  {!art.length ? null : (
+          art.map((piece) => 
         //   <img src={artwork.url} alt='artwork'/>
         <li onClick={setArtwork(piece.id)}>{piece.title}</li>
-          )}
-
+          )
+  )}
 
 </ul>
 
@@ -105,7 +107,7 @@ props.dispatch({type: "FETCH_FRAMES"})
 
           )}
 
-Which painting would you like to frame
+{/* Which painting would you like to frame */}
 
 
 

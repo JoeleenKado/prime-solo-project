@@ -44,7 +44,7 @@ function Studio(props) {
     const {art} = props.store;
     // const rootElement = document.getElementById("react-root");
     // ReactDOM.render(<App />, rootElement);
-    useEffect(() => {props.dispatch({type: "RESET_ART"})}, [])
+    // useEffect(() => {props.dispatch({type: "RESET_ART"})}, [])
     return (
       <div>
         {/* RS: {JSON.stringify(this.props.store)} */}
@@ -55,7 +55,9 @@ Studio
         {/* <h3>SUBMIT ART TO GALLERY</h3> */}
         {/* <Grid container spacing={8}> */}
           {/* <Grid item xs={12}> */}
+          <section className="black-box">
              <Form/>
+             </section>
           {/* </Grid> */}
           <br />
           {/* <Grid item xs={12}> */}

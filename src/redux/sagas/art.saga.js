@@ -28,6 +28,7 @@ function* fetchArtSaga() {
     };
 
     const response = yield axios.get("api/art", config);
+    // yield put({type: "FETCH_ART"})
 
     yield put({ type: "SET_ART", payload: response.data });
   } catch (error) {

@@ -15,7 +15,7 @@ import * as filestack from 'filestack-js';
 import dotenv from 'dotenv'
 import canvas from "../../canvas.jpg";
 import SubmitButton from "../../components/SubmitButton/SubmitButton.js";
-
+import './Studio.css'
 // export default function ArtForm() {
 function Form(props) {
 // const [url] = props.store.art
@@ -49,13 +49,6 @@ console.log('url300:', url300),
 
     }
 
-    
-// expected output: "the lazy dog."
-  // client.picker().open();
-  //
-  
-  //  const [url, setUrl] = useState('')
-
   const dispatch = useDispatch()
 
   const art = {
@@ -81,115 +74,101 @@ dispatch({type: "ADD_ART", payload: art})
       setSize('')
       // setUrl('')
       setStatement('')
+      setUrl('')
     // } catch(err){console.error(err)}
       
-      dispatch({type: "RESET_ART"})
+      // dispatch({type: "RESET_ART"})
         
         
     
     // }
   };
 
-
-  // toggleModal = () => {
-  //   this.setState({showModal: !this.state.showModal})
-  // }
-  
-  
-    
-    //  const client = filestack.init("A2ocoVhiLQseuc8qsSbygz");
-// const {showModal} = this.state
-
     return (
+      
+      <div className="container">
+        <div className='item-a'>
+          <div className="form-container">
             <form name='art' 
+            classname='contained-form'
+            // className='item-a'
              onSubmit={ (e) => {
                e.preventDefault()
                addArt()
             }}
             //   style={{ verticalAlign: 'middle' }}
             >
-                
+               <button onClick={(e) => {
+                  e.preventDefault()
+                  client.picker(options).open()}}>
+                    UPLOAD IMAGE
+                    </button> 
                   <label htmlFor="title">
-                    Title
                     <input
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   onBlur={(e) => setTitle(e.target.value)}
 />
+Title
+
                 </label>
               <br />
                 {/* // align="center">  */}
                 <label htmlFor="statement">
-                  Statement
                     <input
                   value={statement}
                   onChange={(e) => setStatement(e.target.value)}
                   onBlue={(e) => setStatement(e.target.value)}
 />
+Statement
+
                 </label>
               <br />
 
               <label htmlFor="medium">
-                Medium
                     <input
                   value={medium}
                   onChange={(e) => setMedium(e.target.value)}
                   onBlur={(e) => setMedium(e.target.value)}
 />
+Medium
+
                 </label>
+
               <br />
 
               <label htmlFor="size">
-                Dimensions
                     <input
                   value={size}
                   onChange={(e) => setSize(e.target.value)}
                   onBlur={(e) => setSize(e.target.value)}
 />
-                </label>
-                <br/>
+Size
 
-                <label htmlFor="image" onClick={(e) => {
-                  e.preventDefault()
-                  client.picker(options).open()}}>
-                Image
+                </label>
+                {/* <br/> */}
+
+                {/* <label htmlFor="image">  */}
+                
+
+                {/* <center> */}
+                
+                    {/* </center> */}
+                    {/* <br/> */}
                  {!url.length ? null : 
                  <img src={url} alt='artwork'/>
                   } 
-                     {/* <input
-//                   value={size}
-//                   onChange={(e) => setDimensions(e.target.value)}
-//                   onBlur={(e) => setDimensions(e.target.value)}
-// /> */}
-                </label>
-                {/* <label htmlFor="url">
-                    <input
-                  value={url}
-                  onChange={(e) => setStatement(url)}
-                  onBlur={(e) => setStatement(url)}
-/>
-                </label> */}
-
+                    
+                {/* </label> */}
+                {/* <br/> */}
                 <button>SUBMIT</button> 
-                 {/* <div id='imageAPI'>Not Rendered</div>  */}
-             {/* <div id="modalDiv"> */}
-                {/* <button onClick={this.toggleModal}>Open API</button> */}
-                {/* </div> */}
-                  {/* <Modal/> */}
-
-                {/* <SubmitButton
-                  addArtProp={this.addArt}
-                  elevation={20}
-                
-                  style={{ justifyContent: "center" }}
-                 
-                > */}
-                  SUBMIT TO GALLERY!
+               
                 {/* </SubmitButton> */}
               
             </form>
-            
-      // </ThemeProvider>
+            </div>
+            </div>
+            </div>
     ); //END return
    //END render
 } //END ArtForm

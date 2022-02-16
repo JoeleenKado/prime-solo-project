@@ -18,6 +18,7 @@ function LandingPage(props) {
 
     return (
       <div className="container">
+        jjj
         {/* <h2>{this.state.heading}</h2> */}
 {/* {JSON.stringify(props.store)} */}
         <div className="grid">

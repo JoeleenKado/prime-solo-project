@@ -1,6 +1,16 @@
+/* html {
+    box-sizing: border-box;
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  } */
+
 body {
     height: 100%;
     margin: 0;
+    padding: 0;
     background-image: url('https://injart.org/wp-content/uploads/2017/02/Minneapolis-Institute-Of-Arts-27463.jpg');
   
     /* Full height */
@@ -12,7 +22,31 @@ body {
     background-size: cover;
 }
 
+form {
+ margin: auto;
+}
 
+/* .form-panel {
+    margin: auto 0;
+} */
+
+.canvas {
+    background-image: url('/images/canvas.jpg');
+
+}
+
+
+.black-box {
+    /* background-color: white; */
+    background-image: url('/images/canvas.jpg');
+/* width: 80%; */
+  padding: 1rem;
+  margin: auto 0;
+  border-radius: 10px;
+  /* color: var(--white); */
+  font-size: 1rem;
+  line-height: 1.5;
+}
 
 .btn {
     background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);

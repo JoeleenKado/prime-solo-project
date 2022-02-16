@@ -53,7 +53,7 @@ console.log('size:', size)
 
   return (
     <>
-    {JSON.stringify(props)}
+    {/* {JSON.stringify(props)} */}
     <form
       className="form"    
     >

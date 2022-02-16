@@ -26,7 +26,7 @@ useEffect(() => {
 
 return (
   <>
-       {JSON.stringify(props)} 
+       {/* {JSON.stringify(props)}  */}
 
   <h1>Gallery</h1>
 

@@ -18,7 +18,7 @@ import Workshop from '../../pages/Workshop/Workshop'
 import Program from "../Program/Program";
 import UserPage from "../UserPage/UserPage";
 import InfoPage from "../InfoPage/InfoPage";
-import LandingPage from "../LandingPage/LandingPage";
+// import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../../pages/LoginPage/LoginPage";
 import RegisterPage from "../../pages/RegisterPage/RegisterPage";
 // import Detail from "../Gallery/Detail";
@@ -30,6 +30,7 @@ import Admin from '../../pages/Admin/Admin'
 import Studio from "../../pages/Studio/Studio"
 import Forum from "../../pages/Forum/Forum";
 import Edit from '../../pages/Gallery/Edit'
+// import Workshop from "../../pages/Workshop/Workshop";
 import "./App.css";
 // import {Typography} from '@material-ui/core/Typography'
 //styling
@@ -79,7 +80,7 @@ dispatch(action.fetchUser())
          // Virtual Gallery(app.js)
          <>
 <h1>Virtual Gallery</h1>
-{JSON.stringify(props.store)}
+{/* {JSON.stringify(props.store)} */}
         <Router>
         <Nav />
 
@@ -117,6 +118,13 @@ dispatch(action.fetchUser())
                 component={UserPage}
               />
 
+{/* <ProtectedRoute props={props}
+                // logged in shows UserPage else shows LoginPage
+                exact
+                path="/workshop"
+                component={Workshop}
+              /> */}
+
 <ProtectedRoute props={props}
                 // logged in shows UserPage else shows LoginPage
                 exact
@@ -124,19 +132,19 @@ dispatch(action.fetchUser())
                 component={Gallery}
               />
 
-<ProtectedRoute props={props}
+{/* <ProtectedRoute props={props}
                 // logged in shows UserPage else shows LoginPage
                 exact
                 path="/admin"
                 component={Admin}
-              />
+              /> */}
 
-<ProtectedRoute props={props}
+{/* <ProtectedRoute props={props}
                 // logged in shows UserPage else shows LoginPage
                 exact
                 path="/workshop"
                 component={Workshop}
-              />
+              /> */}
 
               {/* <ProtectedRoute exact path='/:artId' render={(props)=><Art{...props}/>}/> */}
               {/* <ProtectedRoute exact path='/:art' component={Art}/> */}
@@ -190,7 +198,7 @@ dispatch(action.fetchUser())
                 // - else shows LandingPage at "/home"
                 exact
                 path="/home"
-                component={LandingPage}
+                component={LoginPage}
                 //  authRedirect="/user"
                 authRedirect="/gallery"
               />
