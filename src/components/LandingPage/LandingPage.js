@@ -5,22 +5,22 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 import "./LandingPage.css";
 
 // CUSTOM COMPONENTS
-import RegisterForm from "../RegisterForm/RegisterForm";
+import RegisterForm from "../../pages/RegisterPage/RegisterForm";
 
-class LandingPage extends Component {
-  state = {
-    heading: "Virtual Gallery",
-  };
+function LandingPage(props) {
+  // state = {
+  //   heading: "Virtual Gallery",
+  // };
 
-  onLogin = (event) => {
-    this.props.history.push("/login");
-  };
+   function onLogin (event) {
+     this.props.history.push("/login");
+   };
 
-  render() {
     return (
       <div className="container">
+        jjj
         {/* <h2>{this.state.heading}</h2> */}
-
+{/* {JSON.stringify(props.store)} */}
         <div className="grid">
           <div className="grid-col grid-col_8"></div>
           <div className="grid-col grid-col_4">
@@ -28,7 +28,7 @@ class LandingPage extends Component {
 
             <center>
               <h4>Already a Member?</h4>
-              <button onClick={this.onLogin}>
+              <button onClick={onLogin}>
                 Login
               </button>
             </center>
@@ -36,7 +36,6 @@ class LandingPage extends Component {
         </div>
       </div>
     );
-  }
 }
 
 export default connect(mapStoreToProps)(LandingPage);

@@ -1,62 +1,36 @@
 import axios from "axios";
-import { useCallback } from "react";
 import { put, takeLatest } from "redux-saga/effects";
 //import { createStore, combineReducers, applyMiddleware } from 'redux';
 //import registerServiceWorker from './registerServiceWorker';
 
 // worker Saga: will be fired on "FETCH_SECRETS" actions
 
-function* artSaga() {
-  yield takeLatest("FETCH_ART", fetchArtSaga);
-  yield takeLatest("FETCH_FRIEND_ART", fetchFriendArtSaga);
-
-  yield takeLatest("ADD_ART", addArtSaga);
-  yield takeLatest("UPDATE_ART", updateArtSaga);
-  // yield takeLatest("FETCH_ARTISTS", fetchArtistsSaga);
-
-  yield takeLatest("DELETE_ART", deleteArtSaga);
+function* articSaga() {
+  yield takeLatest('FETCH_RANDOM', fetchRandomSaga);
+  // yield takeLatest("ADD_ART", addArtSaga);
+  // yield takeLatest("UPDATE_ART", updateArtSaga);
+  // yield takeLatest("DELETE_ART", deleteArtSaga);
   // yield takeLatest("FETCH_DETAILS", fetchDetailsSaga);
 }
 
-function* fetchArtSaga() {
-  console.log("In fetchArtSaga...");
-  // const {username} = action.payload
+function* fetchRandomSaga() {
+  console.log("In fetchRandomSaga...");
   try {
     const config = {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
     };
+   const res = yield axios.get("api/artic", config);
+    const randomArt = res.data
+    console.log('randomArt:', randomArt)
 
-    const response = yield axios.get("api/art", config);
-    // yield put({type: "FETCH_ART"})
-
-    yield put({ type: "SET_ART", payload: response.data });
+    // const [imageId] = artBox
+    // console.log('imageId:', imageId)
+    yield put({ type: "SET_ARTIC", payload: randomArt });
   } catch (error) {
     console.log("Art get request failed", error);
   }
 }
-
-function* fetchFriendArtSaga(action) {
-  console.log("(1)In fetchFriendArtSaga...");
-   const id = action.payload
-   console.log('(2)artist:', id)
-    // const praise = console.log('keep goin')
-// callback(praise)
-  try {
-    const config = {
-      headers: { "Content-Type": "application/json" },
-      withCredentials: true,
-    };
-
-    const response = yield axios.get(`api/art/${id}`, config);
-
-   yield put({ type: "SET_FRIEND_ART", payload: response.data 
-  })} catch (error) {
-    console.log("Art get request failed", error);
-  }
-}
-
-
 
 function* addArtSaga(action) {
   console.log("In addArtSaga...");
@@ -69,7 +43,7 @@ function* addArtSaga(action) {
 
     const response = yield axios.post("api/art", action.payload, config);
 
-    // yield put({ type: "FETCH_ART" });
+    yield put({ type: "FETCH_ART" });
   } catch (error) {
     console.log("Art get request failed", error);
   }
@@ -103,13 +77,11 @@ function* deleteArtSaga(action) {
 
     const response = yield axios.delete(`api/art/${action.payload}`, config);
 
-    // yield put({ type: "FETCH_ART" });
+    yield put({ type: "FETCH_ART" });
   } catch (error) {
     console.log("Art get request failed", error);
   }
-} 
-
-
+}
 
 function* fetchDetailsSaga(action) {
   console.log("In fetchDetailsSaga...");
@@ -129,4 +101,4 @@ function* fetchDetailsSaga(action) {
   }
 }
 
-export default artSaga;
+export default articSaga;

@@ -7,64 +7,18 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 import axios from 'axios'
 
 
-import {
-  AppBar,
-  CssBaseline,
-  CardContent,
-  Typography,
-  Toolbar,
-  Grid,
-  Badge,
-  IconButton,
-  makeStyles,
-  InputBase,
-  TextField,
-  Card,
-  CardMedia,
-  centerText,
-  withStyles,
-  ThemeProvider,
-  createMuiTheme,
-} from "@material-ui/core";
-
 const Nav = (props) => {
   let loginLinkData = {
     path: "/login",
     text: "Login / Register",
   };
-  // numbers.forEach(myFunction);
-
-//   useEffect(() => {
-//     let numberArray = [1, 45, 3, 97, 5, 565, 7]
-//     numberArray.forEach((number) => (
-
-//       axios
-//       .get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${number}`)
-//       .then(function(res) {//
-//           const {title, artistDisplayBio, primaryImageSmall} = res.data;
-//           console.log(title);
-//           // console.log(artistDisplayBio);
   
-//           // const newPokemonData = {};
-//           // results.forEach((pokemon, index) => {///
-//           //     newPokemonData[index + 1] = {
-//           //         id: index + 1,
-//           //         name: pokemon.name,
-//           //         sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`,
-//           //     }
-           
-//           //     })///
-//           //     setPokemonData(newPokemonData);
-//           })//
-      
-//   ))
-   
-// },[])
+
 
 
   if (props.store.user.id != null) {
-    loginLinkData.path = "/user";
-    loginLinkData.text = "Program";
+    loginLinkData.path = "";
+    loginLinkData.text = "Logout";
   }
 
 
@@ -75,25 +29,51 @@ const Nav = (props) => {
       {/* <h2 className="nav-title">Prime Solo Project</h2> */}
       {/* </Link> */}
       <div className="nav-right">
-        <Link className="nav-link" to={loginLinkData.path}>
+        <Link className="nav-link" to={loginLinkData.path} 
+        
+         onClick={loginLinkData.path !== "" ? (null) : (() => props.dispatch({type: 'LOGOUT'}))
+         }
+        >
           {/* Show this link if they are logged in or not,
           but call this link 'Home' if they are logged in,
           and call this link 'Login / Register' if they are not */}
-          <Typography variant="h5">{loginLinkData.text}</Typography>
+          {loginLinkData.text}
+        </Link>
+        <Link className="nav-link" to="/program">
+          Program
         </Link>
         {/* Show the link to the info page and the logout button if the user is logged in */}
         {props.store.user.id && (
           <>
-            <Link className="nav-link" to="/artdrawer">
+            <Link className="nav-link" to="/Studio">
               {/* <h1>Gallery</h1> */}
-              <Typography variant="h5">Gallery</Typography>
+              Studio
             </Link>
+
+            <Link className="nav-link" to="/gallery">
+              {/* <h1>Gallery</h1> */}
+              Gallery
+            </Link>
+
+            <Link className="nav-link" to="/forum">
+              {/* <h1>Gallery</h1> */}
+              Forum
+            </Link>
+
+            {/* <Link className="nav-link" to="/workshop">
+              Workshop
+            </Link> */}
+
+            {/* <Link className="nav-link" to="/admin">
+              Admin
+            </Link> */}
+           
             {/* <Link className="nav-link" to="/info">
               info
             </Link> */}
-<Link className="nav-link">
-<Typography onClick={() => props.dispatch({ type: "LOGOUT" })}
- variant="h5">Logout</Typography></Link>
+{/* <Link className="nav-link" to=""
+ onClick={() => props.dispatch({ type: "LOGOUT" })} >
+ Logout</Link> */}
 
               {/* <Typography onClick={() => props.dispatch({ type: "LOGOUT" })}
  variant="h5">Logout</Typography>
@@ -103,9 +83,9 @@ const Nav = (props) => {
           </>
         )}
         {/* Always show this link since the about page is not protected */}
-         {/* <Link className="nav-link" to="/about">
-          About
-        </Link>  */}
+        {/* {props.store.user.id != null ? (null) : ( */}
+          
+        {/* )} */}
       </div>
     </div>
   ); //END return

@@ -1,8 +1,8 @@
-const artReducer = (state = [], action) => {
+const frameReducer = (state = [], action) => {
   switch (action.type) {
-    case "SET_ART":
+    case "SET_FRAME":
       return action.payload;
-       case 'RESET_ART':
+       case 'RESET_FRAME':
          return [];
     default:
       return state;
@@ -11,4 +11,4 @@ const artReducer = (state = [], action) => {
 
 // user will be on the redux state at:
 // store.user
-export default artReducer;
+export default frameReducer;

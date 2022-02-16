@@ -6,11 +6,11 @@ import { put, takeLatest } from "redux-saga/effects";
 
 // worker Saga: will be fired on "FETCH_SECRETS" actions
 
-function* artSaga() {
-  yield takeLatest("FETCH_ART", fetchArtSaga);
+function* frameSaga() {
+  yield takeLatest("FETCH_FRAME", fetchFrameSaga);
   yield takeLatest("FETCH_FRIEND_ART", fetchFriendArtSaga);
 
-  yield takeLatest("ADD_ART", addArtSaga);
+  yield takeLatest("ADD_FRAME", addFrameSaga);
   yield takeLatest("UPDATE_ART", updateArtSaga);
   // yield takeLatest("FETCH_ARTISTS", fetchArtistsSaga);
 
@@ -18,8 +18,8 @@ function* artSaga() {
   // yield takeLatest("FETCH_DETAILS", fetchDetailsSaga);
 }
 
-function* fetchArtSaga() {
-  console.log("In fetchArtSaga...");
+function* fetchFrameSaga() {
+  console.log("In fetchFrameSaga...");
   // const {username} = action.payload
   try {
     const config = {
@@ -27,10 +27,9 @@ function* fetchArtSaga() {
       withCredentials: true,
     };
 
-    const response = yield axios.get("api/art", config);
-    // yield put({type: "FETCH_ART"})
+    const response = yield axios.get("api/workshop", config);
 
-    yield put({ type: "SET_ART", payload: response.data });
+    yield put({ type: "SET_FRAME", payload: response.data });
   } catch (error) {
     console.log("Art get request failed", error);
   }
@@ -58,8 +57,8 @@ function* fetchFriendArtSaga(action) {
 
 
 
-function* addArtSaga(action) {
-  console.log("In addArtSaga...");
+function* addFrameSaga(action) {
+  console.log("In addFrameSaga...");
   console.log("payload:", action.payload);
   try {
     const config = {
@@ -67,9 +66,9 @@ function* addArtSaga(action) {
       withCredentials: true,
     };
 
-    const response = yield axios.post("api/art", action.payload, config);
+    const response = yield axios.post("api/workshop", action.payload, config);
 
-    // yield put({ type: "FETCH_ART" });
+     yield put({ type: "FETCH_FRAME" });
   } catch (error) {
     console.log("Art get request failed", error);
   }
@@ -103,7 +102,7 @@ function* deleteArtSaga(action) {
 
     const response = yield axios.delete(`api/art/${action.payload}`, config);
 
-    // yield put({ type: "FETCH_ART" });
+    yield put({ type: "FETCH_ART" });
   } catch (error) {
     console.log("Art get request failed", error);
   }
@@ -129,4 +128,4 @@ function* fetchDetailsSaga(action) {
   }
 }
 
-export default artSaga;
+export default frameSaga;

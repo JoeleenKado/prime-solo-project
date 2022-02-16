@@ -14,14 +14,17 @@ const {rejectUnauthenticated} = require('../modules/authentication-middleware');
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
   // GET route code here
-  console.log('in /api/art GET route');
+  console.log('in /api/workshop GET route');
   console.log('Is User logged in?', req.isAuthenticated());
   console.log('req.user:', req.user);
 
-  let queryText = `SELECT * FROM "art"
-                    WHERE "user_id" = $1;`;
+  let queryText = `SELECT * FROM "frame"`;
+
+                    // WHERE "user_id" = $1;
   
-  pool.query(queryText, [req.user.id]).then((result) => {
+  pool.query(queryText
+    // , [req.user.id]
+    ).then((result) => {
       res.send(result.rows);
   }).catch((error) => {
       console.log(error);
@@ -77,15 +80,15 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
  */
 router.post('/', (req, res) => {
   // POST route code here
-  let art = req.body;
-  console.log(`Adding art`, art);
+  let frame = req.body;
+  console.log(`Adding frame`, frame);
  // console.log('RS:', props.store)
 //console.log(this.state.user.id);
 
-  let queryText = `INSERT INTO "art" ("user_id", "title", "medium", "size", "url", "statement")
-  VALUES ($1, $2, $3, $4, $5, $6);
+  let queryText = `INSERT INTO "frame" ("name", "url")
+  VALUES ($1, $2);
   `;
-  pool.query(queryText, [art.user_id, art.title, art.medium, art.size, art.url, art.statement])
+  pool.query(queryText, [frame.name, frame.url])
     .then(result => {
       res.sendStatus(201);
     })
@@ -108,14 +111,14 @@ router.put('/', rejectUnauthenticated, (req, res) => {
 console.log('Updating', art);
 console.log(art);
 console.log('property:', property)
-console.log('value:', value)
+
   //console.log(`Updating book ${id} with `, book);
 let queryText = `UPDATE "art"
 SET "${property}" = $1
 WHERE "id" = $2;`;
-// "medium" = $2, "sizes" = $3, "statement" = $4
+// "medium" = $2, "dimensions" = $3, "statement" = $4
 
-// console.log('art.property:', art.property)
+console.log('art.property:', art.property)
   // TODO - REPLACE BELOW WITH YOUR CODE
   pool.query(queryText, [value, art.id]).then( (result) => {
     console.log('in pool.query');

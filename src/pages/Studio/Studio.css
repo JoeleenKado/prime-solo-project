@@ -1,0 +1,39 @@
+.container {
+    display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  /* grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+  grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line]; */
+}
+
+.form-container {
+    background-image: url('/public/images/canvas.jpg');
+     /* margin: auto;  */
+     display: grid;
+     grid-template-columns: subgrid;
+    /* grid-column-start: 2; */
+    /* justify-self: center; */
+     width: 300px;
+    height: 300px; 
+    /* justify-self: center; */
+}
+
+.contained-form {
+    padding-left: 20px;
+      grid-column-start: 2;  
+    /* align-self: center;  */
+}
+
+button {
+    height: 21px;
+    width: 153px;
+}
+
+.item-a {
+    grid-column-start: 2;
+    /* margin-left: 20px; */
+     /* grid-column-end:  5; */
+     justify-self: center;
+    /* grid-row-start: row1-start; */
+    /* grid-row-end: 3; */
+  }
