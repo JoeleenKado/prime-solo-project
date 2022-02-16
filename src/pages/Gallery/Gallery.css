@@ -50,6 +50,7 @@ button.licenses {
   border-right: 1px solid #006da5;
   border-bottom: 1px solid #006da5;
   max-height: 0;
+  background-color: wheat;
   overflow: hidden;
   transition: max-height 0.2s ease-in-out;
   display: grid;
