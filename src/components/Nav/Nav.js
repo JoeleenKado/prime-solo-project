@@ -44,6 +44,7 @@ const Nav = (props) => {
          onClick={loginLinkData.path !== "" ? (null) : (() => props.dispatch({type: 'LOGOUT'}))
          }
         >
+          {/*  */}
           {/* Show this link if they are logged in or not,
           but call this link 'Home' if they are logged in,
           and call this link 'Login / Register' if they are not */}
