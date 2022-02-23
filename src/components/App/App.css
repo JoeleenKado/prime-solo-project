@@ -1,16 +1,33 @@
-/* html {
+:root {
+  --white: #f7f8fa;
+    --teal: #64edc6;
+    --baby-blue: #4ed0fa;
+    --indigo: #6985e0;
+    --purple: #9268f7;
+    --violet: #d664ed;
+    --black: #171321;
+  --font-size: 1.3rem;
+  --mono: "Gideon Roman", monospace;
+  --sans: 'Oswald', sans-serif;
+}
+
+
+
+html {
     box-sizing: border-box;
   }
   *,
   *::before,
   *::after {
     box-sizing: inherit;
-  } */
+  }
 
 body {
-    height: 100%;
-    margin: 0;
+    /* height: 100%; */
+    margin: 0; 
     padding: 0;
+    border: 0;
+    font-family: var(--sans);
     background-image: url('https://injart.org/wp-content/uploads/2017/02/Minneapolis-Institute-Of-Arts-27463.jpg');
   
     /* Full height */
@@ -22,9 +39,229 @@ body {
     background-size: cover;
 }
 
-form {
- margin: auto;
+#header-container {
+  background-color:yellowgreen;
+
 }
+
+header{
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#nav-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: space-between;
+}
+
+#nav-ul li {
+  flex-basis: 48%;
+  margin-bottom: 0.5rem;
+}
+
+#nav-ul li:first-child {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+#nav-ul li:first-child a {
+  background-color: transparent;
+}
+
+#nav-ul a.nav-link {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: white;
+  display: block;
+  padding: 0.5rem;
+  text-align: center;
+  background-color: var(--purple);
+  border-radius: 5px;
+}
+
+#nav-ul a.nav-link:hover {
+  background-color: pink;
+  color: var(--color5);
+}
+
+
+/* figure {
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+  max-height: 400px;
+  overflow: hidden;
+  position: relative;
+  border-width: 10px;
+  border-style: solid;
+  border-radius: 5px;
+} */
+
+
+
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+/* a {
+  color: var(--violet)
+} */
+
+a:hover {
+  color: var(--purple);
+  text-decoration: none;
+}
+
+@media (min-width: 550px) {
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  gap: 4%;
+}
+figure, .span2 {
+  flex-basis: 48%;
+}
+
+.span3 {
+  flex-basis: 100%;
+}
+
+.span3-1 {
+  flex-basis: 100%
+}
+
+.span4 {
+  flex-basis: 100%;
+}
+
+.span2-4 {
+  flex-basis: 100%;
+}
+#nav-ul {
+justify-content: center;
+gap: 1.2em;
+}
+
+#nav-ul li {
+  flex-basis: auto;
+  margin-bottom: 0;
+  }
+  #nav-ul li:first-child {
+    flex-basis: 100%;
+    text-align: c;
+  }
+
+  #nav-ul a.nav-link {
+    color: --baby-blue;
+   background-color: transparent;
+   padding: 0;
+    }
+    #nav-ul a:hover {
+      color: grey;
+      background-color: transparent;
+    }
+
+
+}
+@media (min-width: 800px) {
+
+
+
+figure, span3-1 {
+  flex-basis: 22%;
+}
+
+
+.span2, .span2-4 {
+  flex-basis: 48%;
+}
+.span3 {
+  flex-basis: 74%;
+}
+.span4 {
+  flex-basis: 100%;
+}
+.reverse {
+  flex-flow: row-reverse wrap;
+}
+
+.order-1 {
+  order: 1;
+}
+.order-2 {
+  order: 2;
+}
+.order-3 {
+  order: 3;
+}
+#nav-ul {
+  justify-self: flex-end;
+}
+
+#nav-ul li:first-child {
+  flex-basis: auto;
+  margin: 0 auto;
+  order: 3;
+}
+#nav-ul li:nth-child(2),
+#nav-ul li:nth-child(3) {
+  order: 1;
+}
+#nav-ul li:nth-child(4),
+#nav-ul li:nth-child(5) {
+  order: 2;
+}
+}
+
+
+ figure {
+  margin: 0;
+  padding: 0;
+} 
+
+figcaption {
+  background-color: var(--indigo);
+  color: white;
+  padding: 1rem;
+}
+
+figcaption * {
+  margin: 0.5rem;
+}
+
+figure > div {
+  /* background-image: url('public/images/rose') */
+background-color: grey;
+min-height: 150px;
+}
+
+
+
+.one {
+  background-color: #9b2226;
+}
+.two {
+background-color: #bb3e03;
+}
+.three {
+  background-color: #ee9b00;
+}
+.four {
+  background-color: #005f73;
+}
+
+/* form {
+ margin: auto;
+} */
 
 /* .form-panel {
     margin: auto 0;
@@ -75,3 +312,45 @@ form {
 .center {
     text-align: center;
 }
+
+/* nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+} */
+
+
+/* I cover CSS-only hamburger buttons in my Advanced CSS Layouts course.
+
+Here, because the nav is short, let's try a 4 button layout at the top of the screen.
+*/
+
+
+
+/* #nav-ul a.nav-link {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: var(--purple);
+  display: block;
+} */
+
+
+
+
+#nav-ul li:nth-child(2),
+#nav-ul li:nth-child(3) {
+  order: 2;
+}
+  #nav-ul li:nth-child(4),
+#nav-ul li:nth-child(5) {
+  order: 3;
+
+
+}
+
+
+
+
+
+
+

@@ -9,7 +9,7 @@ import {
 import action from "../../redux/services/action.service";
 import { connect } from "react-redux";
 // import Modal from '../Modal/Modal'
-import Nav from "../Nav/Nav";
+ import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
 
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
@@ -70,19 +70,29 @@ dispatch(action.fetchUser())
 
 
     return (
-      
-        
-        // <Modal/>
-        // <div class="bg"></div>
+      <>
+ <div id="header-container"> 
+      <header>
+
+<Nav/>
+
+      </header>
+
+      </div>
+        {/* // <Modal/> */}
+        {/* // <div class="bg"></div> */}
         
 
       
-         // Virtual Gallery(app.js)
-         <>
-<h1>Virtual Gallery</h1>
+         {/* // Virtual Gallery(app.js) */}
+
+{/* <div className='header'> */}
+
+{/* <h1>Virtual Gallery</h1> */}
 {/* {JSON.stringify(props.store)} */}
+{/* <Nav /> */}
+
         <Router>
-        <Nav />
 
           {/* <div> */}
             <Switch>
@@ -209,6 +219,8 @@ dispatch(action.fetchUser())
             <Footer />
           {/* </div> */}
         </Router>
+        {/* </div> */}
+
         </>
         // {/* <CssBaseline /> */}
      

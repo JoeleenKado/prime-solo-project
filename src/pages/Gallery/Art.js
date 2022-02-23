@@ -121,16 +121,12 @@ console.log('encodedURL:', encodedUrl)
 console.log('filteredArtwork.size:', filteredArtwork.size)
 
 return (
-     <>
-     <div className='container'>
-<div class="flip-card">
-  <div 
-  // className="flip-card-inner"
-  >
-    {/* <div class="flip-card-front"> */}
-      {/* <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;"> */}
-    
-      <table>
+     <li>
+     <div className='row'>
+       <figure>
+         {/* <div> */}
+<div class="one">
+<table>
     <tbody>
       {/* front */}
     <tr>
@@ -144,6 +140,18 @@ return (
   
     
     
+
+
+
+</div>
+<figcaption>
+  {/* <div 
+  // className="flip-card-inner"
+  > */}
+    {/* <div class="flip-card-front"> */}
+      {/* <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;"> */}
+    
+     
     
     {/* </div> */}
    
@@ -155,7 +163,7 @@ return (
  
  {/* </div> */}
  <br/>
-</div>
+{/* </div> */}
 
 {/* {title} */}
 
@@ -237,12 +245,13 @@ return (
 
 
 
- </div>
+ {/* </div> */}
  {/* {title} */}
-
+ </figcaption>
+ </figure>
 
     </div> 
-     </> 
+     </li> 
    )
 }
 // export default Art

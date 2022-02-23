@@ -30,7 +30,7 @@ return (
 
   <h1>Gallery</h1>
 
-    <div className='container'>
+    {/* <div className='container'> */}
     {/* { !props.store ? (JSON.stringify('Loading Art')) : */}
     {/* (JSON.stringify(props.store))}  */}
 {!art.length ? 
@@ -44,12 +44,13 @@ art.map((artwork) =>{
 
     return (
         
-      <div style={{
+      // <div style={{
         // justifyContent: 'center', 
-      margin: 'auto'}}
+      // margin: 'auto'}}
       //  className='container'
-       >  
-        
+      //  >  
+        <>
+        <ul>
         <Art
             // title={title}
             // dimensions={dimensions}
@@ -58,7 +59,7 @@ art.map((artwork) =>{
             history={props.history}
 artwork={artwork}
           /> 
-       
+       </ul>
       <br/>
       {/* <div 
         //  key={} 
@@ -91,11 +92,11 @@ artwork={artwork}
 
        
          
-          </div>
-    
+          {/* // </div> */}
+    </>
     )
   }))}
-</div>
+{/* </div> */}
 
 </>
 

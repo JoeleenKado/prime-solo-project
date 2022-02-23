@@ -5,7 +5,12 @@ import LogOutButton from "../LogOutButton/LogOutButton";
 import "./Nav.css";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import axios from 'axios'
-
+import {
+  HashRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from "react-router-dom";
 
 const Nav = (props) => {
   let loginLinkData = {
@@ -24,12 +29,17 @@ const Nav = (props) => {
 
 
   return (
-    <div className="nav">
-      {/* <Link to="/home"> */}
-      {/* <h2 className="nav-title">Prime Solo Project</h2> */}
-      {/* </Link> */}
-      <div className="nav-right">
-        <Link className="nav-link" to={loginLinkData.path} 
+    // <div className="nav-container">
+      // {/* <Link to="/home"> */}
+      // {/* <h2 className="nav-title">Prime Solo Project</h2> */}
+      // {/* </Link> */}
+      <ul id="nav-ul">
+        <Router>
+<li><Link to="/home" className='nav-link'>
+  <img src='' alt='Virtual Gallery click for home'></img></Link></li>
+  {/* if (!props.store.userId) { */}
+  <>
+       <li><Link className="nav-link" to={loginLinkData.path} 
         
          onClick={loginLinkData.path !== "" ? (null) : (() => props.dispatch({type: 'LOGOUT'}))
          }
@@ -39,27 +49,39 @@ const Nav = (props) => {
           and call this link 'Login / Register' if they are not */}
           {loginLinkData.text}
         </Link>
+        </li>
+
+<li>
         <Link className="nav-link" to="/program">
           Program
         </Link>
+
+        </li>
+        </>
+
+  {/* // } */}
         {/* Show the link to the info page and the logout button if the user is logged in */}
         {props.store.user.id && (
           <>
+          <li>
             <Link className="nav-link" to="/studio">
               {/* <h1>Gallery</h1> */}
               Studio
             </Link>
-
+            </li>
+            <li>
             <Link className="nav-link" to="/gallery">
               {/* <h1>Gallery</h1> */}
               Gallery
             </Link>
-
+            </li>
+<li>
             <Link className="nav-link" to="/forum">
               {/* <h1>Gallery</h1> */}
               Forum
             </Link>
-
+            </li>
+            {/* </ul> */}
             {/* <Link className="nav-link" to="/workshop">
               Workshop
             </Link> */}
@@ -86,9 +108,20 @@ const Nav = (props) => {
         {/* {props.store.user.id != null ? (null) : ( */}
           
         {/* )} */}
-      </div>
-    </div>
+    {/* </ul> */}
+    </Router>
+
+      </ul>
+      
+    // {/* </div> */}
   ); //END return
-};
+};//end Nav
 
 export default connect(mapStoreToProps)(Nav);
+
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <Nav/>
+//   </Provider>,
+//   document.getElementById("header")
+// );
