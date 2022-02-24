@@ -8,7 +8,7 @@ function Art(props) {
     const {artwork, history} = props
     const {artist, title, statement, size, medium, url, id} = artwork
     const encodedUrl = encodeURIComponent(url)
- console.log('artwork', artwork)
+//  console.log('artwork', artwork)
 //     console.log('Object.values(artwork)', Object.values(artwork))
 //  const values = Object.values(artwork)
 //  values.forEach(value => {

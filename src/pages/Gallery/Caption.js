@@ -4,7 +4,7 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 
 
 const Caption = (props) => {
-    const {history, artwork} = props;
+    const {history, artwork, store} = props;
 const {title, size, medium, id, statement, url} = artwork
 const encodedUrl = encodeURIComponent(url)
 
@@ -76,7 +76,10 @@ console.log('filteredArtwork.size:', filteredArtwork.size)
 
 
 
-
+function like(e) {
+    e.preventDefault()
+    props.dispatch({type: 'LIKE', payload: id})
+}
 
 
 function toggleAccordion(e) {
@@ -146,7 +149,7 @@ return (
       {/* </tr> */}
       {/* <tr><td> */}
       <br/>
-     { props.store.friendly  ? null :
+     { props.store.friendly  ? <button onClick={(e) =>  like(e)}>Like</button> :
           (<button 
         onClick={() => history.push(`edit/${filteredArtwork.title}/${filteredArtwork.medium}/${filteredArtwork.size}/${filteredArtwork.statement}/${encodedUrl}/${id}`)}
       >EDIT</button>)

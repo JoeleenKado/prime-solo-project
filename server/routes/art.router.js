@@ -8,6 +8,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 const {rejectUnauthenticated} = require('../modules/authentication-middleware');
+// app.use('/like', Router);
 
 /**
  * GET route template
@@ -97,6 +98,27 @@ router.post('/', (req, res) => {
 });
 
 module.exports = router;
+
+router.put('/like/:id', rejectUnauthenticated, (req, res) => {
+const {id} = req.params
+  console.log(`put like; the painting with the following
+  id will be updated:`, id)
+
+  let queryText = `UPDATE "art" 
+  SET "likes" = SUM("likes" + 1)
+WHERE id = $1;
+  `;
+  pool.query(queryText, [id])
+    .then(result => {
+      console.log('result of update likes query:', result)
+      res.send(result.rows[0]);
+    })
+    .catch(error => {
+      console.log(`Error adding new artwork`, error);
+      res.sendStatus(500);
+    });
+    // res.sendStatus(500)
+  })
 
 router.put('/', rejectUnauthenticated, (req, res) => {
   console.log('in PUT');

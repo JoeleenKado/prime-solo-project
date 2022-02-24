@@ -9,6 +9,7 @@ import { put, takeLatest } from "redux-saga/effects";
 function* artSaga() {
   yield takeLatest("FETCH_ART", fetchArtSaga);
   yield takeLatest("FETCH_FRIEND_ART", fetchFriendArtSaga);
+  yield takeLatest("LIKE", like);
 
   yield takeLatest("ADD_ART", addArtSaga);
   yield takeLatest("UPDATE_ART", updateArtSaga);
@@ -17,6 +18,29 @@ function* artSaga() {
   yield takeLatest("DELETE_ART", deleteArtSaga);
   // yield takeLatest("FETCH_DETAILS", fetchDetailsSaga);
 }
+
+function* like(action) {
+  // yield put({type: "UNSET_FRIENDLY"})
+  const id = action.payload;
+  console.log("In like*()...");
+  // const {username} = action.payload
+  try {
+    const config = {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+    };
+
+    const response = yield axios.put(`api/art/like/${action.payload}`, config);
+  //  yield put({type: "FETCH_FRIEND_ART"})
+console.log('response from put like:', response)
+    // yield fetchFriendArtSaga;
+    
+  } catch (error) {
+    console.log("Art get request failed", error);
+  }
+}
+
+
 
 function* fetchArtSaga() {
   yield put({type: "UNSET_FRIENDLY"})

@@ -14,7 +14,7 @@ const usersRouter = require('./routes/users.router')
 const artRouter = require('./routes/art.router');
 const articRouter = require('./routes/artic.router');
 const workshopRouter = require('./routes/workshop.router')
-
+const settingsRouter = require('./routes/settings.router')
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,7 +29,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/users', usersRouter);
-
+app.use('api/settings', settingsRouter)
 app.use('/api/art', artRouter); //this route will be used when we Get art
 app.use('/api/artic', articRouter); //this route will be used when we Get art
 app.use('/api/workshop', workshopRouter); //this route will be used when we Get art

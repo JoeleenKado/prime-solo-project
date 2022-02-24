@@ -28,8 +28,12 @@ useEffect(() => {
 
 // }
 
-return (
-   <Gallery/>
+return ( <>
+ { !props.store.friendArt.length? null : 
+    <Gallery/>
+
+ }
+   </>
 )
 
 

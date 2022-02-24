@@ -71,6 +71,12 @@ const Nav = (props) => {
             </Link>
             </li>
             <li>
+            <Link className="nav-link" to="/settings">
+              {/* <h1>Gallery</h1> */}
+              Settings
+            </Link>
+            </li>
+            <li>
             <Link className="nav-link" to="/gallery">
               {/* <h1>Gallery</h1> */}
               Gallery
