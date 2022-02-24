@@ -9,6 +9,7 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 import './Gallery.css'
 import Art from './Art'
 import Edit from './Edit';
+import Caption from './Caption';
 function Gallery(props) { 
 ////usedispatch()
 // const dispatch = useDispatch()
@@ -25,7 +26,7 @@ useEffect(() => {
 // }
 
 return (
-  <>
+  <section id='gallery-section'>
        {/* {JSON.stringify(props)}  */}
 
   <h1>Gallery</h1>
@@ -36,8 +37,8 @@ return (
 {!art.length ? 
 (<h1>You have not yet created art. head over to the Studio to get started</h1>) :
 (
-
-art.map((artwork) =>{
+<ul>
+{art.map((artwork) =>{
     const {artist, title, statement, dimensions, medium, url} = artwork
 
     
@@ -49,8 +50,10 @@ art.map((artwork) =>{
       // margin: 'auto'}}
       //  className='container'
       //  >  
-        <>
-        <ul>
+        // <section id='gallery-section'>
+        // <>
+        // <ul>
+        // <>
         <Art
             // title={title}
             // dimensions={dimensions}
@@ -59,46 +62,13 @@ art.map((artwork) =>{
             history={props.history}
 artwork={artwork}
           /> 
-       </ul>
-      <br/>
-      {/* <div 
-        //  key={} 
-       
-       
-        className="accordian-container"
-        > */}
 
-
-         {/* <button 
-         className="accordion" onClick={(e) => toggleAccordion(e)}
-        >
-          {title}
-        </button>  */}
-          {/* <div className="accordion-content">  */}
-          {/* <br /> */}
-           
-{/* </div> */} 
-{/* <button className="accordion" onClick={(e) => toggleAccordion(e)}>
-                Edit
-              </button> */}
-              {/* <div className="accordion-content">
-                <br />
-                 <Edit
-                  art={art}
-                /> 
-                <br />
-              </div> */}
-
-
-       
-         
-          {/* // </div> */}
-    </>
     )
-  }))}
-{/* </div> */}
+  })}
+  </ul>
+  )}
 
-</>
+</section>
 
 )
 

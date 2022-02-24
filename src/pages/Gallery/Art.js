@@ -3,7 +3,7 @@ import './Gallery.css'
 import Edit from './Edit'
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
-
+import Caption from './Caption';
 function Art(props) {
     const {artwork, history} = props
     const {artist, title, statement, size, medium, url, id} = artwork
@@ -13,16 +13,16 @@ function Art(props) {
 //  const values = Object.values(artwork)
 //  values.forEach(value => {
 //    if (value === '') {value = "N/A"}
-Object.filter = (obj, predicate) => 
-    Object.keys(obj)
-          .filter( key => predicate(obj[key]) )
-          .reduce( (res, key) => Object.assign(res, { [key]: obj[key] }), {} );
+// Object.filter = (obj, predicate) => 
+//     Object.keys(obj)
+//           .filter( key => predicate(obj[key]) )
+//           .reduce( (res, key) => Object.assign(res, { [key]: obj[key] }), {} );
 
 // Example use:
 // var scores = {
 //     John: 2, Sarah: 3, Janet: 1
 // };
-const filtered = Object.filter(artwork, item => item === ''); 
+// const filtered = Object.filter(artwork, item => item === ''); 
 // console.log('filtered:', filtered);  
 
 // console.log('fffffdccc', Object.keys(filtered))
@@ -30,10 +30,10 @@ const filtered = Object.filter(artwork, item => item === '');
 
 
 // var superSecret = function(spy){
-  function filter(obj) {
-    Object.keys(obj).forEach(function(key){ obj[key] = "NA" });
-return Object.assign(artwork, filtered)
-  }
+//   function filter(obj) {
+//     Object.keys(obj).forEach(function(key){ obj[key] = "NA" });
+// return Object.assign(artwork, filtered)
+//   }
 
   // Object.keys(filtered).forEach(function(key){ filtered[key] = "NA" });
 
@@ -50,7 +50,7 @@ return Object.assign(artwork, filtered)
 // console.log('filteredArtwork:', filteredArtwork)
 // Object.values(filtered).forEach()
 
-const filteredArtwork = filter(filtered)
+// const filteredArtwork = filter(filtered)
 //   })
 // let blankValues = []
 //  console.log('kkkkk', Object.values(artwork).forEach(value => {if (value === ''){
@@ -84,174 +84,57 @@ const filteredArtwork = filter(filtered)
 // setLoaded(true)
 // },[])
 
-function toggleAccordion(e) {
-  const content = e.target.nextElementSibling;
-  if (content.style.maxHeight) {
-    content.style.maxHeight = null;
-  } else {
-    content.style.maxHeight = content.scrollHeight + "px";
-  }
-  // if (content.style.tranform) {
-    
-console.log('target:', e.target)
-// console.log('parentELement:', e.target.parentElement.nextElementSibling )
- 
-// console.log('flipCardInner:', flipCardInner)
 
-// let nextSibling = flipCardInner.nextElementSibling;
-// console.log('nextElementSibling:', nextSibling);
+// console.log('1st half of url:', url.slice(0, 32));
 
-
-console.log('content:', content)
-let element = document.getElementsByClassName('flip-card-inner')
-  // }
-  console.log('element:', element)
-}
-
-console.log('1st half of url:', url.slice(0, 32));
-
-console.log('2nd half of url:', url.slice(32));
-// const resize = '/resize=width:300,height:200'
-// expected output: "the lazy dog."
-// const url300 = url.slice(0, 32) + resize + url.slice(32)
-// console.log('url300:', url300)
-// https://cdn.filestackcontent.com/2yclMtrSuiWobS11HHtw/resize=300)   
-// f
-console.log('encodedURL:', encodedUrl)
-console.log('filteredArtwork.size:', filteredArtwork.size)
+// console.log('2nd half of url:', url.slice(32));
+// // const resize = '/resize=width:300,height:200'
+// // expected output: "the lazy dog."
+// // const url300 = url.slice(0, 32) + resize + url.slice(32)
+// // console.log('url300:', url300)
+// // https://cdn.filestackcontent.com/2yclMtrSuiWobS11HHtw/resize=300)   
+// // f
+// console.log('encodedURL:', encodedUrl)
+// console.log('filteredArtwork.size:', filteredArtwork.size)
 
 return (
+  <>
+  {/* <ul> */}
      <li>
-     <div className='row'>
-       <figure>
+     {/* <div className='row'> */}
+       {/* <figure> */}
+       <img src={url} alt='artwork'/>
          {/* <div> */}
-<div class="one">
-<table>
+{/* <div class="one"> */}
+{/* <table>
     <tbody>
       {/* front */}
-    <tr>
+    {/* <tr>
         <td><img src={url} alt='artwork'/></td>
-      </tr>
+      </tr> */}
       {/* <tr>
         <td>{title}</td>
       </tr> */}
-      </tbody></table>
-    
+      {/* </tbody></table> */} 
+    {/* <figcaption> */}
+
+
+    {/* </figcaption> */}
   
     
     
 
 
 
-</div>
-<figcaption>
-  {/* <div 
-  // className="flip-card-inner"
-  > */}
-    {/* <div class="flip-card-front"> */}
-      {/* <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;"> */}
-    
-     
-    
-    {/* </div> */}
-   
-   
-   {/* <div className="flip-card-back"> */}
-          
-    
- 
- 
- {/* </div> */}
- <br/>
 {/* </div> */}
+ {/* </figure> */}
+ <Caption artwork={artwork} history={history}/>
 
-{/* {title} */}
-
-
-
-
-{/* function toggleAccordion(e) { */}
-  {/* // const content = e.target.nextElementSibling;
-  if (content.style.transform) {
-
-    content.style.maxHeight = null;
-   } 
-   {/* // } else { */}
-  {/* //   content.style.maxHeight = content.scrollHeight + "px"; */}
-  {/* // } */}
-{/* } */} 
-
-{/* {loaded ? (() => {
-  if (!flipCardInner.style.transform) {
-      return title
-  } else { */}
-{/* return(  */}
-   <div className="accordian-container"> 
-     <button className="accordion" onClick={(e) => toggleAccordion(e)}> 
-
-{title}
-               </button> 
-             <div className="accordion-content">
-              
-             <table><tbody>
-          <tr>
-        <td>Medium: {medium}</td>
-      </tr>
-      <tr>
-        <td>Size: {size}</td>
-      </tr>
-      <tr>
-        <td>Statement: {statement}</td>
-      </tr>
-      {/* <tr><td><Edit/></td> */}
-      {/* </tr> */}
-      <tr><td><button 
-        onClick={() => history.push(`edit/${filteredArtwork.title}/${filteredArtwork.medium}/${filteredArtwork.size}/${filteredArtwork.statement}/${encodedUrl}/${id}`)}
-      >EDIT</button></td></tr>
-      </tbody>
-      </table>
-              
-               </div>
-
-
-
-</div>
-
-               
-               
-                 {/* <br /> */}
-                  {/* <Edit */}
-                  {/* //  art={art} */}
-                 {/* />  */}
-                 {/* <br /> */}
-               {/* </div> */}
-   
-
-
-    {/* )  */}
-{/* ) */}
- {/* : (
- 
-  null          
-
- ) */}
-{/* <>
- 
-           </>  */}
-
-
-
-
-
-
-
- {/* </div> */}
- {/* {title} */}
- </figcaption>
- </figure>
-
-    </div> 
+    {/* </div>  */}
      </li> 
+     {/* </ul> */}
+     {/* <Caption artwork={artwork}/> */}
+       </>
    )
 }
 // export default Art

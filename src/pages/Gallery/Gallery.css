@@ -1,6 +1,6 @@
-.container {
+/* .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr; */
   /* e.g. 
       1fr 1fr
       minmax(10px, 1fr) 3fr
@@ -12,13 +12,14 @@
       min-content 1fr min-content
       100px 1fr max-content
   */
-}
+/* } */
 /* h1 {width: 100%} */
 
 
 button.accordion {
-  width: 100%;
+  max-width: 288px;
   border-radius: 0%;
+
 }
 
 /* h2.licenses {
@@ -45,22 +46,34 @@ button.licenses {
   box-shadow: 0 10px 10px grey;
 }
 
-.accordion-content {
+div.accordian-container {
+margin: 0;
+}
+
+div.accordion-content {
   border-left: 1px solid #006da5;
   border-right: 1px solid #006da5;
   border-bottom: 1px solid #006da5;
   max-height: 0;
+  max-width: 288px;
   background-color: wheat;
   overflow: hidden;
   transition: max-height 0.2s ease-in-out;
-  display: grid;
-  justify-content: center;
-  text-align: center;
+  /* display: grid; */
+  margin: auto;
+/* position: center;   */
+/* text-align: center; */
 };
- img {
+
+/* div.accordian-content article {
+  color: red;
+} */
+
+
+ /* img {
    height: 200px;
   width: 300px; 
-} 
+}  */
 
 /* The flip card container - 
 set the width and height to whatever you want. 
