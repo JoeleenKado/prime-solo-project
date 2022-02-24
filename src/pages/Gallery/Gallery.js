@@ -30,7 +30,7 @@ return (
   <section id='gallery-section'>
        {/* {JSON.stringify(props)}  */}
 
-  <h1>Gallery</h1>
+  {props.store.friendly ? <h1>Friend Gallery</h1> : <h1>Gallery</h1>}
 
     {/* <div className='container'> */}
     {/* { !props.store ? (JSON.stringify('Loading Art')) : */}
