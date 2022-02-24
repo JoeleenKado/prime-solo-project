@@ -1,17 +1,21 @@
-const friendArtReducer = (state = [], action ) => {
+const friendlyReducer = (state = false, action ) => {
   // const praise = console.log('welldone')
   
   
-  console.log('(3)in friendArtReducer')
+  console.log('(3)in friendlyReducer')
   //  const {praise} = action.payload
   // const praise = console.log('well done')
   switch (action.type) {
-    case "SET_FRIEND_ART":
+    case "SET_FRIENDLY":
       // const {data, props, artist} = action.payload
 
-    return  action.payload 
+    return  true 
         //  friendArt
-        
+        case "UNSET_FRIENDLY":
+          // const {data, props, artist} = action.payload
+    
+        return  false
+            //  friendArt   
   
       
       //  case 'RESET_ART':
@@ -23,4 +27,4 @@ const friendArtReducer = (state = [], action ) => {
 
 // user will be on the redux state at:
 // store.user
-export default friendArtReducer;
+export default friendlyReducer;

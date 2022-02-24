@@ -13,10 +13,13 @@ import Art from './Art'
 function FriendGallery(props) { 
 ////usedispatch()
 // const dispatch = useDispatch()
-const {friendArt} = props.store
+// const {friendArt} = props.store
 const {username, id } = props.match.params
+ const friendly = true;
 useEffect(() => {
-    props.dispatch({type: 'FETCH_FRIEND_ART', payload: id})
+  props.dispatch({type: 'SET_FRIENDLY'})  
+  props.dispatch({type: 'FETCH_FRIEND_ART', payload: id})
+    // setFriendly(true)
  }, [])
 
 

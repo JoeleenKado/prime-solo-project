@@ -19,6 +19,7 @@ function* artSaga() {
 }
 
 function* fetchArtSaga() {
+  yield put({type: "UNSET_FRIENDLY"})
   console.log("In fetchArtSaga...");
   // const {username} = action.payload
   try {
@@ -31,6 +32,7 @@ function* fetchArtSaga() {
     // yield put({type: "FETCH_ART"})
 
     yield put({ type: "SET_ART", payload: response.data });
+    
   } catch (error) {
     console.log("Art get request failed", error);
   }

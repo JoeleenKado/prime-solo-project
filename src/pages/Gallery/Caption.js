@@ -1,7 +1,10 @@
 import React from "react"
+import { connect } from "react-redux";
+import mapStoreToProps from "../../redux/mapStoreToProps";
 
 
-const Caption = ({history, artwork}) => {
+const Caption = (props) => {
+    const {history, artwork} = props;
 const {title, size, medium, id, statement, url} = artwork
 const encodedUrl = encodeURIComponent(url)
 
@@ -143,9 +146,11 @@ return (
       {/* </tr> */}
       {/* <tr><td> */}
       <br/>
-          <button 
+     { props.store.friendly  ? null :
+          (<button 
         onClick={() => history.push(`edit/${filteredArtwork.title}/${filteredArtwork.medium}/${filteredArtwork.size}/${filteredArtwork.statement}/${encodedUrl}/${id}`)}
-      >EDIT</button>
+      >EDIT</button>)
+     }
       {/* </td></tr> */}
       {/* </tbody> */}
       {/* </table> */}
@@ -158,7 +163,7 @@ return (
 
 )//END return
 }//END Caption
-export default Caption
+export default connect(mapStoreToProps)(Caption);
 
 
 

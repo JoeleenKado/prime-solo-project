@@ -1,6 +1,6 @@
 //on mount. need to do a get request for all paintings.
 //need to render all paintings
-import React from 'react'
+import React, {useState} from 'react'
 import { useEffect,  } from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import ActionService from "../../redux/services/action.service";
@@ -14,7 +14,7 @@ function Gallery(props) {
 ////usedispatch()
 // const dispatch = useDispatch()
 const {art} = props.store
-
+// const [friendly, setFriendly] = useState(false)
 useEffect(() => {
     props.dispatch({type: 'FETCH_ART'})
 }, [])
@@ -24,7 +24,7 @@ useEffect(() => {
 //     useDispatch(actionService.fetchArt)   
 
 // }
-console.log('this:', this)
+console.log('e:', Event.currentTarget)
 // console.log('node.parentElement():', Node.parentElement())
 return (
   <section id='gallery-section'>
@@ -39,18 +39,35 @@ return (
 (<h1>You have not yet created art. head over to the Studio to get started</h1>) :
 (
 <ul>
-{art.map((artwork) =>{
+  {
+  // !art.length ? null :
+art.map((artwork) =>{
     const {artist, title, statement, dimensions, medium, url} = artwork
 
     
     return (
-        
-      
-        <Art
-           
-            history={props.history}
+        <>
+      {/* {!props.friendly ?  */}
+       <Art
+       
+       history={props.history}
 artwork={artwork}
-          /> 
+     /> 
+      
+      
+      {/* : 
+      <Art
+       
+       history={props.history}
+artwork={artwork}
+friendly={props.friendly}
+     /> 
+     
+       
+       
+       } */}
+       
+          </>
 
     )
   })}
