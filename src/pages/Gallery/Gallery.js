@@ -24,7 +24,8 @@ useEffect(() => {
 //     useDispatch(actionService.fetchArt)   
 
 // }
-
+console.log('this:', this)
+// console.log('node.parentElement():', Node.parentElement())
 return (
   <section id='gallery-section'>
        {/* {JSON.stringify(props)}  */}
@@ -42,23 +43,11 @@ return (
     const {artist, title, statement, dimensions, medium, url} = artwork
 
     
-
     return (
         
-      // <div style={{
-        // justifyContent: 'center', 
-      // margin: 'auto'}}
-      //  className='container'
-      //  >  
-        // <section id='gallery-section'>
-        // <>
-        // <ul>
-        // <>
+      
         <Art
-            // title={title}
-            // dimensions={dimensions}
-            // medium={medium}
-            // statement={statement}
+           
             history={props.history}
 artwork={artwork}
           /> 
