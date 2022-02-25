@@ -84,9 +84,9 @@ router.post('/', (req, res) => {
 //console.log(this.state.user.id);
 
   let queryText = `INSERT INTO "art" ("user_id", "title", "medium", "size", "url", "statement")
-  VALUES ($1, $2, $3, $4, $5, $6);
+  VALUES ($1, $2, $3, $4, $5, $6, $7);
   `;
-  pool.query(queryText, [art.user_id, art.title, art.medium, art.size, art.url, art.statement])
+  pool.query(queryText, [art.user_id, art.title, art.medium, art.size, art.url, art.statement, art.like])
     .then(result => {
       res.sendStatus(201);
     })

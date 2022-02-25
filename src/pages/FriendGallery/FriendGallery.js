@@ -8,14 +8,13 @@ import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import Gallery from '../Gallery/Gallery';
 import './FriendGallery.css'
-import Art from './Art'
+import Art from '../Gallery/Art'
 // import Edit from '../Gallery/Edit';
+
+
 function FriendGallery(props) { 
-////usedispatch()
-// const dispatch = useDispatch()
-// const {friendArt} = props.store
 const {username, id } = props.match.params
-const {friendly} = props.store
+const {friendly, friendArt} = props.store
 //  const friendly = true;
 useEffect(() => {
   // props.dispatch({type: 'SET_FRIENDLY'})  
@@ -23,18 +22,53 @@ useEffect(() => {
     // setFriendly(true)
  }, [])
 
+ console.log('friendArt:', friendArt)
+ const likeSorted = friendArt.sort(function (a, b) {
+  return b.like - a.like;
+})
 
-// const fetchArt = () => {
-//     useDispatch(actionService.fetchArt)   
+return ( 
 
-// }
+<section id='gallery-section'>
+<h1>Friend Gallery</h1>
 
-return ( <>
- { !{friendly} ? null : 
+ {/* { !friendly ? null : 
     <Gallery/>
 
  }
-   </>
+   */}
+  {!friendArt.length ? 
+(<h1>This artist has not yet created art</h1>) :
+(
+<ul>
+  {
+  // !art.length ? null :
+  !friendly ? null :
+likeSorted.map((artwork) =>{
+    const {artist, title, statement, dimensions, medium, url} = artwork   
+    return (
+        <>
+      {/* {!props.friendly ?  */}
+       {/* <Art */}
+       
+      <Art 
+        history={props.history}
+       artwork={artwork}
+       /> 
+      
+       
+          </>
+
+    )
+  })}
+  </ul>
+  )}
+)
+
+
+
+</section>
+
 )
 
 

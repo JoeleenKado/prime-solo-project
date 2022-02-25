@@ -57,7 +57,8 @@ console.log('url300:', url300),
       statement: statement,
       medium: medium,
       size: size,
-      url: url
+      url: url,
+      like: 0,
     }
 
   
