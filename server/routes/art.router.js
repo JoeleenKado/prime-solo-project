@@ -102,11 +102,11 @@ module.exports = router;
 router.put('/like/:id', rejectUnauthenticated, (req, res) => {
 const {id} = req.params
   console.log(`put like; the painting with the following
-  id will be updated:`, id)
+  id will be liked:`, id)
 
   let queryText = `UPDATE "art" 
-  SET "likes" = SUM("likes" + 1)
-WHERE id = $1;
+  SET "like" = ("like" + 1)
+  WHERE id = $1;
   `;
   pool.query(queryText, [id])
     .then(result => {

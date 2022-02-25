@@ -15,9 +15,10 @@ function FriendGallery(props) {
 // const dispatch = useDispatch()
 // const {friendArt} = props.store
 const {username, id } = props.match.params
- const friendly = true;
+const {friendly} = props.store
+//  const friendly = true;
 useEffect(() => {
-  props.dispatch({type: 'SET_FRIENDLY'})  
+  // props.dispatch({type: 'SET_FRIENDLY'})  
   props.dispatch({type: 'FETCH_FRIEND_ART', payload: id})
     // setFriendly(true)
  }, [])
@@ -29,7 +30,7 @@ useEffect(() => {
 // }
 
 return ( <>
- { !props.store.friendArt.length? null : 
+ { !{friendly} ? null : 
     <Gallery/>
 
  }

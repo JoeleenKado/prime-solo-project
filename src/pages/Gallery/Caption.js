@@ -5,7 +5,9 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 
 const Caption = (props) => {
     const {history, artwork, store} = props;
-const {title, size, medium, id, statement, url} = artwork
+const {title, size, medium, id, statement, url, like} = artwork
+const {friendly} = store;
+
 const encodedUrl = encodeURIComponent(url)
 
 Object.filter = (obj, predicate) => 
@@ -76,7 +78,7 @@ console.log('filteredArtwork.size:', filteredArtwork.size)
 
 
 
-function like(e) {
+function likeFunction(e) {
     e.preventDefault()
     props.dispatch({type: 'LIKE', payload: id})
 }
@@ -92,14 +94,7 @@ function toggleAccordion(e) {
         // if (content.style.tranform) {
           
       console.log('target:', e.target)
-      // console.log('parentELement:', e.target.parentElement.nextElementSibling )
-       
-      // console.log('flipCardInner:', flipCardInner)
-      
-      // let nextSibling = flipCardInner.nextElementSibling;
-      // console.log('nextElementSibling:', nextSibling);
-      
-      
+    
       console.log('content:', content)
       let element = document.getElementsByClassName('flip-card-inner')
         // }
@@ -108,21 +103,8 @@ function toggleAccordion(e) {
       
 
 return (
-  
-
-
 <>
 
-    {/* // <div className="accordian-container"> */}
-
-
-
-
-
-
-
-
-   
   <button className="accordion" onClick={(e) => toggleAccordion(e)}>  
 
 {title}
@@ -130,8 +112,11 @@ return (
              <div className="accordion-content">
               
              <article>
-          {/* <tr> */}
-        {/* <td> */}
+        {friendly ? null :
+        <>
+                {like} Like(s)!
+</>
+        }
          <p>    {medium}</p>
             {/* </td> */}
       {/* </tr> */}
@@ -149,7 +134,7 @@ return (
       {/* </tr> */}
       {/* <tr><td> */}
       <br/>
-     { props.store.friendly  ? <button onClick={(e) =>  like(e)}>Like</button> :
+     { props.store.friendly  ? <button onClick={(e) =>  likeFunction(e)}>Like</button> :
           (<button 
         onClick={() => history.push(`edit/${filteredArtwork.title}/${filteredArtwork.medium}/${filteredArtwork.size}/${filteredArtwork.statement}/${encodedUrl}/${id}`)}
       >EDIT</button>)
@@ -159,9 +144,6 @@ return (
       {/* </table> */}
               </article>
                </div>
-
-
-
 </>
 
 )//END return

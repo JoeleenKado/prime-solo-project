@@ -80,6 +80,7 @@ function* fetchFriendArtSaga(action) {
   })} catch (error) {
     console.log("Art get request failed", error);
   }
+  yield put( {type: 'SET_FRIENDLY'})
 }
 
 
