@@ -70,12 +70,11 @@ const Nav = (props) => {
               Studio
             </Link>
             </li>
-            <li>
+            {/* <li>
             <Link className="nav-link" to="/settings">
-              {/* <h1>Gallery</h1> */}
               Settings
             </Link>
-            </li>
+            </li> */}
             <li>
             <Link className="nav-link" to="/gallery">
               {/* <h1>Gallery</h1> */}

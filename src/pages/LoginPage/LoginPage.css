@@ -43,4 +43,6 @@
   transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-105deg);
 }
 
-  
+#master-caption {
+  background-color: white;
+}
