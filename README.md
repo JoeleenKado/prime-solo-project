@@ -6,14 +6,11 @@
 
 ## Welcome to Your Virtual Gallery
 
-_Duration: 200hrs_
+_Duration: Ongoing Commitment_
 
-Succeeding as an artist in incumbent on showing your work. The further you go as an artist. The more daunting this circumstance becomes. More artwork means more vigilance. Idealy all your artwork would be accessible in one place. Virtual Gallery is a Web Application that solves the problem of keeping track of your work. 
-
-Save any, and all of your artwork to virtual gallery. As the name implies. Each artwork you create is saved to the database and is viewable in your personal gallery.
-
-At your volition, attach pertinent information to an artwork, which can be updated at any time. Or an artwork can be removed from the gallery, and deleted from the database altogether.
-
+Artists, 
+showing your work publicly is a big job. Virtual Gallery is an opportunity to immediately start sharing your art with the world. -Curate a gallery of your own work: build frames for your artwork in the Studio -share your art with friends
+--learn your strengths and weaknesses as an artist: other artists will like some of your paintings more than others. Through implementation of Joeleen's Like Filtration System, Your most popular paintings will be brought to the front of your Gallery.
 
 ![intro](public/images/screenShots/welcome.png)
 ![intro](public/images/screenShots/gallery.png)

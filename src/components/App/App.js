@@ -15,7 +15,7 @@ import Footer from "../Footer/Footer";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import Workshop from '../../pages/Workshop/Workshop'
-import Program from "../Program/Program";
+import Program from "../../pages/Program/Program";
 import UserPage from "../UserPage/UserPage";
 import InfoPage from "../InfoPage/InfoPage";
 // import LandingPage from "../LandingPage/LandingPage";
@@ -33,26 +33,11 @@ import Forum from "../../pages/Forum/Forum";
 import Edit from '../../pages/Gallery/Edit'
 // import Workshop from "../../pages/Workshop/Workshop";
 import "./App.css";
-// import {Typography} from '@material-ui/core/Typography'
-//styling
-// import SideMenu from "../SideMenu/SideMenu";
-// import { createMuiTheme, CssBaseline, withStyles, makeStyles, ThemeProvider, AppBar, Toolbar } from '@material-ui/core';
-// import makeStyles from '@material-ui/core/styles'
 import {
   // AppBar,
   CssBaseline,
   // CardContent,
   Typography,
-  // Toolbar,
-  // Grid,
-  // Badge,
-  // IconButton,
-  // makeStyles,
-  // InputBase,
-  // TextField,
-  // Card,
-  // CardMedia,
-  // centerText,
   withStyles,
   ThemeProvider,
   createMuiTheme,
@@ -72,26 +57,17 @@ dispatch(action.fetchUser())
 
     return (
       <>
- <div id="header-container"> 
+      <div id="header-container">
+ {/* <div class="gradient-90"></div> */}
+
       <header>
-
-<Nav/>
-
-      </header>
-
-      </div>
-        {/* // <Modal/> */}
-        {/* // <div class="bg"></div> */}
-        
-
-      
-         {/* // Virtual Gallery(app.js) */}
-
-{/* <div className='header'> */}
-
-{/* <h1>Virtual Gallery</h1> */}
-{/* {JSON.stringify(props.store)} */}
-{/* <Nav /> */}
+      {/* <div id="header-container" className="gradient-90">  */}
+<nav>
+<Nav id='nav'/>
+</nav>
+{/* </div> */}
+    </header>
+</div>
 
         <Router>
 
@@ -129,12 +105,6 @@ dispatch(action.fetchUser())
       path="/edit/:title/:medium/:size/:statement/:url/:id"
       render={(props) => <Edit {...props} />}
     />
-
-
-
-
-
-
               {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
@@ -173,10 +143,6 @@ dispatch(action.fetchUser())
                 path="/workshop"
                 component={Workshop}
               /> */}
-
-              {/* <ProtectedRoute exact path='/:artId' render={(props)=><Art{...props}/>}/> */}
-              {/* <ProtectedRoute exact path='/:art' component={Art}/> */}
-              {/* <ProtectedRoute path="/detail" component={Detail} /> */}
 
               <ProtectedRoute
                 // logged in shows InfoPage else shows LoginPage
@@ -238,13 +204,8 @@ dispatch(action.fetchUser())
           {/* </div> */}
         </Router>
         {/* </div> */}
-
         </>
-        // {/* <CssBaseline /> */}
-     
-      //
-    ); //END return
-  
+    ); //END return 
 }
 // }
 // export default connect()(App);

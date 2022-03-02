@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
-
+import './Gallery.css'
 
 const Caption = (props) => {
     const {history, artwork, store} = props;
@@ -105,10 +105,11 @@ function toggleAccordion(e) {
 return (
 <>
 
-  <button className="accordion" onClick={(e) => toggleAccordion(e)}>  
-
+  <div className="stone" >  
+<label id='text-plate' className='accordion' onClick={(e) => toggleAccordion(e)}>
 {title}
-              </button> 
+</label> 
+
              <div className="accordion-content">
               
              <article>
@@ -136,6 +137,7 @@ return (
       <br/>
      { props.store.friendly  ? <button onClick={(e) =>  likeFunction(e)}>Like</button> :
           (<button 
+            // className="gradient-teal"
         onClick={() => history.push(`edit/${filteredArtwork.title}/${filteredArtwork.medium}/${filteredArtwork.size}/${filteredArtwork.statement}/${encodedUrl}/${id}`)}
       >EDIT</button>)
      }
@@ -144,6 +146,8 @@ return (
       {/* </table> */}
               </article>
                </div>
+               </div> 
+
 </>
 
 )//END return

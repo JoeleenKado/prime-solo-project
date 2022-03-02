@@ -158,19 +158,23 @@ return ( <div>
                 {/* {JSON.stringify(props.store)} */}
 
                 <center>
-
+                  {/* <figure id='masterpiece'> */}
         {!image_id ? (<h2>Loading Artwork...</h2>) : 
-        (<img 
+        (<img id='master-image'
          className={'frame', 'border-one'} 
         src={`https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`} 
         alt="random artwork"/>
 )}
+{/* <figcaption> */}
 <address id='master-caption'>
   <h2>{title}</h2>
   <p>{moreRet}</p>
   {/* {caption} */}
   {/* <p>{filteredArtistDisplay}</p> */}
 </address>
+{/* </figure> */}
+
+
 <div class="door-container">
   <div id="rose-door">  
   <LoginForm />

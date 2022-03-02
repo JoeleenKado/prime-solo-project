@@ -14,12 +14,24 @@
   */
 /* } */
 /* h1 {width: 100%} */
+/* .edit-button {
+  background: ;
+} */
 
+/* background-size: cover; */
 
-button.accordion {
+li:hover {
+  cursor: crosshair;
+  /* pointer-events: none; */
+}
+div.accordion {
   max-width: 288px;
   border-radius: 0%;
 
+}
+
+div.accordion.plate {
+  margin: 0 auto;
 }
 
 /* h2.licenses {
@@ -49,13 +61,52 @@ button.licenses {
 div.accordian-container {
 margin: 0;
 }
+.stone {
+  background-image: url('/images/Marble.png');
+  color: black;
+  background-size: 280px 80px;
+}
 
-div.accordion-content {
-  border-left: 1px solid #006da5;
-  border-right: 1px solid #006da5;
-  border-bottom: 1px solid #006da5;
+background-image {
+  max-width: 280px;
+}
+
+div.stone {
+  max-width: 280px;
+  margin: auto;
+  /* pointer-events: none; */
+}
+/* div.stone:hover {
+  cursor: normal;
+} */
+
+#text-plate {
+  width: 50%;
+  color: var(--black);
+  font-style: italic;
+  border-radius: .8;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  /* padding: 1px;
+  
+  height: 6px; */
+  max-height: 3px;
+  background-color: rgb(126, 108, 30);
+  /* margin-bottom: 3px; */
+  margin: auto;
+
+}
+#text-plate:hover {
+  cursor: pointer;
+}
+
+.accordion-content {
+  /* border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray; */
   max-height: 0;
-  max-width: 288px;
+  max-width: 280px;
   background-color: wheat;
   overflow: hidden;
   transition: max-height 0.2s ease-in-out;
@@ -119,10 +170,10 @@ that the flip itself goes out of the box on hover
 }
 
 /* Style the back side */
-.flip-card-back {
+/* .flip-card-back {
   background-color: dodgerblue;
   color: white;
   transform: rotateY(180deg);
-}
+} */
 
 

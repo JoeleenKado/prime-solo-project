@@ -40,54 +40,134 @@ body {
     background-size: cover;
 }
 
-#header-container {
-  background-color:yellowgreen;
+.gradient-90 {
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(214,100,237,0.6208858543417367) 19%, rgba(0,212,255,1) 100%);    
+  height: 100%;
+  width: 100%
+}
 
+.gradient-teal {
+background:  linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(100,237,192,1) 20%, rgba(0,212,255,1) 100%);
+}
+
+#header-container {
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(214,100,237,0.6208858543417367) 19%, rgba(0,212,255,1) 100%);    
+width: 100%;
 }
 
 header{
-  padding: 1rem;
-  max-width: 1200px;
+  height: 59.5px;
+  /* padding: 1rem; */
+   /* width: 80%;  */
+  margin: 0 auto;
+  /* height: 3rem; */
+
+}
+
+/* #home-icon {
+  max-width: 8px;
+} */
+
+
+
+nav ul {
+  list-style-type: none;
+  height: 59.5px;
+padding: 0;
+margin: 0 auto;
+ display: flex;
+   flex-flow: row wrap;
+  justify-content: space-around; 
+  /* align-items: space-between; */
+  /* height: 1.5rem; */
+}
+
+nav li {
+  /* margin-top: 1rem; */
   margin: 0 auto;
 }
 
-#nav-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: space-between;
+nav ul:first-child {
+  /* margin: 0 auto;
+  justify-self: center; */
+  /* width: 2.5rem; */
+  /* justify-self: center; */
+  /* text-align: center; */
+   /* flex-basis: 100%; */
+   /* max-width: 20%; */
+  /* margin: 0 auto; */
 }
 
-#nav-ul li {
-  flex-basis: 48%;
-  margin-bottom: 0.5rem;
+nav li:first-child {
+  /* flex-basis: 100%; */
+   /* text-align: center;  */
+  /* margin-right: auto; */
+  /* width: 2rem; */
+
+}
+#home-icon {
+  color: gold;
+  /* max-width: 2.5rem;
+  font-size: 1.75rem;
+  padding: 0; */
+  /* margin-right: 0; */
+  /* height */
 }
 
-#nav-ul li:first-child {
-  flex-basis: 100%;
-  text-align: center;
+nav li {
+  /* max-width: 4rem; */
+height: 100%;
+  /* flex-basis: 100%; */
+  /* justify-content: space-between; */
+    /* margin: 0 auto;   */
+  /* margin-top: 1rem; */
+  /* padding-top: 16.5px; */
+  justify-content: center;
 }
 
+
+
+nav a {
+   /* max-width: 2.5rem;  */
+   height: 100%;
+  text-decoration: none; 
+ font-size: 1.5rem;
+ padding-top: 1rem;
+ color: rgb(221, 129, 8);
+ display: block; 
+ /* justify-content: center; */
+/* width: 50%; */
+/* padding: 2rem; */
+} 
+
+/* #home-icon {
+  padding-top: 1rem;
+} */
+
+#nav-ul li link a{
+  /* margin: 20px auto; */
+  /* height: 5rem; */
+  /* padding: 3rem; */
+  /* margin: 0 auto; */
+  
+}
 #nav-ul li:first-child a.nav-link {
-  background-color: transparent;
+  /* background-color: transparent; */
 }
 
 #nav-ul a.nav-link {
-  text-decoration: none;
-  font-size: 1.2rem;
-  color: white;
-  display: block;
-  padding: 0.5rem;
-  text-align: center;
-  background-color: var(--purple);
-  border-radius: 5px;
+  /* text-decoration: none; */
+  /* font-size: 1.5rem; */
+  /* color: white; */
+  /* display: block; */
+  /* padding: 0.5rem; */
+  /* text-align: center; */
+  /* background-color: var(--purple); */
+  /* border-radius: 5px; */
 }
 
 #nav-ul a.nav-link:hover {
-  background-color: pink;
+  /* background-color: pink; */
   color: var(--color5);
 }
 
@@ -140,7 +220,7 @@ a:hover {
    /* margin: 0 auto; */
    max-width: 100%;
    grid-gap: 5%;
-   margin-top: 10px;
+   margin-top: 3rem;
    max-height: 100%;
   /* list-style-position: inside; */
   /* display: inline; */
@@ -199,9 +279,9 @@ figure {
   border: 10px solid black;
 }
 
-figure:hover {
+/* figure:hover {
   /* pointer-events: none; */
-}
+
 
 /* strange open space at the bottom of the box which shows through the transparent overlay - this kills it */
 
@@ -271,7 +351,7 @@ figure, .span2 {
 .span2-4 {
   flex-basis: 100%;
 }
-#nav-ul {
+/* #nav-ul {
 justify-content: center;
 gap: 1.2em;
 }
@@ -279,17 +359,17 @@ gap: 1.2em;
 #nav-ul li {
   flex-basis: auto;
   margin-bottom: 0;
-  }
-  #nav-ul li:first-child {
+  } */
+  /* #nav-ul li:first-child {
     flex-basis: 100%;
     text-align: c;
-  }
+  } */
 
-  #nav-ul a.nav-link {
+  /* #nav-ul a.nav-link {
     color: --baby-blue;
    background-color: transparent;
    padding: 0;
-    }
+    } */
     #nav-ul a:hover {
       color: grey;
       background-color: transparent;
@@ -350,23 +430,49 @@ section li {
 .order-3 {
   order: 3;
 }
-#nav-ul {
-  justify-self: flex-end;
-}
 
-#nav-ul li:first-child {
-  flex-basis: auto;
-  margin: 0 auto;
-  order: 3;
-}
-#nav-ul li:nth-child(2),
-#nav-ul li:nth-child(3) {
-  order: 1;
-}
-#nav-ul li:nth-child(4),
-#nav-ul li:nth-child(5) {
+ nav ul {
+  /* justify-content: flex-end; */
+} 
+
+nav li:first-child {
+  /* flex-basis: auto; */
+  /* margin: 0 auto; */
   order: 2;
 }
+
+nav li:nth-child(3),
+nav li:nth-child(4) {
+/* text-align: center; */
+  order: 3;
+}
+
+nav li:nth-child(5),
+nav li:nth-child(6) {
+  /* margin:  auto; */
+  order: 1;
+}
+
+/* nav ul {
+  justify-self: flex-start;
+}
+nav ul {
+}
+
+nav li:first-child {
+  flex-basis: auto; */
+  /* justify-self: center; */
+  /* margin: 0 auto;
+  order: 2;
+} */
+/* nav li li:nth-child(2),
+nav li li:nth-child(3) {
+  order: 1;
+}
+#nav li:nth-child(4),
+#nav li:nth-child(5) {
+  order: 3;
+} */
 }/* end media query */
 
 
@@ -484,7 +590,7 @@ Here, because the nav is short, let's try a 4 button layout at the top of the sc
 
 
 
-#nav-ul li:nth-child(2),
+/* #nav-ul li:nth-child(2),
 #nav-ul li:nth-child(3) {
   order: 2;
 }
@@ -493,7 +599,7 @@ Here, because the nav is short, let's try a 4 button layout at the top of the sc
   order: 3;
 
 
-}
+} */
 
 
 

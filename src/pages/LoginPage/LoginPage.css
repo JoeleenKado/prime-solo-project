@@ -7,6 +7,15 @@
     padding: 15px 10px;
   }
 
+  /* #masterpiece {
+    max-width: 30%;
+  } */
+
+#master-image {
+  max-width: 35%;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
   .border-one {
     border: 20px solid transparent;
     border-image: url("/images/rosewoodHorizontal.png") 50 round;

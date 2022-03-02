@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="../src/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <!-- google fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+    <!-- google fonts -->
     <link 
     href="https://fonts.googleapis.com/
     css2?family=Gideon+Roman&family=Oswald:wght@200&display=swap" 
@@ -22,76 +24,7 @@
   </head>
   <body 
   >
-
-  <!-- <div id="modal"></div> -->
-<!-- <input type="BUTTON" value="Pick Image" id="pickWatermark" onclick="pickMark()"> -->
-<!-- <input type="BUTTON" value="Pick Image" id="pickImage" onclick="pickImage()"> -->
-
-<!-- <script>
-  const transformURL = "https://cdn.filestack.com/watermark=file:";
-
-  //Instantiating dialog with Filestack
-  const client = filestack.init("A2ocoVhiLQseuc8qsSbygz");
-  //Filestack API method 'pick()' that opens the file picker
-  function pickMark() {
-    console.log("Picking Watermark");
-      client.pick({
-         accept:'image/*',
-         maxFiles: 1,
-      }).then(function(result) {//Taking the results object in as 'result'
-         //Putting the result in a string, and printing it to the console
-         console.log(JSON.stringify(result));
-         //Sets the watermark handle to the handle of the first file in the result
-         watermarkHandle = result.filesUploaded[0].handle;
-         //Logs the new watermark handle in the console
-         console.log(watermarkHandle);
-         buildURL();
-      });
-  }
-
-  function pickImage() {
-    console.log("Picking Image");
-      client.pick({
-         accept:'image/*',
-         maxFiles: 1,
-      }).then(function(result) {//Taking the results object in as 'result'
-         //Putting the result in a string, and printing it to the console
-         console.log(JSON.stringify(result));
-         //Sets the watermark handle to the handle of the first file in the result
-         imageHandle = result.filesUploaded[0].handle;
-         //Logs the new watermark handle in the console
-         console.log(imageHandle);
-      });
-  }
-
-  function buildURL() {
- //Adding the watermark handle to the transformation URL 
- transformURL += watermarkHandle;
- //Placing watermark in center of image with size 200
- transformURL += ',position:[middle,center],size:200/'
- //Adding the image handle to the transformation URL
- trasnformURL += imageHandle;
- //Logging the file transformation URL
- console.log(transformURL);
-}
-
-
-
-</script> -->
-
-<!-- <script>
-  //Instantiating dialog with Filestack
-  var client = filestack.init("API Key");
-  //Filestack API method 'pick()' that opens the file picker
-  client.pick({});
-</script> -->
-    <!-- <header id='header'> -->
-      <!-- <nav>
-        <ul><li></li></ul>
-      </nav> -->
-    <!-- </header>   -->
-  <!-- background-image: url('https://injart.org/wp-content/uploads/2017/02/Minneapolis-Institute-Of-Arts-27463.jpg'); -->
-    <noscript>
+ <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
     <!-- <div id="modal"></div> -->
