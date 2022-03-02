@@ -79,9 +79,11 @@ nav ul {
   height: 100%;
 /* padding-top: 1rem; */
 margin: 0 auto;
+/* margin-left: 0; */
+padding-left: 0;
  display: flex;
    flex-flow: row wrap;
-  justify-content: space-around; 
+  justify-content: space-evenly; 
   /* align-items: space-between; */
   /* height: 1.5rem; */
 }
@@ -325,7 +327,7 @@ figcaption a {
 }
 
 @media (max-width: 550px) {
-  nav li {
+  /* nav li {
     flex-basis: 50%;
     margin: 0 auto;
     justify-content: center;
@@ -342,7 +344,7 @@ figcaption a {
     border-radius: 5px;
     text-align: center;
     justify-content: center;
-  }
+  } */
   
 }
 
