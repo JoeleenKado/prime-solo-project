@@ -48,7 +48,7 @@ return (
   <section id='gallery-section'>
        {/* {JSON.stringify(props)}  */}
 
-    <h3>click on a nameplate for more information</h3>
+    {/* <h3>click on a nameplate for more information</h3> */}
 
     {/* <div className='container'> */}
     {/* { !props.store ? (JSON.stringify('Loading Art')) : */}

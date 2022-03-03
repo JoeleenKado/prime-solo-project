@@ -176,7 +176,7 @@ const LoginForm = (props) => {
 
       // {/* <Grid item xs={4} key={pokemonId} spacing={1}> */}
 // {/* <> */}
-      <form className="formPanel" onSubmit={login}>
+      <form className="form-panel" onSubmit={login}>
                   <h1>Login</h1>
 
         {/* <Typography variant="h4"> */}
@@ -185,7 +185,7 @@ const LoginForm = (props) => {
               {props.store.errors.loginMessage}
             </h3>
           )}
-          <div>
+          {/* <div> */}
             <label htmlFor="username">
               Username:
               <input
@@ -197,8 +197,8 @@ const LoginForm = (props) => {
                 className="input"
               />
             </label>
-          </div>
-          <div>
+          {/* </div> */}
+          {/* <div> */}
             <label htmlFor="password">
               Password:
               <input
@@ -209,11 +209,11 @@ const LoginForm = (props) => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </label>
-          </div>
+          {/* </div> */}
           {/* {/* {!roseDoorReady ? null : ( */}
-          <div>
+          {/* <div> */}
             <input className="btn" type="submit" name="submit" value="Log In" />
-          </div>
+          {/* </div> */}
           {/* )} */} 
         {/* </Typography> */}
       </form>

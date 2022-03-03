@@ -57,7 +57,7 @@ dispatch(action.fetchUser())
 
     return (
       <>
-      <div id="header-container">
+      {/* <div id="header-container"> */}
  {/* <div class="gradient-90"></div> */}
 
       <header>
@@ -67,7 +67,8 @@ dispatch(action.fetchUser())
 </nav>
 {/* </div> */}
     </header>
-</div>
+    
+{/* </div> */}
 
         <Router>
 
@@ -200,10 +201,12 @@ dispatch(action.fetchUser())
               {/* If none of the other routes matched, we will show a 404. */}
               <Route render={() => <h1>404</h1>} />
             </Switch>
-            <Footer />
           {/* </div> */}
         </Router>
         {/* </div> */}
+        <footer>
+    <Footer />
+    </footer>
         </>
     ); //END return 
 }

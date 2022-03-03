@@ -154,46 +154,53 @@ console.log('myfuckingFunction():', myFuckingFunction())
 // console.log('dfdfd', 
 // const caption = spliceString(words, 2, 0)
 
-return ( <div>
+return ( <section id ='login-section'>
                 {/* {JSON.stringify(props.store)} */}
 
-                <center>
+                {/* <center> */}
                   {/* <figure id='masterpiece'> */}
         {!image_id ? (<h2>Loading Artwork...</h2>) : 
-        (<img id='master-image'
+        (<figure>
+        <img id='master-image'
          className={'frame', 'border-one'} 
         src={`https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`} 
         alt="random artwork"/>
-)}
-{/* <figcaption> */}
+       
+       <figcaption> 
 <address id='master-caption'>
   <h2>{title}</h2>
   <p>{moreRet}</p>
   {/* {caption} */}
   {/* <p>{filteredArtistDisplay}</p> */}
 </address>
-{/* </figure> */}
+</figcaption> 
+        </figure>
+)}
 
 
-<div class="door-container">
-  <div id="rose-door">  
+{/* <form> */}
+{/* <div class="door-container"> */}
+  {/* <div id="rose-door">   */}
+  <span id='login-form'>
   <LoginForm />
+  </span>
   <button
             type="button"
-            className="btn btn_asLink btn"
+            id='go-to-register'
             onClick={() => {
               props.history.push("/registration");
             }}
           >
             Register
           </button>
-  </div>
-</div>
+          {/* </form> */}
+  {/* </div> */}
+{/* </div> */}
 {/* <div> */}
          
           {/* </div> */}
-        </center>
-      </div>
+        {/* </center> */}
+      </section>
  ) }else{return <h1>Loading...</h1>}}
     
   
