@@ -23,13 +23,22 @@
   display: none;
 }
 
+#caption-span {
+  /* margin-left: 10px;
+  padding-left: 10px; */
+}
 
   #login-section figure {
     flex-basis: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: auto;
+    margin-bottom: -0.5rem;
+
     /* gap: 2em; */
-    /* width: 50%;  */
+    /* width: 40%;  */
       margin: 0 auto;
+      border: 20px solid transparent;
+      border-image: url("/images/rosewoodHorizontal.png") 50 round;
   }
   #login-section img {
     /* text-align: center; */

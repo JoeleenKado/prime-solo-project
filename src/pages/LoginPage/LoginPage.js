@@ -163,10 +163,12 @@ return ( <section id ='login-section'>
 
                 {/* <center> */}
                   {/* <figure id='masterpiece'> */}
-        {!image_id ? (<h2>Loading Artwork...</h2>) : 
-        (<figure>
+        {!image_id ? (<p>Loading Artwork...</p>) : 
+        (
+        <div id='figure-container'>
+        <figure>
         <img id='master-image'
-         className={'frame', 'border-one'} 
+        //  className={'frame', 'border-one'} 
         src={`https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`} 
         alt="random artwork"
         onClick={toggleCaption}
@@ -180,13 +182,16 @@ return ( <section id ='login-section'>
        > 
 
 <address id='master-caption'>
-  <h2>{title}</h2>
+  <span id='caption-span'>
+  <h4>{title}</h4>
   <p>{moreRet}</p>
+  </span>
   {/* {caption} */}
   {/* <p>{filteredArtistDisplay}</p> */}
 </address>
 </figcaption> 
         </figure>
+        </div>
 )}
 
 

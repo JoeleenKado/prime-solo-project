@@ -276,14 +276,19 @@ Spelled out the individual border styles so border-color could go elsewhere. Sty
 figure {
   margin: 0 0 0.5rem 0;
   padding: 0;
-  max-height: 100%;
-  max-width: 800px;
-  overflow: hidden;
+  max-width: 40%;
+  /* height: auto; */
+  /* max-height: 550px; */
+   /* max-width: 100%; */
+   flex-basis: 40%;
+  /* overflow: hidden; */
   position: relative;
   border-width: 10px;
   border-style: solid;
   border-radius: 5px;
   border: 10px solid black;
+   /* max-width: auto; */
+   
 }
 
 /* figure:hover {
@@ -293,10 +298,13 @@ figure {
 /* strange open space at the bottom of the box which shows through the transparent overlay - this kills it */
 
 figure img {
-  margin-bottom: -4px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  /* padding-bottom: -5px; */
+  display: block;
+  max-height: 400px;
+  /* max-width: 300px; */
+  /* max-height: 500px; */
+  object-fit: contain;
+  margin: 0 auto;
   object-position:
    /* 0 -150px */
    0
@@ -307,15 +315,18 @@ figure img {
 
 
 figcaption {
-  background-color: rgba(255, 255, 255, 0.8);
+  /* background-color: rgba(255, 255, 255, 0.8); */
   /* font-size: 1.875rem; */
   position: absolute;
   bottom: 0;
-  font-size: 12px;
-   max-height: 213.22px;
+  /* padding-left: 10rem; */
+  /* font-size: .75rem; */
+    max-height: 45%;
   width: 100%;
-  margin: 0;
-  padding: 0;
+  /* margin: 10px; */
+  padding: 10px;
+  background-color: var(--indigo);
+  color: white;
 }
 
 
@@ -326,6 +337,7 @@ figcaption a {
   padding: 1rem;
   text-decoration: none;
   color: var(--color1);
+
 }
 
 @media (max-width: 550px) {
@@ -542,14 +554,13 @@ nav li li:nth-child(3) {
 } 
 
 figcaption {
-  background-color: var(--indigo);
-  color: white;
+ 
   /* padding: 1rem; */
 }
 
-figcaption * {
+/* figcaption * {
   margin: 0.5rem;
-}
+} */
 
 figure > div {
   /* background-image: url('public/images/rose') */
