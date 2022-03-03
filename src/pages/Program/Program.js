@@ -6,10 +6,9 @@ import './Program.css'
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 const AboutPage = () => (
-  <div className="container">
-    <div id='article-container'>
-      <center>
-      <article>
+  // <div className="container">
+    // <div id='article-container'>
+      <article id='program'>
         <h2>Welcome to Virtual Gallery</h2>
       <p>
        
@@ -31,9 +30,9 @@ const AboutPage = () => (
         
       </p>
       </article>
-      </center>
-    </div>
-  </div>
+    
+  
+  
 );
 
 export default AboutPage;

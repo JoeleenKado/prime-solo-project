@@ -84,6 +84,13 @@ dispatch(action.fetchUser())
                 path="/program"
                 component={Program}
               />
+{/* <Route
+                // shows AboutPage at all times (logged in or not)
+                exact
+                path="/program/:RegisterForm"
+                component={Program }
+              /> */}
+
                <ProtectedRoute
       
       path="/gallery/:username/:id"

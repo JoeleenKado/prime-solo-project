@@ -7,16 +7,56 @@
     padding: 15px 10px;
   }
 
+#login-portion {
+flex-basis: 100%;
+}
+
+#login-portion h3 {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+#login-span {
+  background-color: wheat;
+  flex-basis: 100%;
+  margin-top: 2rem;
+  max-height: 85px;
+}
+#login-span h3 {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: -1.5rem;
+}
+
+#new-user-span {
+  background-color: aquamarine;
+  margin-top: 1rem;
+  padding: 1rem;
+  padding-top: 10px;
+  /* justify-content: ; */
+  text-align: center;
+  height: 70px;
+}
+#new-user-span button {
+  margin-top: .5rem;
+}
   #login-section {
     /* gap: 2em; */
     display: flex;
     flex-flow: row wrap;
     margin: 0 auto;
+    justify-content: center;
     /* width: 100%; */
     /* justify-content: space-evenly; */
     /* justify-content: center; */
     /* width: 600px; */
 
+  }
+  #register-section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 300px;
   }
 
 .hide {
@@ -28,21 +68,36 @@
   padding-left: 10px; */
 }
 
+
+#master-figure-container {
+  /* justify-content: center; */
+  /* text-align: center; */
+  /* align-items: center; */
+}
+
   #login-section figure {
+    margin-top: 2rem;
+    /* margin-bottom: auto; */
+    /* gap: 2em; */
     flex-basis: 100%;
     max-width: 100%;
     max-height: auto;
     margin-bottom: -0.5rem;
-
+/* text-align: center; */
     /* gap: 2em; */
     /* width: 40%;  */
-      margin: 0 auto;
+      /* margin: 0 auto; */
       border: 20px solid transparent;
       border-image: url("/images/rosewoodHorizontal.png") 50 round;
   }
   #login-section img {
     /* text-align: center; */
   }
+
+#login-section figure img:hover {
+cursor: pointer;
+}
+
   figcaption:hover {
     /* display: none; */
     /* margin-top: 20px;
@@ -67,6 +122,7 @@ margin: 0 auto;
     max-width: 30%;
   } */
 .form-panel {
+  margin-top: 2rem;
   /* justify-self: center; */
    /* margin: 0 auto;  */
    text-align: center;

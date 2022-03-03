@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
  import  './LoginPage.css'
 
-const LoginForm = (props) => {
+const RegisterForm = (props) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [roseDoorReady, setRoseDoorReady] = useState(false)
@@ -45,17 +45,14 @@ const LoginForm = (props) => {
 
       // {/* <Grid item xs={4} key={pokemonId} spacing={1}> */}
 // {/* <> */}
-
-<span id='login-span'>
-<h3>Returning User:</h3>
       <form className="form-panel" onSubmit={login}>
+                  <h1>Login</h1>
 
           {props.store.errors.loginMessage && (
             <h3 className="alert" role="alert">
               {props.store.errors.loginMessage}
             </h3>
           )}
-        
             <label htmlFor="username">
               Username:
               <input
@@ -80,12 +77,10 @@ const LoginForm = (props) => {
             </label>
         
             <input className="btn" type="submit" name="submit" value="Log In" />
-
+        
       </form>
-      </span>
-
      
     );
   }
 
-export default connect(mapStoreToProps)(LoginForm);
+export default connect(mapStoreToProps)(RegisterForm);

@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 import './LoginPage.css'
 
 const LoginPage = (props) => {
  
   const {artic} = props.store;
   const {image_id, title, artist_display} = artic
-
+const [newUser, setNewUser] = useState(false)
 
 const [caption, setCaption] = useState(true);
 
@@ -165,7 +166,7 @@ return ( <section id ='login-section'>
                   {/* <figure id='masterpiece'> */}
         {!image_id ? (<p>Loading Artwork...</p>) : 
         (
-        <div id='figure-container'>
+        <div id='master-figure-container'>
         <figure>
         <img id='master-image'
         //  className={'frame', 'border-one'} 
@@ -198,18 +199,38 @@ return ( <section id ='login-section'>
 {/* <form> */}
 {/* <div class="door-container"> */}
   {/* <div id="rose-door">   */}
-  <span id='login-form'>
+  {/* <span id='login-form'> */}
+  
+  
+  
+
+
+  
+    {/* <span id='login-portion'> */}
   <LoginForm />
-  </span>
+
+  {/* </span>  */}
+
+
+  {/* <center> */}
+  <span id='new-user-span'>
+    <h3>New User:</h3>
+    {/* <br/> */}
   <button
             type="button"
             id='go-to-register'
-            onClick={() => {
-              props.history.push("/registration");
-            }}
+            onClick={(e) => {
+              e.preventDefault();
+              props.history.push(`/registration`)}}
           >
+          
+          
+          
             Register
           </button>
+          </span>
+          {/* </center> */}
+
           {/* </form> */}
   {/* </div> */}
 {/* </div> */}

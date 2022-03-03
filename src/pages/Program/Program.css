@@ -3,3 +3,21 @@
     margin-left: 5rem;
 }
 
+
+
+#program {
+    /* display: flex; */
+max-width: 400px;
+margin: 0 auto;
+margin-top: 2rem;
+background-color: beige;
+padding: 1rem;
+/* flex-basis: 30%; */
+/* justify-self: center; */
+}
+
+#program h2 {
+    /* flex-basis: 100%; */
+    /* justify-self: center; */
+    text-align: center;
+}

@@ -273,6 +273,8 @@ New styles begin here and continue to the end of the page
 
 Spelled out the individual border styles so border-color could go elsewhere. Styling is the same for all borders except the color. */
 
+
+
 figure {
   margin: 0 0 0.5rem 0;
   padding: 0;
@@ -280,7 +282,8 @@ figure {
   /* height: auto; */
   /* max-height: 550px; */
    /* max-width: 100%; */
-   flex-basis: 40%;
+   /* flex-basis: 100%; */
+   /* justify-self: center; */
   /* overflow: hidden; */
   position: relative;
   border-width: 10px;
@@ -321,7 +324,7 @@ figcaption {
   bottom: 0;
   /* padding-left: 10rem; */
   /* font-size: .75rem; */
-    max-height: 45%;
+    max-height: 60%;
   width: 100%;
   /* margin: 10px; */
   padding: 10px;

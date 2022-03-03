@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
-
+import AboutPage from "../Program/Program";
 // CUSTOM COMPONENTS
 import RegisterForm from "./RegisterForm";
 
@@ -17,7 +17,10 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <div>
+      <section id='register-section'>
+<AboutPage/>
+
+
         <RegisterForm cancelRegistration={this.cancelRegistration} />
 
         <center>
@@ -31,7 +34,7 @@ class RegisterPage extends Component {
             Login
           </button>
         </center>
-      </div>
+      </section>
     );
   }
 }
