@@ -19,6 +19,11 @@
 
   }
 
+.hide {
+  display: none;
+}
+
+
   #login-section figure {
     flex-basis: 100%;
     height: 100%;

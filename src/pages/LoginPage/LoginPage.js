@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import LoginForm from "./LoginForm";
@@ -8,12 +8,16 @@ const LoginPage = (props) => {
  
   const {artic} = props.store;
   const {image_id, title, artist_display} = artic
+
+
+const [caption, setCaption] = useState(true);
+
   useEffect(() => {
     props.dispatch({type: 'FETCH_RANDOM'})
     }, []);
   
 
-  
+    const toggleCaption = () => setCaption(!caption);
 
   
    
@@ -164,9 +168,17 @@ return ( <section id ='login-section'>
         <img id='master-image'
          className={'frame', 'border-one'} 
         src={`https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`} 
-        alt="random artwork"/>
+        alt="random artwork"
+        onClick={toggleCaption}
+        />
        
-       <figcaption> 
+       <figcaption 
+       className={caption ? '' : 'hide' }
+      //  onMouseEnter={toggleHover}
+      //  onMouseLeave={toggleHover}
+      //  className="hide-on-hover"
+       > 
+
 <address id='master-caption'>
   <h2>{title}</h2>
   <p>{moreRet}</p>
