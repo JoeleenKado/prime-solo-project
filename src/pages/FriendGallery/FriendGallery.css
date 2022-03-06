@@ -27,6 +27,14 @@ button.licenses {
   box-shadow: 0 10px 10px grey;
 }
 
+
+#gallery-section h2 {
+  text-align: center;
+  font-weight: normal;
+  background-color: tan;
+  margin-bottom: 1rem;
+}
+
 .accordion-content {
   border-left: 1px solid #006da5;
   border-right: 1px solid #006da5;
@@ -38,3 +46,4 @@ button.licenses {
   justify-content: center;
   text-align: center;
 };
+

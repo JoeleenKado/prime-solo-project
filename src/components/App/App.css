@@ -209,6 +209,9 @@ a:hover {
 }
 
 /* #gallery-section{ display: inline; } */
+#gallery-section {
+  margin-top: 1.5rem;
+}
 
 #gallery-section ul {
   list-style-type: none;
@@ -227,8 +230,9 @@ a:hover {
    /* margin: 0 auto; */
    max-width: 100%;
    grid-gap: 5%;
-   margin-top: 3rem;
+   /* margin-top: 3rem; */
    max-height: 100%;
+   margin-bottom: 1.5rem;
   /* list-style-position: inside; */
   /* display: inline; */
     align-self: center;  
@@ -248,10 +252,15 @@ cursor: zoom-in;
 }
 
 #gallery-section article {
-  color: red;
-  margin: auto;
-  margin-left: 29px;
+  /* text-align: left; */
+  /* color: red; */
+  /* margin: auto; */
+   margin-top: 1rem; 
+  max-height: 100%
+  /* margin-left: 29px; */
 }
+
+
 
 section h2 {
   font-size: 2.5rem;
@@ -334,7 +343,7 @@ figcaption {
 }
 
 figcaption h4 { 
-  
+
 }
 /* make the a have a big clickable area with display: block - the link occupies its containing element, the figcaption */
 

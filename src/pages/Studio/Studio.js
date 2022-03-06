@@ -46,18 +46,19 @@ function Studio(props) {
     // ReactDOM.render(<App />, rootElement);
     // useEffect(() => {props.dispatch({type: "RESET_ART"})}, [])
     return (
-      <div>
+      <section id='studio-section'>
         {/* RS: {JSON.stringify(this.props.store)} */}
         {/* <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1> */}
         {/* <p>Your ID is: {this.props.store.user.id}</p> */}
         {/* <h3>Here is your art: {JSON.stringify(art)}</h3>  */}
-Studio
+{/* Studio */}
         {/* <h3>SUBMIT ART TO GALLERY</h3> */}
         {/* <Grid container spacing={8}> */}
           {/* <Grid item xs={12}> */}
-          <section className="black-box">
+          {/* <section id='' */}
+      
              <Form/>
-             </section>
+             {/* </section> */}
           {/* </Grid> */}
           <br />
           {/* <Grid item xs={12}> */}
@@ -66,7 +67,7 @@ Studio
         {/* </Grid> */}
 
         {/* <LogOutButton className="log-in" /> */}
-      </div>
+      </section>
     ); //END return
   // } //END render
 }

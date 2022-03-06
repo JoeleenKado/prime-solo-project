@@ -30,15 +30,16 @@ useEffect(() => {
 return ( 
 
 <section id='gallery-section'>
-<h1>Friend Gallery</h1>
+<h2>{props.match.params.username}'s Gallery</h2>
 
  {/* { !friendly ? null : 
     <Gallery/>
 
  }
    */}
+   {/* {JSON.stringify(props.match.params)} */}
   {!friendArt.length ? 
-(<h1>This artist has not yet created art</h1>) :
+<h1>This artist has not yet created art</h1> :
 (
 <ul>
   {
@@ -50,7 +51,7 @@ likeSorted.map((artwork) =>{
         <>
       {/* {!props.friendly ?  */}
        {/* <Art */}
-       
+       {/* {JSON.stringify(props.history)} */}
       <Art 
         history={props.history}
        artwork={artwork}

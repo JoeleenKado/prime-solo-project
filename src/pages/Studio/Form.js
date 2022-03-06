@@ -87,11 +87,12 @@ dispatch({type: "ADD_ART", payload: art})
 
     return (
       
-      <div className="container">
-        <div className='item-a'>
-          <div className="form-container">
+      // <div className="container">
+      <span id='publish-span'>
+        {/* <center> */}
+        <h3>Publish an Artwork</h3>
             <form name='art' 
-            classname='contained-form'
+            // classname='contained-form'
             // className='item-a'
              onSubmit={ (e) => {
                e.preventDefault()
@@ -99,13 +100,13 @@ dispatch({type: "ADD_ART", payload: art})
             }}
             //   style={{ verticalAlign: 'middle' }}
             >
-               <button onClick={(e) => {
+               <button id='upload-img-btn' onClick={(e) => {
                   e.preventDefault()
                   client.picker(options).open()}}>
                     UPLOAD IMAGE
                     </button> 
                   <label htmlFor="title">
-                    <input
+                    <input id='title-input'
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   onBlur={(e) => setTitle(e.target.value)}
@@ -152,24 +153,28 @@ Size
                 {/* <label htmlFor="image">  */}
                 
 
-                {/* <center> */}
                 
-                    {/* </center> */}
                     {/* <br/> */}
                  {!url.length ? null : 
+                                 <center>
+
                  <img src={url} alt='artwork'/>
+                 
+                 </center>
+
                   } 
                     
                 {/* </label> */}
                 {/* <br/> */}
-                <button>SUBMIT</button> 
+                <button className='submit-art-button'>SUBMIT</button> 
                
                 {/* </SubmitButton> */}
               
             </form>
-            </div>
-            </div>
-            </div>
+            {/* </center> */}
+            </span>
+            // </div>
+            // </div>
     ); //END return
    //END render
 } //END ArtForm

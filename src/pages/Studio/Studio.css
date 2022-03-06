@@ -6,6 +6,77 @@
   grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line]; */
 }
 
+#publish-span {
+  /* background-color: tan; */
+/* max-height: 250px; */
+}
+
+#studio-section h3 {
+  text-align: center;
+  background-color: blueviolet;
+  /* margin-top:0; */
+}
+
+#studio-section form {
+  background-color: bisque;
+  max-width: 310px;
+  background-image: url('/images/Canvas.jpg');
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  /* text-align: center; */
+  /* height: 250px; */
+  /* padding-top: 1rem; */
+}
+
+#studio-section input:last-of-type {
+  margin-bottom: 5px;
+}
+
+#studio-section input:first-child {
+  /* margin-top: 10px; */
+}
+
+#title-input {
+  /* margin-top: 20px; */
+}
+
+#upload-img-btn {
+  margin-bottom: 5px;
+}
+
+
+#studio-section input {
+  /* margin: 0 auto; */
+margin-left: 4rem;
+border-radius: 10%;
+margin-top: 5px;
+margin-right: 5px;
+width: 153px;}
+
+.submit-art-button{
+  margin-top: 5px;
+}
+
+#studio-section button {
+  margin-left: 4rem;
+}
+
+#studio-section img {
+  /* width: 100%; */
+  margin: auto;
+  justify-self: center;
+}
+
+
+
+#studio-section {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 1.5rem;
+  /* max-height: 250px; */
+}
+
 .form-container {
     background-image: url('/public/images/canvas.jpg');
      /* margin: auto;  */

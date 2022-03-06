@@ -116,25 +116,30 @@ return (
         {friendly ? null :
         <>
                 {like} Like(s)!
+                <br/>
+
 </>
         }
-         <p>    {medium}</p>
+             {medium}
+             <br/>
+
             {/* </td> */}
       {/* </tr> */}
       {/* <tr> */}
         {/* <td> */}
-           <p>  {size}</p>
+             {size}
+             <br/>
             {/* </td> */}
       {/* </tr> */}
       {/* <tr> */}
         {/* <td>Statement:  */}
-            {statement}
+           <p>{statement}</p> 
             {/* </td> */}
       {/* </tr> */}
       {/* <tr><td><Edit/></td> */}
       {/* </tr> */}
       {/* <tr><td> */}
-      <br/>
+      {/* <br/> */}
      { props.store.friendly  ? <button onClick={(e) =>  likeFunction(e)}>Like</button> :
           (<button 
             // className="gradient-teal"
