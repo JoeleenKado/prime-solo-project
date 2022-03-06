@@ -322,6 +322,7 @@ figcaption {
   /* font-size: 1.875rem; */
   position: absolute;
   bottom: 0;
+  margin: ;
   /* padding-left: 10rem; */
   /* font-size: .75rem; */
     max-height: 60%;
@@ -332,7 +333,9 @@ figcaption {
   color: white;
 }
 
-
+figcaption h4 { 
+  
+}
 /* make the a have a big clickable area with display: block - the link occupies its containing element, the figcaption */
 
 figcaption a {

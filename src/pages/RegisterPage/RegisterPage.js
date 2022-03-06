@@ -18,8 +18,9 @@ class RegisterPage extends Component {
   render() {
     return (
       <section id='register-section'>
+        <div id='program-container'>
 <AboutPage/>
-
+</div>
 
         <RegisterForm cancelRegistration={this.cancelRegistration} />
 

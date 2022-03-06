@@ -24,21 +24,38 @@ flex-basis: 100%;
 }
 #login-span h3 {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 10px;
   margin-bottom: -1.5rem;
+}
+
+#master-figure h4 {
+  margin-top: -5px;
+}
+
+#master-figure p {
+  /* margin-top: -5px; */
+  margin-bottom:
+    -5px;
+  
 }
 
 #new-user-span {
   background-color: aquamarine;
   margin-top: 1rem;
   padding: 1rem;
-  padding-top: 10px;
+   padding-top: 10px; 
   /* justify-content: ; */
   text-align: center;
   height: 70px;
 }
+
+#new-user-span h3 {
+  margin-bottom: 5px;
+}
+
+
 #new-user-span button {
-  margin-top: .5rem;
+  /* margin-top: .5rem; */
 }
   #login-section {
     /* gap: 2em; */
@@ -75,8 +92,14 @@ flex-basis: 100%;
   /* align-items: center; */
 }
 
+#login-span input {
+  margin-right: 1rem;
+  margin-left: .5rem;
+  margin-bottom: 1rem;
+}
+
   #login-section figure {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     /* margin-bottom: auto; */
     /* gap: 2em; */
     flex-basis: 100%;

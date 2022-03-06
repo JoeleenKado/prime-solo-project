@@ -167,7 +167,7 @@ return ( <section id ='login-section'>
         {!image_id ? (<p>Loading Artwork...</p>) : 
         (
         <div id='master-figure-container'>
-        <figure>
+        <figure id='master-figure'>
         <img id='master-image'
         //  className={'frame', 'border-one'} 
         src={`https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`} 

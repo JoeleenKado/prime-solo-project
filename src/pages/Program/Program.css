@@ -9,11 +9,17 @@
     /* display: flex; */
 max-width: 400px;
 margin: 0 auto;
+max-height: 1000px;
 margin-top: 2rem;
-background-color: beige;
+background-image: url('/images/Parchment.png');
 padding: 1rem;
+background-position: center top; 
+background-repeat: no-repeat;
+background-attachment: fixed;
 /* flex-basis: 30%; */
 /* justify-self: center; */
+background-size: auto;
+
 }
 
 #program h2 {
