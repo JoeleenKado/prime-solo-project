@@ -14,7 +14,7 @@ import * as filestack from 'filestack-js';
 // import "../App/App.css";
 import dotenv from 'dotenv'
 import canvas from "../../canvas.jpg";
-import SubmitButton from "../../components/SubmitButton/SubmitButton.js";
+// import SubmitButton from "../../components/SubmitButton/SubmitButton.js";
 import './Studio.css'
 // export default function ArtForm() {
 function Form(props) {
@@ -85,13 +85,19 @@ dispatch({type: "ADD_ART", payload: art})
     // }
   };
 
+
+  const falseButtonStyle = (label) => {
+if (!label.length) {return {backgroundColor: 'yellow'
+}}else{ return {backgroundColor : 'green'}}
+  }
+
     return (
       
       // <div className="container">
       <span id='publish-span'>
         {/* <center> */}
         <h3>Publish an Artwork</h3>
-            <form name='art' 
+            <form id='art-form' name='art' 
             // classname='contained-form'
             // className='item-a'
              onSubmit={ (e) => {
@@ -100,74 +106,98 @@ dispatch({type: "ADD_ART", payload: art})
             }}
             //   style={{ verticalAlign: 'middle' }}
             >
-               <button id='upload-img-btn' onClick={(e) => {
-                  e.preventDefault()
-                  client.picker(options).open()}}>
-                    UPLOAD IMAGE
-                    </button> 
-                  <label htmlFor="title">
+              
+                    {/* <br/> */}
+                  {/* <label htmlFor="title"> */}
+                    <button className="false-button"
+                    style={falseButtonStyle(title)}
+                    
+                    >Title</button>
                     <input id='title-input'
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   onBlur={(e) => setTitle(e.target.value)}
 />
-Title
+{/* Title */}
 
-                </label>
-              <br />
+                {/* </label> */}
+              {/* <br /> */}
                 {/* // align="center">  */}
-                <label htmlFor="statement">
-                    <input
-                  value={statement}
-                  onChange={(e) => setStatement(e.target.value)}
-                  onBlue={(e) => setStatement(e.target.value)}
-/>
-Statement
-
-                </label>
+                {/* <label htmlFor="statement"> */}
+                  
+                {/* </label> */}
               <br />
 
-              <label htmlFor="medium">
+              {/* <label htmlFor="medium"> */}
+              <button 
+              style={falseButtonStyle(medium)}
+              className="false-button">Medium</button>
                     <input
                   value={medium}
                   onChange={(e) => setMedium(e.target.value)}
                   onBlur={(e) => setMedium(e.target.value)}
 />
-Medium
+{/* Medium */}
 
-                </label>
+                {/* </label> */}
 
               <br />
 
-              <label htmlFor="size">
+              {/* <label htmlFor="size"> */}
+                <button 
+              style={falseButtonStyle(size)}
+              className="false-button">Size</button>
                     <input
                   value={size}
                   onChange={(e) => setSize(e.target.value)}
                   onBlur={(e) => setSize(e.target.value)}
 />
-Size
+{/* Size */}
 
-                </label>
-                {/* <br/> */}
+                {/* </label> */}
+                <br/>
 
+                    <textarea className='statement'
+                    rows='4'
+                    // cols='25'
+                    maxLength='300'
+                  value={statement}
+                  onChange={(e) => setStatement(e.target.value)}
+                  onBlue={(e) => setStatement(e.target.value)}
+/>
+<br/>
+<button 
+              style={falseButtonStyle(statement)}
+
+className='false-button' id='statement-button'>Statement</button>
+
+{/* Statement */}
+<br/>
+                <button 
+                style={falseButtonStyle(url)}
+                id='upload-img-btn' onClick={(e) => {
+                  e.preventDefault()
+                  client.picker(options).open()}}>
+                    UPLOAD IMAGE
+                    </button> 
                 {/* <label htmlFor="image">  */}
                 
 
                 
-                    {/* <br/> */}
-                 {!url.length ? null : 
-                                 <center>
+                    <br/>
+                 {!url.length ? null :( <>
+                                 {/* <center> */}
 
                  <img src={url} alt='artwork'/>
-                 
-                 </center>
-
+                 <br/>
+</>
+)
                   } 
                     
                 {/* </label> */}
-                {/* <br/> */}
-                <button className='submit-art-button'>SUBMIT</button> 
-               
+                {!url.length ? null :
+                <button id='submit-art-button'>SUBMIT</button> 
+                }
                 {/* </SubmitButton> */}
               
             </form>

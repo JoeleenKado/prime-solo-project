@@ -1,0 +1,39 @@
+#edit-form {
+    background-color: cadetblue;
+    /* max-width: 310px; */
+    margin-top: 1.5rem;
+    text-align: center;
+padding-top: 1rem;
+padding-bottom: 1rem;
+    background-image: url('/images/Canvas.jpg');
+  /* padding-top: 1.5rem; */
+  /* padding-bottom: 1.5rem; */
+}
+
+#edit-form label {
+
+}
+
+#edit-form input {
+    width: 153px;
+    height: 21px;
+    display: inline-block;
+}
+
+#update-statement-btn {
+    height: 21px;
+    display: inline-block;
+    margin-bottom: .5rem;
+    width: 306px;
+}
+
+#edit-statement {
+    width: 306px;
+    margin-top: .5rem;
+    /* rows: '5'; */
+
+}
+
+#delete-btn:hover {
+    background-color: red;
+}

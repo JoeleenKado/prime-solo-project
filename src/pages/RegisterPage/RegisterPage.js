@@ -4,6 +4,7 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 import AboutPage from "../Program/Program";
 // CUSTOM COMPONENTS
 import RegisterForm from "./RegisterForm";
+import './Register.css'
 
 class RegisterPage extends Component {
   state = {
@@ -18,14 +19,14 @@ class RegisterPage extends Component {
   render() {
     return (
       <section id='register-section'>
-        <div id='program-container'>
+        {/* <div id='program-container'> */}
 <AboutPage/>
-</div>
+{/* </div> */}
 
         <RegisterForm cancelRegistration={this.cancelRegistration} />
 
-        <center>
-          <button
+        {/* <center> */}
+          {/* <button
             type="button"
             className="btn btn_asLink"
             onClick={() => {
@@ -33,8 +34,30 @@ class RegisterPage extends Component {
             }}
           >
             Login
+          </button> */}
+
+          <span id='new-user-span'>
+    <h3>Returning User:</h3>
+    {/* <br/> */}
+  <button
+            type="button"
+            id='go-to-register'
+            onClick={(e) => {
+              e.preventDefault();
+              this.props.history.push(`/login`)}}
+          >
+          
+          
+          
+            Login
           </button>
-        </center>
+          </span>
+
+
+
+
+
+        {/* </center> */}
       </section>
     );
   }

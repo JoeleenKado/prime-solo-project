@@ -38,10 +38,10 @@ div.accordion.plate {
   text-align: center;
 } */
 
-button.licenses {
+/* button.licenses {
   margin: auto;
   display: block;
-}
+} */
 
 .delete-button {
   margin-top: .5em;
@@ -57,6 +57,10 @@ button.licenses {
   text-align: center;
   box-shadow: 0 10px 10px grey;
 }
+
+/* #gallery-section input {
+
+} */
 
 div.accordian-container {
 margin: 0;

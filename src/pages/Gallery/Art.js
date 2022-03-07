@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Gallery.css'
-import Edit from './Edit'
+import Edit from '../Edit/Edit'
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import Caption from './Caption';

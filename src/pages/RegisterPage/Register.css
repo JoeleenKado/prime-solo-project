@@ -1,0 +1,12 @@
+#register-section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+#register-section form {
+    flex-basis: 100%;
+}
+
+

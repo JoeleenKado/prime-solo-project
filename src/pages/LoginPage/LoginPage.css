@@ -69,12 +69,7 @@ flex-basis: 100%;
     /* width: 600px; */
 
   }
-  #register-section {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    width: 300px;
-  }
+  
 
 .hide {
   display: none;

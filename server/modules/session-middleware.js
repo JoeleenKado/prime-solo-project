@@ -20,7 +20,7 @@ const serverSessionSecret = () => {
     // Warning if user doesn't have a good secret
     console.log(warnings.badSecret);
   }
-  console.log('vvv:', process.env.REACT_APP_FILESTACK_API_KEY)
+  // console.log('vvv:', process.env.REACT_APP_FILESTACK_API_KEY)
 
   return process.env.SERVER_SESSION_SECRET;
 };

@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import './Gallery.css'
 import Art from './Art'
-import Edit from './Edit';
+import Edit from '../Edit/Edit';
 import Caption from './Caption';
 function Gallery(props) { 
   const {friendly} = props.store;
