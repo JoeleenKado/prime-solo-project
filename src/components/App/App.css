@@ -208,9 +208,16 @@ a:hover {
   text-decoration: none;
 }
 
+.color-bar {
+  height: 3px;
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 56%, rgba(99,153,37,0.8758096988795518) 100%);
+}
+
+
 /* #gallery-section{ display: inline; } */
 #gallery-section {
-  background-color: rgb(37, 58, 92);
+  background-color: rgba(43, 143, 168, 0.424);
   /* margin-top: 0; */
   /* margin-top: 1.5rem; */
   /* background-image: url('/images/Gallery.jpg'); */

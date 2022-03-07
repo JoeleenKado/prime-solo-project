@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
-
+import './Forum.css'
 function Forum(props) {
   const {users} = props.store
-  const [heading, setHeading] = useState("Forum");
+  const [heading, setHeading] = useState("Other Artists:");
 useEffect(() => {props.dispatch({type: "FETCH_USERS"})}, [])
   return (
-    <div>
-            <h2>{heading}</h2>
+    // <section id='friend-section'>
+      <span id='friend-span'>
+            <h3>{heading}</h3>
       <ul>
         {!users.length ? (<h1>Loading Artists...</h1>) : (        
          users.map((user) => {         
@@ -18,13 +19,15 @@ return (
           e.preventDefault()
           props.history.push(`/gallery/${username}/${id}`)}
        }>
+         
                   {username}
           </li>
        )}
         )
         )}
-          </ul>  
-       </div>
+          </ul> 
+          </span> 
+      //  </section>
        )//END return
         }//END Forum
 export default connect(mapStoreToProps)(Forum);

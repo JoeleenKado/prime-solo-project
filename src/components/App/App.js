@@ -38,6 +38,7 @@ dispatch(action.fetchUser())
 <Nav id='nav'/>
 </nav>
     </header>
+    <div className='color-bar'></div>
         <Router>
             <Switch>
               {/* Visiting localhost:3000 will redirect to localhost:3000/home */}

@@ -1,0 +1,27 @@
+/* #friend-section {
+    /* text-align: center; */
+/* } */ 
+#friend-span {
+    background-color: aquamarine;
+    margin-top: 1.5rem;
+    display: block;
+    /* padding: 1rem; */
+     /* padding-top: 10px;  */
+    /* justify-content: ; */
+    text-align: center;
+    /* height: 70px; */
+    /* height: 70px; */
+    padding-bottom: .5rem;
+    padding-top: .5rem;
+}
+
+ #friend-span ul {
+     margin: 0 auto;
+     list-style-type: none;
+     padding: 0;
+} 
+
+#friend-span li {
+    text-decoration: underline;
+    color: var(--violet);
+}
