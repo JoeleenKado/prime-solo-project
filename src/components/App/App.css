@@ -215,15 +215,24 @@ a:hover {
   /* margin-top: 1.5rem; */
   /* background-image: url('/images/Gallery.jpg'); */
   /* background-size: cover; */
+  width: 1200px;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+/* justify-self: center; */
+
+  
 }
 
 #gallery-section ul {
   list-style-type: none;
   max-width: 1200px;
-   margin-top: 0 ; 
+  /* text-align: center; */
+   margin-left: 0; 
   /* padding: 0 1rem; */
   /* display: inline; */
+  padding: 0;
   display: grid;
+  row-gap: 2.5rem;
   /* justify-content: center; */
   /* justify-items: center; */
   grid-template-columns: repeat(3, 1fr);
@@ -233,12 +242,14 @@ a:hover {
    /* display: inline-block; */
    /* gap: 10px; */
    /* margin: 0 auto; */
-   margin-top: 1.5rem;
+   /* margin-top: 1.5rem; */
+   margin-top: auto;
+   margin-bottom:auto;
    max-width: 100%;
-   grid-gap: 5%;
+   /* grid-gap: 5%; */
    /* margin-top: 3rem; */
    max-height: 100%;
-   margin-bottom: 1.5rem;
+   /* margin-bottom: 1.5rem; */
   /* list-style-position: inside; */
   /* display: inline; */
     /* align-self: center;   */

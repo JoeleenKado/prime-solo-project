@@ -19,6 +19,7 @@ useEffect(() => {
   return b.like - a.like;
 })
 return ( 
+  <center>
 <section id='gallery-section'>
 <h2>{props.match.params.username}'s Gallery</h2>
   {!friendArt.length ? 
@@ -40,8 +41,9 @@ likeSorted.map((artwork) =>{
   })}
   </ul>
   )}
-)
+{/* ) */}
 </section>
+</center>
 )//END return
 }//END FriendGallery
 export default connect(mapStoreToProps)(FriendGallery);

@@ -45,6 +45,7 @@ const likeSorted = art.sort(function (a, b) {
 console.log('e:', Event.currentTarget)
 // console.log('node.parentElement():', Node.parentElement())
 return (
+  <center>
   <section id='gallery-section'>
        {/* {JSON.stringify(props)}  */}
 
@@ -94,7 +95,7 @@ friendly={props.friendly}
   )}
 
 </section>
-
+</center>
 )
 
 
