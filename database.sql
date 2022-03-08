@@ -18,5 +18,5 @@ CREATE TABLE "art" (
 "size" VARCHAR(20),
 "url" VARCHAR(125),
 "statement" VARCHAR(300)
-"like" INT;
+"like" INTEGER NOT NULL;
 );

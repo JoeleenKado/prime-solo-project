@@ -83,7 +83,7 @@ router.post('/', (req, res) => {
  // console.log('RS:', props.store)
 //console.log(this.state.user.id);
 
-  let queryText = `INSERT INTO "art" ("user_id", "title", "medium", "size", "url", "statement", "like_count")
+  let queryText = `INSERT INTO "art" ("user_id", "title", "medium", "size", "url", "statement", "like")
   VALUES ($1, $2, $3, $4, $5, $6, $7);
   `;
   pool.query(queryText, [art.user_id, art.title, art.medium, art.size, art.url, art.statement, art.like])

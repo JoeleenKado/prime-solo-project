@@ -26,7 +26,7 @@ button.licenses {
 #gallery-section h2 {
   text-align: center;
   font-weight: normal;
-  background-color: tan;
+  background-color: var(--teal);
   margin-bottom: 1rem;
 }
 

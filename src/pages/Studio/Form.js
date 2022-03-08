@@ -73,6 +73,7 @@ function Form(props) {
           onChange={(e) => setTitle(e.target.value)}
           onBlur={(e) => setTitle(e.target.value)}
         />
+        <br/>
         <button style={falseButtonStyle(medium)} className="false-button">
           Medium
         </button>
