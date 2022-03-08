@@ -18,13 +18,13 @@ function* like(action) {
       withCredentials: true,
     };
     const response = yield axios.put(`api/art/like/${action.payload}`, config);
-console.log('response from put like:', response)    
+    console.log("response from put like:", response);
   } catch (error) {
     console.log("Art get request failed", error);
   }
 }
 function* fetchArtSaga() {
-  yield put({type: "UNSET_FRIENDLY"})
+  yield put({ type: "UNSET_FRIENDLY" });
   console.log("In fetchArtSaga...");
   try {
     const config = {
@@ -32,26 +32,26 @@ function* fetchArtSaga() {
       withCredentials: true,
     };
     const response = yield axios.get("api/art", config);
-    yield put({ type: "SET_ART", payload: response.data }); 
+    yield put({ type: "SET_ART", payload: response.data });
   } catch (error) {
     console.log("Art get request failed", error);
   }
 }
 function* fetchFriendArtSaga(action) {
   console.log("(1)In fetchFriendArtSaga...");
-   const id = action.payload
-   console.log('(2)artist:', id)
+  const id = action.payload;
+  console.log("(2)artist:", id);
   try {
     const config = {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
     };
     const response = yield axios.get(`api/art/${id}`, config);
-   yield put({ type: "SET_FRIEND_ART", payload: response.data 
-  })} catch (error) {
+    yield put({ type: "SET_FRIEND_ART", payload: response.data });
+  } catch (error) {
     console.log("Art get request failed", error);
   }
-  yield put( {type: 'SET_FRIENDLY'})
+  yield put({ type: "SET_FRIENDLY" });
 }
 function* addArtSaga(action) {
   console.log("In addArtSaga...");
@@ -92,7 +92,7 @@ function* deleteArtSaga(action) {
   } catch (error) {
     console.log("Art get request failed", error);
   }
-} 
+}
 
 // function* fetchDetailsSaga(action) {
 //   console.log("In fetchDetailsSaga...");

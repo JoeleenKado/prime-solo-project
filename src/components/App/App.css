@@ -1,56 +1,69 @@
 :root {
   --white: #f7f8fa;
-    --teal: #64edc6;
-    --baby-blue: #4ed0fa;
-    --indigo: #6985e0;
-    --purple: #9268f7;
-    --violet: #d664ed;
-    --black: #171321;
+  --teal: #64edc6;
+  --baby-blue: #4ed0fa;
+  --indigo: #6985e0;
+  --purple: #9268f7;
+  --violet: #d664ed;
+  --black: #171321;
   --font-size: 1.3rem;
   --mono: "Gideon Roman", monospace;
-  --sans: 'Oswald', sans-serif;
+  --sans: "Oswald", sans-serif;
 }
 
-
-
 html {
-    box-sizing: border-box;
-  }
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 
 body {
-    margin: 0; 
-    padding: 0;
-    border: 0; 
-    font-family: var(--sans);
-    background-image: url('https://injart.org/wp-content/uploads/2017/02/Minneapolis-Institute-Of-Arts-27463.jpg');
-      background-attachment: fixed; 
-      background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--sans);
+  background-image: url("https://injart.org/wp-content/uploads/2017/02/Minneapolis-Institute-Of-Arts-27463.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .gradient-90 {
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(214,100,237,0.6208858543417367) 19%, rgba(0,212,255,1) 100%);    
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(214, 100, 237, 0.6208858543417367) 19%,
+    rgba(0, 212, 255, 1) 100%
+  );
   height: 100%;
-  width: 100%
+  width: 100%;
 }
 
 .gradient-teal {
-background:  linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(100,237,192,1) 20%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(100, 237, 192, 1) 20%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 
 #header-container {
-width: 100%;
+  width: 100%;
 }
 
-header{
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(214,100,237,0.6208858543417367) 19%, rgba(0,212,255,1) 100%);    
-   height: 59.5px; 
+header {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(214, 100, 237, 0.6208858543417367) 19%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  height: 59.5px;
   margin: 0 auto;
 }
 
@@ -61,11 +74,11 @@ nav {
 nav ul {
   list-style-type: none;
   height: 100%;
-margin: 0 auto;
-padding-left: 0;
- display: flex;
-   flex-flow: row wrap;
-  justify-content: space-evenly; 
+  margin: 0 auto;
+  padding-left: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
 }
 
 #home-icon {
@@ -77,13 +90,13 @@ nav li {
 }
 
 nav a {
-   height: 100%;
-  text-decoration: none; 
- font-size: 1.5rem;
- padding-top: 1rem;
- color: var(--black);
- display: block; 
-} 
+  height: 100%;
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding-top: 1rem;
+  color: var(--black);
+  display: block;
+}
 
 #nav-ul a.nav-link:hover {
   color: var(--color5);
@@ -102,21 +115,26 @@ a:hover {
 
 .color-bar {
   height: 3px;
-  background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 56%, rgba(99,153,37,0.8758096988795518) 100%);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 212, 255, 1) 56%,
+    rgba(99, 153, 37, 0.8758096988795518) 100%
+  );
 }
 
 #gallery-section {
   background-color: rgba(43, 143, 168, 0.424);
   width: 1200px;
   padding-top: 1.5rem;
-  padding-bottom: 1.5rem; 
+  padding-bottom: 1.5rem;
 }
 
 #gallery-section ul {
   list-style-type: none;
   max-width: 1200px;
-   margin-left: 0; 
+  margin-left: 0;
   padding: 0;
   display: grid;
   row-gap: 2.5rem;
@@ -124,15 +142,15 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 56%, rgb
 }
 
 #gallery-section li {
-   margin-top: auto;
-   margin-bottom:auto;
-   max-width: 100%;
-   max-height: 100%;
-    text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  max-width: 100%;
+  max-height: 100%;
+  text-align: center;
 }
 
 #gallery-section img:hover {
-cursor: zoom-in;
+  cursor: zoom-in;
 }
 
 #gallery-section img {
@@ -142,8 +160,8 @@ cursor: zoom-in;
 }
 
 #gallery-section article {
-   margin-top: 1rem; 
-  max-height: 100%
+  margin-top: 1rem;
+  max-height: 100%;
 }
 
 section h2 {
@@ -158,7 +176,7 @@ figure {
   border-width: 10px;
   border-style: solid;
   border-radius: 5px;
-  border: 10px solid black;   
+  border: 10px solid black;
 }
 
 figure img {
@@ -172,7 +190,7 @@ figure img {
 figcaption {
   position: absolute;
   bottom: 0;
-    max-height: 60%;
+  max-height: 60%;
   width: 100%;
   padding: 10px;
   background-color: var(--indigo);
@@ -186,85 +204,83 @@ figcaption a {
   color: var(--color1);
 }
 
-@media (max-width: 550px) { 
-}/* END media query */
+@media (max-width: 550px) {
+} /* END media query */
+
 @media (max-width: 800px) {
-.row {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  gap: 4%;
-}
+  .row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 4%;
+  }
 
-header{
-  height: 100px; 
-}
+  header {
+    height: 100px;
+  }
 
-nav ul {
-  justify-content: space-evenly;
-}
+  nav ul {
+    justify-content: space-evenly;
+  }
 
-nav li {
-  flex-basis: auto;
-  margin: 0 auto;
-}
-nav li:first-child {
-  flex-basis: 100%;
-  text-align: center;
-}
+  nav li {
+    flex-basis: auto;
+    margin: 0 auto;
+  }
+  nav li:first-child {
+    flex-basis: 100%;
+    text-align: center;
+  }
 
-nav a {
-  color: var(--black);
-  background-color: transparent;
-  height: 100%;
-  margin: 0 auto;
-}
-    nav a:hover {
-      color: grey;
-      background-color: transparent;
-    }
-}/* END media query */
+  nav a {
+    color: var(--black);
+    background-color: transparent;
+    height: 100%;
+    margin: 0 auto;
+  }
+  nav a:hover {
+    color: grey;
+    background-color: transparent;
+  }
+} /* END media query */
 
 @media (min-width: 800px) {
+  figure,
+  span3-1 {
+    flex-basis: 22%;
+  }
 
+  nav li:first-child {
+    order: 2;
+  }
 
+  nav li:nth-child(3),
+  nav li:nth-child(4) {
+    order: 3;
+  }
 
-figure, span3-1 {
-  flex-basis: 22%;
-}
+  nav li:nth-child(5),
+  nav li:nth-child(6) {
+    order: 1;
+  }
+} /* END media query */
 
-nav li:first-child {
-  order: 2;
-}
-
-nav li:nth-child(3),
-nav li:nth-child(4) {
-  order: 3;
-}
-
-nav li:nth-child(5),
-nav li:nth-child(6) {
-  order: 1;
-}
-}/* END media query */
-
- figure {
+figure {
   margin: 0;
   padding: 0;
-} 
+}
 
 figure > div {
-background-color: grey;
-min-height: 150px;
+  background-color: grey;
+  min-height: 150px;
 }
 
 .canvas {
-    background-image: url('/images/canvas.jpg');
-
+  background-image: url("/images/canvas.jpg");
 }
 
 .black-box {
-    background-image: url('/images/canvas.jpg');
+  background-image: url("/images/canvas.jpg");
   padding: 1rem;
   margin: auto 0;
   border-radius: 10px;
@@ -273,26 +289,27 @@ min-height: 150px;
 }
 
 .btn {
-    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
-    border: 0;
-    border-radius: 3;
-    color: white;
-    height: 48;
-    padding: 0px 30px;
-    margin-bottom: 100px;}
+  background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
+  border: 0;
+  border-radius: 3;
+  color: white;
+  height: 48;
+  padding: 0px 30px;
+  margin-bottom: 100px;
+}
 .MuiTypography-h1 {
-    color: red;
+  color: red;
 }
 
 .btn:hover {
-    box-shadow: 0px 3px 10px 20px rgba(255, 105, 135, .3);
-  }
+  box-shadow: 0px 3px 10px 20px rgba(255, 105, 135, 0.3);
+}
 
 .image {
-    height: 200px;
-    width: 200px;
-  }
+  height: 200px;
+  width: 200px;
+}
 
 .center {
-    text-align: center;
+  text-align: center;
 }

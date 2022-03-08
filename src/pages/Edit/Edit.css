@@ -1,30 +1,30 @@
 #edit-form {
-    background-color: cadetblue;
-    margin-top: 1.5rem;
-    text-align: center;
-padding-top: 1rem;
-padding-bottom: 1rem;
-    background-image: url('/images/Canvas.jpg');
+  background-color: cadetblue;
+  margin-top: 1.5rem;
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-image: url("/images/Canvas.jpg");
 }
 
 #edit-form input {
-    width: 153px;
-    height: 21px;
-    display: inline-block;
+  width: 153px;
+  height: 21px;
+  display: inline-block;
 }
 
 #update-statement-btn {
-    height: 21px;
-    display: inline-block;
-    margin-bottom: .5rem;
-    width: 306px;
+  height: 21px;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  width: 306px;
 }
 
 #edit-statement {
-    width: 306px;
-    margin-top: .5rem;
+  width: 306px;
+  margin-top: 0.5rem;
 }
 
 #delete-btn:hover {
-    background-color: red;
+  background-color: red;
 }

@@ -6,8 +6,8 @@ import createSagaMiddleware from "redux-saga";
 import logger from "redux-logger";
 import rootReducer from "./redux/reducers/_root.reducer"; // imports ./redux/reducers/index.js
 import rootSaga from "./redux/sagas/_root.saga"; // imports ./redux/sagas/index.js
- import App from "./components/App/App";
-require('dotenv').config();
+import App from "./components/App/App";
+require("dotenv").config();
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -33,7 +33,7 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
+    <App />
   </Provider>,
   document.getElementById("react-root")
 );

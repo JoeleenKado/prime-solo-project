@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 import errors from "./errors.reducer";
 import user from "./user.reducer";
-import users from './users.reducer'
+import users from "./users.reducer";
 import art from "./art.reducer";
-import friendArt from './friendArt.reducer'
-import artic from './artic.reducer'
-import frame from './frame.reducer'
-import friendly from './friendly.reducer'
+import friendArt from "./friendArt.reducer";
+import artic from "./artic.reducer";
+import frame from "./frame.reducer";
+import friendly from "./friendly.reducer";
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
   friendArt,
   artic,
   frame,
-  friendly
+  friendly,
 });
 
 export default rootReducer;

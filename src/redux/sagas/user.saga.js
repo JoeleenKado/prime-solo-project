@@ -40,7 +40,7 @@ function* fetchUsers() {
   }
 }
 function* userSaga() {
-  yield takeLatest("FETCH_USER", fetchUser)
+  yield takeLatest("FETCH_USER", fetchUser);
   yield takeLatest("FETCH_USERS", fetchUsers);
 }
 export default userSaga;

@@ -1,12 +1,12 @@
 .frame {
-    border: 3px solid #ccc;
-    background: #eee;
-    margin: auto;
-    padding: 15px 10px;
-  }
+  border: 3px solid #ccc;
+  background: #eee;
+  margin: auto;
+  padding: 15px 10px;
+}
 
 #login-portion {
-flex-basis: 100%;
+  flex-basis: 100%;
 }
 
 #login-portion h3 {
@@ -31,15 +31,14 @@ flex-basis: 100%;
 }
 
 #master-figure p {
-  margin-bottom:
-    -5px; 
+  margin-bottom: -5px;
 }
 
 #new-user-span {
   background-color: aquamarine;
   margin-top: 1rem;
   padding: 1rem;
-   padding-top: 10px; 
+  padding-top: 10px;
   text-align: center;
   height: 70px;
 }
@@ -48,44 +47,44 @@ flex-basis: 100%;
   margin-bottom: 5px;
 }
 
-  #login-section {
-    display: flex;
-    flex-flow: row wrap;
-    margin: 0 auto;
-    justify-content: center;
-  }
-  
+#login-section {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  justify-content: center;
+}
+
 .hide {
   display: none;
 }
 
 #login-span input {
   margin-right: 1rem;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
   margin-bottom: 1rem;
 }
 
-  #login-section figure {
-    margin-top: 1.5rem;
-    flex-basis: 100%;
-    max-width: 100%;
-    max-height: auto;
-    margin-bottom: -0.5rem;
-      border: 20px solid transparent;
-      border-image: url("/images/rosewoodHorizontal.png") 50 round;
-  }
+#login-section figure {
+  margin-top: 1.5rem;
+  flex-basis: 100%;
+  max-width: 100%;
+  max-height: auto;
+  margin-bottom: -0.5rem;
+  border: 20px solid transparent;
+  border-image: url("/images/rosewoodHorizontal.png") 50 round;
+}
 
 #login-section figure img:hover {
-cursor: pointer;
+  cursor: pointer;
 }
 
 #login-form {
-   flex-basis: 100%; 
+  flex-basis: 100%;
 }
 
 .form-panel {
   margin-top: 2rem;
-   text-align: center;
+  text-align: center;
 }
 
 #go-to-register {
@@ -93,6 +92,6 @@ cursor: pointer;
 }
 
 .border-one {
-    border: 20px solid transparent;
-    border-image: url("/images/rosewoodHorizontal.png") 50 round;
-  }
+  border: 20px solid transparent;
+  border-image: url("/images/rosewoodHorizontal.png") 50 round;
+}

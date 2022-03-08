@@ -1,25 +1,25 @@
 #friend-span {
-    background-color: aquamarine;
-    margin-top: 1.5rem;
-    display: block;
-    text-align: center;
-    padding-bottom: .5rem;
-    padding-top: .5rem;
+  background-color: aquamarine;
+  margin-top: 1.5rem;
+  display: block;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
 }
 
- #friend-span ul {
-     margin: 0 auto;
-     list-style-type: none;
-     padding: 0;
-} 
+#friend-span ul {
+  margin: 0 auto;
+  list-style-type: none;
+  padding: 0;
+}
 
 #friend-span li {
-    text-decoration: underline;
-    color: var(--violet);
-    margin-top: .5rem;
-    display: block;
+  text-decoration: underline;
+  color: var(--violet);
+  margin-top: 0.5rem;
+  display: block;
 }
 
 #friend-span li:hover {
-    cursor: pointer;
+  cursor: pointer;
 }

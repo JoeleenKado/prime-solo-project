@@ -24,16 +24,16 @@ function* fetchFrameSaga() {
 }
 function* fetchFriendArtSaga(action) {
   console.log("(1)In fetchFriendArtSaga...");
-   const id = action.payload
-   console.log('(2)artist:', id)
+  const id = action.payload;
+  console.log("(2)artist:", id);
   try {
     const config = {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
     };
     const response = yield axios.get(`api/art/${id}`, config);
-   yield put({ type: "SET_FRIEND_ART", payload: response.data 
-  })} catch (error) {
+    yield put({ type: "SET_FRIEND_ART", payload: response.data });
+  } catch (error) {
     console.log("Art get request failed", error);
   }
 }
@@ -46,7 +46,7 @@ function* addFrameSaga(action) {
       withCredentials: true,
     };
     const response = yield axios.post("api/workshop", action.payload, config);
-   yield put({ type: "FETCH_FRAME" });
+    yield put({ type: "FETCH_FRAME" });
   } catch (error) {
     console.log("Art get request failed", error);
   }
@@ -59,7 +59,7 @@ function* updateArtSaga(action) {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
     };
-  const response = yield axios.put("api/art", action.payload, config);
+    const response = yield axios.put("api/art", action.payload, config);
     yield put({ type: "FETCH_ART" });
   } catch (error) {
     console.log("Art get request failed", error);
@@ -78,5 +78,5 @@ function* deleteArtSaga(action) {
   } catch (error) {
     console.log("Art get request failed", error);
   }
-} 
+}
 export default frameSaga;

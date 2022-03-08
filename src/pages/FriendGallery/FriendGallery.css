@@ -9,8 +9,8 @@ button.licenses {
 }
 
 .delete-button {
-  margin-top: .5em;
- }
+  margin-top: 0.5em;
+}
 
 .delete-button:hover {
   background-color: red;
@@ -40,4 +40,4 @@ button.licenses {
   display: grid;
   justify-content: center;
   text-align: center;
-};
+}
