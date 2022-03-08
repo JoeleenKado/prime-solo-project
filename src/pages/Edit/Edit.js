@@ -4,6 +4,7 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 import { connect } from "react-redux";
 import * as filestack from 'filestack-js';
 import './Edit.css';
+
 function Edit(props) {
   const {art} = props.store
    const { title, statement, size, medium, url, id } = props.match.params;
@@ -20,20 +21,16 @@ console.log('size:', size)
       resolve(
         console.log('resolved', file), 
           url300 = file.url.slice(0, 32) + resize + file.url.slice(32),
-
       setUrlEdit(url300)
       );
       reject((reason) => console.log('Rejected:', reason))
-      // Or reject the selection with reject()
     });
   }}
-
   const [urlEdit, setUrlEdit] = useState(decodedUrl)
   const [titleEdit, setTitleEdit] = useState(title);
     const [sizeEdit, setSizeEdit] = useState(size);
     const [mediumEdit, setMediumEdit] = useState(medium);
     const [statementEdit, setStatementEdit] = useState(statement);
-  
   function update (property, edit) {
      props.dispatch({type: "UPDATE_ART", payload: {[property]: edit,
     id: id}
@@ -41,11 +38,9 @@ console.log('size:', size)
     }
   return (
     <>
-    {/* {JSON.stringify(props)} */}
     <form
       id="edit-form"    
     > 
-      {/* <label className='sr-only' htmlFor="title">Title */}
       <input htmlFor='Title Edit'      
        placeholder={title}
          value={titleEdit}

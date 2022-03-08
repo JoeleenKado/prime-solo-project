@@ -1,47 +1,11 @@
-/* .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; */
-  /* e.g. 
-      1fr 1fr
-      minmax(10px, 1fr) 3fr
-      repeat(5, 1fr)
-      50px auto 100px 1fr
-  */
-  /* grid-template-rows: ... ...; */
-  /* e.g. 
-      min-content 1fr min-content
-      100px 1fr max-content
-  */
-/* } */
-/* h1 {width: 100%} */
-/* .edit-button {
-  background: ;
-} */
-
-/* background-size: cover; */
-
-li:hover {
-  cursor: crosshair;
-  /* pointer-events: none; */
-}
 div.accordion {
   max-width: 288px;
   border-radius: 0%;
-
 }
 
 div.accordion.plate {
   margin: 0 auto;
 }
-
-/* h2.licenses {
-  text-align: center;
-} */
-
-/* button.licenses {
-  margin: auto;
-  display: block;
-} */
 
 .delete-button {
   margin-top: .5em;
@@ -58,23 +22,14 @@ div.accordion.plate {
   box-shadow: 0 10px 10px grey;
 }
 
-/* #gallery-section input {
-
-} */
-
 div.accordian-container {
 margin: 0;
 }
+
 .stone {
   background-image: url('/images/Marble.png');
   color: black;
   background-size: 280px 80px;
-}
-
-
-
-.stone .accordion-content article {
-  /* margin: 0 auto; */
 }
 
 background-image {
@@ -84,11 +39,7 @@ background-image {
 div.stone {
   max-width: 280px;
   margin: auto;
-  /* pointer-events: none; */
 }
-/* div.stone:hover {
-  cursor: normal;
-} */
 
 #text-plate {
   width: 50%;
@@ -97,98 +48,22 @@ div.stone {
   border-radius: .8;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  /* padding: 1px;
-  
-  height: 6px; */
   max-height: 3px;
   background-color: rgb(126, 108, 30);
-  /* margin-bottom: 3px; */
   margin: auto;
-
 }
+
 #text-plate:hover {
   cursor: pointer;
 }
 
 .accordion-content {
-  /* border-left: 1px solid gray;
-  border-right: 1px solid gray;
-  border-bottom: 1px solid gray;
-  border-top: 1px solid gray; */
-  /* margin-top: 1rem; */
-  /* max-height: 0; */
   max-width: 280px;
-  /* height: 100px; */
   background-color: wheat;
   overflow: hidden;
   transition: max-height 0.2s ease-in-out;
-  /* display: grid; */
-  /* margin: auto; */
-/* position: center;   */
-/* text-align: center; */
 };
-
-/* div.accordian-content article {
-  color: red;
-} */
-
-
- /* img {
-   height: 200px;
-  width: 300px; 
-}  */
-
-/* The flip card container - 
-set the width and height to whatever you want. 
-We have added the border property to demonstrate 
-that the flip itself goes out of the box on hover 
-(remove perspective if you don't want the 3D effect */
-.flip-card {
-  background-color: transparent;
-  width: 150px;
-  height: 200px;
-  border: 1px solid #f1f1f1;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
-}
-
-/* This container is needed to position the front and back side */
-.flip-card-inner {
-  position: relative;
-  /* width: 100%; */
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-/* Position the front and back side */
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-}
-
-/* Style the front side (fallback if image is missing) */
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
-}
 
 .accordion-content button {
   margin-bottom: 1rem;
 }
-/* Style the back side */
-/* .flip-card-back {
-  background-color: dodgerblue;
-  color: white;
-  transform: rotateY(180deg);
-} */
-
-

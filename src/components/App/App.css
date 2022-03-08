@@ -23,19 +23,13 @@ html {
   }
 
 body {
-    /* height: 100%; */
     margin: 0; 
     padding: 0;
     border: 0; 
-    /* display: inline; */
     font-family: var(--sans);
     background-image: url('https://injart.org/wp-content/uploads/2017/02/Minneapolis-Institute-Of-Arts-27463.jpg');
-  
-    /* Full height */
-    background-attachment: fixed; 
-  
-    /* Center and scale the image nicely */
-    background-position: center;
+      background-attachment: fixed; 
+      background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -51,157 +45,55 @@ background:  linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(100,237,192,1) 20%, 
 }
 
 #header-container {
-  /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(214,100,237,0.6208858543417367) 19%, rgba(0,212,255,1) 100%);     */
 width: 100%;
 }
 
 header{
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(214,100,237,0.6208858543417367) 19%, rgba(0,212,255,1) 100%);    
-
    height: 59.5px; 
-  /* padding: 1rem; */
-   /* width: 80%;  */
   margin: 0 auto;
-  /* height: 3rem; */
-
 }
 
 nav {
   height: 59.5px;
 }
-/* #home-icon {
-  max-width: 8px;
-} */
-
-
 
 nav ul {
   list-style-type: none;
-  /* height: 59.5px; */
   height: 100%;
-/* padding-top: 1rem; */
 margin: 0 auto;
-/* margin-left: 0; */
 padding-left: 0;
  display: flex;
    flex-flow: row wrap;
   justify-content: space-evenly; 
-  /* align-items: space-between; */
-  /* height: 1.5rem; */
 }
 
-
-
-
-
-nav ul:first-child {
-  /* margin: 0 auto;
-  justify-self: center; */
-  /* width: 2.5rem; */
-  /* justify-self: center; */
-  /* text-align: center; */
-   /* flex-basis: 100%; */
-   /* max-width: 20%; */
-  /* margin: 0 auto; */
-}
-
-nav li:first-child {
-  /* flex-basis: 100%; */
-   /* text-align: center;  */
-  /* margin-right: auto; */
-  /* width: 2rem; */
-
-}
 #home-icon {
   color: gold;
-  /* max-width: 2.5rem;
-  font-size: 1.75rem;
-  padding: 0; */
-  /* margin-right: 0; */
-  /* height */
 }
 
 nav li {
-  /* max-width: 4rem; */
-/* height: 100%; */
-  /* flex-basis: 100%; */
-  /* justify-content: space-between; */
-    /* margin: 0 auto;   */
-  /* margin-top: 1rem; */
-  /* padding-top: 16.5px; */
   justify-content: center;
 }
 
-
-
 nav a {
-   /* max-width: 2.5rem;  */
    height: 100%;
   text-decoration: none; 
  font-size: 1.5rem;
  padding-top: 1rem;
  color: var(--black);
  display: block; 
- /* justify-content: center; */
-/* width: 50%; */
-/* padding: 2rem; */
 } 
 
-/* #home-icon {
-  padding-top: 1rem;
-} */
-
-#nav-ul li link a{
-  /* margin: 20px auto; */
-  /* height: 5rem; */
-  /* padding: 3rem; */
-  /* margin: 0 auto; */
-  
-}
-#nav-ul li:first-child a.nav-link {
-  /* background-color: transparent; */
-}
-
-#nav-ul a.nav-link {
-  /* text-decoration: none; */
-  /* font-size: 1.5rem; */
-  /* color: white; */
-  /* display: block; */
-  /* padding: 0.5rem; */
-  /* text-align: center; */
-  /* background-color: var(--purple); */
-  /* border-radius: 5px; */
-}
-
 #nav-ul a.nav-link:hover {
-  /* background-color: pink; */
   color: var(--color5);
 }
-
-
-/* figure {
-  margin: 0 0 0.5rem 0;
-  padding: 0;
-  max-height: 400px;
-  overflow: hidden;
-  position: relative;
-  border-width: 10px;
-  border-style: solid;
-  border-radius: 5px;
-} */
-
-
-
 
 h1,
 h2,
 h3 {
   margin: 0;
 }
-
-/* a {
-  color: var(--violet)
-} */
 
 a:hover {
   color: var(--purple);
@@ -214,56 +106,31 @@ a:hover {
 background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 56%, rgba(99,153,37,0.8758096988795518) 100%);
 }
 
-
-/* #gallery-section{ display: inline; } */
 #gallery-section {
   background-color: rgba(43, 143, 168, 0.424);
-  /* margin-top: 0; */
-  /* margin-top: 1.5rem; */
-  /* background-image: url('/images/Gallery.jpg'); */
-  /* background-size: cover; */
   width: 1200px;
   padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-/* justify-self: center; */
-
-  
+  padding-bottom: 1.5rem; 
 }
 
 #gallery-section ul {
   list-style-type: none;
   max-width: 1200px;
-  /* text-align: center; */
    margin-left: 0; 
-  /* padding: 0 1rem; */
-  /* display: inline; */
   padding: 0;
   display: grid;
   row-gap: 2.5rem;
-  /* justify-content: center; */
-  /* justify-items: center; */
   grid-template-columns: repeat(3, 1fr);
 }
 
 #gallery-section li {
-   /* display: inline-block; */
-   /* gap: 10px; */
-   /* margin: 0 auto; */
-   /* margin-top: 1.5rem; */
    margin-top: auto;
    margin-bottom:auto;
    max-width: 100%;
-   /* grid-gap: 5%; */
-   /* margin-top: 3rem; */
    max-height: 100%;
-   /* margin-bottom: 1.5rem; */
-  /* list-style-position: inside; */
-  /* display: inline; */
-    /* align-self: center;   */
     text-align: center;
-    /* justify-self: center; */
-   /* grid-column-start: 1; */
 }
+
 #gallery-section img:hover {
 cursor: zoom-in;
 }
@@ -272,137 +139,55 @@ cursor: zoom-in;
   border: 5px solid black;
   max-width: 288px;
   margin: 0;
-  /* justify-content: center; */
 }
 
 #gallery-section article {
-  /* text-align: left; */
-  /* color: red; */
-  /* margin: auto; */
    margin-top: 1rem; 
   max-height: 100%
-  /* margin-left: 29px; */
 }
-
-
 
 section h2 {
   font-size: 2.5rem;
 }
 
-
-/*****************
-New styles begin here and continue to the end of the page 
-****************/
-
-/* section ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-} */
-
-
-/* To keep mobile screens from being stupid long, consider setting a max height on the images and hide the overflow. 
-
-Spelled out the individual border styles so border-color could go elsewhere. Styling is the same for all borders except the color. */
-
-
-
 figure {
   margin: 0 0 0.5rem 0;
   padding: 0;
   max-width: 40%;
-  /* height: auto; */
-  /* max-height: 550px; */
-   /* max-width: 100%; */
-   /* flex-basis: 100%; */
-   /* justify-self: center; */
-  /* overflow: hidden; */
   position: relative;
   border-width: 10px;
   border-style: solid;
   border-radius: 5px;
-  border: 10px solid black;
-   /* max-width: auto; */
-   
+  border: 10px solid black;   
 }
-
-/* figure:hover {
-  /* pointer-events: none; */
-
-
-/* strange open space at the bottom of the box which shows through the transparent overlay - this kills it */
 
 figure img {
-  /* padding-bottom: -5px; */
   display: block;
   max-height: 400px;
-  /* max-width: 300px; */
-  /* max-height: 500px; */
   object-fit: contain;
   margin: 0 auto;
-  object-position:
-   /* 0 -150px */
-   0
-   ;
+  object-position: 0;
 }
 
-
-
-
 figcaption {
-  /* background-color: rgba(255, 255, 255, 0.8); */
-  /* font-size: 1.875rem; */
   position: absolute;
   bottom: 0;
-  /* margin: ; */
-  /* padding-left: 10rem; */
-  /* font-size: .75rem; */
     max-height: 60%;
   width: 100%;
-  /* margin: 10px; */
   padding: 10px;
   background-color: var(--indigo);
   color: white;
 }
-
-figcaption h4 { 
-
-}
-/* make the a have a big clickable area with display: block - the link occupies its containing element, the figcaption */
 
 figcaption a {
   display: block;
   padding: 1rem;
   text-decoration: none;
   color: var(--color1);
-
 }
 
-@media (max-width: 550px) {
-  /* nav li {
-    flex-basis: 50%;
-    margin: 0 auto;
-    justify-content: center;
-  }
-
-  nav a {
-    margin: 0 auto;
-    text-decoration: none;
-    font-size: 1.2rem;
-    color: white;
-    background-color: orange;
-    display: block;
-    padding: .5rem;
-    border-radius: 5px;
-    text-align: center;
-    justify-content: center;
-  } */
-  
-}
-
-
-
+@media (max-width: 550px) { 
+}/* END media query */
 @media (max-width: 800px) {
 .row {
   display: flex;
@@ -410,45 +195,18 @@ figcaption a {
   justify-content: space-between;
   gap: 4%;
 }
-figure, .span2 {
-  flex-basis: 48%;
-}
-
-.span3 {
-  flex-basis: 100%;
-}
-
-.span3-1 {
-  flex-basis: 100%
-}
-
-.span4 {
-  flex-basis: 100%;
-}
-
-.span2-4 {
-  flex-basis: 100%;
-}
 
 header{
   height: 100px; 
- /* padding: 1rem; */
-  /* width: 80%;  */
- /* margin: 0 auto; */
- /* height: 3rem; */
-
 }
 
 nav ul {
   justify-content: space-evenly;
-  /* gap: 1.2em; */
 }
 
 nav li {
   flex-basis: auto;
   margin: 0 auto;
-  /* margin-bottom: 0; */
-  /* height: 50%; */
 }
 nav li:first-child {
   flex-basis: 100%;
@@ -461,48 +219,12 @@ nav a {
   height: 100%;
   margin: 0 auto;
 }
-
-/* #nav-ul {
-justify-content: center;
-gap: 1.2em;
-}
-
-#nav-ul li {
-  flex-basis: auto;
-  margin-bottom: 0;
-  } */
-  /* #nav-ul li:first-child {
-    flex-basis: 100%;
-    text-align: c;
-  } */
-
-  /* #nav-ul a.nav-link {
-    color: --baby-blue;
-   background-color: transparent;
-   padding: 0;
-    } */
     nav a:hover {
       color: grey;
       background-color: transparent;
     }
+}/* END media query */
 
-    /* section ul, button.accordion {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      flex-flow: row wrap;
-      justify-content: space-between;
-    } */
-
-    /* section li {
-      flex-basis: 49.5%;
-      
-  }
-  figure img {
-    object-position: 0;
-} */
-
-
-}
 @media (min-width: 800px) {
 
 
@@ -511,139 +233,41 @@ figure, span3-1 {
   flex-basis: 22%;
 }
 
-/* section h2 {
-  margin-left: 100%;
-}
-
-section li {
-  flex-basis: 32.5%;
-} */
-
-.span2, .span2-4 {
-  flex-basis: 48%;
-}
-.span3 {
-  flex-basis: 74%;
-}
-.span4 {
-  flex-basis: 100%;
-}
-.reverse {
-  flex-flow: row-reverse wrap;
-}
-
-.order-1 {
-  order: 1;
-}
-.order-2 {
-  order: 2;
-}
-.order-3 {
-  order: 3;
-}
-
- nav ul {
-  /* justify-content: flex-end; */
-} 
-
 nav li:first-child {
-  /* flex-basis: auto; */
-  /* margin: 0 auto; */
   order: 2;
 }
 
 nav li:nth-child(3),
 nav li:nth-child(4) {
-/* text-align: center; */
   order: 3;
 }
 
 nav li:nth-child(5),
 nav li:nth-child(6) {
-  /* margin:  auto; */
   order: 1;
 }
-
-/* nav ul {
-  justify-self: flex-start;
-}
-nav ul {
-}
-
-nav li:first-child {
-  flex-basis: auto; */
-  /* justify-self: center; */
-  /* margin: 0 auto;
-  order: 2;
-} */
-/* nav li li:nth-child(2),
-nav li li:nth-child(3) {
-  order: 1;
-}
-#nav li:nth-child(4),
-#nav li:nth-child(5) {
-  order: 3;
-} */
-}/* end media query */
-
+}/* END media query */
 
  figure {
   margin: 0;
   padding: 0;
 } 
 
-figcaption {
- 
-  /* padding: 1rem; */
-}
-
-/* figcaption * {
-  margin: 0.5rem;
-} */
-
 figure > div {
-  /* background-image: url('public/images/rose') */
 background-color: grey;
 min-height: 150px;
 }
-
-
-
-.one {
-  background-color: #9b2226;
-}
-.two {
-background-color: #bb3e03;
-}
-.three {
-  background-color: #ee9b00;
-}
-.four {
-  background-color: #005f73;
-}
-
-/* form {
- margin: auto;
-} */
-
-/* .form-panel {
-    margin: auto 0;
-} */
 
 .canvas {
     background-image: url('/images/canvas.jpg');
 
 }
 
-
 .black-box {
-    /* background-color: white; */
     background-image: url('/images/canvas.jpg');
-/* width: 80%; */
   padding: 1rem;
   margin: auto 0;
   border-radius: 10px;
-  /* color: var(--white); */
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -662,10 +286,7 @@ background-color: #bb3e03;
 
 .btn:hover {
     box-shadow: 0px 3px 10px 20px rgba(255, 105, 135, .3);
-
   }
-
-/* Form {} */
 
 .image {
     height: 200px;
@@ -675,45 +296,3 @@ background-color: #bb3e03;
 .center {
     text-align: center;
 }
-
-/* nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-} */
-
-
-/* I cover CSS-only hamburger buttons in my Advanced CSS Layouts course.
-
-Here, because the nav is short, let's try a 4 button layout at the top of the screen.
-*/
-
-
-
-/* #nav-ul a.nav-link {
-  text-decoration: none;
-  font-size: 1.2rem;
-  color: var(--purple);
-  display: block;
-} */
-
-
-
-
-/* #nav-ul li:nth-child(2),
-#nav-ul li:nth-child(3) {
-  order: 2;
-}
-  #nav-ul li:nth-child(4),
-#nav-ul li:nth-child(5) {
-  order: 3;
-
-
-} */
-
-
-
-
-
-
-

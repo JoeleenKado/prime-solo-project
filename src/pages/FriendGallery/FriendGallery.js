@@ -1,10 +1,7 @@
 import React from 'react'
 import { useEffect,  } from "react";
-import {useDispatch, useSelector} from 'react-redux'
-import ActionService from "../../redux/services/action.service";
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
-import Gallery from '../Gallery/Gallery';
 import './FriendGallery.css'
 import Art from '../Gallery/Art'
 
@@ -41,7 +38,6 @@ likeSorted.map((artwork) =>{
   })}
   </ul>
   )}
-{/* ) */}
 </section>
 </center>
 )//END return

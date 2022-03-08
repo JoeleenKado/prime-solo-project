@@ -1,7 +1,4 @@
-li:hover
-{
+li:hover {
     cursor: pointer;
     color: darkgreen;
-    /* background-image: url('images/');
-    background-repeat: no-repeat; */
 }

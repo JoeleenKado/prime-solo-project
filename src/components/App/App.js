@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch} from 'react-redux'
 import {
   HashRouter as Router,
@@ -12,18 +12,15 @@ import { connect } from "react-redux";
 import Footer from "../Footer/Footer";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import mapStoreToProps from "../../redux/mapStoreToProps";
-import Workshop from '../../pages/Workshop/Workshop'
 import Program from "../../pages/Program/Program";
 import LoginPage from "../../pages/LoginPage/LoginPage";
 import Settings from '../../pages/Settings/Settings'
 import RegisterPage from "../../pages/RegisterPage/RegisterPage";
 import Gallery from "../../pages/Gallery/Gallery";
 import FriendGallery from "../../pages/FriendGallery/FriendGallery";
-import Admin from '../../pages/Admin/Admin'
 import Studio from "../../pages/Studio/Studio"
 import Forum from "../../pages/Forum/Forum";
 import Edit from '../../pages/Edit/Edit'
-// import Workshop from "../../pages/Workshop/Workshop";
 import "./App.css";
 
 function App(props) {
@@ -43,19 +40,11 @@ dispatch(action.fetchUser())
             <Switch>
               {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
               <Redirect exact from="/" to="/home" />
-              {/* Visiting localhost:3000/about will show the about page. */}
               <Route
-                // shows AboutPage at all times (logged in or not)
                 exact
                 path="/program"
                 component={Program}
               />
-{/* <Route
-                // shows AboutPage at all times (logged in or not)
-                exact
-                path="/program/:RegisterForm"
-                component={Program }
-              /> */}
                <ProtectedRoute     
       path="/gallery/:username/:id"
       render={(props) => <FriendGallery {...props} />}
@@ -77,7 +66,6 @@ dispatch(action.fetchUser())
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
 <ProtectedRoute props={props}
-                // logged in shows UserPage else shows LoginPage
                 exact
                 path="/gallery"
                 component={Gallery}
@@ -88,7 +76,6 @@ dispatch(action.fetchUser())
                 component={Forum}
               />
               <ProtectedRoute
-                // logged in shows InfoPage else shows LoginPage
                 exact
                 path="/studio"
                 component={Studio}
@@ -115,7 +102,6 @@ dispatch(action.fetchUser())
                 exact
                 path="/home"
                 component={LoginPage}
-                //  authRedirect="/user"
                 authRedirect="/gallery"
               />
               {/* If none of the other routes matched, we will show a 404. */}

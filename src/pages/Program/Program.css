@@ -3,14 +3,10 @@
     margin-left: 5rem;
 }
 
-
-
 #program {
-    /* display: flex; */
 max-width: 400px;
 margin: 0 auto;
 max-height: 1000px;
-/* text-align: center; */
  margin-top: 1.5rem; 
 background-image: url('/images/Parchment.png');
 padding: 1rem;
@@ -18,16 +14,9 @@ background-position: center top;
 background-repeat: no-repeat;
 background-attachment: fixed;
 flex-basis: 100%;
-/* justify-self: center; */
 background-size: auto;
 }
 
-#register-section #program {
-    /* flex-basis: 100%; */
-}
-
 #program h2 {
-    /* flex-basis: 100%; */
-    /* justify-self: center; */
     text-align: center;
 }

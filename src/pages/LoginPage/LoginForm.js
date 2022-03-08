@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
  import  './LoginPage.css'
@@ -6,23 +6,10 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 const LoginForm = (props) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [roseDoorReady, setRoseDoorReady] = useState(false)
   
- const handleNewClick = (event) => {
-  console.log('hello')
-  }
-  const config = { 
-    // attributes: true, 
-     childList: true, 
-    // subtree: true 
-  };
-   
     function login (event) {
       event.preventDefault();
-  
       if (username.length && password.length) {
-        // toggleDoor();
-
         props.dispatch({
           type: "LOGIN",
           payload: {
@@ -32,30 +19,16 @@ const LoginForm = (props) => {
         });
       } else {
         props.dispatch({ type: "LOGIN_INPUT_ERROR" });
-      }
-    }; // end login
-  
+      }  }
     return (
-      // <Grid container 
-      // spacing={2} 
-      // style={styles.formContainer}
-      // direction="column"
-      // alignItems="center"
-      // justify="center">
-
-      // {/* <Grid item xs={4} key={pokemonId} spacing={1}> */}
-// {/* <> */}
-
 <span id='login-span'>
 <h3>Returning User:</h3>
       <form className="form-panel" onSubmit={login}>
-
           {props.store.errors.loginMessage && (
             <h3 className="alert" role="alert">
               {props.store.errors.loginMessage}
             </h3>
           )}
-        
             <label htmlFor="username">
               Username:
               <input
@@ -67,7 +40,6 @@ const LoginForm = (props) => {
                 className="input"
               />
             </label>
-       
             <label htmlFor="password">
               Password:
               <input
@@ -77,15 +49,10 @@ const LoginForm = (props) => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-            </label>
-        
+            </label>      
             <input className="btn" type="submit" name="submit" value="Log In" />
-
       </form>
       </span>
-
-     
     );
-  }
-
+  }//END LoginForm
 export default connect(mapStoreToProps)(LoginForm);

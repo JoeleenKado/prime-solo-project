@@ -8,7 +8,4 @@ const artReducer = (state = [], action) => {
       return state;
   }
 };
-
-// user will be on the redux state at:
-// store.user
 export default artReducer;
