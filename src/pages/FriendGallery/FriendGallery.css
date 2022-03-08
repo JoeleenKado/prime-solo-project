@@ -30,6 +30,10 @@ button.licenses {
   margin-bottom: 1rem;
 }
 
+.tip {
+  color:palegreen;
+}
+
 .accordion-content {
   border-left: 1px solid #006da5;
   border-right: 1px solid #006da5;

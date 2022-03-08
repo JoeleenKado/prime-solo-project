@@ -19,6 +19,9 @@ function Gallery(props) {
   return (
     <center>
       <section id="gallery-section">
+      <h3 className="tip">Click a titleplate for more information.</h3>
+
+
         {!art.length && !friendly ? (
           <h1>
             You have not yet created art. head over to the Studio to get started

@@ -19,6 +19,8 @@ function FriendGallery(props) {
     <center>
       <section id="gallery-section">
         <h2>{props.match.params.username}'s Gallery</h2>
+        <h3 className="tip">Click a titleplate for more information.</h3>
+
         {!friendArt.length ? (
           <h1>This artist has not yet created art</h1>
         ) : (
