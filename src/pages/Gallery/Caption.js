@@ -36,10 +36,10 @@ const Caption = (props) => {
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
     }
-    console.log("target:", e.target);
-    console.log("content:", content);
-    let element = document.getElementsByClassName("flip-card-inner");
-    console.log("element:", element);
+    // console.log("target:", e.target);
+    // console.log("content:", content);
+    // let element = document.getElementsByClassName("flip-card-inner");
+    // console.log("element:", element);
   }
   return (
     <>

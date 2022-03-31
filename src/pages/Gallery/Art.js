@@ -5,8 +5,10 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 import Caption from "./Caption";
 
 function Art(props) {
-  const { artwork, history } = props;
-  const { artist, title, statement, size, medium, url, id } = artwork;
+  const 
+    { artwork, history } = props,
+    { artist, title, statement, size, medium, url, id } = artwork;
+
   const encodedUrl = encodeURIComponent(url);
   return (
     <>

@@ -5,14 +5,30 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 const RegisterForm = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState('')
+
+// const phoneDisplay = `(${areaCode}) ${first3} - ${lastFour}`
+// let phone = ''
+
+function phoneFunction(e) {
+// phone += (e.target.value)
+// (phone)
+// setPhone(e.target.value)
+}
+
+
+
   function register(event) {
     event.preventDefault();
+    console.log('phone:', phone)
     if (username.length && password.length) {
       props.dispatch({
-        type: "REGISTER",
+        type: "FETCH_CODE",
         payload: {
           username: username,
           password: password,
+          phone: phone
+
         },
       });
     } else {
@@ -48,6 +64,22 @@ const RegisterForm = (props) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+        </label>
+        <label htmlFor="phone">
+          Phone #:
+          <input 
+          name='phone'
+          type="tel" 
+          id="phone" 
+          // name="phone"
+       pattern="[+]{1}[0-9]{1}[(]{1}[0-9]{3}[)]{1}[0-9]{3}[-]{1}[0-9]{4}"
+       required
+       value={phone}
+       onChange={(e) => {
+setPhone(e.target.value)   }}/>
+
+<small>Format: +1(234)567-8910</small>
+            
         </label>
         <input className="btn" type="submit" name="submit" value="Register" />
       </form>

@@ -18,6 +18,7 @@ function FriendGallery(props) {
   return (
     <center>
       <section id="gallery-section">
+        
         <h2>{props.match.params.username}'s Gallery</h2>
         <h3 className="tip">Click a titleplate for more information.</h3>
 

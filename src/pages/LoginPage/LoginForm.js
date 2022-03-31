@@ -44,13 +44,14 @@ const LoginForm = (props) => {
         <label htmlFor="password">
           Password:
           <input
-            type="password"
+            type="text"
             name="password"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
+        
         <input className="btn" type="submit" name="submit" value="Log In" />
       </form>
     </span>
