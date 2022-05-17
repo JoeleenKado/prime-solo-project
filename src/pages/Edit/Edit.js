@@ -1,11 +1,13 @@
 import { useState } from "react";
 import React from "react";
-import mapStoreToProps from "../../redux/mapStoreToProps";
-import { connect } from "react-redux";
+// import mapStoreToProps from "../../redux/mapStoreToProps";
+ import { useDispatch} from "react-redux";
 import * as filestack from "filestack-js";
 import "./Edit.css";
 
 function Edit(props) {
+  const dispatch = useDispatch();
+  console.log('in edit:', props)
   const { art } = props.store;
   const { title, statement, size, medium, url, id } = props.match.params;
   const decodedUrl = decodeURIComponent(url);
@@ -33,7 +35,7 @@ function Edit(props) {
   const [mediumEdit, setMediumEdit] = useState(medium);
   const [statementEdit, setStatementEdit] = useState(statement);
   function update(property, edit) {
-    props.dispatch({
+    dispatch({
       type: "UPDATE_ART",
       payload: { [property]: edit, id: id },
     });
@@ -58,7 +60,6 @@ function Edit(props) {
           value={mediumEdit}
           onChange={(e) => setMediumEdit(e.target.value)}
           onBlur={(e) => setMediumEdit(e.target.value)}
-          value={mediumEdit}
         />
         <button
           onClick={(e) => {
@@ -133,4 +134,4 @@ function Edit(props) {
     </>
   ); //END return ()
 } //END Edit
-export default connect(mapStoreToProps)(Edit);
+export default (Edit);

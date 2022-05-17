@@ -1,16 +1,17 @@
 import React from "react";
 import { useEffect } from "react";
-import { connect } from "react-redux";
-import mapStoreToProps from "../../redux/mapStoreToProps";
+ import { useDispatch } from "react-redux";
+// import mapStoreToProps from "../../redux/mapStoreToProps";
 import "./Gallery.css";
 import Art from "./Art";
 
 function Gallery(props) {
-  console.log('in gallery')
+  console.log('in gallery:', props)
+ const dispatch = useDispatch();
   const { friendly } = props.store;
   const { art } = props.store;
   useEffect(() => {
-    props.dispatch({ type: "FETCH_ART" });
+    dispatch({ type: "FETCH_ART" });
   }, []);
   console.log("art:", art);
   const likeSorted = art.sort(function (a, b) {
@@ -50,4 +51,4 @@ function Gallery(props) {
     </center>
   );
 } //END Gallery
-export default connect(mapStoreToProps)(Gallery);
+export default (Gallery);

@@ -6,6 +6,7 @@ import "./FriendGallery.css";
 import Art from "../Gallery/Art";
 
 function FriendGallery(props) {
+  console.log('freind props:', props)
   const { username, id } = props.match.params;
   const { friendly, friendArt } = props.store;
   useEffect(() => {

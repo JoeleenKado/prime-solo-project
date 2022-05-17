@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   HashRouter as Router,
   Route,
@@ -25,6 +25,9 @@ import Authentication from "../../pages/Authentication/Authentication";
 import "./App.css";
 
 function App(props) {
+  const store = useSelector((store) => store);
+
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(action.fetchUser());
@@ -44,29 +47,28 @@ function App(props) {
           <Route exact path="/program" component={Program} />
           <ProtectedRoute
             path="/gallery/:username/:id"
-            render={(props) => <FriendGallery {...props} />}
+            render={(props) => <FriendGallery {...props} store={store} />}
           />
-          <ProtectedRoute
+          {/* <ProtectedRoute
             path="/edit/:title/:medium/:size/:statement/:url/:id"
-            render={(props) => <Edit {...props} />}
-          />
+            render={() => <Edit store={store} />}
+          /> */}
           <ProtectedRoute
             path="/settings"
-            render={(props) => <Settings {...props} />}
+            render={() => <Settings store={store} />}
           />
           <ProtectedRoute
             path="/edit/:title/:medium/:size/:statement/:url/:id"
-            render={(props) => <Edit {...props} />}
+            render={(props) => <Edit {...props} store={store} />}
           />
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
           <ProtectedRoute
-            props={props}
             exact
             path="/gallery"
-            component={Gallery}
+            render={(props) => <Gallery {...props} store={store} />}
           />
            <Route
             // props={props}
