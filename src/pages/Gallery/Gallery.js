@@ -6,6 +6,7 @@ import "./Gallery.css";
 import Art from "./Art";
 
 function Gallery(props) {
+  console.log('in gallery')
   const { friendly } = props.store;
   const { art } = props.store;
   useEffect(() => {

@@ -16,8 +16,9 @@ class RegisterPage extends Component {
   render() {
     return (
       <section id="register-section">
+        {/* PROPS: {JSON.stringify(this.props)} */}
         <AboutPage />
-        <RegisterForm cancelRegistration={this.cancelRegistration} />
+        <RegisterForm cancelRegistration={this.cancelRegistration} history={this.props.history} />
         <span id="new-user-span">
           <h3>Returning User:</h3>
           <button

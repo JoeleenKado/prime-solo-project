@@ -1,49 +1,54 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
-
+import CodeGenerator from "../../components/CodeGenerator";
 const RegisterForm = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState('')
+  // const [phone, setPhone] = useState('')
+ 
+  const {history} = props;
 
-// const phoneDisplay = `(${areaCode}) ${first3} - ${lastFour}`
-// let phone = ''
-
-function phoneFunction(e) {
-// phone += (e.target.value)
-// (phone)
-// setPhone(e.target.value)
+const user = {
+  username: username,
+  password: password,
+  // phone: phone,
+  // code: CodeGenerator()
 }
+
+
 
 
 
   function register(event) {
     event.preventDefault();
-    console.log('phone:', phone)
+
+    // console.log('phone:', phone)
+    // console.log('codeGenerator', CodeGenerator())
     if (username.length && password.length) {
       props.dispatch({
-        type: "FETCH_CODE",
-        payload: {
-          username: username,
-          password: password,
-          phone: phone
-
-        },
+        type: "REGISTER",
+        payload: user
       });
-    } else {
+    } else {console.log('error!!!')
       props.dispatch({ type: "REGISTRATION_INPUT_ERROR" });
-    }
+    }//END if
+    //  history.push(`/authentication/:${user.username}`)
+
   }
   return (
+    <>
+   
     <span id="login-span">
+      {/* PROPS: {JSON.stringify(props)} */}
+    
       <h3>New User:</h3>
+
+      
+
+
       <form className="form-panel" onSubmit={register}>
-        {props.store.errors.loginMessage && (
-          <h3 className="alert" role="alert">
-            {props.store.errors.loginMessage}
-          </h3>
-        )}
+        
         <label htmlFor="username">
           Username:
           <input
@@ -65,7 +70,7 @@ function phoneFunction(e) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <label htmlFor="phone">
+        {/* <label htmlFor="phone">
           Phone #:
           <input 
           name='phone'
@@ -80,10 +85,17 @@ setPhone(e.target.value)   }}/>
 
 <small>Format: +1(234)567-8910</small>
             
-        </label>
+        </label> */}
+        
         <input className="btn" type="submit" name="submit" value="Register" />
       </form>
     </span>
+    {props.store.errors.registrationMessage && (
+      <h3 style={{color: 'white', backgroundColor: 'black'}} className="alert" role="alert">
+  {props.store.errors.registrationMessage}
+      </h3>
+   )}
+    </>
   );
 }; //END RegisterForm
 export default connect(mapStoreToProps)(RegisterForm);

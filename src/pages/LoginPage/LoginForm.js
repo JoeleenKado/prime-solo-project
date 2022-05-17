@@ -19,17 +19,23 @@ const LoginForm = (props) => {
       });
     } else {
       props.dispatch({ type: "LOGIN_INPUT_ERROR" });
+     
+      props.dispatch({type: "CLEAR_LOGIN_ERROR"})
     }
   }
   return (
+<>
+
+
     <span id="login-span">
       <h3>Returning User:</h3>
+      {props.store.errors.loginMessage && (
+         <h3 style={{color: 'white', backgroundColor: 'black'}} className="alert" role="alert">
+     {props.store.errors.loginMessage}
+         </h3>
+      )}
       <form className="form-panel" onSubmit={login}>
-        {props.store.errors.loginMessage && (
-          <h3 className="alert" role="alert">
-            {props.store.errors.loginMessage}
-          </h3>
-        )}
+       
         <label htmlFor="username">
           Username:
           <input
@@ -54,7 +60,8 @@ const LoginForm = (props) => {
         
         <input className="btn" type="submit" name="submit" value="Log In" />
       </form>
+      
     </span>
-  );
+    </>);
 }; //END LoginForm
 export default connect(mapStoreToProps)(LoginForm);

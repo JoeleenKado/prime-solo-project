@@ -35,6 +35,7 @@ const LoginPage = (props) => {
     console.log("retFunction():", retFunction());
     return (
       <section id="login-section">
+        PROPS: {JSON.stringify(props)}
         {!image_id ? (
           <p>Loading Artwork...</p>
         ) : (
