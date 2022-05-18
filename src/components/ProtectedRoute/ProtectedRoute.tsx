@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import LoginPage from "../../pages/LoginPage/LoginPage";
 import mapStoreToProps from "../../redux/mapStoreToProps";
+import { withRouter, RouteProps } from 'react-router';
 
 // A Custom Wrapper Component -- This will keep our code DRY.
 // Responsible for watching redux state, and returning an appropriate component
@@ -13,8 +14,16 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 // so your server-side route must implement real security
 // by checking req.isAuthenticated for authentication
 // and by checking req.user for authorization
+interface IProps {
+  component: any;
+  props: any;
+  authRedirect: any
+  store: any
+  path: any
+}
 
-const ProtectedRoute = (props) => {
+
+const ProtectedRoute: import('react').FunctionComponent<IProps> = (props) => {
   // Using destructuring, this takes ComponentToProtect from component
   // prop and grabs all other props to pass them along to Route
   const {
@@ -47,12 +56,14 @@ const ProtectedRoute = (props) => {
 
   // We return a Route component that gets added to our list of routes
   return (
+    
     <Route
       // all props like 'exact' and 'path' that were passed in
       // are now passed along to the 'Route' Component
       {...otherProps}
       component={ComponentToShow}
     />
+    
   );
 };
 
