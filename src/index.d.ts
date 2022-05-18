@@ -12,7 +12,9 @@ declare module 'react' {
   declare global {
     namespace JSX {
       interface IntrinsicElements {
-        'center': any
+        'center': any;
+        'Router': any;
+        'Link' : any;
       }
     }
   }

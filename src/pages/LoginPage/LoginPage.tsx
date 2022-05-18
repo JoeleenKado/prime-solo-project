@@ -13,11 +13,11 @@ import { articData } from "../../types/index";
   
   }
 const LoginPage: import("react").FunctionComponent<IProps> = (props) => {
-  
+  const {store} = props
   console.log('loginpage:',)
   const dispatch = useDispatch();
   // const { artic } = props.store;
-  const { image_id, title, artist_display } = props.store.artic;
+  const { image_id, title, artist_display } = store.artic;
   const [caption, setCaption] = useState(true);
   useEffect(() => {
     dispatch({ type: "FETCH_RANDOM" });

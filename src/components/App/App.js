@@ -36,7 +36,8 @@ function App(props) {
     <>
       <header>
         <nav>
-          <Nav id="nav" />
+          <Nav id="nav" 
+          {...props} store={store}/>
         </nav>
       </header>
       <div className="color-bar"></div>

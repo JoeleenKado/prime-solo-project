@@ -1,16 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { withRouter, RouteProps } from 'react-router';
+import { connect, useDispatch } from "react-redux";
 import "./Nav.css";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import { HashRouter as Router } from "react-router-dom";
 
-const Nav = (props) => {
+
+interface IProps {
+  store: any;
+}
+
+const Nav: import('react').FunctionComponent<IProps> = ({store}) => {
+  const dispatch = useDispatch();
+  
+  const {id} = store.user
   let loginLinkData = {
     path: "/login",
     text: "Login / Register",
   };
-  if (props.store.user.id != null) {
+  if (id != null) {
     loginLinkData.path = "/";
     loginLinkData.text = "Logout";
   }
@@ -33,31 +42,31 @@ const Nav = (props) => {
             onClick={
               loginLinkData.path !== "/"
                 ? null
-                : () => props.dispatch({ type: "LOGOUT" })
+                : () => dispatch({ type: "LOGOUT" })
             }
           >
-            <i class="fa-solid fa-door-open" aria-hidden="true"></i>
-            <span class="sr-only">{loginLinkData.text}</span>
+            <i className="fa-solid fa-door-open" aria-hidden="true"></i>
+            <span className="sr-only">{loginLinkData.text}</span>
           </Link>
         </li>
         <li>
           <Link className="nav-link" to="/program">
-            <i class="fa-solid fa-solid fa-book-open" aria-hidden="true"></i>
-            <span class="sr-only">Program</span>
+            <i className="fa-solid fa-solid fa-book-open" aria-hidden="true"></i>
+            <span className="sr-only">Program</span>
           </Link>
         </li>
-        {props.store.user.id && (
+        {id && (
           <>
             <li>
               <Link className="nav-link" to="/studio">
-                <i class="fa-solid fa-palette" aria-hidden="true"></i>
-                <span class="sr-only">Studio</span>
+                <i className="fa-solid fa-palette" aria-hidden="true"></i>
+                <span className="sr-only">Studio</span>
               </Link>
             </li>
             <li>
               <Link className="nav-link" to="/forum">
-                <i class="fa-solid fa-users" aria-hidden="true"></i>
-                <span class="sr-only">Forum</span>
+                <i className="fa-solid fa-users" aria-hidden="true"></i>
+                <span className="sr-only">Forum</span>
               </Link>
             </li>
           </>
@@ -67,4 +76,4 @@ const Nav = (props) => {
     </>
   ); //END return
 }; //END Nav
-export default connect(mapStoreToProps)(Nav);
+export default (Nav);
