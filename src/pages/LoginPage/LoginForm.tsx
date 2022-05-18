@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { connect, useDispatch } from "react-redux";
 // import mapStoreToProps from "../../redux/mapStoreToProps";
 import "./LoginPage.css";
 
-const LoginForm = (props) => {
+interface IProps {
+  props: any,
+  store: any
+}
+
+
+const LoginForm: FunctionComponent<IProps> = (props) => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  function login(event) {
+  function login(event: any) {
     event.preventDefault();
     if (username.length && password.length) {
       dispatch({

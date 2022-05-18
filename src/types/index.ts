@@ -109,6 +109,9 @@ export type PTSSL = {
 
 export type PTRosterItem = PTRosterParent | PTRosterTeacher;
 
+export interface RegistrationData {
+  cancelRegistration: any
+}
 
 export interface License {
   name: string;

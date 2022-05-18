@@ -1,12 +1,23 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import CodeGenerator from "../../components/CodeGenerator";
-const RegisterForm = (props) => {
+
+interface IProps {
+  props: any;
+  history: any;
+  store: any;
+}
+const RegisterForm: import("react").FunctionComponent<IProps> = (props) => {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   // const [phone, setPhone] = useState('')
  
+  
+
+
+
   const {history} = props;
 
 const user = {
@@ -17,21 +28,23 @@ const user = {
 }
 
 
+function cancelRegistration() {
+  props.history.push("/login");
+};
 
 
-
-  function register(event) {
+  function register(event: any) {
     event.preventDefault();
 
     // console.log('phone:', phone)
     // console.log('codeGenerator', CodeGenerator())
     if (username.length && password.length) {
-      props.dispatch({
+      dispatch({
         type: "REGISTER",
         payload: user
       });
     } else {console.log('error!!!')
-      props.dispatch({ type: "REGISTRATION_INPUT_ERROR" });
+      dispatch({ type: "REGISTRATION_INPUT_ERROR" });
     }//END if
     //  history.push(`/authentication/:${user.username}`)
 
