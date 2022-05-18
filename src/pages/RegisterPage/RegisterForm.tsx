@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
-import CodeGenerator from "../../components/CodeGenerator";
+// import CodeGenerator from "../../components/CodeGenerator";
 
 interface IProps {
   props: any;

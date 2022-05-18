@@ -21,7 +21,7 @@ import FriendGallery from "../../pages/FriendGallery/FriendGallery";
 import Studio from "../../pages/Studio/Studio";
 import Forum from "../../pages/Forum/Forum";
 import Edit from "../../pages/Edit/Edit";
-import Authentication from "../../pages/Authentication/Authentication";
+// import Authentication from "../../pages/Authentication/Authentication";
 import "./App.css";
 
 function App(props) {
@@ -71,12 +71,12 @@ function App(props) {
             path="/gallery"
             render={(props) => <Gallery {...props} store={store} />}
           />
-           <Route
+           {/* <Route
             // props={props}
             exact
             path="/authentication/:user"
-            component={Authentication}
-          />
+            component={Authentication} */}
+          {/* /> */}
           <ProtectedRoute 
           exact path="/forum" 
           render={(props) => <Forum {...props} store={store} />}/>

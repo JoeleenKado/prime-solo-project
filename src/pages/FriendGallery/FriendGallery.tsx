@@ -12,13 +12,7 @@ interface IProps {
   // setRefresh: any;
 }
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'center': any
-    }
-  }
-}
+
 
 const FriendGallery: import('react').FunctionComponent<IProps> = ({store, match, history}) => {
   // console.log('freind props:', props)

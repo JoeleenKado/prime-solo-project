@@ -1,31 +1,40 @@
-import { useState } from "react";
-import React from "react";
+import React, { useState } from "react";
 // import mapStoreToProps from "../../redux/mapStoreToProps";
  import { useDispatch} from "react-redux";
 import * as filestack from "filestack-js";
 import "./Edit.css";
 
-function Edit(props) {
+interface IProps {
+  history: any;
+  store: any;
+  match: any;
+}
+
+
+
+
+const Edit: import("react").FunctionComponent<IProps> = ({history, store, match}) => {
   const dispatch = useDispatch();
-  console.log('in edit:', props)
-  const { art } = props.store;
-  const { title, statement, size, medium, url, id } = props.match.params;
+  // console.log('in edit:', props)
+  const { art } = store;
+  const { title, statement, size, medium, url, id } = match.params;
   const decodedUrl = decodeURIComponent(url);
   console.log("Our url has been decoded:", decodedUrl);
   console.log("size:", size);
   const key = process.env.REACT_APP_FILESTACK_API_KEY;
-  const client = filestack.init(key);
+  const client = filestack.init(key!);
   const resize = "/resize=width:300,height:200";
-  let url300;
+  let url300: string;
   const options = {
-    onFileUploadFinished(file) {
+    onFileUploadFinished(file: any) {
       return new Promise((resolve, reject) => {
+        url300 = file.url.slice(0, 32) + resize + file.url.slice(32);
+
         resolve(
-          console.log("resolved", file),
-          (url300 = file.url.slice(0, 32) + resize + file.url.slice(32)),
+        
           setUrlEdit(url300)
         );
-        reject((reason) => console.log("Rejected:", reason));
+        reject((reason: any) => console.log("Rejected:", reason));
       });
     },
   };
@@ -34,7 +43,7 @@ function Edit(props) {
   const [sizeEdit, setSizeEdit] = useState(size);
   const [mediumEdit, setMediumEdit] = useState(medium);
   const [statementEdit, setStatementEdit] = useState(statement);
-  function update(property, edit) {
+  function update(property: any, edit: any) {
     dispatch({
       type: "UPDATE_ART",
       payload: { [property]: edit, id: id },
@@ -82,8 +91,8 @@ function Edit(props) {
         <textarea
           id="edit-statement"
           htmlFor="Statement Edit"
-          rows="5"
-          maxLength="300"
+          rows={5}
+          maxLength={300}
           placeholder={statementEdit}
           value={statementEdit}
           onChange={(e) => {
@@ -125,7 +134,7 @@ function Edit(props) {
           onClick={(e) => {
             e.preventDefault();
             dispatch({ type: "DELETE_ART", payload: id });
-            props.history.push("/gallery");
+            history.push("/gallery");
           }}
         >
           DELETE ARTWORK
