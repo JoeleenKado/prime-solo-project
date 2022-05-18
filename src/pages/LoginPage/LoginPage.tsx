@@ -3,12 +3,21 @@ import {  useDispatch, connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import LoginForm from "./LoginForm";
 import "./LoginPage.css";
+import { articData } from "../../types/index";
+// const LoginPage: import("react").FunctionComponent({props}) => {
 
-const LoginPage = (props) => {
-  console.log('loginpage:', props)
+  interface IProps {
+    props: any;
+    history: any;
+    store: any;
+  
+  }
+const LoginPage: import("react").FunctionComponent<IProps> = (props) => {
+  
+  console.log('loginpage:',)
   const dispatch = useDispatch();
-  const { artic } = props.store;
-  const { image_id, title, artist_display } = artic;
+  // const { artic } = props.store;
+  const { image_id, title, artist_display } = props.store.artic;
   const [caption, setCaption] = useState(true);
   useEffect(() => {
     dispatch({ type: "FETCH_RANDOM" });
@@ -17,6 +26,12 @@ const LoginPage = (props) => {
   const ARTISTS = ["Gauguin", "Picasso", "Gogh", "Matisse", "C\xE9zanne"];
   const NATIONALITIES = ["\nFrench", "\nDutch", "\nSpanish"];
 
+const data: articData = {
+  artist_display: artist_display,
+  image_id: image_id,
+ title: title,
+}
+
   if (artist_display) {
     const ret = artist_display.replace(NATIONALITIES, "");
     console.log("ret:", ret);
@@ -24,13 +39,14 @@ const LoginPage = (props) => {
       for (let i = 0; i < ARTISTS.length; i++) {
         if (ret.includes(ARTISTS[i])) {
           console.log("hooray");
+
           return doIt(ARTISTS[i]);
         }
       }
       return console.log("finished");
     }
     let moreRet;
-    function doIt(artist) {
+    function doIt(artist: string) {
       moreRet = ret.replace(artist, `${artist};`);
       return console.log("moreRet:", moreRet);
     }

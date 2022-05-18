@@ -38,3 +38,6 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("react-root")
 );
+
+
+// "artist_display":"Pablo Picasso\nSpanish, 1881-1973","id":53111,"image_id":"3bebd534-9481-3a50-f6cf-7bab3a6934da","title":"Head of a Woman"
