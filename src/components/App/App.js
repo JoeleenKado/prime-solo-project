@@ -77,7 +77,9 @@ function App(props) {
             path="/authentication/:user"
             component={Authentication}
           />
-          <ProtectedRoute exact path="/forum" component={Forum} />
+          <ProtectedRoute 
+          exact path="/forum" 
+          render={(props) => <Forum {...props} store={store} />}/>
           <ProtectedRoute exact path="/studio" component={Studio} />
           {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will

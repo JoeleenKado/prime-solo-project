@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import "./Forum.css";
 
-function Forum(props) {
-  const { users } = props.store;
+interface IProps {
+  history: any;
+  // refresh: boolean;
+  store: any;
+}
+
+const Forum: import("react").FunctionComponent<IProps> = ({history, store}) => {
+  console.log('store', store)
+  const dispatch = useDispatch();
+  const { users } = store;
   const [heading, setHeading] = useState("Other Artists:");
   useEffect(() => {
-    props.dispatch({ type: "FETCH_USERS" });
+    dispatch({ type: "FETCH_USERS" });
   }, []);
   return (
     <span id="friend-span">
@@ -16,13 +24,13 @@ function Forum(props) {
         {!users.length ? (
           <h1>Loading Artists...</h1>
         ) : (
-          users.map((user) => {
+          users.map((user: any) => {
             const { username, id } = user;
             return (
               <li
                 onClick={(e) => {
                   e.preventDefault();
-                  props.history.push(`/gallery/${username}/${id}`);
+                  history.push(`/gallery/${username}/${id}`);
                 }}
               >
                 {username}
@@ -34,4 +42,4 @@ function Forum(props) {
     </span>
   ); //END return
 } //END Forum
-export default connect(mapStoreToProps)(Forum);
+export default (Forum);
