@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-import mapStoreToProps from "../../redux/mapStoreToProps";
+import { connect, useDispatch } from "react-redux";
+// import mapStoreToProps from "../../redux/mapStoreToProps";
 import "./LoginPage.css";
 
 const LoginForm = (props) => {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   function login(event) {
     event.preventDefault();
     if (username.length && password.length) {
-      props.dispatch({
+      dispatch({
         type: "LOGIN",
         payload: {
           username: username,
@@ -18,9 +19,9 @@ const LoginForm = (props) => {
         },
       });
     } else {
-      props.dispatch({ type: "LOGIN_INPUT_ERROR" });
+      dispatch({ type: "LOGIN_INPUT_ERROR" });
      
-      props.dispatch({type: "CLEAR_LOGIN_ERROR"})
+      dispatch({type: "CLEAR_LOGIN_ERROR"})
     }
   }
   return (
@@ -64,4 +65,4 @@ const LoginForm = (props) => {
     </span>
     </>);
 }; //END LoginForm
-export default connect(mapStoreToProps)(LoginForm);
+export default (LoginForm);

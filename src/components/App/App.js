@@ -43,7 +43,8 @@ function App(props) {
       <Router>
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/home" />
+          <Redirect exact from="/" to="/home"
+            />  
           <Route exact path="/program" component={Program} />
           <ProtectedRoute
             path="/gallery/:username/:id"
@@ -87,7 +88,7 @@ function App(props) {
             // - else shows LoginPage at /login
             exact
             path="/login"
-            component={LoginPage}
+            render={(props) => <LoginPage {...props} store={store} />}
             authRedirect="/gallery"
           />
           <ProtectedRoute
@@ -96,12 +97,14 @@ function App(props) {
             component={RegisterPage}
             authRedirect="/gallery"
           />
-          <ProtectedRoute
+          {/* <ProtectedRoute */}
+           <ProtectedRoute
             exact
             path="/home"
-            component={LoginPage}
-            authRedirect="/gallery"
-          />
+             render={(props) => <LoginPage {...props} store={store} />} 
+              authRedirect="/gallery"
+            /> 
+          {/* /> */}
           {/* If none of the other routes matched, we will show a 404. */}
           <Route render={() => <h1>404</h1>} />
         </Switch>
@@ -112,4 +115,4 @@ function App(props) {
     </>
   ); //END return
 } //END App
-export default connect(mapStoreToProps)(App);
+export default (App);

@@ -11,23 +11,27 @@ const Nav = (props) => {
     text: "Login / Register",
   };
   if (props.store.user.id != null) {
-    loginLinkData.path = "";
+    loginLinkData.path = "/";
     loginLinkData.text = "Logout";
   }
+
+
   return (
+    <>
+    {JSON.stringify(loginLinkData)}
     <Router>
       <ul id="nav-ul">
         <li>
-          <Link to="/home" className="nav-link">
+          <Link to="/login" className="nav-link">
             <span id="home-icon">Virtual Gallery</span>
           </Link>
         </li>
         <li>
           <Link
             className="nav-link"
-            to={loginLinkData.path}
+             to={loginLinkData.path}
             onClick={
-              loginLinkData.path !== ""
+              loginLinkData.path !== "/"
                 ? null
                 : () => props.dispatch({ type: "LOGOUT" })
             }
@@ -60,6 +64,7 @@ const Nav = (props) => {
         )}
       </ul>
     </Router>
+    </>
   ); //END return
 }; //END Nav
 export default connect(mapStoreToProps)(Nav);

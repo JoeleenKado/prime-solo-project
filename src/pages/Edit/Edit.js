@@ -124,7 +124,7 @@ function Edit(props) {
           id="delete-btn"
           onClick={(e) => {
             e.preventDefault();
-            props.dispatch({ type: "DELETE_ART", payload: id });
+            dispatch({ type: "DELETE_ART", payload: id });
             props.history.push("/gallery");
           }}
         >

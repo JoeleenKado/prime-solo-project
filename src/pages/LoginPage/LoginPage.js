@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
+import {  useDispatch, connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import LoginForm from "./LoginForm";
 import "./LoginPage.css";
 
 const LoginPage = (props) => {
+  console.log('loginpage:', props)
+  const dispatch = useDispatch();
   const { artic } = props.store;
   const { image_id, title, artist_display } = artic;
   const [caption, setCaption] = useState(true);
   useEffect(() => {
-    props.dispatch({ type: "FETCH_RANDOM" });
+    dispatch({ type: "FETCH_RANDOM" });
   }, []);
   const toggleCaption = () => setCaption(!caption);
   const ARTISTS = ["Gauguin", "Picasso", "Gogh", "Matisse", "C\xE9zanne"];
@@ -58,7 +60,7 @@ const LoginPage = (props) => {
             </figure>
           </div>
         )}
-        <LoginForm />
+        <LoginForm {...props}/>
         <span id="new-user-span">
           <h3>New User:</h3>
           <button
