@@ -11,7 +11,8 @@ props: any;
 
 
 const Gallery: import('react').FunctionComponent<IProps> = (props: any) => {
- const dispatch = useDispatch();
+ console.log('propsdddd:', props)
+  const dispatch = useDispatch();
   const { friendly, art } = props.store;
   useEffect(() => {
     dispatch({ type: "FETCH_ART" });
@@ -37,7 +38,7 @@ const Gallery: import('react').FunctionComponent<IProps> = (props: any) => {
               
               return (
                 <>
-                  <Art {...props} />
+                  <Art {...props} artwork={artwork} />
                 </>
               );
             })}

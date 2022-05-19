@@ -5,14 +5,13 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 import Caption from "./Caption";
 
 interface IProps {
-  // artwork: any;
-  props: any;
+   props: any;
 }
 
 
 const Art: import('react').FunctionComponent<IProps> = (props: any) => {
-  const 
-    { url} = props.artwork;
+   console.log('re', props)
+  const {url} = props.artwork;
 
   const encodedUrl = encodeURIComponent(url);
   return (
