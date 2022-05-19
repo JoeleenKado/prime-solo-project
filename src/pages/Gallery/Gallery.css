@@ -3,6 +3,10 @@ div.accordion {
   border-radius: 0%;
 }
 
+/* #news-section ul {
+  padding:0;
+} */
+
 div.accordion.plate {
   margin: 0 auto;
 }

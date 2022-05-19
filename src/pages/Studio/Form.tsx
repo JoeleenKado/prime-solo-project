@@ -4,7 +4,10 @@ import { connect, useDispatch } from "react-redux";
 import * as filestack from "filestack-js";
 import "./Studio.css";
 
-function Form(props) {
+interface IProps {
+  props: any;
+}
+const Form: import('react').FunctionComponent<IProps> = (props: any) => {
   const key = process.env.REACT_APP_FILESTACK_API_KEY;
   const client = filestack.init(key);
   const [title, setTitle] = useState("");
@@ -17,10 +20,8 @@ function Form(props) {
   const options = {
     onFileUploadFinished(file) {
       return new Promise((resolve, reject) => {
+        url300 = file.url.slice(0, 32) + resize + file.url.slice(32)     
         resolve(
-          console.log("resolved", file),
-          (url300 = file.url.slice(0, 32) + resize + file.url.slice(32)),
-          console.log("url300:", url300),
           setUrl(url300)
         );
         reject((reason) => console.log("Rejected:", reason));
@@ -94,11 +95,11 @@ function Form(props) {
         <br />
         <textarea
           className="statement"
-          rows="4"
-          maxLength="300"
+          rows={4}
+          maxLength={300}
           value={statement}
           onChange={(e) => setStatement(e.target.value)}
-          onBlue={(e) => setStatement(e.target.value)}
+          onBlur={(e) => setStatement(e.target.value)}
         />
         <br />
         <button

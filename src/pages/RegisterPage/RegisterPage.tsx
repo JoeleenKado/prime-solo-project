@@ -5,19 +5,16 @@ import AboutPage from "../Program/Program";
 import RegisterForm from "./RegisterForm";
 import "./Register.css";
 
-class RegisterPage extends Component {
-  state = {
-    username: "",
-    password: "",
-  };
-  cancelRegistration = () => {
-    this.props.history.push("/login");
-  };
-  render() {
+interface IProps {
+   history: any;
+  props: any;
+  cancelRegistration: any;
+}
+const RegisterPage: import("react").FunctionComponent<IProps> = (props) => {
     return (
       <section id="register-section">
         <AboutPage />
-        <RegisterForm cancelRegistration={this.cancelRegistration} />
+        <RegisterForm {...props} />
         <span id="new-user-span">
           <h3>Returning User:</h3>
           <button
@@ -25,7 +22,7 @@ class RegisterPage extends Component {
             id="go-to-register"
             onClick={(e) => {
               e.preventDefault();
-              this.props.history.push(`/login`);
+              props.history.push(`/login`);
             }}
           >
             Login
@@ -33,6 +30,5 @@ class RegisterPage extends Component {
         </span>
       </section>
     );
-  }
 } //END RegisterPage
 export default connect(mapStoreToProps)(RegisterPage);

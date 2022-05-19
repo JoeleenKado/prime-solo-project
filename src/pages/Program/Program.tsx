@@ -1,7 +1,7 @@
 import React from "react";
 import "./Program.css";
 
-const AboutPage = () => (
+const Program: import('react').FunctionComponent = () => (
   <article id="program">
     <h2>Welcome to Virtual Gallery</h2>
     <p>
@@ -24,4 +24,4 @@ const AboutPage = () => (
     </p>
   </article>
 );
-export default AboutPage;
+export default Program;

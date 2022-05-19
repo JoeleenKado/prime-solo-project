@@ -3,12 +3,14 @@ const express = require('express');
 require('dotenv').config();
 
 const app = express();
+const router = express.Router()
 const bodyParser = require('body-parser');
 const sessionMiddleware = require('./modules/session-middleware');
 
 const passport = require('./strategies/user.strategy');
 
 // Route includes
+const twilioRouter = require('./routes/sms.router')
 const userRouter = require('./routes/user.router');
 const usersRouter = require('./routes/users.router')
 const artRouter = require('./routes/art.router');
@@ -26,7 +28,8 @@ app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 
-/* Routes */
+
+app.use('/api/twilio', twilioRouter);
 app.use('/api/user', userRouter);
 app.use('/api/users', usersRouter);
 app.use('api/settings', settingsRouter)
@@ -37,6 +40,7 @@ app.use('/api/workshop', workshopRouter); //this route will be used when we Get 
 
 // Serve static files
 app.use(express.static('build'));
+
 
 // App Set //
 const PORT = process.env.PORT || 5000;

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   HashRouter as Router,
   Route,
@@ -14,16 +14,19 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import Program from "../../pages/Program/Program";
 import LoginPage from "../../pages/LoginPage/LoginPage";
-import Settings from "../../pages/Settings/Settings";
+// import Settings from "../../pages/Settings/Settings";
 import RegisterPage from "../../pages/RegisterPage/RegisterPage";
 import Gallery from "../../pages/Gallery/Gallery";
 import FriendGallery from "../../pages/FriendGallery/FriendGallery";
 import Studio from "../../pages/Studio/Studio";
 import Forum from "../../pages/Forum/Forum";
 import Edit from "../../pages/Edit/Edit";
+// import Authentication from "../../pages/Authentication/Authentication";
 import "./App.css";
 
 function App(props) {
+  const store = useSelector((store) => store);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(action.fetchUser());
@@ -32,7 +35,7 @@ function App(props) {
     <>
       <header>
         <nav>
-          <Nav id="nav" />
+          <Nav id="nav" {...props} store={store} />
         </nav>
       </header>
       <div className="color-bar"></div>
@@ -43,31 +46,37 @@ function App(props) {
           <Route exact path="/program" component={Program} />
           <ProtectedRoute
             path="/gallery/:username/:id"
-            render={(props) => <FriendGallery {...props} />}
+            render={(props) => <FriendGallery {...props} store={store} />}
           />
+          {/* <ProtectedRoute
+            path="/edit/:title/:medium/:size/:statement/:url/:id"
+            render={() => <Edit store={store} />}
+          /> */}
+
           <ProtectedRoute
             path="/edit/:title/:medium/:size/:statement/:url/:id"
-            render={(props) => <Edit {...props} />}
-          />
-          <ProtectedRoute
-            path="/settings"
-            render={(props) => <Settings {...props} />}
-          />
-          <ProtectedRoute
-            path="/edit/:title/:medium/:size/:statement/:url/:id"
-            render={(props) => <Edit {...props} />}
+            render={(props) => <Edit {...props} store={store} />}
           />
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
           <ProtectedRoute
-            props={props}
             exact
             path="/gallery"
-            component={Gallery}
+            render={(props) => <Gallery {...props} store={store} />}
           />
-          <ProtectedRoute exact path="/forum" component={Forum} />
+          {/* <Route
+            // props={props}
+            exact
+            path="/authentication/:user"
+            component={Authentication} */}
+          {/* /> */}
+          <ProtectedRoute
+            exact
+            path="/forum"
+            render={(props) => <Forum {...props} store={store} />}
+          />
           <ProtectedRoute exact path="/studio" component={Studio} />
           {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
@@ -78,7 +87,7 @@ function App(props) {
             // - else shows LoginPage at /login
             exact
             path="/login"
-            component={LoginPage}
+            render={(props) => <LoginPage {...props} store={store} />}
             authRedirect="/gallery"
           />
           <ProtectedRoute
@@ -87,12 +96,14 @@ function App(props) {
             component={RegisterPage}
             authRedirect="/gallery"
           />
+          {/* <ProtectedRoute */}
           <ProtectedRoute
             exact
             path="/home"
-            component={LoginPage}
+            render={(props) => <LoginPage {...props} store={store} />}
             authRedirect="/gallery"
           />
+          {/* /> */}
           {/* If none of the other routes matched, we will show a 404. */}
           <Route render={() => <h1>404</h1>} />
         </Switch>
@@ -103,4 +114,4 @@ function App(props) {
     </>
   ); //END return
 } //END App
-export default connect(mapStoreToProps)(App);
+export default App;

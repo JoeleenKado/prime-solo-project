@@ -1,18 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { JobInstance } from "twilio/lib/rest/bulkexports/v1/export/job";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import "./Forum.css";
 
-function Forum(props) {
-  const { users } = props.store;
-  const [heading, setHeading] = useState("Other Artists:");
+function Cafe(props) {
+  const 
+  { users } = props.store,
+[heading, setHeading] = useState("Other Artists:");
   useEffect(() => {
     props.dispatch({ type: "FETCH_USERS" });
   }, []);
+
+  const join = () => {
+      console.log('joining chat.')
+      props.dispatch({type: 'JOIN', payload: ''})
+  }
+
+
+
+
   return (
-    <span id="friend-span">
+    <span id="compassion-span">
       <h3>{heading}</h3>
-      <ul>
+      <button onClick={(e) => join()}>JOIN CHAT</button>
+      {/* <ul>
         {!users.length ? (
           <h1>Loading Artists...</h1>
         ) : (
@@ -30,8 +42,8 @@ function Forum(props) {
             );
           })
         )}
-      </ul>
+      </ul> */}
     </span>
   ); //END return
 } //END Forum
-export default connect(mapStoreToProps)(Forum);
+export default connect(mapStoreToProps)(Cafe);

@@ -1,20 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
+import {  useDispatch, connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import LoginForm from "./LoginForm";
 import "./LoginPage.css";
+import { articData } from "../../types/index";
 
-const LoginPage = (props) => {
-  const { artic } = props.store;
-  const { image_id, title, artist_display } = artic;
+  interface IProps {
+    props: any;
+    history: any;
+    store: any;
+  
+  }
+const LoginPage: import("react").FunctionComponent<IProps> = (props) => {
+  const {store} = props
+  console.log('loginpage:',)
+  const dispatch = useDispatch();
+  const { image_id, title, artist_display } = store.artic;
   const [caption, setCaption] = useState(true);
   useEffect(() => {
-    props.dispatch({ type: "FETCH_RANDOM" });
+    dispatch({ type: "FETCH_RANDOM" });
   }, []);
   const toggleCaption = () => setCaption(!caption);
   const ARTISTS = ["Gauguin", "Picasso", "Gogh", "Matisse", "C\xE9zanne"];
   const NATIONALITIES = ["\nFrench", "\nDutch", "\nSpanish"];
-
+const data: articData = {
+  artist_display: artist_display,
+  image_id: image_id,
+ title: title,
+}
   if (artist_display) {
     const ret = artist_display.replace(NATIONALITIES, "");
     console.log("ret:", ret);
@@ -28,7 +41,7 @@ const LoginPage = (props) => {
       return console.log("finished");
     }
     let moreRet;
-    function doIt(artist) {
+    function doIt(artist: string) {
       moreRet = ret.replace(artist, `${artist};`);
       return console.log("moreRet:", moreRet);
     }
@@ -57,7 +70,7 @@ const LoginPage = (props) => {
             </figure>
           </div>
         )}
-        <LoginForm />
+        <LoginForm {...props}/>
         <span id="new-user-span">
           <h3>New User:</h3>
           <button

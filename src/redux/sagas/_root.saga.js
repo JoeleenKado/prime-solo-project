@@ -6,6 +6,7 @@ import artSaga from "./art.saga";
 import articSaga from "./artic.saga";
 import frameSaga from "./frame.saga";
 import settings from "./settings.saga";
+import authentication from "./authentication.saga";
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -22,5 +23,6 @@ export default function* rootSaga() {
     articSaga(),
     frameSaga(),
     settings(),
+    authentication(),
   ]);
 }

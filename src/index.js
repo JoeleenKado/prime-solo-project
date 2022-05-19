@@ -7,6 +7,8 @@ import logger from "redux-logger";
 import rootReducer from "./redux/reducers/_root.reducer"; // imports ./redux/reducers/index.js
 import rootSaga from "./redux/sagas/_root.saga"; // imports ./redux/sagas/index.js
 import App from "./components/App/App";
+import { composeWithDevTools } from "redux-devtools-extension";
+
 require("dotenv").config();
 
 const sagaMiddleware = createSagaMiddleware();
@@ -24,7 +26,7 @@ const store = createStore(
   // rootSaga contains all of our other reducers
   rootReducer,
   // adds all middleware to our project including saga and logger
-  applyMiddleware(...middlewareList)
+  composeWithDevTools(applyMiddleware(...middlewareList))
 );
 
 // tells the saga middleware to use the rootSaga
@@ -37,3 +39,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("react-root")
 );
+
+// "artist_display":"Pablo Picasso\nSpanish, 1881-1973","id":53111,"image_id":"3bebd534-9481-3a50-f6cf-7bab3a6934da","title":"Head of a Woman"
