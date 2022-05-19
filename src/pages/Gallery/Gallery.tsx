@@ -5,11 +5,14 @@ import { useEffect } from "react";
 import "./Gallery.css";
 import Art from "./Art";
 
-function Gallery(props) {
-  console.log('in gallery:', props)
+interface IProps {
+props: any;
+}
+
+
+const Gallery: import('react').FunctionComponent<IProps> = (props: any) => {
  const dispatch = useDispatch();
-  const { friendly } = props.store;
-  const { art } = props.store;
+  const { friendly, art } = props.store;
   useEffect(() => {
     dispatch({ type: "FETCH_ART" });
   }, []);
@@ -17,7 +20,7 @@ function Gallery(props) {
   const likeSorted = art.sort(function (a, b) {
     return b.like - a.like;
   });
-  console.log("e:", Event.currentTarget);
+  // console.log("e:", Event.currentTarget);
   return (
     <center>
       <section id="gallery-section">
@@ -31,17 +34,10 @@ function Gallery(props) {
         ) : (
           <ul>
             {likeSorted.map((artwork) => {
-              const {
-                artist,
-                title,
-                statement,
-                dimensions,
-                medium,
-                url,
-              } = artwork;
+              
               return (
                 <>
-                  <Art history={props.history} artwork={artwork} />
+                  <Art {...props} />
                 </>
               );
             })}

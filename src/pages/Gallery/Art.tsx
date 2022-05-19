@@ -4,17 +4,22 @@ import { connect } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import Caption from "./Caption";
 
-function Art(props) {
+interface IProps {
+  // artwork: any;
+  props: any;
+}
+
+
+const Art: import('react').FunctionComponent<IProps> = (props: any) => {
   const 
-    { artwork, history } = props,
-    { artist, title, statement, size, medium, url, id } = artwork;
+    { url} = props.artwork;
 
   const encodedUrl = encodeURIComponent(url);
   return (
     <>
       <li>
         <img src={url} alt="artwork" />
-        <Caption artwork={artwork} history={history} />
+        <Caption {...props} />
       </li>
     </>
   ); //END return
