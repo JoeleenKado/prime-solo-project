@@ -1,20 +1,39 @@
+import { filterObject } from "filestack-js";
 import React from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import "./Gallery.css";
 
-const Caption = (props) => {
-  const { history, artwork, store } = props;
+interface IProps {
+  history: any;
+  artwork: any;
+  store: any;
+}
+type Entry<T> = {
+  [K in keyof T]: [K, T[K]]
+}[keyof T]
+
+
+const Caption: import('react').FunctionComponent<IProps> = ({history, artwork, store}) => {
+  const dispatch = useDispatch();
   const { title, size, medium, id, statement, url, like } = artwork;
   const { friendly } = store;
   const encodedUrl = encodeURIComponent(url);
-  Object.filter = (obj, predicate) =>
-    Object.keys(obj)
-      .filter((key) => predicate(obj[key]))
-      .reduce((res, key) => Object.assign(res, { [key]: obj[key] }), {});
+  function filterObject<T extends object>(
+    obj: T, 
+    fn: (entry: Entry<T>, i: number, arr: Entry<T>[]) => boolean
+) {
+  return Object.fromEntries(
+    (Object.entries(obj) as Entry<T>[]).filter(fn)
+  ) as Partial<T>
+}
+    //  predicate) =>
+    // Object.keys(obj)
+    //   .filter((key) => predicate(obj[key]))
+    //   .reduce((res, key) => Object.assign(res, { [key]: obj[key] }), {});
 
-  const filtered = Object.filter(artwork, (item) => item === "");
-  function filter(obj) {
+  const filtered = filterObject(artwork, ([k, v]) => v === "");
+  function filter(obj: any) {
     Object.keys(obj).forEach(function (key) {
       obj[key] = "NA";
     });
@@ -27,7 +46,7 @@ const Caption = (props) => {
   console.log("filteredArtwork.size:", filteredArtwork.size);
   function likeFunction(e) {
     e.preventDefault();
-    props.dispatch({ type: "LIKE", payload: id });
+    dispatch({ type: "LIKE", payload: id });
   }
   function toggleAccordion(e) {
     const content = e.target.nextElementSibling;
@@ -64,7 +83,7 @@ const Caption = (props) => {
             {size}
             <br />
             <p>{statement}</p>
-            {props.store.friendly ? (
+            {friendly ? (
               <button onClick={(e) => likeFunction(e)}>Like</button>
             ) : (
               <button

@@ -4,10 +4,16 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import Form from "./Form";
 
-function Studio() {
+interface IProps {
+  props: any;
+  
+}
+
+
+const Studio: import('react').FunctionComponent<IProps> = (props) => {
   return (
     <section id="studio-section">
-      <Form />
+      <Form {...props}/>
       <br />
     </section>
   );

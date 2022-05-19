@@ -14,7 +14,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import mapStoreToProps from "../../redux/mapStoreToProps";
 import Program from "../../pages/Program/Program";
 import LoginPage from "../../pages/LoginPage/LoginPage";
-import Settings from "../../pages/Settings/Settings";
+// import Settings from "../../pages/Settings/Settings";
 import RegisterPage from "../../pages/RegisterPage/RegisterPage";
 import Gallery from "../../pages/Gallery/Gallery";
 import FriendGallery from "../../pages/FriendGallery/FriendGallery";
@@ -55,10 +55,7 @@ function App(props) {
             path="/edit/:title/:medium/:size/:statement/:url/:id"
             render={() => <Edit store={store} />}
           /> */}
-          <ProtectedRoute
-            path="/settings"
-            render={() => <Settings store={store} />}
-          />
+       
           <ProtectedRoute
             path="/edit/:title/:medium/:size/:statement/:url/:id"
             render={(props) => <Edit {...props} store={store} />}
