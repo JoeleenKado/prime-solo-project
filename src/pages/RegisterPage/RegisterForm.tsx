@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import mapStoreToProps from "../../redux/mapStoreToProps";
-// import CodeGenerator from "../../components/CodeGenerator";
 
 interface IProps {
   props: any;
@@ -12,32 +11,16 @@ const RegisterForm: import("react").FunctionComponent<IProps> = (props) => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  // const [phone, setPhone] = useState('')
- 
-  
-
-
-
   const {history} = props;
-
 const user = {
   username: username,
   password: password,
-  // phone: phone,
-  // code: CodeGenerator()
 }
-
-
 function cancelRegistration() {
   props.history.push("/login");
 };
-
-
   function register(event: any) {
     event.preventDefault();
-
-    // console.log('phone:', phone)
-    // console.log('codeGenerator', CodeGenerator())
     if (username.length && password.length) {
       dispatch({
         type: "REGISTER",
@@ -46,22 +29,12 @@ function cancelRegistration() {
     } else {console.log('error!!!')
       dispatch({ type: "REGISTRATION_INPUT_ERROR" });
     }//END if
-    //  history.push(`/authentication/:${user.username}`)
-
   }
   return (
-    <>
-   
+    <> 
     <span id="login-span">
-      {/* PROPS: {JSON.stringify(props)} */}
-    
       <h3>New User:</h3>
-
-      
-
-
-      <form className="form-panel" onSubmit={register}>
-        
+      <form className="form-panel" onSubmit={register}>      
         <label htmlFor="username">
           Username:
           <input
@@ -98,8 +71,7 @@ setPhone(e.target.value)   }}/>
 
 <small>Format: +1(234)567-8910</small>
             
-        </label> */}
-        
+        </label> */} 
         <input className="btn" type="submit" name="submit" value="Register" />
       </form>
     </span>

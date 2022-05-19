@@ -1,19 +1,15 @@
 import React, { FunctionComponent, useState } from "react";
 import { connect, useDispatch } from "react-redux";
-// import mapStoreToProps from "../../redux/mapStoreToProps";
 import "./LoginPage.css";
 
 interface IProps {
   props: any,
   store: any
 }
-
-
 const LoginForm: FunctionComponent<IProps> = (props) => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
   function login(event: any) {
     event.preventDefault();
     if (username.length && password.length) {
@@ -25,15 +21,12 @@ const LoginForm: FunctionComponent<IProps> = (props) => {
         },
       });
     } else {
-      dispatch({ type: "LOGIN_INPUT_ERROR" });
-     
+      dispatch({ type: "LOGIN_INPUT_ERROR" });    
       dispatch({type: "CLEAR_LOGIN_ERROR"})
     }
   }
   return (
 <>
-
-
     <span id="login-span">
       <h3>Returning User:</h3>
       {props.store.errors.loginMessage && (
@@ -42,8 +35,7 @@ const LoginForm: FunctionComponent<IProps> = (props) => {
          </h3>
       )}
       <form className="form-panel" onSubmit={login}>
-       
-        <label htmlFor="username">
+               <label htmlFor="username">
           Username:
           <input
             type="text"
@@ -63,11 +55,9 @@ const LoginForm: FunctionComponent<IProps> = (props) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </label>
-        
+        </label>       
         <input className="btn" type="submit" name="submit" value="Log In" />
-      </form>
-      
+      </form>      
     </span>
     </>);
 }; //END LoginForm

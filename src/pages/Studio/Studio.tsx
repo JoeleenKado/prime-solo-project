@@ -6,10 +6,7 @@ import Form from "./Form";
 
 interface IProps {
   props: any;
-  
 }
-
-
 const Studio: import('react').FunctionComponent<IProps> = (props) => {
   return (
     <section id="studio-section">

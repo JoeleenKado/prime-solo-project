@@ -7,9 +7,6 @@ import "./Studio.css";
 interface IProps {
   props: any;
 }
-
-
-
 const Form: import('react').FunctionComponent<IProps> = (props: any) => {
   const key = process.env.REACT_APP_FILESTACK_API_KEY;
   const client = filestack.init(key);
@@ -23,8 +20,7 @@ const Form: import('react').FunctionComponent<IProps> = (props: any) => {
   const options = {
     onFileUploadFinished(file) {
       return new Promise((resolve, reject) => {
-        url300 = file.url.slice(0, 32) + resize + file.url.slice(32)
-        
+        url300 = file.url.slice(0, 32) + resize + file.url.slice(32)     
         resolve(
           setUrl(url300)
         );

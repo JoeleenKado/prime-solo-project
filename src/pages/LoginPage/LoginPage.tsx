@@ -4,7 +4,6 @@ import mapStoreToProps from "../../redux/mapStoreToProps";
 import LoginForm from "./LoginForm";
 import "./LoginPage.css";
 import { articData } from "../../types/index";
-// const LoginPage: import("react").FunctionComponent({props}) => {
 
   interface IProps {
     props: any;
@@ -16,7 +15,6 @@ const LoginPage: import("react").FunctionComponent<IProps> = (props) => {
   const {store} = props
   console.log('loginpage:',)
   const dispatch = useDispatch();
-  // const { artic } = props.store;
   const { image_id, title, artist_display } = store.artic;
   const [caption, setCaption] = useState(true);
   useEffect(() => {
@@ -25,13 +23,11 @@ const LoginPage: import("react").FunctionComponent<IProps> = (props) => {
   const toggleCaption = () => setCaption(!caption);
   const ARTISTS = ["Gauguin", "Picasso", "Gogh", "Matisse", "C\xE9zanne"];
   const NATIONALITIES = ["\nFrench", "\nDutch", "\nSpanish"];
-
 const data: articData = {
   artist_display: artist_display,
   image_id: image_id,
  title: title,
 }
-
   if (artist_display) {
     const ret = artist_display.replace(NATIONALITIES, "");
     console.log("ret:", ret);
@@ -39,7 +35,6 @@ const data: articData = {
       for (let i = 0; i < ARTISTS.length; i++) {
         if (ret.includes(ARTISTS[i])) {
           console.log("hooray");
-
           return doIt(ARTISTS[i]);
         }
       }
@@ -53,7 +48,6 @@ const data: articData = {
     console.log("retFunction():", retFunction());
     return (
       <section id="login-section">
-        PROPS: {JSON.stringify(props)}
         {!image_id ? (
           <p>Loading Artwork...</p>
         ) : (

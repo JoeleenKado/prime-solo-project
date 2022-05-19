@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { connect, useDispatch } from "react-redux";
-import mapStoreToProps from "../../redux/mapStoreToProps";
+import { useDispatch } from "react-redux";
 import "./Forum.css";
 
 interface IProps {
   history: any;
-  // refresh: boolean;
   store: any;
 }
-
 const Forum: import("react").FunctionComponent<IProps> = ({history, store}) => {
   console.log('store', store)
   const dispatch = useDispatch();

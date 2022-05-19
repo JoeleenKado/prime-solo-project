@@ -1,18 +1,12 @@
 import React, { useState } from "react";
-// import mapStoreToProps from "../../redux/mapStoreToProps";
  import { useDispatch} from "react-redux";
 import * as filestack from "filestack-js";
 import "./Edit.css";
-
 interface IProps {
   history: any;
   store: any;
   match: any;
 }
-
-
-
-
 const Edit: import("react").FunctionComponent<IProps> = ({history, store, match}) => {
   const dispatch = useDispatch();
   // console.log('in edit:', props)
@@ -29,9 +23,7 @@ const Edit: import("react").FunctionComponent<IProps> = ({history, store, match}
     onFileUploadFinished(file: any) {
       return new Promise((resolve, reject) => {
         url300 = file.url.slice(0, 32) + resize + file.url.slice(32);
-
-        resolve(
-        
+        resolve(       
           setUrlEdit(url300)
         );
         reject((reason: any) => console.log("Rejected:", reason));

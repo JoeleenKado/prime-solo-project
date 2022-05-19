@@ -1,11 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { withRouter, RouteProps } from 'react-router';
-import { connect, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./Nav.css";
-import mapStoreToProps from "../../redux/mapStoreToProps";
 import { HashRouter as Router } from "react-router-dom";
-
 
 interface IProps {
   store: any;
@@ -23,7 +20,6 @@ const Nav: import('react').FunctionComponent<IProps> = ({store}) => {
     loginLinkData.path = "/";
     loginLinkData.text = "Logout";
   }
-
 
   return (
     <>

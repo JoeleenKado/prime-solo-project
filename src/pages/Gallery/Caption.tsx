@@ -12,8 +12,6 @@ interface IProps {
 type Entry<T> = {
   [K in keyof T]: [K, T[K]]
 }[keyof T]
-
-
 const Caption: import('react').FunctionComponent<IProps> = ({history, artwork, store}) => {
   const dispatch = useDispatch();
   const { title, size, medium, id, statement, url, like } = artwork;
@@ -27,11 +25,6 @@ const Caption: import('react').FunctionComponent<IProps> = ({history, artwork, s
     (Object.entries(obj) as Entry<T>[]).filter(fn)
   ) as Partial<T>
 }
-    //  predicate) =>
-    // Object.keys(obj)
-    //   .filter((key) => predicate(obj[key]))
-    //   .reduce((res, key) => Object.assign(res, { [key]: obj[key] }), {});
-
   const filtered = filterObject(artwork, ([k, v]) => v === "");
   function filter(obj: any) {
     Object.keys(obj).forEach(function (key) {
@@ -55,10 +48,6 @@ const Caption: import('react').FunctionComponent<IProps> = ({history, artwork, s
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
     }
-    // console.log("target:", e.target);
-    // console.log("content:", content);
-    // let element = document.getElementsByClassName("flip-card-inner");
-    // console.log("element:", element);
   }
   return (
     <>

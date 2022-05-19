@@ -7,7 +7,7 @@ import logger from "redux-logger";
 import rootReducer from "./redux/reducers/_root.reducer"; // imports ./redux/reducers/index.js
 import rootSaga from "./redux/sagas/_root.saga"; // imports ./redux/sagas/index.js
 import App from "./components/App/App";
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools } from "redux-devtools-extension";
 
 require("dotenv").config();
 
@@ -16,9 +16,10 @@ const sagaMiddleware = createSagaMiddleware();
 // this line creates an array of all of redux middleware you want to use
 // we don't want a whole ton of console logs in our production code
 // logger will only be added to your project if your in development mode
-const middlewareList = process.env.NODE_ENV === "development" ? 
-  [sagaMiddleware, logger] : 
-  [sagaMiddleware];
+const middlewareList =
+  process.env.NODE_ENV === "development"
+    ? [sagaMiddleware, logger]
+    : [sagaMiddleware];
 
 const store = createStore(
   // tells the saga middleware to use the rootReducer
@@ -38,6 +39,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("react-root")
 );
-
 
 // "artist_display":"Pablo Picasso\nSpanish, 1881-1973","id":53111,"image_id":"3bebd534-9481-3a50-f6cf-7bab3a6934da","title":"Head of a Woman"

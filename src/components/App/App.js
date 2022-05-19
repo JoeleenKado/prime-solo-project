@@ -27,7 +27,6 @@ import "./App.css";
 function App(props) {
   const store = useSelector((store) => store);
 
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(action.fetchUser());
@@ -36,16 +35,14 @@ function App(props) {
     <>
       <header>
         <nav>
-          <Nav id="nav" 
-          {...props} store={store}/>
+          <Nav id="nav" {...props} store={store} />
         </nav>
       </header>
       <div className="color-bar"></div>
       <Router>
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/home"
-            />  
+          <Redirect exact from="/" to="/home" />
           <Route exact path="/program" component={Program} />
           <ProtectedRoute
             path="/gallery/:username/:id"
@@ -55,7 +52,7 @@ function App(props) {
             path="/edit/:title/:medium/:size/:statement/:url/:id"
             render={() => <Edit store={store} />}
           /> */}
-       
+
           <ProtectedRoute
             path="/edit/:title/:medium/:size/:statement/:url/:id"
             render={(props) => <Edit {...props} store={store} />}
@@ -69,15 +66,17 @@ function App(props) {
             path="/gallery"
             render={(props) => <Gallery {...props} store={store} />}
           />
-           {/* <Route
+          {/* <Route
             // props={props}
             exact
             path="/authentication/:user"
             component={Authentication} */}
           {/* /> */}
-          <ProtectedRoute 
-          exact path="/forum" 
-          render={(props) => <Forum {...props} store={store} />}/>
+          <ProtectedRoute
+            exact
+            path="/forum"
+            render={(props) => <Forum {...props} store={store} />}
+          />
           <ProtectedRoute exact path="/studio" component={Studio} />
           {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
@@ -98,12 +97,12 @@ function App(props) {
             authRedirect="/gallery"
           />
           {/* <ProtectedRoute */}
-           <ProtectedRoute
+          <ProtectedRoute
             exact
             path="/home"
-             render={(props) => <LoginPage {...props} store={store} />} 
-              authRedirect="/gallery"
-            /> 
+            render={(props) => <LoginPage {...props} store={store} />}
+            authRedirect="/gallery"
+          />
           {/* /> */}
           {/* If none of the other routes matched, we will show a 404. */}
           <Route render={() => <h1>404</h1>} />
@@ -115,4 +114,4 @@ function App(props) {
     </>
   ); //END return
 } //END App
-export default (App);
+export default App;

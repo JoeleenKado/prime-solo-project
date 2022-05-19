@@ -7,12 +7,9 @@ import Caption from "./Caption";
 interface IProps {
    props: any;
 }
-
-
 const Art: import('react').FunctionComponent<IProps> = (props: any) => {
    console.log('re', props)
   const {url} = props.artwork;
-
   const encodedUrl = encodeURIComponent(url);
   return (
     <>
